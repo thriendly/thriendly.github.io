@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tip Season - Tech &amp; Interview Tips</title>
-    <description>Tip Season - Tech &amp; Coding Interview Tips and Tricks</description>
+    <title>Thriendly - Fastest way to grow on threads with AI</title>
+    <description>Thriendly is the fastest way to grow on threads social network. AI Replys, threads analytics, threads dashboard, save threads and more. Everyone can become threads influencers</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 20 Jul 2024 14:56:03 -0700</pubDate>
-    <lastBuildDate>Sat, 20 Jul 2024 14:56:03 -0700</lastBuildDate>
+    <pubDate>Sat, 20 Jul 2024 15:07:17 -0700</pubDate>
+    <lastBuildDate>Sat, 20 Jul 2024 15:07:17 -0700</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
   </channel>

@@ -1,17 +1,17 @@
 # Site
-name: "Tip Season"
-title: "Tip Season - Tech & Interview Tips"
-description: "Tip Season - Tech & Coding Interview Tips and Tricks"
+name: "Thriendly"
+title: "Thriendly - Fastest way to grow on threads with AI"
+description: "Thriendly is the fastest way to grow on threads social network. AI Replys, threads analytics, threads dashboard, save threads and more. Everyone can become threads influencers"
 #logo: 'assets/images/logo1.png'
 #favicon: 'assets/images/logo.png'
 logo: assets/images/TipSeasonLogo.jpeg
 baseurl: ''
 google_analytics: 'G-KBVC6R6HS5'
 disqus: 'tipseason'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+mailchimp-list: 'https://tipseason.substack.com/'
 mailchimp-enable: false
 include: ["_pages"]
-url: https://tipseason.com
+url: https://thriendly.com
 permalink: /:title/
 assetsUrl: https://assets.tipseason.com
 imagesUrl: https://assets.tipseason.com/images
@@ -84,12 +84,4 @@ collections:
   # aitools:
   #   output: true
   #   permalink: /ai-tool/:path
-  aicategories:
-    output: true
-    permalink: /ai-tools/category/:path
-  tips:
-    output: true
-    permalink: /tips/:path
-  interviews:
-    output: true
-    permalink: /interviews/:path
+ 

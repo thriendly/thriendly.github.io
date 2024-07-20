@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Signup with TipSeason" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<meta property="og:description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<link rel="canonical" href="http://localhost:4000/signup" />
+<meta property="og:url" content="http://localhost:4000/signup" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<script type="application/ld+json">
+{"description":"Tip Season - Tech &amp; Coding Interview Tips and Tricks","headline":"Signup with TipSeason","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"}},"url":"http://localhost:4000/signup","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>Signup with TipSeason</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-signup">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+<style>
+    .bg-banner{
+        /*background-color: #f7f8ff!important;*/
+        /*background-color: #009688 !important;*/
+        background-color: #0e6082!important;
+        /*background-color: #17a2b8!important;*/
+    }
+
+</style>
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+
+
+<!--
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                    </div>
+
+                </li>
+
+
+                <li class="nav-item" id="login" style="display: none;">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item"  id="signup" style="display: none;">
+                    <a class="nav-link" href="/signup">SignUp</a>
+                </li>
+
+                <li class="nav-item dropdown" style="display: none;" id="profile">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false" id="username">
+                    </a>
+                    <div class="dropdown-menu">
+                        <!-- <a class="dropdown-item" href="/ai-prompt-generator">AI Prompt Generator</a>
+                        <hr> -->
+                        <a class="dropdown-item" href="#" id="logout">Logout</a>
+                    </div>
+                </li>
+
+
+                <!--
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7">Contact Us</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">Logout</a>
+                    </div>
+
+                </li>-->
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <section class="pt-10 pb-10 mt-0 align-items-center d-flex" style="min-height: 100vh;">
+    <div class="container-fluid">
+        <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
+            <div class="col-12 col-md-6 col-lg-4   h-50 ">
+                <div class="card shadow">
+                    <div class="card-body mx-auto">
+                        <h3 class="card-title mt-3 text-center text-info">Welcome to TipSeason</h3>
+
+                        <h4 class="card-title mt-3 text-center">Create Account</h4>
+                        <p class="text-center">Get started with your free account</p>
+                        <p>
+                            <a href="" class="btn btn-block btn-danger" id="googleSignInButton">
+                                <i class="fab fa-google mr-2"></i>Login with Google</a>
+                            <!--                            <a href="" class="btn btn-block btn-primary">-->
+                            <!--                                <i class="fab fa-facebook-f mr-2"></i>Login via facebook</a>-->
+                        </p>
+                        <p class="text-muted font-weight-bold ">
+                            <span>OR</span>
+                        </p>
+                        <form id="signupForm">
+                            <!-- <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="" class="form-control" placeholder="Full name" type="text">
+                            </div> -->
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                                <input name="" class="form-control" placeholder="Email address" type="email" id="email">
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input class="form-control" placeholder="Create password" type="password" id="password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                            </div>
+                            <p class="form-group">Have an account?
+                                <a href="/login">Log In</a>
+                            </p>
+                            <p class="form-group text-danger" id="error" style="display:block;">
+                                Invalid Email/Password!
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Your JavaScript code -->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+    import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged,createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCbf0LeMex9k1JkVYLEF72tlVUbAztU6Rc",
+        authDomain: "thetipseason.firebaseapp.com",
+        projectId: "thetipseason",
+        storageBucket: "thetipseason.appspot.com",
+        messagingSenderId: "987994279894",
+        appId: "1:987994279894:web:b9b77c974a902068ec5e77",
+        measurementId: "G-2VTGDC811Z"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+
+    // Get the Google Sign-In button element
+    const googleSignInButton = document.getElementById("googleSignInButton");
+
+    // Add click event listener to the Google Sign-In button
+    googleSignInButton.addEventListener("click", () => {
+        // Sign in with Google using the GoogleAuthProvider instance
+        signInWithRedirect(auth, googleProvider)
+            .catch((error) => {
+                console.error("Google Sign-In error: ", error.message);
+            });
+    });
+
+    // Check authentication state
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in
+            console.log("User is signed in:", user.displayName);
+            $("#username").html(user.displayName)
+        } else {
+            // User is signed out
+            console.log("User is signed out.");
+        }
+    });
+    
+    // Function to handle email/password signup with email verification
+    function signUpWithEmailPassword(email, password) {
+        // Sign up with email and password
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // User account created successfully
+                const user = userCredential.user;
+                console.log("User account created:", user.email);
+                
+                // Send email verification
+                verifyUser(user);
+
+                $("#error").text("Signup success. Check inbox for verification email!").show();
+                // goHome();
+            })
+            .catch((error) => {
+                // Handle signup error
+                console.error("Sign Up error: ", error.message);
+                // Display user-friendly error messages
+                const errorElement = $("#error");
+                switch (error.code) {
+                case "auth/email-already-in-use":
+                    errorElement.text("Email registered already! Try Login").show();
+                    break;
+                case "auth/invalid-email":
+                    errorElement.text("Invalid email address").show();
+                    break;
+                case "auth/weak-password":
+                    errorElement.text("Please choose strong password!").show();
+                    break;
+                default:
+                    errorElement.text("Error during signup! Please try again.").show();
+                }
+
+            });
+    }
+
+    function goHome() {
+         // Redirect to the secure home page
+         window.location.href = "/ai-prompt-generator";
+    }
+
+    // Function to send email verification
+    function verifyUser(user) {
+        sendEmailVerification(user)
+            .then(() => {
+            console.log("Email verification sent to:", user.email);
+            // You can display a message to the user on the signup page to check their email for verification link
+            })
+            .catch((error) => {
+            console.error("Error sending email verification:", error.message);
+            // You can display an error message to the user on the signup page if needed
+        });
+    }
+
+    // Get the signup form element
+    const signupForm = $("#signupForm");
+
+    // Add submit event listener to the signup form
+    signupForm.on("submit", (event) => {
+        event.preventDefault(); // Prevent form submission
+        $("#error").hide();
+
+        // Get email and password from the form fields
+        const email = $("#email").val();
+        const password = $("#password").val();
+
+        if (!validateCredentials(email, password)) {
+            // Display an error message if credentials are invalid
+            $("#error").show();
+            return; // Stop further processing
+        }
+        // Call the signUpWithEmailPassword function to create the user account
+        signUpWithEmailPassword(email, password);
+    });
+
+    function validateCredentials(email, password) {
+        // Check if the email and password are not empty
+        if (!email || !password) {
+            return false;
+        }
+        return true; // Credentials are valid
+    }
+</script>
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
+</body>
+</html>

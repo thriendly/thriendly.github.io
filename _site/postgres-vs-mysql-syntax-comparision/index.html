@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="PostgreSQL Vs MySQL differences in syntax - A developer guide" />
+<meta name="author" content="Pramod" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PostgreSQL Vs MySQL Syntax Comparison - Basic differences in usage and cheatsheet for PostgreSQL and MySQL" />
+<meta property="og:description" content="PostgreSQL Vs MySQL Syntax Comparison - Basic differences in usage and cheatsheet for PostgreSQL and MySQL" />
+<link rel="canonical" href="http://localhost:4000/postgres-vs-mysql-syntax-comparision/" />
+<meta property="og:url" content="http://localhost:4000/postgres-vs-mysql-syntax-comparision/" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<meta property="og:image" content="http://localhost:4000/assets/images/postgres-vs-mysql.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-01T00:00:00-07:00" />
+<script type="application/ld+json">
+{"description":"PostgreSQL Vs MySQL Syntax Comparison - Basic differences in usage and cheatsheet for PostgreSQL and MySQL","headline":"PostgreSQL Vs MySQL differences in syntax - A developer guide","datePublished":"2022-09-01T00:00:00-07:00","dateModified":"2022-09-01T00:00:00-07:00","@type":"BlogPosting","image":"http://localhost:4000/assets/images/postgres-vs-mysql.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/postgres-vs-mysql-syntax-comparision/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"},"name":"Pramod"},"url":"http://localhost:4000/postgres-vs-mysql-syntax-comparision/","author":{"@type":"Person","name":"Pramod"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>PostgreSQL Vs MySQL differences in syntax - A developer guide</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-post">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=PostgreSQL Vs MySQL differences in syntax - A developer guide&url=http://localhost:4000/postgres-vs-mysql-syntax-comparision/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/postgres-vs-mysql-syntax-comparision/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/postgres-vs-mysql-syntax-comparision/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+
+                <!-- Post Title -->
+                <h1 class="posttitle">PostgreSQL Vs MySQL differences in syntax - A developer guide</h1>
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/avatar.png" alt="Mani">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://www.instagram.com/thetipseason/">Mani</a><a target="_blank" href="https://twitter.com/thetipseason" class="btn follow">Follow</a>
+                        <div class="author-description">Educating everyone with the beauty of programming!!</div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/postgres-vs-mysql.png" alt="PostgreSQL Vs MySQL differences in syntax - A developer guide">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                        <p><em>PostgreSQL Vs MySQL Syntax Comparison - A beginners guide to use postgres and mysql by comparision</em></p>
+                    
+                    
+                        <div class="alert alert-success" role="alert">
+                            <span class="text"><i class="material-icons">star</i> Table of Contents:</span>
+                            <ul id="my_toc" class="inline_toc">
+  <li class="toc_items"><a href="#introduction">Introduction</a></li>
+  <li class="toc_items"><a href="#1-show-a-list-of-all-databases">1. Show a list of all databases</a></li>
+  <li class="toc_items"><a href="#2-use-or-change-database">2. Use or Change database</a></li>
+  <li class="toc_items"><a href="#3-show-schemas">3. Show schemas</a></li>
+  <li class="toc_items"><a href="#4-show-a-list-of-all-tables">4. Show a list of all tables</a></li>
+  <li class="toc_items"><a href="#5-describe-table">5. Describe table</a></li>
+  <li class="toc_items"><a href="#6-show-create-table">6. Show create table</a></li>
+  <li class="toc_items"><a href="#7-show-list-of-users-or-roles">7. Show list of users or roles</a></li>
+  <li class="toc_items"><a href="#8-show-process-list">8. Show process list</a></li>
+  <li class="toc_items"><a href="#9-comments-quotes-case-sensitivty">9. Comments, Quotes, Case sensitivty</a></li>
+  <li class="toc_items"><a href="#postgresql-vs-mysql-differences-side-by-side">PostgreSQL vs MySQL differences side by side</a></li>
+</ul>
+                        </div>
+                    
+
+<!--                    <div class="toc mt-4 mb-4 lead">-->
+<!--                        <h3 class="font-weight-bold">Summary</h3>-->
+<!--                        <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#1-show-a-list-of-all-databases">1. Show a list of all databases</a>
+          - {:.} <a href="#list-or-show-databases-in-postgres-or-psql">List or show databases in Postgres or psql:</a>
+          - {:.} <a href="#list-or-show-databases-in-mysql">List or show databases in MySQL:</a></li>
+  <li><a href="#2-use-or-change-database">2. Use or Change database</a>
+          - {:.} <a href="#change-or-use-database-in-postgresql">Change or Use database in PostgreSQL:</a>
+          - {:.} <a href="#use-or-change-database-in-mysql">Use or Change database in MySQL:</a></li>
+  <li><a href="#3-show-schemas">3. Show schemas</a>
+          - {:.} <a href="#show-schemas-in-postgresql">Show schemas in PostgreSQL:</a>
+          - {:.} <a href="#show-schemas-in-mysql">Show schemas in MySQL:</a></li>
+  <li><a href="#4-show-a-list-of-all-tables">4. Show a list of all tables</a>
+          - {:.} <a href="#list-or-show-tables-postgresql">List or show tables PostgreSQL:</a>
+          - {:.} <a href="#list-or-show-tables-mysql">List or show tables MySQL:</a></li>
+  <li><a href="#5-describe-table">5. Describe table</a>
+          - {:.} <a href="#describe-table-in-postgresql">Describe table in PostgreSQL:</a>
+          - {:.} <a href="#describe-table-in-mysql">Describe table in MySQL:</a></li>
+  <li><a href="#6-show-create-table">6. Show create table</a>
+          - {:.} <a href="#show-create-table-in-postgresql">Show create table in PostgreSQL:</a>
+          - {:.} <a href="#show-create-table-in-mysql">Show create table in MySQL:</a></li>
+  <li><a href="#7-show-list-of-users-or-roles">7. Show list of users or roles</a>
+          - {:.} <a href="#list-users-or-roles-in-postgresql">List users or roles in PostgreSQL:</a>
+          - {:.} <a href="#show-all-users-or-roles-in-mysql">Show all users or roles in MySQL:</a></li>
+  <li><a href="#8-show-process-list">8. Show process list</a>
+          - {:.} <a href="#show-process-list-in-postgresql">Show process list in PostgreSQL:</a>
+          - {:.} <a href="#show-process-list-in-mysql">Show process list in MySQL:</a></li>
+  <li><a href="#9-comments-quotes-case-sensitivty">9. Comments, Quotes, Case sensitivty</a>
+          - {:.} <a href="#comments">Comments:</a>
+          - {:.} <a href="#handling-quotes">Handling Quotes:</a>
+          - {:.} <a href="#case-sensitivity">Case sensitivity:</a></li>
+  <li><a href="#postgresql-vs-mysql-differences-side-by-side">PostgreSQL vs MySQL differences side by side</a></li>
+</ul>-->
+<!--                    </div>-->
+                
+                <!-- End Toc -->
+                <h2 id="introduction">Introduction</h2>
+
+<p>PostgreSQL and MySQL are widely used databases by major companies across multiple projects, given the amount of scale and
+performance these databases can handle. Many developers work on these two important databases when transitioning to
+different projects or different companies. When we get used to one database for example MySQL and then transition to
+another database say PostgresSQL or viceversa, then we tend to use the same commands across each other. However, syntax
+for postgres and mysql is slightly different. In this tutorial we will compare and understand the differences between 
+PostgreSQL and MySQL in terms of syntax for various operations or queries that are frequently used in 
+production systems.</p>
+
+<p>For the purpose of this tutorial we use <code class="highlighter-rouge">psql</code> and <code class="highlighter-rouge">mysql</code> clients for showcasing examples. As a quick recap,<br />
+<code class="highlighter-rouge">psql</code> is a terminal based client for PostgreSQL. We can connect to PostgreSQL server with <code class="highlighter-rouge">psql</code> and perform different operations.<br />
+<code class="highlighter-rouge">mysql</code> is a terminal based client for MySQL. We can connect to MySQL server with <code class="highlighter-rouge">mysql</code> and perform different operations.<br />
+So let’s get started.</p>
+
+<h2 id="1-show-a-list-of-all-databases">1. Show a list of all databases</h2>
+
+<p>As part of setup, we have created a database named <code class="highlighter-rouge">demo</code> (using <code class="highlighter-rouge">create database demo</code>) upfront in both PostgreSQL and
+MySQL. To show a list of all databases present in PostgreSQL or MySQL, we can use the below commands:</p>
+
+<h5 id="list-or-show-databases-in-postgres-or-psql">List or show databases in Postgres or psql:</h5>
+
+<p>Default databases in most PostgreSQL servers are <code class="highlighter-rouge">template0</code> , <code class="highlighter-rouge">template0</code>, <code class="highlighter-rouge">postgres</code>.</p>
+<blockquote class="code-block-singleline-fullwidth">To list all the databases in Postgres i.e. psql we can use : <span class="code-highlight-focus">\l</span></blockquote>
+
+<p>Example in psql client: For our tutorial, you can see database <code class="highlighter-rouge">demo</code> is listed in the below example.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>postgres=# \l
+                                    List of databases
+   Name    |     Owner     | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+---------------+----------+-------------+-------------+-----------------------
+ demo      | demouser      | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres  | postgres      | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0 | postgres      | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |               |          |             |             | postgres=CTc/postgres
+ template1 | postgres      | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |               |          |             |             | postgres=CTc/postgres
+(4 rows)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="list-or-show-databases-in-mysql">List or show databases in MySQL:</h5>
+
+<p>Default databases in most MySQL servers are <code class="highlighter-rouge">information_schema</code> , <code class="highlighter-rouge">performance_schema</code>, <code class="highlighter-rouge">mysql</code>, <code class="highlighter-rouge">sys</code></p>
+
+<blockquote class="code-block-singleline-fullwidth">In MySQL to show list of all databases we can use: <span class="code-highlight-focus">show databases</span></blockquote>
+
+<p>Example in mysql client: For our tutorial, you can see database <code class="highlighter-rouge">demo</code> is listed in the below example.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>MySQL <code class="highlighter-rouge">show databases</code> is equivalent to PostgreSQL list (<code class="highlighter-rouge">\l</code>) databases.</p>
+
+<hr />
+<h2 id="2-use-or-change-database">2. Use or Change database</h2>
+
+<p>If you have multiple databases on your DB server, we often need to switch between multiple databases to perform
+various DDL or DML operations or to read data. In order to change or use a different database than the currently selected database, we
+can use the below queries.</p>
+
+<h5 id="change-or-use-database-in-postgresql">Change or Use database in PostgreSQL:</h5>
+
+<p>To change the database in PostgreSQL we can use : <code class="highlighter-rouge">\c {dbname}</code></p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">\c {dbname} :</span> Switches the current database to the specified database in PostgreSQL</div>
+</blockquote>
+
+<p>Note: Text in curly braces can to be replaced with your own data. Don’t forget to remove the braces. See example below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>postgres-# \c demo
+You are now connected to database "demo" as user "demouser".
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="use-or-change-database-in-mysql">Use or Change database in MySQL:</h5>
+
+<p>To change the database in MySQL we can use : <code class="highlighter-rouge">use {dbname}</code></p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">use {dbname} :</span> Switches the current database to the specified database in MySQL</div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>mysql&gt; use demo;
+Database changed
+mysql&gt; 
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+<h2 id="3-show-schemas">3. Show schemas</h2>
+<p>Schema is like a namespace of database objects such as tables, views, indexes etc. Depending on the type of DB server, 
+a database can contain multiple schemas, but a schema belongs to only one database. In some DB servers, schema and database 
+are used synonymously.</p>
+
+<h5 id="show-schemas-in-postgresql">Show schemas in PostgreSQL:</h5>
+<p>PostgreSQL supports having multiple schemas in a single database so that you can specify different namespace for
+different features.</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">\dn :</span> Shows list of schemas in PostgreSQL</div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>postgres=# \dn
+  List of schemas
+  Name  |  Owner   
+--------+----------
+ public | postgres
+(1 row)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="show-schemas-in-mysql">Show schemas in MySQL:</h5>
+<p>In MySQL a schema is similar or synonymous with a database. You can substitute the keyword <code class="highlighter-rouge">SCHEMA</code> 
+instead of <code class="highlighter-rouge">DATABASE</code> in MySQL SQL syntax, for example using <code class="highlighter-rouge">CREATE SCHEMA</code> instead of <code class="highlighter-rouge">CREATE DATABASE</code>.</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">show schemas :</span> Shows list of schemas in MySQL</div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>mysql&gt; show schemas;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.02 sec)
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+<h2 id="4-show-a-list-of-all-tables">4. Show a list of all tables</h2>
+<p>Once we change to the desired database, one of the most frequently used operations is to list all the 
+tables that are present in the current database.</p>
+
+<h5 id="list-or-show-tables-postgresql">List or show tables PostgreSQL:</h5>
+<p>To show the list of tables in PostgreSQL, we can use <code class="highlighter-rouge">\dt</code> or <code class="highlighter-rouge">\dt+</code> or <code class="highlighter-rouge">\d</code> or <code class="highlighter-rouge">\d+</code></p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">\dt or \d :</span> Gives list of tables in current database</div>  
+    <div><span class="code-highlight-focus">\dt+ or \d+:</span> Gives list of tables in current database with additional information like Size, description etc. </div>
+</blockquote>
+
+<p><span class="text text-info"><i class="material-icons">star</i> Pro Tip:</span> In postgres/psql, many commands support <code class="highlighter-rouge">+</code> as part of the syntax. Eg: Try <code class="highlighter-rouge">\dt+</code> instead of <code class="highlighter-rouge">\dt</code> . If we 
+use <code class="highlighter-rouge">+</code> , we can see additional information for that specific command.</p>
+
+<p>Example: For this example two tables <code class="highlighter-rouge">demo_table_primarykey</code> (with primary key) and <code class="highlighter-rouge">demo_table</code> (without primary key) 
+are already created for demo purposes.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>demo-# \dt
+                   List of relations
+ Schema |         Name          | Type  |     Owner     
+--------+-----------------------+-------+---------------
+ public | demo_table            | table | demouser
+ public | demo_table_primarykey | table | demouser
+(2 rows)
+
+demo-# \dt+
+                                              List of relations
+ Schema |         Name          | Type  |     Owner     | Persistence | Access method |  Size   | Description 
+--------+-----------------------+-------+---------------+-------------+---------------+---------+-------------
+ public | demo_table            | table | demouser | permanent   | heap          | 0 bytes | 
+ public | demo_table_primarykey | table | demouser | permanent   | heap          | 0 bytes | 
+(2 rows)
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="list-or-show-tables-mysql">List or show tables MySQL:</h5>
+<p>Once we select current database with <code class="highlighter-rouge">use demo</code> , to show the list of tables in MySQL, we can use <code class="highlighter-rouge">show tables</code></p>
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">show tables </span> Gives list of tables in current database for mysql</div>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>mysql&gt; show tables;
++-----------------------+
+| Tables_in_demo        |
++-----------------------+
+| demo_table            |
+| demo_table_primarykey |
++-----------------------+
+2 rows in set (0.00 sec)
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+
+<h2 id="5-describe-table">5. Describe table</h2>
+<p>Now that we know how to list all the tables, let’s focus on specific table. If we have to describe the table 
+fields, index etc, we can use the below queries.</p>
+
+<h5 id="describe-table-in-postgresql">Describe table in PostgreSQL:</h5>
+<p>To describe a table in PostgreSQL, we can use : <code class="highlighter-rouge">\dt {table_name}</code> or <code class="highlighter-rouge">\dt+ {table_name}</code>
+Alternatively <code class="highlighter-rouge">\d {table_name}</code> or <code class="highlighter-rouge">\d+ {table_name}</code> can also be used with each of the queries resulting in slightly different columns.</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">\dt {table_name} </span> Gives basic information about specific table</div>
+    <div><span class="code-highlight-focus">\dt+ {table_name} </span> Gives additional information about specific table</div>
+    <div><span class="code-highlight-focus">\d+ {table_name} </span> Gives index level details too for more specific information. (Preferred way) </div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>demo=# \d+ demo_table_primarykey;
+                                  Table "public.demo_table_primarykey"
+ Column |  Type   | Collation | Nullable | Default | Storage | Compression | Stats target | Description 
+--------+---------+-----------+----------+---------+---------+-------------+--------------+-------------
+ id     | integer |           | not null |         | plain   |             |              | 
+Indexes:
+    "demo_table_primarykey_pkey" PRIMARY KEY, btree (id)
+Access method: heap
+
+demo=# \dt demo_table_primarykey;
+                   List of relations
+ Schema |         Name          | Type  |     Owner     
+--------+-----------------------+-------+---------------
+ public | demo_table_primarykey | table | demouser
+(1 row)
+
+demo=# \dt+ demo_table_primarykey;
+                                              List of relations
+ Schema |         Name          | Type  |     Owner     | Persistence | Access method |  Size   | Description 
+--------+-----------------------+-------+---------------+-------------+---------------+---------+-------------
+ public | demo_table_primarykey | table | demouser | permanent   | heap          | 0 bytes | 
+(1 row)
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="describe-table-in-mysql">Describe table in MySQL:</h5>
+<p>In MySQL, to describe a table we can use <code class="highlighter-rouge">desc {table_name}</code> or <code class="highlighter-rouge">describe {table_name}</code> for detailed table information.</p>
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">describe {table_name}</span> Gives full information about specific table</div>
+</blockquote>
+
+<p>Example below:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>mysql&gt; describe table demo_table_primarykey;
++----+-------------+-----------------------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+| id | select_type | table                 | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra       |
++----+-------------+-----------------------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | demo_table_primarykey | NULL       | index | NULL          | PRIMARY | 4       | NULL |    1 |   100.00 | Using index |
++----+-------------+-----------------------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<hr />
+<h2 id="6-show-create-table">6. Show create table</h2>
+<p>If we want to see how the table is created or detailed indexes etc, MySQL has a convenient way to show the exact table structure. 
+But in PostgreSQL there is no straight forward way to see it. But here are some alternatives.</p>
+
+<h5 id="show-create-table-in-postgresql">Show create table in PostgreSQL:</h5>
+<p>Since there is no inbuilt query to show how table is created, we can use <code class="highlighter-rouge">\d+ {table_name}</code> like we discussed in the 
+list table section to view the detailed table info. 
+If we want the exact table structure we can rely on <code class="highlighter-rouge">pg_dump</code> utility which is originally an export schema/data utility of postgres. 
+We can leverage the schema dump mechanism from that.</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">pg_dump -st {table_name} {dbname}</span> Dumps the exact table DDL </div>
+</blockquote>
+
+<h5 id="show-create-table-in-mysql">Show create table in MySQL:</h5>
+<p>In MySQL, in order to see how the table is created, we can use</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">show create table {table_name} </span> Shows the exact DDL that is used to create the table</div>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>mysql&gt; show create table demo_table_primarykey;
++-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table                 | Create Table                                                                                                                                        |
++-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| demo_table_primarykey | CREATE TABLE `demo_table_primarykey` (
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+<h2 id="7-show-list-of-users-or-roles">7. Show list of users or roles</h2>
+<p>To view the list of users or roles in PostgreSQL vs MySQL we can use the below syntax.</p>
+<h5 id="list-users-or-roles-in-postgresql">List users or roles in PostgreSQL:</h5>
+<p>Detailed of information of users and roles can be obtained from <code class="highlighter-rouge">\du</code></p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">\du </span> Shows the list of roles and their attributes in PostgreSQL</div>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>demo=# \du
+                                     List of roles
+   Role name   |                         Attributes                         | Member of 
+---------------+------------------------------------------------------------+-----------
+ postgres      | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ demouser | Superuser, Create role, Create DB                          | {}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h5 id="show-all-users-or-roles-in-mysql">Show all users or roles in MySQL:</h5>
+<p>In MySQL <code class="highlighter-rouge">mysql.user</code> table gives detailed information about various users, roles and their properties. 
+To get user and their host you can use below query. Optionally try <code class="highlighter-rouge">DESCRIBE mysql.user</code> to see full list of supported attributes.</p>
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">SELECT User, Host from mysql.user; </span> Shows the list of roles and their attributes in MySQL</div>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>mysql&gt; SELECT User, Host from mysql.user;
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| demouser             | localhost |
++------------------+-----------+
+4 rows in set (0.00 sec)
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+<h2 id="8-show-process-list">8. Show process list</h2>
+<p>If you have a slow query or you want to view the list of current running process list, we can use the below queries.</p>
+<h5 id="show-process-list-in-postgresql">Show process list in PostgreSQL:</h5>
+<p>To show process list in PostgreSQL, we can rely on <code class="highlighter-rouge">pg_stat_activity</code> table. This table has very useful information about 
+currently running activities on the database.</p>
+
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">select * from pg_stat_activity</span> Gives the detailed list of processes in PostgreSQL</div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>postgres=# select * from pg_stat_activity;
+ datid | datname  |  pid  | leader_pid | usesysid |    usename    | application_name | client_addr | client_hostname | client_port |         backend_start         |          xact_start           |          query_start          |         state_change          | wait_event_type |     wait_event      | state  | backend_xid | backend_xmin | query_id |              query              |         backend_type         
+-------+----------+-------+------------+----------+---------------+------------------+-------------+-----------------+-------------+-------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------+---------------------+--------+-------------+--------------+----------+---------------------------------+------------------------------
+       |          |  1855 |            |          |               |                  |             |                 |             | 2022-06-17 17:30:34.569684-07 |                               |                               |                               | Activity        | AutoVacuumMain      |        |             |              |          |                                 | autovacuum launcher
+       |          |  1857 |            |       10 | postgres      |                  |             |                 |             | 2022-06-17 17:30:34.574222-07 |                               |                               |                               | Activity        | LogicalLauncherMain |        |             |              |          |                                 | logical replication launcher
+only some datashown for example purposes
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h5 id="show-process-list-in-mysql">Show process list in MySQL:</h5>
+<p>To show process list in MySQL you can use : <code class="highlighter-rouge">show processlist</code></p>
+<blockquote class="code-block-singleline-fullwidth">
+    <div><span class="code-highlight-focus">show processlist</span> Gives the detailed list of processes in MySQL</div>
+</blockquote>
+
+<p>Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>mysql&gt; show processlist;
++----+-----------------+-----------+------+---------+-------+------------------------+------------------+
+| Id | User            | Host      | db   | Command | Time  | State                  | Info             |
++----+-----------------+-----------+------+---------+-------+------------------------+------------------+
+|  5 | event_scheduler | localhost | NULL | Daemon  | 65151 | Waiting on empty queue | NULL             |
+|  8 | demouser            | localhost | demo | Query   |     0 | init                   | show processlist |
++----+-----------------+-
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>As you can see from the above comparison, each database is different and the way you can get information from these
+databases change a bit. So bookmark and share this post to ease your day-to-day development.</p>
+
+<h2 id="9-comments-quotes-case-sensitivty">9. Comments, Quotes, Case sensitivty</h2>
+<p>There are some basic differences between PostgreSQL VS MySQL in terms of comments, quotes, case sensitivity. Lets check them here.</p>
+
+<h5 id="comments">Comments:</h5>
+<ul>
+  <li>Single line comments in PostgreSQL can be added using: <code class="highlighter-rouge">--</code></li>
+  <li>Single line comments in MySQL can be added using: <code class="highlighter-rouge">#</code></li>
+</ul>
+
+<h5 id="handling-quotes">Handling Quotes:</h5>
+<ul>
+  <li>PosgreSQL support only single quote (<code class="highlighter-rouge">'</code>) character for strings. Example: <code class="highlighter-rouge">WHERE site = 'tipseason.com'</code></li>
+  <li>MySQL supports both single quote (<code class="highlighter-rouge">'</code>) and double quote (<code class="highlighter-rouge">"</code>) characters for strings. Example: <code class="highlighter-rouge">WHERE site = 'tipseason.com'</code> or <code class="highlighter-rouge">WHERE site = "tipseason.com"</code></li>
+</ul>
+
+<h5 id="case-sensitivity">Case sensitivity:</h5>
+<ul>
+  <li>PosgreSQL is case-sensitive. Example: <code class="highlighter-rouge">WHERE site = 'tipseason.com'</code> might give different results than <code class="highlighter-rouge">WHERE site = 'TipSeason.com'</code> . We can use case conversion like (lower , upper etc.) and compare the objects.</li>
+  <li>MySQL is case-insensitive. So in above example both queries gives same results.</li>
+</ul>
+
+<h2 id="postgresql-vs-mysql-differences-side-by-side">PostgreSQL vs MySQL differences side by side</h2>
+<p>Here is a quick side by side comparison between PostgreSQL vs MySQL in syntax.</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Property</th>
+        <th>PostgreSQL</th>
+        <th>MySQL</th>
+    </tr>
+    <tr>
+        <td>Show list of databases</td>
+        <td class="text text-danger">\l</td>
+        <td class="text text-primary">show databases</td>
+    </tr>
+    <tr>
+        <td>Use database</td>
+        <td class="text text-danger">\c {db_name}</td>
+        <td class="text text-primary">use {db_name}</td>
+    </tr>
+    <tr>
+        <td>Show list of schemas</td>
+        <td class="text text-danger">\dn</td>
+        <td class="text text-primary">show schemas</td>
+    </tr>
+    <tr>
+        <td>Show list of tables</td>
+        <td class="text text-danger">\d or \d+ or \dt or \dt+</td>
+        <td class="text text-primary">show tables</td>
+    </tr>
+    <tr>
+        <td>Describe table</td>
+        <td class="text text-danger">\dt {table_name} or \d+ {table_name}</td>
+        <td class="text text-primary">describe {table_name}</td>
+    </tr>
+    <tr>
+        <td>Show create table</td>
+        <td class="text text-danger">pg_dump -st {table_name} {dbname}</td>
+        <td class="text text-primary">show create table {table_name} </td>
+    </tr>
+    <tr>
+        <td>Show list of users or roles</td>
+        <td class="text text-danger">\du</td>
+        <td class="text text-primary">SELECT User, Host from mysql.user; </td>
+    </tr>
+    <tr>
+        <td>Show process list</td>
+        <td class="text text-danger">select * from pg_stat_activity</td>
+        <td class="text text-primary">show processlist</td>
+    </tr>
+    <tr>
+        <td>Comment single line</td>
+        <td class="text text-danger">--  (double dash)</td>
+        <td class="text text-primary"># (hash) </td>
+    </tr>
+    <tr>
+        <td>String quotes</td>
+        <td class="text text-danger">Only supports single quote (') eg:`where name = 'TipSeason'` </td>
+        <td class="text text-primary">Supports both single(') and double quotes (") eg: `where name = "TipSeason"` </td>
+    </tr>
+    <tr>
+        <td>Case sensitivity</td>
+        <td class="text text-danger">Postgres is case sensitive eg: `WHERE name = 'TipSeason'` gives different results than `WHERE name = 'tipseason'` </td>
+        <td class="text text-primary">MySQL is case insensitive. </td>
+    </tr>
+
+</table>
+
+<div class="alert alert-warning" role="alert">
+It's always easier to compare things in a table form side by side. 
+You can get the full cheatsheet here. 
+<br />
+<a href="/postgres-vs-mysql-comparision-cheatsheet/" class="text text-danger">MySQL vs PostgreSQL syntax comparision cheatsheet </a>
+</div>
+
+            </div>
+
+
+            <!-- Post promotion -->
+            
+<hr>
+We hope you like this post. If you have any questions or suggestions or need any other additional info, please comment below.
+<br>
+<br>
+We have started a coding community for most frequently used real world coding tips. You can join us here
+<br>
+<a target="_blank" href="https://discord.gg/5t6hKNQZgV">TipSeason Discord channel</a>
+<br>
+<a target="_blank" href="https://www.facebook.com/groups/tipseason"> TipSeason Facebook Group</a>
+
+<br>
+<br>
+
+<div class="alert alert-warning" role="alert">
+    Signup to our Trending AI newsletter here
+</div>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://tipseason.us8.list-manage.com/subscribe/post?u=13f41df6125800abe7efbd891&amp;id=48c9c22448&amp;f_id=0043aee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <h2>Free AI Prompts + Tools every week</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name </label>
+                <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f41df6125800abe7efbd891_48c9c22448" tabindex="-1" value=""></div>
+            <div class="optionalParent">
+                <div class="clear foot">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <p class="brandingLogo"><a href="http://eepurl.com/h4R8Mr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+
+As a bonus, here is an amazing list of prompts for midjourney
+<br>
+<br>
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">1600+ Midjourney prompts + 1500 AI Art prompt keywords, 25 categories, logo, tshirt, coloring page, characters , AI art prompts, Digital art <a href="https://t.co/X4zMgNepnk">https://t.co/X4zMgNepnk</a> via <a href="https://twitter.com/Etsy?ref_src=twsrc%5Etfw">@Etsy</a></p>&mdash; TipSeason⚡💡 (@thetipseason) <a href="https://twitter.com/thetipseason/status/1645668195968364548?ref_src=twsrc%5Etfw">April 11, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+What do you want to learn next ? Drop a comment below!
+
+            <!-- End of Post promotion -->
+
+
+            <!-- Suggested Reads -->
+            
+            <div class="rating mb-4 d-flex align-items-center">
+                <strong class="mr-1">What Others are also Reading:</strong>
+                <br>
+                
+                
+                    <div>
+                        <a href="/markdown-basics-cheat-sheet-one-page/">markdown-basics-cheat-sheet-one-page/</a>
+                    </div>
+                
+            </div>
+            
+
+
+            <!-- Rating -->
+            
+
+            <hr>
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-09-01">01 Sep 2022</time></span>
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Database">Database</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#MySQL">MySQL</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#PostgreSQL">PostgreSQL</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#red">#red</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#yellow">#yellow</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="/coding-post-ideas/"> &laquo; 25+ Coding post types - Ideas for trending tech blogs</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="/hacktoberfest/">Hacktoberfest 2022 : Swag, Rules,Tips and more - A detailed guide &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+  <!--  <script type="text/javascript">
+        var disqus_shortname = 'tipseason'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>-->
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+<!--
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script id="dsq-count-scr" src="//tipseason.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AI Art prompt generator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<meta property="og:description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<link rel="canonical" href="http://localhost:4000/ai-prompt-generator" />
+<meta property="og:url" content="http://localhost:4000/ai-prompt-generator" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<script type="application/ld+json">
+{"description":"Tip Season - Tech &amp; Coding Interview Tips and Tricks","headline":"AI Art prompt generator","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"}},"url":"http://localhost:4000/ai-prompt-generator","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>AI Art prompt generator</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-ai-prompt-generator">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>AI Art Generation Prompts</title>-->
+<!--    &lt;!&ndash; Add Twitter Bootstrap CSS &ndash;&gt;-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--</head>-->
+
+<style>
+    body {
+<!--        background-color: #fbfff9;-->
+<!--        background-color: #c7ffe8;-->
+<!--        background-image: radial-gradient(#373fed 0px, #f7fffe 0px);-->
+<!--        background-size: 10px 10px;-->
+    }
+
+
+</style>
+
+<body>
+<h1 class="text-center mb-4">AI Art Prompt Generator</h1>
+<h4 class="text-center mb-4">Create infinite prompts for AI art generation text to image tools like Midjourney, DALLE-2, Gemini Image creator</h4>
+<div class="container mt-4 my-3 p-3 bg-body rounded shadow ">
+    <form id="promptForm">
+        <div class="mb-3">
+            <label for="concept" class="form-label">Concept:</label>
+            <textarea class="form-control ts-border-surround border-info" id="concept" name="concept" rows="3"
+                      placeholder="Enter the concept to generate prompts... Example: Logo design" required></textarea>
+<!--            <input type="text" class="form-control" id="concept" name="concept" required>-->
+        </div>
+        <div class="mb-3">
+            <label for="promptCount" class="form-label">Prompt Count:</label>
+            <input type="number" class="form-control" id="promptCount" name="promptCount" placeholder="Number of prompts" max="10" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Prompts</button>
+        <img src="/assets/images/tipseason-loading.gif" style="display:none;" id="loading">
+    </form>
+
+    <!-- Display the generated prompts here -->
+    <div id="outputContainer" class="mt-4"></div>
+
+    <!-- HTML template for the prompt card -->
+    <div class="card shadow-sm template-card d-none mt-1">
+        <div class="card-body">
+            <div class="row align-items-center mb-3">
+                <div class="col-md-9">
+                    <h5 class="card-title">Prompt</h5>
+                </div>
+                <div class="col-md-3 text-right">
+                    <button class="btn btn-secondary btn-sm copy-button">Copy <i class="fa fa-copy ml-1"></i></button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <p class="card-text prompt-text"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-wrap keyword-tags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The rest of your HTML content -->
+
+
+</div>
+
+<div class="container mt-4 my-3 p-3 rounded shadow ts-shadow-surround-md">
+    <div class="row">
+        <div class="col mx-auto text-center">
+            <div class="alert alert-success" role="alert">
+                <strong>Check out our 2000+ AI tools directory <a class="btn btn-success" href="/ai-tools">Click Here</a></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <a href="https://etsy.me/3GUkPIH"><img src="/assets/images/midjourney-prompts-tipseason.jpg"
+                    alt="1600+ midjourney prompts free download" style="width:100%;"></a>
+        </div>
+    
+        <div class="col-md-6 mb-4">
+            <a href="https://etsy.me/3ljbdQ3"><img src="/assets/images/chatgpt-prompts-ai-tools-1000.jpg"
+                    alt="chatgpt prompts and ai tools download" style="width:100%;"></a>
+        </div>
+
+    </div>    
+</div>
+
+
+<div class="container mt-4 my-3 p-3 rounded shadow ts-shadow-surround-md">
+    <h3 class="text-center mb-4 text-danger">Best Free AI tools to try now</h3>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/ai-prompt-generator""><h3 class="card-title pricing-card-title text-info">AI Art prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Create infinite prompts for AI art tools like Midjourney, DALLE-2, Gemini Image creator</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/ai-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/dalle-prompt-generator"><h3 class="card-title pricing-card-title  text-info">DALL·E prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Creative prompt helper to build unique art prompts for OpenAI DALLE AI art generation</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/dalle-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/gemini-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Gemini prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Prompt helper for creating best prompts for Google Gemini AI</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/gemini-prompt-generator">Get Started</a>
+                
+            </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/adobe-firefly-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Adobe firefly prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>AI powered prompts for Adobe firefly to create stunning images from text</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/adobe-firefly-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/leonardo-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Leonardo prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Create best leonardo prompts with various keywords, topics, lighting, camera and more</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/leonardo-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/reading-time-calculator"><h3 class="card-title pricing-card-title  text-info">Reading time calculator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Estimate the time to read a blog post / any content. Includes word count, character count and more.</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/reading-time-calculator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/time-difference-calculator"><h3 class="card-title pricing-card-title  text-info">Time difference calculator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Calculate the duration between timestamps or dates with simple copy paste</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/leonardo-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/inr-crore-usd-converter"><h3 class="card-title pricing-card-title  text-info">INR crore to USD converter</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Indian (INR) crore to US dollar (USD) converter for easy currency estimation</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/inr-crore-usd-converter">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row justify-content-center m-3" id="subscribe">
+    <iframe src="https://tipseason.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div class="accordion container mt-4 my-3 p-3 bg-body rounded shadow" id="faqAccordion">
+    <!-- FAQ 1 -->
+    <div class="card">
+        <div class="card-header" id="faqHeading1">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                    What is the AI Art Prompt Generator?
+                </button>
+            </h2>
+        </div>
+
+        <div id="faqCollapse1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+            <div class="card-body">
+                The AI Art Prompt Generator is a web application that utilizes artificial intelligence to generate creative art prompts based on given concepts. It provides a simple and efficient way for graphic designers, artists, and anyone interested in AI art to explore new ideas and inspirations.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="card">
+        <div class="card-header" id="faqHeading2">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                    How does the AI Art Prompt Generator work?
+                </button>
+            </h2>
+        </div>
+
+        <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+            <div class="card-body">
+                The AI Art Prompt Generator uses sophisticated AI models and algorithms to analyze the input concept and generate creative prompts. It processes the concept's keywords, themes, and relevant information to provide a diverse range of prompts, such as illustrations, designs, and visual concepts, that can be used as inspiration for AI-generated art projects.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 4: How can I use the generated prompts in Midjourney? -->
+    <div class="card">
+        <div class="card-header" id="faqHeading4">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                    How can I use the generated prompts in Midjourney?
+                </button>
+            </h2>
+        </div>
+        <div id="faqCollapse4" class="collapse" aria-labelledby="faqHeading4" data-parent="#faqAccordion">
+            <div class="card-body">
+                You can copy the prompts generated by the AI Art Prompt Generator and paste them into the input field of Midjourney, an AI art generation app. Midjourney will then use these prompts to create beautiful AI art based on the concepts you provided. Explore various combinations of prompts and witness the magic of AI-powered creativity in Midjourney's stunning artwork!
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 5: Can I use the prompts in DALL·E? -->
+    <div class="card">
+        <div class="card-header" id="faqHeading5">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                    Can I use the prompts in DALL·E?
+                </button>
+            </h2>
+        </div>
+        <div id="faqCollapse5" class="collapse" aria-labelledby="faqHeading5" data-parent="#faqAccordion">
+            <div class="card-body">
+                Yes, you can use the prompts generated by the AI Art Prompt Generator as inputs for DALL·E, a groundbreaking AI model that can generate stunning images from textual prompts. Simply provide the generated prompts to DALL·E, and it will create artistic images that align with the concepts you provided. Experience the endless possibilities of AI art with DALL·E and the AI Art Prompt Generator.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 6: How do the prompts work with Stable Diffusion? -->
+    <div class="card">
+        <div class="card-header" id="faqHeading6">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                    How do the prompts work with Stable Diffusion?
+                </button>
+            </h2>
+        </div>
+        <div id="faqCollapse6" class="collapse" aria-labelledby="faqHeading6" data-parent="#faqAccordion">
+            <div class="card-body">
+                The prompts generated by the AI Art Prompt Generator can be used in Stable Diffusion, an AI-based creative tool that allows you to create stunning animations and visual effects. By inputting the generated prompts into Stable Diffusion, you can witness how the AI interprets and transforms the concepts into dynamic and visually appealing animations. Unlock new dimensions of creativity by combining the AI Art Prompt Generator and Stable Diffusion in your art journey.
+            </div>
+        </div>
+    </div>
+    <!-- Add more FAQs following the same pattern -->
+
+    <!-- FAQ 3 -->
+    <div class="card">
+        <div class="card-header" id="faqHeading3">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                    How many prompts can I get from the AI Art Prompt Generator?
+                </button>
+            </h2>
+        </div>
+
+        <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+            <div class="card-body">
+                The number of prompts you can get from the AI Art Prompt Generator depends on the settings you choose. You can specify the count of prompts you want to generate, and the AI will provide you with creative and descriptive prompt variations to explore and use for your art projects.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Add jQuery and Bootstrap's JavaScript libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Add custom script to handle form submission and API response -->
+<script>
+        $(document).ready(function () {
+            // Function to handle form submission
+            $("#promptForm").submit(function (event) {
+                event.preventDefault();
+                $("#loading").show();
+                const promptCount = $("#promptCount").val();
+                const concept = $("#concept").val();
+                // Call your backend API with the promptCount and concept as parameters
+                // Replace "YOUR_API_ENDPOINT" with the actual API endpoint
+                // const apiUrl = `YOUR_API_ENDPOINT?promptCount=${promptCount}&concept=${concept}`;
+                const apiUrl = `https://aiart.manigopalmurthy.workers.dev/prompts?count=${promptCount}&concept=${concept}`;
+                // const apiUrl = `https://127.0.0.1:63553/prompts?count=${promptCount}&concept=${concept}`;
+
+                $.ajax({
+                    url: apiUrl,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        // Process the API response here and display the prompts
+                        displayPrompts(data);
+                    },
+                    error: function (error) {
+                        console.error("Error fetching prompts:", error);
+                    }
+                });
+            });
+
+
+
+            function getRandomBadgeColorClass() {
+                const colors = ["primary", "secondary", "success", "danger", "warning", "info"];
+                return "badge badge-" + colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            function displayPrompts(data) {
+                const outputContainer = $("#outputContainer");
+                outputContainer.empty();
+
+                if (data && data.candidates && data.candidates.length > 0) {
+                  const candidatesJsonString = data.candidates[0].content.parts[0].text;
+                  const candidates = JSON.parse(candidatesJsonString.trim());
+                  console.log(candidates);
+
+                  const templateCard = $(".template-card").clone().removeClass("template-card d-none");
+                  candidates.forEach(function (candidate) {
+                    
+                    const promptText = candidate.prompt;
+                    const keywords = candidate.keywords;
+
+                    const promptCard = templateCard.clone();
+                    const cardBody = promptCard.find(".card-body");
+
+                    // Update prompt text
+                    cardBody.find(".prompt-text").text(promptText);
+
+                    // Add keyword tags
+                    const tagsContainer = cardBody.find(".keyword-tags");
+                    tagsContainer.empty();
+                    keywords.forEach(function (keyword) {
+                      const tag = $("<span>").addClass(getRandomBadgeColorClass() + " m-1").text(keyword);
+                      tagsContainer.append(tag);
+                    });
+
+                    // Copy to Clipboard button click event
+                    const copyButton = cardBody.find(".copy-button");
+                    copyButton.click(function () {
+                      copyToClipboard(promptText);
+                    });
+
+                    outputContainer.append(promptCard);
+                  });
+                } else {
+                  outputContainer.text("No prompts found.");
+                }
+
+                $("#loading").hide();
+              }
+
+            function copyToClipboard(text) {
+                const tempInput = $("<input>");
+                $("body").append(tempInput);
+                tempInput.val(text).select();
+                document.execCommand("copy");
+                tempInput.remove();
+                alert("Prompt copied to clipboard!");
+            }
+
+            // Function to display the prompts and keywords
+            function displayPrompts1(data) {
+              const outputContainer = $("#outputContainer");
+              outputContainer.empty();
+
+              if (data && data.candidates && data.candidates.length > 0) {
+                const candidates = JSON.parse(data.candidates[0].output);
+                const promptList = $("<ul>");
+
+                candidates.forEach(function (candidate) {
+                  const prompt = candidate.prompt;
+                  const keywords = candidate.keywords;
+
+                  const listItem = $("<li>").text(`Prompt: ${prompt}, Keywords: ${keywords}`);
+                  promptList.append(listItem);
+                });
+
+                outputContainer.append(promptList);
+              } else {
+                outputContainer.text("No prompts found.");
+              }
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+</body>
+</html>

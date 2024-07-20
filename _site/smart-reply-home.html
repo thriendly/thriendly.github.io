@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Smart Reply Home" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<meta property="og:description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<link rel="canonical" href="http://localhost:4000/smart-reply-home" />
+<meta property="og:url" content="http://localhost:4000/smart-reply-home" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<script type="application/ld+json">
+{"description":"Tip Season - Tech &amp; Coding Interview Tips and Tricks","headline":"Smart Reply Home","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"}},"url":"http://localhost:4000/smart-reply-home","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>Smart Reply Home</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-smart-reply-home">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+<style>
+    .bg-banner{
+        /*background-color: #f7f8ff!important;*/
+        /*background-color: #009688 !important;*/
+        background-color: #0e6082!important;
+        /*background-color: #17a2b8!important;*/
+    }
+
+</style>
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+
+
+<!--
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                    </div>
+
+                </li>
+
+
+                <li class="nav-item" id="login" style="display: none;">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item"  id="signup" style="display: none;">
+                    <a class="nav-link" href="/signup">SignUp</a>
+                </li>
+
+                <li class="nav-item dropdown" style="display: none;" id="profile">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false" id="username">
+                    </a>
+                    <div class="dropdown-menu">
+                        <!-- <a class="dropdown-item" href="/ai-prompt-generator">AI Prompt Generator</a>
+                        <hr> -->
+                        <a class="dropdown-item" href="#" id="logout">Logout</a>
+                    </div>
+                </li>
+
+
+                <!--
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7">Contact Us</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">Logout</a>
+                    </div>
+
+                </li>-->
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <style>
+    body {
+        < !-- background-color: #fbfff9;
+        -->< !-- background-color: #c7ffe8;
+        -->< !-- background-image: radial-gradient(#373fed 0px, #f7fffe 0px);
+        -->< !-- background-size: 10px 10px;
+        -->
+    }
+
+    input[readonly] {
+        background-color: transparent !important;
+        font-size: 1em;
+    }
+</style>
+
+<body>
+    <h1 class="text-center mb-4">Account Settings</h1>
+    <div class="container mt-4 my-3 p-3 bg-body rounded shadow">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6" id="cent">
+                <h5 class="font-weight-bold text-success">Total Credits: <span id="credits"></span></h5>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6" id="cent">
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6" id="cent">
+                <form id="apiKeyForm">
+                    <div class="mb-3">
+                        <h5><label for="apiKeyLabel" class="form-label">Your Account Key</label></h5>
+                        <div class="input-group mb-3 input-group-md">
+                            <input id="apiKey" name="apiKeyLabel" type="text" readonly
+                                class="form-control ts-border-surround border-info" placeholder="Click Generate Key"
+                                aria-label="Click Generate Key" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button id="copyBtn" class="btn btn-outline-info" type="button">Copy <i
+                                        class="fa fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Key</button>
+                    <img src="/assets/images/tipseason-loading.gif" id="loading">
+                    <div style="display:none;" id="error" class="text-danger">Error fetching data. Please try again in
+                        sometime
+                        !</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add jQuery and Bootstrap's JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="/assets/js/firebaseauth.js"></script>
+    <script src="/assets/js/smartreply.js"></script>
+
+    <script type="module">
+        import { checkAuthAndExecute } from "/assets/js/firebaseauth.js";
+
+        // On profile page
+        checkAuthAndExecute(
+            (user) => {
+                console.log("Inside smart reply page : " + user);
+                // User is signed in
+                console.log("Inside smart reply page User is signed in:", user.email);
+                console.log("Inside smart reply page User token:", user.getIdToken());
+                user.getIdToken()
+                    .then((idToken) => {
+                        // idToken contains the ID token string
+                        console.log("ID Token:", idToken);
+                    })
+                    .catch((error) => {
+                        console.error("Error getting ID token:", error.message);
+                    });
+            }
+        );
+
+    </script>
+</body>
+
+</html>
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
+</body>
+</html>

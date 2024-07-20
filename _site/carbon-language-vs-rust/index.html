@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Carbon language vs Rust comparison - A detailed guide" />
+<meta name="author" content="Pramod" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this tutorial we will compare Carbon Language vs Rust with various properties including side by side table comparison" />
+<meta property="og:description" content="In this tutorial we will compare Carbon Language vs Rust with various properties including side by side table comparison" />
+<link rel="canonical" href="http://localhost:4000/carbon-language-vs-rust/" />
+<meta property="og:url" content="http://localhost:4000/carbon-language-vs-rust/" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<meta property="og:image" content="http://localhost:4000/assets/images/carbon-vs-rust-compare.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-14T00:00:00-07:00" />
+<script type="application/ld+json">
+{"description":"In this tutorial we will compare Carbon Language vs Rust with various properties including side by side table comparison","headline":"Carbon language vs Rust comparison - A detailed guide","datePublished":"2022-08-14T00:00:00-07:00","dateModified":"2022-08-14T00:00:00-07:00","@type":"BlogPosting","image":"http://localhost:4000/assets/images/carbon-vs-rust-compare.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/carbon-language-vs-rust/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"},"name":"Pramod"},"url":"http://localhost:4000/carbon-language-vs-rust/","author":{"@type":"Person","name":"Pramod"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>Carbon language vs Rust comparison - A detailed guide</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-post">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Carbon language vs Rust comparison - A detailed guide&url=http://localhost:4000/carbon-language-vs-rust/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/carbon-language-vs-rust/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/carbon-language-vs-rust/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Carbon language vs Rust comparison - A detailed guide</h1>
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/avatar.png" alt="Mani">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://www.instagram.com/thetipseason/">Mani</a><a target="_blank" href="https://twitter.com/thetipseason" class="btn follow">Follow</a>
+                        <div class="author-description">Educating everyone with the beauty of programming!!</div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/carbon-vs-rust-compare.jpg" alt="Carbon language vs Rust comparison - A detailed guide">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                        <p><em>Carbon language with Rust comparison simplified</em></p>
+                    
+                    
+                        <div class="alert alert-success" role="alert">
+                            <span class="text"><i class="material-icons">star</i> Table of Contents:</span>
+                            <ul id="my_toc" class="inline_toc">
+  <li class="toc_items"><a href="#carbon-language-vs-rust-comparison">Carbon language vs Rust Comparison</a></li>
+  <li class="toc_items"><a href="#1-purpose-and-history">1. Purpose and history</a></li>
+  <li class="toc_items"><a href="#2-interoperability">2. Interoperability</a></li>
+  <li class="toc_items"><a href="#3-garbage-collection">3. Garbage collection</a></li>
+  <li class="toc_items"><a href="#4-safety-in-carbon-vs-rust">4. Safety in Carbon vs Rust</a></li>
+  <li class="toc_items"><a href="#5-borrow-checker">5. Borrow checker</a></li>
+  <li class="toc_items"><a href="#6-package-manager">6. Package manager</a></li>
+  <li class="toc_items"><a href="#carbon-language-vs-rust-side-by-side-comparison">Carbon language vs Rust side by side comparison</a></li>
+  <li class="toc_items"><a href="#why-carbon-language-when-we-have-rust-already-to-become-c-successor-">Why Carbon language when we have Rust already to become C++ successor ?</a></li>
+  <li class="toc_items"><a href="#will-carbon-language-fully-replace-c-">Will Carbon language fully replace C++ ?</a></li>
+  <li class="toc_items"><a href="#conclusion">Conclusion</a></li>
+  <li class="toc_items"><a href="#">Free Carbon Language NewsLetter</a>
+    <ul>
+      <li class="toc_items"><a href="#learn-carbon-language-from-scratch-with-these-resources">Learn Carbon language from scratch with these resources:</a></li>
+    </ul>
+  </li>
+</ul>
+                        </div>
+                    
+
+<!--                    <div class="toc mt-4 mb-4 lead">-->
+<!--                        <h3 class="font-weight-bold">Summary</h3>-->
+<!--                        <ul>
+  <li><a href="#carbon-language-vs-rust-comparison">Carbon language vs Rust Comparison</a></li>
+  <li><a href="#1-purpose-and-history">1. Purpose and history</a>
+      - {:.} <a href="#rust-lang">Rust Lang</a>
+      - {:.} <a href="#carbon-language">Carbon Language</a></li>
+  <li><a href="#2-interoperability">2. Interoperability</a>
+      - {:.} <a href="#interoperability-in-rust">Interoperability in Rust</a>
+      - {:.} <a href="#interoperability-in-carbon">Interoperability in Carbon</a></li>
+  <li><a href="#3-garbage-collection">3. Garbage collection</a>
+      - {:.} <a href="#gc-in-rust">GC in Rust</a>
+      - {:.} <a href="#gc-in-carbon-language">GC in Carbon language</a></li>
+  <li><a href="#4-safety-in-carbon-vs-rust">4. Safety in Carbon vs Rust</a>
+      - {:.} <a href="#rust-safety">Rust Safety</a>
+      - {:.} <a href="#safety-in-carbon-language">Safety in Carbon Language</a></li>
+  <li><a href="#5-borrow-checker">5. Borrow checker</a></li>
+  <li><a href="#6-package-manager">6. Package manager</a>
+      - {:.} <a href="#package-manager-in-rust">Package manager in Rust</a>
+      - {:.} <a href="#package-manager-in-carbon-lang">Package manager in Carbon Lang</a></li>
+  <li><a href="#carbon-language-vs-rust-side-by-side-comparison">Carbon language vs Rust side by side comparison</a></li>
+  <li><a href="#why-carbon-language-when-we-have-rust-already-to-become-c-successor-">Why Carbon language when we have Rust already to become C++ successor ?</a></li>
+  <li><a href="#will-carbon-language-fully-replace-c-">Will Carbon language fully replace C++ ?</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+  <li><a href="#">Free Carbon Language NewsLetter</a>
+    <ul>
+      <li><a href="#learn-carbon-language-from-scratch-with-these-resources">Learn Carbon language from scratch with these resources:</a>
+        <ul>
+          <li><a href="#other-interesting-articles">Other interesting articles.</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>-->
+<!--                    </div>-->
+                
+                <!-- End Toc -->
+                <p>The moment Google open-sourced <a href="https://tipseason.com/carbon-language-tutorial-syntax/">Carbon programming language</a> with a goal to become a successor to C++, it brought a huge attention among Rust language communities with some of the questions like</p>
+
+<ul>
+  <li>What’s the comparison between Carbon language vs Rust ?</li>
+  <li>Why Carbon language when we have Rust already as potential C++ successor?</li>
+  <li>Will Carbon language fully replace C++ ?</li>
+</ul>
+
+<p>Well, answering these questions may not be straight forward unless we do a detailed analysis between <a href="https://www.rust-lang.org/">Rust</a> and <a href="https://github.com/carbon-language/carbon-lang/">Carbon language</a>.</p>
+
+<p>In this article, we will go through the comparison between Carbon language vs Rust and get some insights on above questions towards the end of this post. As we go through the post, we will also have a side by side comparison for Carbon to Rust for the listed properties.</p>
+
+<p>Please note that Carbon vs Rust Syntax level detailed comparison will be coming soon. So stay tuned!</p>
+
+<p>Let’s get started.</p>
+
+<h2 id="carbon-language-vs-rust-comparison">Carbon language vs Rust Comparison</h2>
+<p>Here is the comparison across various properties for each of these languages.</p>
+
+<h2 id="1-purpose-and-history">1. Purpose and history</h2>
+<h4 id="rust-lang">Rust Lang</h4>
+
+<ul>
+  <li>Rust (or Rust-lang) was originally developed by former Mozilla employee <a href="https://github.com/graydon">Graydon Hoare</a> as a personal project which got sponsorship form Mozilla in 2009 and was announced in 2010. Rust 1.0 was release on May 15, 2015.</li>
+  <li>The primary purpose / goals of Rust are to provide Performance, Reliability with high safety, concurrency.</li>
+  <li>It’s used in many production systems in various backend applications, cross-platform command-line tools,  embedded systems, WebAssembly etc.</li>
+</ul>
+
+<h4 id="carbon-language">Carbon Language</h4>
+
+<ul>
+  <li>Carbon language (or Carbon-lang) was announced publicly on 19 July 2022 at CPP North conference by <a href="https://twitter.com/chandlerc1024">Chandler Carruth</a> along with his team. Carbon is still in development phase and there is no working compiler yet and only has demo interpreter which you can play around with this <a href="https://tipseason.com/carbon-language-tutorial-syntax/">Carbon language tutorial</a>.</li>
+  <li>Primary purpose of Carbon language is to have faster performance (similar to C++), Bi-directional Interoperability and migration from C++ (ranging from inheritance to templates), modern syntax.</li>
+  <li>While it is still early to predict exact applications using Carbon, it can be inferred to have applications in various backend systems, embedded systems etc. One of the main areas Carbon wants to excel is in codebases that are heavy on C++ code and would require easy migration to C++ successors.</li>
+</ul>
+
+<p>If you are new to Carbon, you can get started with video tutorials on this <a href="https://www.youtube.com/channel/UCq7dd8PEBNyROge2Hm_jWnQ/?sub_confirmation=1">Carbon language youtube channel</a></p>
+
+<h2 id="2-interoperability">2. Interoperability</h2>
+<p>Language Interoperability ( in short <code class="highlighter-rouge">interop</code> ) is the ability of one programming language to be able to <strong>interact</strong> with a different programming language as part of the same system. So code written in one language should be compatible with code written in another language.
+As new languages evolve, having interoperability is a key element which can make new language adoption easy.</p>
+
+<p>Comparing Carbon vs Rust interoperability with C++,</p>
+
+<h4 id="interoperability-in-rust">Interoperability in Rust</h4>
+<ul>
+  <li>Rust doesn’t have native language level support for interoperability with C++. Rust supports interop with C. However C++ interop is still not in place and an ongoing work, although it has large gap to support C++. So the common pattern is to rewrite the code in Rust instead of doing an interop with C++.</li>
+  <li>However there are external libraries like <a href="https://cxx.rs/index.html">cxx</a> and <a href="https://google.github.io/autocxx/">autocxx</a> which try to solve this problem out of the box for interoperability in Rust-lang.</li>
+</ul>
+
+<h4 id="interoperability-in-carbon">Interoperability in Carbon</h4>
+<ul>
+  <li>Carbon supports bidirectional interoperability with C++. So code written in Carbon can be called in C++ using subset of library wrappers and code written in C++ can be called in Carbon easily.</li>
+  <li>This is one of the primary selling points of Carbon as they want to make migration from C++ code relatively seamless</li>
+</ul>
+
+<h2 id="3-garbage-collection">3. Garbage collection</h2>
+<p>At a very high level, garbage collection is <strong>an automatic</strong> process to clean up unused variables/references from program memory especially the heap memory. 
+As the programs execute, variables or objects that are no longer referenced in the code accumulate space on the heap. 
+So cleaning up these resources is important for efficient memory management. 
+Some languages (Eg: Java, python, golang ) perform garbage collection at run time using periodic background threads to deallocate space. 
+Few other languages (Eg: Rust) achieve this by adding relevant cleanup code at compile time.</p>
+
+<p>Garbage collection differences between Carbon and Rust are as follows:</p>
+
+<h4 id="gc-in-rust">GC in Rust</h4>
+<ul>
+  <li>Rust is a GC free language. It manages memory cleanup using ownership mechanism. When a variable goes out of scope and is not reachable, 2 things can happen.
+    <ol>
+      <li>Ownership of that variable can be transferred to some other variable or</li>
+      <li>The memory associated with the out of scope variable is freed up.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>All of this happens at compile time by adding relevant cleanup code. So there is no real garbage collection that happens at run time in Rust.</p>
+
+<h4 id="gc-in-carbon-language">GC in Carbon language</h4>
+<ul>
+  <li>Carbon language does not have GC either. Just like C++, carbon-lang provides methods to manually manage memory. In C++ we need to use <code class="highlighter-rouge">new</code> and <code class="highlighter-rouge">delete</code> to allocate and deallocate the memory.</li>
+  <li>Similar to that Carbon language has <code class="highlighter-rouge">heap.New</code> and <code class="highlighter-rouge">heap.Delete</code> to allocate and deallocate memory.</li>
+</ul>
+
+<p>Although this can have some cons in terms of unwanted memory errors this is a general usage pattern for low level languages. Some of the common errors are addressed using <a href="https://tipseason.com/carbon-language-memory-safety/">memory safety</a> goals of carbon-lang.</p>
+
+<h2 id="4-safety-in-carbon-vs-rust">4. Safety in Carbon vs Rust</h2>
+<p>Safety of a programming language involves secure mechanisms to safeguard against software bugs and security vulnerabilities. Some common safety mechanisms include Spatial Memory safety, Temporal memory safety, Type safety, Date race safety. You can read more about them <a href="https://tipseason.com/carbon-language-memory-safety/">here</a></p>
+
+<h4 id="rust-safety">Rust Safety</h4>
+<ul>
+  <li>Safety is the first citizen in Rust. Rust supports safety at compile time. To avoid Garbage collection at runtime , Rust automatically adds relevant code based on variable scopes.  This helps avoiding manual memory allocation thereby enhancing overall language safety.</li>
+  <li>Rust is memory-safe, type-safe, null-safe and thread-safe by design. If the compiler detects the code is unsafe, it throws compilation errors. Unless you specifiy <code class="highlighter-rouge">unsafe</code> keyword Rust doesn’t allow you to perform <a href="https://doc.rust-lang.org/rust-by-example/unsafe.html">unsafe</a> code.</li>
+</ul>
+
+<h4 id="safety-in-carbon-language">Safety in Carbon Language</h4>
+<ul>
+  <li>Carbon language has high priority to performance over <a href="https://github.com/carbon-language/carbon-lang/blob/3276903cee2c18b05f14a03a87fd21ec7d8f4642/docs/design/README.md">Safety</a>. It has tight goals to achieve performance similar to C++. This means some of the options like Garbage collection etc., should be manually managed (at-least initially with incremental feature addition).</li>
+  <li>Carbon main focus is the ability to perform migration from C++ with interop.</li>
+</ul>
+
+<p>As per Carbon docs,</p>
+<blockquote>
+  <p>The only well understood mechanism of achieving safety without giving up performance is compile-time safety. The leading example of how to achieve this is Rust.</p>
+</blockquote>
+
+<p>So as the language evolves, compile time safety similar to Rust could be an option for Carbon.</p>
+
+<h2 id="5-borrow-checker">5. Borrow checker</h2>
+<p>Borrow checker is a mechanism that validates and helps you manage ownership rules in the code.</p>
+
+<ul>
+  <li>Rust has borrow checker. Borrow checker is the key sauce of sauce. It helps Rust manage ownership at compile time.</li>
+  <li>Carbon language does not have borrow checker as it offers manual memory allocation mechanisms.</li>
+</ul>
+
+<h2 id="6-package-manager">6. Package manager</h2>
+<p>Package manager is a program / tool that can automate common development workflows like creating builds, download and install libraries or dependencies required for the codebase etc. They can interact with language specific compiler to perform builds. With package managers you can publish your own packages to a central repositories, which in-turn can be packaged into other projects easily.
+Some of the most frequently used package managers are maven, gradle, pip, cargo etc.</p>
+
+<h4 id="package-manager-in-rust">Package manager in Rust</h4>
+<p><a href="https://doc.rust-lang.org/cargo/guide/why-cargo-exists.html">Cargo</a> is the package manager for Rust. Every executable program or library in Rust is called a <a href="https://doc.rust-lang.org/cargo/appendix/glossary.html#crate">Crate</a>.
+The central repository for Rust packages is <a href="https://crates.io">crates.io</a> . With Cargo you can download dependencies, compile, distribute packages with Crates package registry.</p>
+
+<h4 id="package-manager-in-carbon-lang">Package manager in Carbon Lang</h4>
+<p>Looking at Carbon language goals, it is projected to include package manager as part of Carbon tools and ecosystem.</p>
+
+<blockquote>
+  <p>Infrastructure to enable package management and other library ecosystem support:  The goal is to support what the ecosystem needs, regardless of the exact form this ends up taking.
+Source: <a href="https://github.com/carbon-language/carbon-lang/blob/075b3aba1bdbcb26488529fe35778981d219e5ca/docs/project/goals.md">Carbon language goals</a></p>
+</blockquote>
+
+<p>While the exact timelines and details are not clear, keeping the current goals in mind, carbon language can include package manager as an improvement compared to C++.</p>
+
+<p>Alright, keeping these differences in mind, let’s try to answer the questions that we had in the beginning of this post.</p>
+
+<p>As a quick recap to this article, here is the quick comparison between carbon language vs Rust.</p>
+
+<h2 id="carbon-language-vs-rust-side-by-side-comparison">Carbon language vs Rust side by side comparison</h2>
+<p>Here is a quick side by side comparison of Carbon vs Rust.</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Carbon Language</th>
+        <th>Rust</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Goals</td>
+        <td>Performance, Interoperability, Migration from C++,</td>
+        <td>Concurrency, Reliability, Speed</td>
+    </tr>
+    <tr>
+        <td>Interoperability with C++</td>
+        <td>Bidirectional interop supported</td>
+        <td>Not currently supported natively</td>
+    </tr>
+    <tr>
+        <td>Garbage collection</td>
+        <td>No GC. Manual memory allocation</td>
+        <td>No GC. Compile time memory safety</td>
+    </tr>
+    <tr>
+        <td>Safety</td>
+        <td>Performance is high priority compared to Safety</td>
+        <td>Safety is first citizen</td>
+    </tr>
+    <tr>
+        <td>Borrow checker</td>
+        <td>No borrow checker. Manual memory management</td>
+        <td>Borrow checker is the main secret sauce in Rust</td>
+    </tr>
+    <tr>
+        <td>Package manager</td>
+        <td>Plans to support package manager</td>
+        <td>Cargo is the packager manger for Rust</td>
+    </tr>
+    <tr>
+        <td>Embedded systems support</td>
+        <td>Yes. Plans to support it in future</td>
+        <td>Yes. Currently supported</td>
+    </tr>
+    <tr>
+        <td>Modern syntax</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<h2 id="why-carbon-language-when-we-have-rust-already-to-become-c-successor-">Why Carbon language when we have Rust already to become C++ successor ?</h2>
+<p>To address C++ evolution needs, Rust is considered a decent language to be its successor. In fact Carbon language suggests using Rust if you can in the <a href="https://github.com/carbon-language/carbon-lang/blob/5d12c25bbe4fa7be7a059d878ce96e74b5ed755c/docs/project/faq.md#why-not-rust">Why not Rust</a> section.</p>
+
+<blockquote>
+  <p>If you want to use Rust, and it is technically and economically viable for your project, you should use Rust.</p>
+</blockquote>
+
+<p>But Rust has its own advantages and disadvantages especially in terms of interoperability with C++. If the codebase is heavy on C++ , it’s difficult to migrate to Rust as it is. The code might have to be re-written in Rust. But Carbon wants to excel in this area</p>
+
+<h2 id="will-carbon-language-fully-replace-c-">Will Carbon language fully replace C++ ?</h2>
+<p>Since Carbon is too early in its development we cannot exactly predict this. Based on a tiny survey (https://twitter.com/thetipseason/status/1553811165280477186) of this question “Do you think Carbon language will fully replace C++ in the future?”</p>
+
+<p>53.3% voted No, 13.3% voted Yes , while 33.3% are neutral on this.</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Do you thing Carbon language will fully replace C++ in the future ? <a href="https://twitter.com/hashtag/CarbonLang?src=hash&amp;ref_src=twsrc%5Etfw">#CarbonLang</a> <a href="https://twitter.com/hashtag/cplusplus?src=hash&amp;ref_src=twsrc%5Etfw">#cplusplus</a> <a href="https://twitter.com/hashtag/programming?src=hash&amp;ref_src=twsrc%5Etfw">#programming</a> <a href="https://twitter.com/hashtag/languages?src=hash&amp;ref_src=twsrc%5Etfw">#languages</a> <a href="https://twitter.com/hashtag/code?src=hash&amp;ref_src=twsrc%5Etfw">#code</a></p>&mdash; TipSeason (@thetipseason) <a href="https://twitter.com/thetipseason/status/1553811165280477186?ref_src=twsrc%5Etfw">July 31, 2022</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Things can change a lot while the language is still growing. We will cover this closely as things evolve, so make sure to subscribe to our Carbon language newsletter.
+What do you think the future of Carbon is ? Drop your thoughts in the comments.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Every language has its own pros and cons. But each language is designed with specific goals in mind. Both Carbon and Rust have a great scope and applications for each of them can vary as things progress.</p>
+
+<p>Learning new things are always fun. So give a try with each of these languages and explore around.</p>
+
+<p>Hope this tutorial helps you get some idea about fundamental differences between Carbon and Rust. If you have any other thoughts in mind or if you have any other questions, drop your comment below. Also subscribe to our Carbon language newsletter here to get latest language updates.</p>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup">
+    <form action="https://tipseason.us8.list-manage.com/subscribe/post?u=13f41df6125800abe7efbd891&amp;id=48c9c22448" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+        <div id="mc_embed_signup_scroll">
+            <h2>Free Carbon Language NewsLetter</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name </label>
+                <input type="text" value="" name="FNAME" class="" id="mce-FNAME" />
+            </div>
+            <div hidden="true"><input type="hidden" name="tags" value="5159980" /></div>
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f41df6125800abe7efbd891_48c9c22448" tabindex="-1" value="" /></div>
+            <div class="optionalParent">
+                <div class="clear foot">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+                    <p class="brandingLogo"><a href="http://eepurl.com/h4R8Mr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg" /></a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+<!--End mc_embed_signup-->
+
+<hr />
+<h3 id="learn-carbon-language-from-scratch-with-these-resources">Learn Carbon language from scratch with these resources:</h3>
+
+<p><a href="https://tipseason.com/carbon-language-tutorial-syntax">Carbon language tutorial</a></p>
+
+<p><a href="https://tipseason.com/carbon-language-memory-safety">Carbon language memory safety</a></p>
+
+<p><a href="https://tipseason.com/carbon-language-fibonacci-sequence">Fibonacci series example in Carbon</a></p>
+
+<p><a href="https://tipseason.com/carbon-language.html">Carbon language documentation</a></p>
+
+<h4 id="other-interesting-articles">Other interesting articles.</h4>
+
+<p><a href="https://tipseason.com/dbt-tutorial-real-world-scenario-guide/">What is dbt (data build tool) in a real world scenario - Beginner dbt tutorial</a></p>
+
+<p><a href="https://tipseason.com/postgres-vs-mysql-syntax-comparision/">PostgreSQL Vs MySQL Syntax - A beginners guide to use postgres and mysql with comparison and examples</a></p>
+
+
+            </div>
+
+
+            <!-- Post promotion -->
+            
+<hr>
+We hope you like this post. If you have any questions or suggestions or need any other additional info, please comment below.
+<br>
+<br>
+We have started a coding community for most frequently used real world coding tips. You can join us here
+<br>
+<a target="_blank" href="https://discord.gg/5t6hKNQZgV">TipSeason Discord channel</a>
+<br>
+<a target="_blank" href="https://www.facebook.com/groups/tipseason"> TipSeason Facebook Group</a>
+
+<br>
+<br>
+
+<div class="alert alert-warning" role="alert">
+    Signup to our Trending AI newsletter here
+</div>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://tipseason.us8.list-manage.com/subscribe/post?u=13f41df6125800abe7efbd891&amp;id=48c9c22448&amp;f_id=0043aee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <h2>Free AI Prompts + Tools every week</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name </label>
+                <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f41df6125800abe7efbd891_48c9c22448" tabindex="-1" value=""></div>
+            <div class="optionalParent">
+                <div class="clear foot">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <p class="brandingLogo"><a href="http://eepurl.com/h4R8Mr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+
+As a bonus, here is an amazing list of prompts for midjourney
+<br>
+<br>
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">1600+ Midjourney prompts + 1500 AI Art prompt keywords, 25 categories, logo, tshirt, coloring page, characters , AI art prompts, Digital art <a href="https://t.co/X4zMgNepnk">https://t.co/X4zMgNepnk</a> via <a href="https://twitter.com/Etsy?ref_src=twsrc%5Etfw">@Etsy</a></p>&mdash; TipSeason⚡💡 (@thetipseason) <a href="https://twitter.com/thetipseason/status/1645668195968364548?ref_src=twsrc%5Etfw">April 11, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+What do you want to learn next ? Drop a comment below!
+
+            <!-- End of Post promotion -->
+
+
+            <!-- Suggested Reads -->
+            
+            <div class="rating mb-4 d-flex align-items-center">
+                <strong class="mr-1">What Others are also Reading:</strong>
+                <br>
+                
+                
+                    <div>
+                        <a href="/carbon-language-tutorial-syntax/">carbon-language-tutorial-syntax/</a>
+                    </div>
+                
+            </div>
+            
+
+
+            <!-- Rating -->
+            
+
+            <hr>
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-08-14">14 Aug 2022</time></span>
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Carbon">Carbon</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#red">#red</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#yellow">#yellow</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="/carbon-language-tutorial-syntax/"> &laquo; Google Carbon language tutorial with syntax, examples [Beginner guide]</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="/tech-resume-tips/">8 Stand out resume tips - Easy to implement &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+  <!--  <script type="text/javascript">
+        var disqus_shortname = 'tipseason'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>-->
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+<!--
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script id="dsq-count-scr" src="//tipseason.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Timestamp difference calculator for software developers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<meta property="og:description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<link rel="canonical" href="http://localhost:4000/time-difference-calculator" />
+<meta property="og:url" content="http://localhost:4000/time-difference-calculator" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<script type="application/ld+json">
+{"description":"Tip Season - Tech &amp; Coding Interview Tips and Tricks","headline":"Timestamp difference calculator for software developers","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"}},"url":"http://localhost:4000/time-difference-calculator","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>Timestamp difference calculator for software developers</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-time-difference-calculator">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <script src="/assets/js/moment.js"></script>
+<script src="/assets/js/moment-timezone.js"></script>
+<script src="/assets/js/timedifference.js"></script>
+
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 border p-4 border rounded bg-light ">
+            <h4 class="text-center text-info mb-2">Timestamp difference calculator</h4>
+            <h6 class="text-center mb-4">Calculate the duration between timestamps or dates for software developers or data analysts</h6>
+            <hr>
+            <form>
+                <div class="form-group row">
+                    <label for="inpStartTime" class="col-sm-4 col-form-label">Start Time: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inpStartTime" placeholder="Enter start time">
+                        <small id="startTimeHelp" class="form-text text-muted text-left">Eg: 2023-04-03 23:17:57</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inpEndTime" class="col-sm-4 col-form-label">End Time: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inpEndTime" placeholder="Enter end time">
+                        <small id="imageCountHelp" class="form-text text-muted text-left">Eg: 2023-04-06
+                            07:16:13</small>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="dateFormat" class="col-sm-4 col-form-label">Date Format:</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="dateFormat">
+                            <option value="YYYY-MM-DD HH:mm:ss">YYYY-MM-DD HH:mm:ss</option>
+                            <option value="MM-DD-YYYY HH:mm:ss">MM-DD-YYYY HH:mm:ss</option>
+                            <option value="DD-MM-YYYY HH:mm:ss">DD-MM-YYYY HH:mm:ss</option>
+                            <option value="MM/DD/YYYY HH:mm:ss">MM/DD/YYYY HH:mm:ss</option>
+                            <option value="DD/MM/YYYY HH:mm:ss">DD/MM/YYYY HH:mm:ss</option>
+                            <option value="hh:mm:ss">hh:mm:ss</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row" style="display:none;" id="customFormat">
+                    <label for="customDateFormat" class="col-sm-4 col-form-label">Custom Format: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="customDateFormat" placeholder="Enter custom format">
+                        <small id="customDateFormatHelp" class="form-text text-muted text-left">Eg: DD-MM-YYYY
+                            HH:mm:ss</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="calculate" class="col-sm-4 col-form-label"></label>
+                    <div class="col-sm-4">
+                        <button type="button" class="form-control btn btn-primary" id="calculate">Calculate</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3" id="resultHolder" style="display:none;">
+        <div class="col-md-6 border p-4 border rounded bg-light ">
+            <h4 class="text-center text-success mb-4">Time Difference</h4>
+            <div class="text-center" id="results"></div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-3" id="tipSeasonTodoList">
+
+    <div class="text-center col-md-5 mt-3">
+                    <span class="border">
+                        <a href="https://etsy.me/3y7CPKA">
+                            <img src="/assets/images/todo-list-printable-download.png"
+                                 alt="todo list printable download"
+                                 class="img-fluid">
+                        </a>
+                    </span>
+    </div>
+
+    <div class="text-center col-md-5 mt-3">
+                    <span class="border">
+                       <a href="https://etsy.me/3ljbdQ3"><img src="/assets/images/chatgpt-prompts-ai-tools-1000.jpg"
+                                                              alt="chatgpt prompts and ai tools download"
+                                                              class="img-fluid"></a>
+                    </span>
+    </div>
+
+</div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                            How do I use the time difference calculator?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        To use the time difference calculator, simply enter the start time and end time in the input
+                        boxes and click the "Calculate" button. The time difference in days, hours, minutes, and seconds
+                        will be displayed in the output section below. You can also choose the date format and time zone
+                        from the dropdown menus to customize the input and output formats.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header" id="headingOneOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneOne"
+                                aria-expanded="false" aria-controls="collapseOneOne">
+                            How can this tool be useful for software developers?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOneOne" class="collapse" aria-labelledby="headingOneOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        This tool can be incredibly useful for developers when they need to compare timestamps or
+                        calculate date/time differences. Whether you're working with logs, tracking user activity, or
+                        debugging your application, having a tool that can accurately and easily calculate time
+                        differences can save you a lot of time and headache. With the ability to customize date formats
+                        and time zones, this tool is a must-have for any developer who works with timestamps.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            What date formats are supported by the calculator?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        The calculator supports a wide range of date formats including ISO 8601 format, as well as
+                        various common date formats used in different parts of the world. You can also select "Other"
+                        from the date format dropdown menu and enter a custom date format.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Can I calculate the time difference between time zones?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, you can choose the time zone for the start time and end time from the time zone dropdown
+                        menu. The calculator will automatically take into account the time zone difference when
+                        calculating the time difference.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How can I calculate the time difference in milliseconds or microseconds?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        The calculator currently only supports calculating the time difference in days, hours, minutes,
+                        and seconds. However, you can easily modify the code to calculate the time difference in
+                        milliseconds or microseconds if needed.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+</body>
+</html>

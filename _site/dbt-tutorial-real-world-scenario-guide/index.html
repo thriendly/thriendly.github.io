@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="dbt (data build tool) tutorial with a real world example" />
+<meta name="author" content="Pramod" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="dbt (data build tool) explained with real world example, going from ETL to ELT and where exactly dbt fits in data transformation. dbt as it stands for data build tool connects with your data warehouse directly and can interact with all data reads and writes. If you want to perform some data analysis all we need to do is write simple SELECT queries on the raw data table. Once you write your SELECT query and run it, dbt automatically takes care of fetching the data, applying all different validations, logics and writes the data back into your warehouse." />
+<meta property="og:description" content="dbt (data build tool) explained with real world example, going from ETL to ELT and where exactly dbt fits in data transformation. dbt as it stands for data build tool connects with your data warehouse directly and can interact with all data reads and writes. If you want to perform some data analysis all we need to do is write simple SELECT queries on the raw data table. Once you write your SELECT query and run it, dbt automatically takes care of fetching the data, applying all different validations, logics and writes the data back into your warehouse." />
+<link rel="canonical" href="http://localhost:4000/dbt-tutorial-real-world-scenario-guide/" />
+<meta property="og:url" content="http://localhost:4000/dbt-tutorial-real-world-scenario-guide/" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<meta property="og:image" content="http://localhost:4000/assets/images/dbt-introduction-tutorial.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-08T00:00:00-07:00" />
+<script type="application/ld+json">
+{"description":"dbt (data build tool) explained with real world example, going from ETL to ELT and where exactly dbt fits in data transformation. dbt as it stands for data build tool connects with your data warehouse directly and can interact with all data reads and writes. If you want to perform some data analysis all we need to do is write simple SELECT queries on the raw data table. Once you write your SELECT query and run it, dbt automatically takes care of fetching the data, applying all different validations, logics and writes the data back into your warehouse.","headline":"dbt (data build tool) tutorial with a real world example","datePublished":"2022-07-08T00:00:00-07:00","dateModified":"2022-07-08T00:00:00-07:00","@type":"BlogPosting","image":"http://localhost:4000/assets/images/dbt-introduction-tutorial.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/dbt-tutorial-real-world-scenario-guide/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"},"name":"Pramod"},"url":"http://localhost:4000/dbt-tutorial-real-world-scenario-guide/","author":{"@type":"Person","name":"Pramod"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>dbt (data build tool) tutorial with a real world example</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-post">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=dbt (data build tool) tutorial with a real world example&url=http://localhost:4000/dbt-tutorial-real-world-scenario-guide/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/dbt-tutorial-real-world-scenario-guide/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/dbt-tutorial-real-world-scenario-guide/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+
+                <!-- Post Title -->
+                <h1 class="posttitle">dbt (data build tool) tutorial with a real world example</h1>
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/avatar.png" alt="Mani">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://www.instagram.com/thetipseason/">Mani</a><a target="_blank" href="https://twitter.com/thetipseason" class="btn follow">Follow</a>
+                        <div class="author-description">Educating everyone with the beauty of programming!!</div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/dbt-introduction-tutorial.png" alt="dbt (data build tool) tutorial with a real world example">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                        <p><em>dbt is a developmental framework that helps doing data data tranformation with simple SELECT queris. </em></p>
+                    
+                    
+                        <div class="alert alert-success" role="alert">
+                            <span class="text"><i class="material-icons">star</i> Table of Contents:</span>
+                            <ul id="my_toc" class="inline_toc">
+  <li class="toc_items"><a href="#what-is-dbt--">What is dbt  ?</a></li>
+  <li class="toc_items"><a href="#dbt-real-world-example">dbt Real world example</a></li>
+  <li class="toc_items"><a href="#etl-data-pipeline">ETL Data Pipeline</a>
+    <ul>
+      <li class="toc_items"><a href="#etl-data-extraction">ETL Data Extraction</a></li>
+    </ul>
+  </li>
+  <li class="toc_items"><a href="#etl-data-transformation">ETL Data transformation</a></li>
+  <li class="toc_items"><a href="#etl-data-loading">ETL Data Loading</a></li>
+  <li class="toc_items"><a href="#dbt-data-build-tool-helps-in-data-transformation">dbt (data Build tool) Helps in Data transformation</a></li>
+  <li class="toc_items"><a href="#real-advantages-of-dbt">Real advantages of dbt</a></li>
+  <li class="toc_items"><a href="#">DBT Course Giveaway - Limited time</a></li>
+  <li class="toc_items"><a href="#suggested-articles">Suggested Articles:</a></li>
+</ul>
+                        </div>
+                    
+
+<!--                    <div class="toc mt-4 mb-4 lead">-->
+<!--                        <h3 class="font-weight-bold">Summary</h3>-->
+<!--                        <ul>
+  <li><a href="#what-is-dbt--">What is dbt  ?</a></li>
+  <li><a href="#dbt-real-world-example">dbt Real world example</a></li>
+  <li><a href="#etl-data-pipeline">ETL Data Pipeline</a>
+    <ul>
+      <li><a href="#etl-data-extraction">ETL Data Extraction</a></li>
+    </ul>
+  </li>
+  <li><a href="#etl-data-transformation">ETL Data transformation</a></li>
+  <li><a href="#etl-data-loading">ETL Data Loading</a></li>
+  <li><a href="#dbt-data-build-tool-helps-in-data-transformation">dbt (data Build tool) Helps in Data transformation</a></li>
+  <li><a href="#real-advantages-of-dbt">Real advantages of dbt</a></li>
+  <li><a href="#">DBT Course Giveaway - Limited time</a></li>
+  <li><a href="#suggested-articles">Suggested Articles:</a></li>
+</ul>-->
+<!--                    </div>-->
+                
+                <!-- End Toc -->
+                <p>dbt (data build tool) has become one of the most used developmental frameworks for Data transformation. However most people don’t actually get <strong>What, Why and How</strong> part of <strong>dbt</strong>. In this guide we will go through basics of dbt focusing primarily on What is dbt! and where does it fit with a real world project example. We will slowly evolve from ETL to ELT process and finally understand the exact use case of dbt. Make sure you read through end of this article to learn a lot of Data Analytics and Data Analysis topics in real world.</p>
+
+<h2 id="what-is-dbt--">What is dbt  ?</h2>
+
+<p>Let’s say you have a huge amount of raw data. For beginners, raw data can be any kind of data collected from different sources and it can contain various information like urls, payment details, order information and so on. As you can imagine, this data can contain uncleaned rows such as null values, duplicates and what not right.
+Now, with this raw data, you want to do some data analysis for your reports or may be feed into some machine learning model and so on right!.</p>
+
+<p>So dbt is a development framework that helps you transform this raw data into meaningful data objects such as database tables, views etc , using simple SELECT queries.</p>
+
+<p>Now once you have these data objects ready, you can use those to create your own metrics, ML models or any other data analytics.
+To do that, with dbt you can develop, test, document and deploy the entire data transformation changes.</p>
+
+<p>Maybe you still didn’t get it fully Right! Let’s take a real world example.</p>
+
+<h2 id="dbt-real-world-example">dbt Real world example</h2>
+
+<p>Imagine you are running an e-commerce website something like Amazon or Shopify or any other online store.
+Now, things were pretty good until, one day, you suddenly started receiving a lot of complaints from your customers saying,
+Hey! we are not getting orders delivered in time. Well, that’s a serious problem!!
+To understand what’s going on, you want to dig into the root cause of why these orders are not getting delivered in time.
+So you want to build a simple metric like</p>
+
+<blockquote>
+  <p>How many orders are not getting delivered within the estimated time and what is the reason for the delay?</p>
+</blockquote>
+
+<p>So basically we are trying to build a report containing fields like order_id, tracking_id and reason_for_delay.<br />
+Well that seems to be pretty easy right! But let’s take a look at how this can get complicated.</p>
+
+<h2 id="etl-data-pipeline">ETL Data Pipeline</h2>
+<p>To solve this problem at scale, Let’s first try to understand what ETL is!</p>
+
+<h3 id="etl-data-extraction">ETL Data Extraction</h3>
+
+<p>In our example, first thing you might be doing is to somehow extract this information into a common place. For simplicity, assume that you got that data into two tables i.e. order table (data source1) and tracking table.</p>
+
+<p>Since customers can place orders on our website, we can have some of the information like order_number, order_date, tracking_number in our own database tables.</p>
+
+<p>Now for the actual delivery of these orders, let’s say we are relying on a third party provider (like fedex or ups) to deliver orders to the customers,  which is a very common use case in the real world right.</p>
+
+<p>In this case, the order tracking information like delivery_status , delivery_time, reason_for_delay might be present in a different data source on the third party provider right!
+And one more complication could be that they can provide the data in different formats like JSON, CSV, Database, Queues and so on.</p>
+
+<p>So as you can see that data can be scattered in multiple places and if we have to build our metric, we need to join this data from various sources and build our data models. In this case we have tracking_id as a common field across the sources.</p>
+
+<p>So the first thing we need to do is to somehow extract this information into a common place.
+For simplicity, let’s assume that we parsed and extracted that data into two tables i.e. order table (data source1) and tracking table ( data source 2).</p>
+
+<p><img src="/assets/images/datatables.jpg" alt="dbt Cloud data tables real world example images" height="40%" width="40%" /></p>
+
+<h2 id="etl-data-transformation">ETL Data transformation</h2>
+
+<p>Now since the data can be from different sources and things are not in our control, we need to clean the data and validate that data! <br />
+So you perform various operations like Data cleansing, validation, manipulation, apply different business logic using some intermediate tables (sometimes called as staging tables) and finally come up with a single table joining the data.<br /></p>
+
+<h2 id="etl-data-loading">ETL Data Loading</h2>
+<p>Since this data can be huge, you precompute this data with only required information and make this available to users by loading into data warehouse. Since this is like a shortlisted data, it becomes easier to build metric reports , ml models from this.
+This step is the load part of ETL.</p>
+
+<p>In data world, they call this process as <strong>ETL</strong> (Extract, Transform, Load)  . Where the 1st part is called data extraction, 2nd part is data transformation and third part is the data loading.</p>
+
+<p>Wait, I still don’t see dbt in this!</p>
+
+<h2 id="dbt-data-build-tool-helps-in-data-transformation">dbt (data Build tool) Helps in Data transformation</h2>
+
+<p>To understand that, let’s zoom into what  happens behind the scenes into <strong>Transform</strong> part.
+To make your raw data into something meaningful, you transform your data by applying various operations such as data cleaning, data validation and so on. Some quick examples can include removing duplicates, checking for null values, checking for primary keys, foreign keys and custom business rules like currency conversion and so on.
+In order to apply these rules, you</p>
+<ol>
+  <li>Query the raw data with different SELECT queries</li>
+  <li>Apply different data rules</li>
+  <li>Select only required data</li>
+  <li>Store them into separate tables for final data that you want to use daily.
+Since you need to generate this data every day , you build data pipelines , periodic jobs and finally store this computed data into your data warehouse for further use.
+From a development standpoint this requires a lot of effort to build these data pipelines. It includes developing, testing, documenting and deploying these changes.</li>
+</ol>
+
+<p>What if you need to add a new metric to my data pipeline?
+How can you actually maintain this pipeline without breaking anything?</p>
+
+<p>This is where Data Engineers come into picture. They help building these data pipelines to perform data analysis.
+But doesn’t this whole process look complicated? Transforming data into something useful itself looks like a very tedious process.</p>
+
+<p>What if this whole process of data transformation can be simplified ? What if we have a toolkit that can do all these data transformation tasks with simple configurations and SELECT queries ?</p>
+
+<p>Well, That’s exactly where dbt comes into picture.</p>
+
+<p>With dbt you can streamline this whole data transformation process with simple configurations and SELECT queries. It can even help you develop, test, document, deploy these data transformation logics with a modular approach.</p>
+
+<p>Again dbt is only a data transformation tool. It doesn’t handle data extraction or loading.</p>
+
+<p>Let’s dig into how things change with dbt</p>
+
+<h1 id="moving-from-etl-to-elt-using-dbt-transformations">Moving from ETL to ELT using dbt transformations</h1>
+
+<p>With dbt the workflow becomes more like an ELT instead of ETL.
+Now let’s see what ELT is.</p>
+
+<p>In ETL , we saw that data is first extracted, transformed, loaded into warehouse.</p>
+
+<p>But with ELT, this workflow changes a bit. The E part remains the same.</p>
+<ol>
+  <li>We Extract the data from various sources</li>
+  <li>Now this raw data is directly loaded into data warehouse without doing any transformation. (The key difference is in ETL data is processed and then loaded into warehouse. But in ELT data raw data is directly loaded into data warehouse without processing)</li>
+  <li>Once we have raw data loaded, thats when dbt kicks in.</li>
+</ol>
+
+<blockquote>
+  <p>dbt connects with your data warehouse directly and can interact with all data reads and writes. If you want to perform some data analysis for example building a metric , all we need to do is write simple SELECT queries on the raw data table. Once you write your SELECT query and run it, dbt automatically takes care of fetching the data, applying all different validations, logics and writes the data back into your warehouse.</p>
+</blockquote>
+
+<h2 id="real-advantages-of-dbt">Real advantages of dbt</h2>
+
+<p>You might be thinking what is the real advantage here right. Well there is a lot.
+If you compare your old data flow with dbt based flow,</p>
+<ol>
+  <li>You are interacting with raw data directly and only worry about writing SELECT queries.</li>
+  <li>Complexity of developing , testing, documenting these SELECT queries are clearly modularized  into dbt modules which we will study as part of this course.</li>
+  <li>Deploying and adding new data is directly embedded into data analysis workflow. So if you want to build a new metric, you just have to change add a new SELECT query in dbt and the rest is taken care.</li>
+</ol>
+
+<p>Now that you have some background, you can read more about dbt at <a href="https://docs.getdbt.com/docs/introduction">getdbt</a></p>
+
+<p>So using dbt, Data Engineers and Data Analysts can be combined into one single role called as Analytics Engineers.</p>
+
+<p>Data Analytics + Data Engineers = Analytics Engineers</p>
+
+<p>So your analytics engineers can act as software engineers as they can directly interact and modify data pipelines for faster data analysis.</p>
+
+<p>If you don’t know what these roles are or you just started playing around Data, 
+make sure to signup for <a href="https://tipseason.com/dbt-data-build-tool-course-beginner/">dbt course</a> towards dbt certification here.</p>
+
+<div class="alert alert-warning" role="alert">
+    <span class="text"><i class="material-icons">star</i>We are launching a dbt course for beginners with practical hands on project. <br />
+      First 20 people to signup for the course, will get course for free and next 30 people will get a 50% discount. Make sure to signup here.
+   </span>
+</div>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup">
+    <form action="https://tipseason.us8.list-manage.com/subscribe/post?u=13f41df6125800abe7efbd891&amp;id=48c9c22448" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+        <div id="mc_embed_signup_scroll">
+            <h2>DBT Course Giveaway - Limited time</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name </label>
+                <input type="text" value="" name="FNAME" class="" id="mce-FNAME" />
+            </div>
+            <div hidden="true"><input type="hidden" name="tags" value="5159980" /></div>
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f41df6125800abe7efbd891_48c9c22448" tabindex="-1" value="" /></div>
+            <div class="optionalParent">
+                <div class="clear foot">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+                    <p class="brandingLogo"><a href="http://eepurl.com/h4R8Mr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg" /></a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+<!--End mc_embed_signup-->
+
+<ul>
+  <li>Tip: dbt is never spelled in capital letters.</li>
+</ul>
+
+<p>Hope this post make things clear about dbt. In the next tutorial, we will talk about</p>
+
+<ul>
+  <li>dbt Cloud and Step by step tutorial to setup your first dbt cloud project.</li>
+</ul>
+
+<p>Make sure you subscribe to our website by subscribing to our mailing list and by following us on Twitter (<a target="_blank" href="https://twitter.com/thetipseason">@thetipseason</a>)</p>
+
+<h2 id="suggested-articles">Suggested Articles:</h2>
+
+<p><a href="https://tipseason.com/carbon-language-tutorial-syntax/">Google Carbon Programming language tutorial</a></p>
+
+<p><a href="https://tipseason.com/postgres-vs-mysql-syntax-comparision/">PostgreSQL Vs MySQL Syntax - A beginners guide to use postgres and mysql with comparison and examples</a></p>
+
+<p><a href="https://tipseason.com/dbt-mysql-planetscale-database-vitess-tutorial/">dbt (data build tool) mysql with Vitess + planetscale</a></p>
+
+<p><a href="https://tipseason.com/top-10-most-loved-programming-languages-2022/">Top 10 most loved programming languages of 2022 and which companies use them</a></p>
+
+
+            </div>
+
+
+            <!-- Post promotion -->
+            
+<hr>
+We hope you like this post. If you have any questions or suggestions or need any other additional info, please comment below.
+<br>
+<br>
+We have started a coding community for most frequently used real world coding tips. You can join us here
+<br>
+<a target="_blank" href="https://discord.gg/5t6hKNQZgV">TipSeason Discord channel</a>
+<br>
+<a target="_blank" href="https://www.facebook.com/groups/tipseason"> TipSeason Facebook Group</a>
+
+<br>
+<br>
+
+<div class="alert alert-warning" role="alert">
+    Signup to our Trending AI newsletter here
+</div>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://tipseason.us8.list-manage.com/subscribe/post?u=13f41df6125800abe7efbd891&amp;id=48c9c22448&amp;f_id=0043aee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <h2>Free AI Prompts + Tools every week</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name </label>
+                <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+            </div>
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f41df6125800abe7efbd891_48c9c22448" tabindex="-1" value=""></div>
+            <div class="optionalParent">
+                <div class="clear foot">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <p class="brandingLogo"><a href="http://eepurl.com/h4R8Mr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+
+As a bonus, here is an amazing list of prompts for midjourney
+<br>
+<br>
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">1600+ Midjourney prompts + 1500 AI Art prompt keywords, 25 categories, logo, tshirt, coloring page, characters , AI art prompts, Digital art <a href="https://t.co/X4zMgNepnk">https://t.co/X4zMgNepnk</a> via <a href="https://twitter.com/Etsy?ref_src=twsrc%5Etfw">@Etsy</a></p>&mdash; TipSeason⚡💡 (@thetipseason) <a href="https://twitter.com/thetipseason/status/1645668195968364548?ref_src=twsrc%5Etfw">April 11, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+What do you want to learn next ? Drop a comment below!
+
+            <!-- End of Post promotion -->
+
+
+            <!-- Suggested Reads -->
+            
+            <div class="rating mb-4 d-flex align-items-center">
+                <strong class="mr-1">What Others are also Reading:</strong>
+                <br>
+                
+                
+                    <div>
+                        <a href="/postgres-vs-mysql-syntax-comparision/">postgres-vs-mysql-syntax-comparision/</a>
+                    </div>
+                
+            </div>
+            
+
+
+            <!-- Rating -->
+            
+
+            <hr>
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-07-08">08 Jul 2022</time></span>
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#DataScience">DataScience</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#red">#red</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#yellow">#yellow</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="/useful-coding-snippets-for-interviews-java/"> &laquo; Java Programming Tips for interviews</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="/top-10-most-loved-programming-languages-2022/">Top 10 most loved programming languages of 2022 and  which companies use them &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+  <!--  <script type="text/javascript">
+        var disqus_shortname = 'tipseason'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>-->
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+<!--
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script id="dsq-count-scr" src="//tipseason.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/logo.png">
+
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Dalle prompt generator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<meta property="og:description" content="Tip Season - Tech &amp; Coding Interview Tips and Tricks" />
+<link rel="canonical" href="http://localhost:4000/dalle-prompt-generator" />
+<meta property="og:url" content="http://localhost:4000/dalle-prompt-generator" />
+<meta property="og:site_name" content="Tip Season - Tech &amp; Interview Tips" />
+<script type="application/ld+json">
+{"description":"Tip Season - Tech &amp; Coding Interview Tips and Tricks","headline":"Dalle prompt generator","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/TipSeasonLogo.jpeg"}},"url":"http://localhost:4000/dalle-prompt-generator","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <title>Dalle prompt generator</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    
+
+    <!--    MailChimp Addon-->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13f41df6125800abe7efbd891/750d0895c842aca8ef9984840.js");</script>
+    <!--    End of MailChimp Addon-->
+
+</head>
+
+
+<body class="layout-dalle-prompt-generator">
+<!-- defer loading of font and font awesome -->
+<noscript id="deferred-styles">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-banner fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="/">
+            <!--    <img src="/assets/images/TipSeasonLogo.jpeg" alt="Tip Season">-->
+            <i class="material-icons">scatter_plot</i> TipSeason
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://tipseason.etsy.com/">Shop </a>
+                </li>
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/ai-tools">AI Tools <sup class="text-danger">New</sup></a>
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/coding-interviews.html">Interviews</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Tools
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/ai-tools">All Tools</a>
+                        <hr>
+                        <a class="dropdown-item" href="/reading-time-calculator">Reading Time Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/time-difference-calculator">Time difference Calculator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/dalle-prompt-generator">Dalle Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/leonardo-prompt-generator">Leonardo Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/ai-prompt-generator">AI Art Prompt Generator</a>
+                        <hr>
+                        <a class="dropdown-item" href="/gemini-prompt-generator">Gemini Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/adobe-firefly-prompt-generator">Adobe firefly Prompt Generator<a>
+                        <hr>
+                        <a class="dropdown-item" href="/inr-crore-usd-converter">INR crore to USD converter</a>
+                    </div>
+
+                </li>
+
+
+                
+
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/tips/tech/1-How-to-send-uncompressed-images-on-WhatsApp">Tips</a>
+                </li>
+
+                
+
+                <li class="nav-item dropdown">
+                    
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                       role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/categories">All Categories</a>
+                        <a class="dropdown-item" href="/carbon-language.html">Carbon Language</a>
+                        
+                        <a class="dropdown-item" href="/categories#Interviews">Interviews</a>
+                        
+                        <a class="dropdown-item" href="/categories#Java">Java</a>
+                        
+                        <a class="dropdown-item" href="/categories#Markdown">Markdown</a>
+                        
+                        <a class="dropdown-item" href="/categories#Database">Database</a>
+                        
+                        <a class="dropdown-item" href="/categories#MySQL">MySQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#PostgreSQL">PostgreSQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#DataScience">DataScience</a>
+                        
+                        <a class="dropdown-item" href="/categories#Carbon">Carbon</a>
+                        
+                        <a class="dropdown-item" href="/categories#Programming">Programming</a>
+                        
+                        <a class="dropdown-item" href="/categories#Events">Events</a>
+                        
+                        <a class="dropdown-item" href="/categories#Behavioral">Behavioral</a>
+                        
+                        <a class="dropdown-item" href="/categories#Resume">Resume</a>
+                        
+                        <a class="dropdown-item" href="/categories#Golang">Golang</a>
+                        
+                        <a class="dropdown-item" href="/categories#ChatGPT">ChatGPT</a>
+                        
+                        <a class="dropdown-item" href="/categories#Midjourney">Midjourney</a>
+                        
+                        <a class="dropdown-item" href="/categories#Writing">Writing</a>
+                        
+                        <a class="dropdown-item" href="/categories#BardAI">BardAI</a>
+                        
+                        <a class="dropdown-item" href="/categories#Gemini">Gemini</a>
+                        
+                        <a class="dropdown-item" href="/categories#DALLE-2">DALLE-2</a>
+                        
+                        <a class="dropdown-item" href="/categories#SQL">SQL</a>
+                        
+                        <a class="dropdown-item" href="/categories#Software Engineer">Software Engineer</a>
+                        
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://us8.list-manage.com/contact-form?u=13f41df6125800abe7efbd891&form_id=bfba3f28362a84ec99ce783c427eb5a7" rel="nofollow">Contact Us</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter to Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+            <!-- End Menu -->
+
+        </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <!--<div class="mainheading">-->
+        <!--    <h1 class="sitetitle">Tip Season</h1>-->
+        <!--    <p class="lead">-->
+        <!--        Tip Season - Tech & Coding Interview Tips and Tricks-->
+        <!--    </p>-->
+        <!--</div>-->
+
+        <!-- Content
+        ================================================== -->
+        <div class="main-content">
+            <script>
+
+    var outputArray = []; // Global output array for selected button values
+    var categoryArray = ["album cover", "anatomical drawing", "anatomy", "book cover", "business card", "brand identity", "calendar design", "character design", "character design multiple poses", "character sheet", "chart design", "doll house", "color palette", "enamel pin", "comic strips", "coloring book page", "encyclopedia page", "fashion moodboard", "flat lay photography", "flyer", "full body character design", "game assets", "game ui", "house cutaway", "house plan", "icon set design", "ikea guide", "illustration split circle four seasons", "infographic", "interior design", "jewelry design", "knolling", "logo design", "magazine cover", "menu design", "mobile app ui design", "packaging design", "outfit", "newsletter design", "nail art", "popup book", "postage stamp", "poster", "propaganda poster", "sticker", "seamless pattern", "schematic diagram", "reference sheet", "story board", "wall painting", "wedding invitation", "t shirt vector", "tarot card", "tattoo design", "anime character design", "website design", "illustrations", "coloring pages", "watercolor", "watercolor animals", "nursery", "tshirt", "cute animals", "art", "animal", "botanical watercolor"];
+    var styleArray = ["3D", "Abstract Art", "Abstract Expressionism", "Abstract Illusion", "Action Painting", "Alebrijes", "Analytical Cubism", "Art Brut", "Art Deco", "Art Nouveau", "Arte Povera", "Automatism", "Bauhaus", "Bayeux Tapestry", "Britpop", "Bronze Age", "Brutalism", "Bubble Goth", "Caricature", "Cartographic Art", "Cartoon", "Childrens Book Illustration", "Cinematic", "Cloisonnism", "Collage Art", "Color Field Painting", "Colorful Collages", "Comic", "Commercial Art", "Conceptual Art", "Concretism", "Constructivism", "Coptic Art", "Cubism", "Impressionism", "Surrealism", "Realism", "Expressionism"];
+    var lightingArray = ["Backlighting", "Blacklight", "Blue Hour", "Bokeh", "Chemiluminescence", "Cinematic Lighting", "Crepuscular Rays", "Dappled Light", "Disco Lighting", "Dramatic Lighting", "Dreamy Glow", "Dual Lighting", "Dusk", "Electroluminescent Wire", "Electromagnetic Spectrum", "Flare", "Floodlight", "Flourescent Lightin", "Frontal Lighting", "Glitter", "Glow In The Dark", "Glowing", "Glowing Neon", "Glowing Partical Effects", "Glowing Radioactively", "Gobo", "Golden Hour", "Hard Lighting", "High Key Lighting", "Internal Glow", "Laser", "Lava Glow", "Lens Flare", "Low Key Lighting", "Midnight", "Moody Lighting", "Moonlight", "Neon Lights", "Nightclub Lighting", "Nuclear Wasted Glow", "Prismatic Highlights", "Radioluminescence", "Rainbow Sparks", "Ray Tracing Reflections", "Shimmering Lights", "Soft Lighting", "Starry", "Sunlighting", "Sunlit", "Torchlit", "Twilight Hour"];
+    var artistArray = ["Adrian Donoghue", "Adrian Tomine", "Akihiko Yoshida", "Akira Toriyama", "Akos Major", "Alan Lee", "Albert Watson", "Alberto Seveso", "Alex Grey", "Alex Timmermans", "Alphonse Mucha", "Andro Botticelli", "Anna Dittmann", "Anne Bachelier", "Antonio Mora", "Arshile Gorky", "Arthur Rackham", "Atey Ghailan", "Aubrey Beardsley", "August Macke", "Basquiat", "Benoit Mandelbrot", "Bernie Fuchs", "Bernini", "Bill Mantlo", "Bob Eggleton", "Brian Bolland", "Brian Froud", "Brian Kesinger", "Brothers Hildebrandt", "Bruce Pennington", "Butcher Billy", "Cai Guo Qiang", "Canaletto", "Caravaggio", "Charlie Bowater", "Chiharu Shiota", "Cindy Sherman", "Claude Monet", "Coby Whitmore", "Conrad Roset", "Craig Mullins", "Daido Moriyama", "Dante Gabriel Rossetti", "David Hockney", "Diego Rivera", "Donatello", "Dorothy Lathrop", "Drew Struzan", "El Anatsui", "El Lissitzky", "Ellen Jewett", "Enki Bilal", "Erte", "Escher", "Francisco De Goya", "Francoise Nielly", "Frank Miller", "Frank Thorne", "Frida Kahlo", "Fullmetal Alchemist", "Georg Baselitz", "Georges De La Tou", "Picasso", "Van Gogh", "Da Vinci", "Michelangelo", "Rembrandt"];
+    var cameraArray = ["360-degree camera", "100mm", "14mm", "16k", "24mm", "300mm", "32k", "35mm", "400mm", "4k", "500mm", "600mm", "85mm", "8k", "High contrast", "Holga camera", "Infrared photography", "Lenticular lens", "Light painting", "Minimalist style", "Motion blur", "Neon lighting", "Night vision", "Oblique angle", "Panoramic view", "Pixelated effect", "Polaroid camera", "Prism lens", "Refraction effect", "Retro style", "Split focus", "Stereoscopic 3D", "Time-lapse", "Underwater photography", "Vintage look", "Abstract perspective", "Black and white", "Bokeh effect", "Circular fisheye lens", "Double exposure", "Dutch angle", "Experimental photography", "Film noir style", "Ghostly blur", "Glitch art", "Aerial Photography", "Closeup", "Drone Photography", "Far Shot", "Focal Blur", "Full Body Shot", "Full Focus", "Headshot Photography", "High Angle Shot", "Long Exposure", "Low Angle Shot", "Macro Lens", "Medium Shot", "Out Of Focus", "Portrait Photography", "Selfie", "Short Exposure", "Telephoto Lens", "Tiltshift", "Top Down Shot", "Ultra Wide Angle", "Wide Angle"];
+    var colorsArray = ["Red", "Blue", "Green", "Yellow", "Orange", "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro"];
+    var texturesArray = ["3d fractals", "agate", "aluminum", "amber", "anodized", "ammolite", "amigurumi", "amethyst", "anodized titanium", "awning stripe", "basalt", "brass", "breton stripes pattern", "brick", "bronze", "brushed aluminum", "ceramic", "celtic knot", "bumpy", "candy stripes", "chain pattern", "chainmail", "chalk stripes"];
+    var aspectRatioArray = ["1:1", "16:9", "4:3"];
+    var charactersArray = ["Absent Minded Professor", "Alien", "Anarchist", "Asian", "Astronaut", "Baby", "Blind Seer", "Businessman", "Carpenter", "Cartographer", "Chinese", "Clown", "Cowboy", "Crone", "Dark Lord", "Devil", "Dracula", "Dragon Lady", "Dumb Blonde", "Evil", "Evil Clown", "Fairy", "Femme Fatale", "Filipina", "French Maid", "Gamer", "Geek", "Geisha", "Ghost", "Girl Next Door", "Goblin", "God", "Goddess", "Goth", "Goth Punk", "Hag", "Hipster", "Hispanic", "Housewife", "Indigenous", "Journalist", "Kid", "Lab Technician", "Mad Scientist", "Medusa", "Mermaid", "Mother Nature", "Muse", "Mythological King", "Nerd", "Ninja", "Nun", "Occult Detective", "Painter", "Patriarch"];
+
+
+    $(document).ready(function () {
+
+        $('#buttonTabs').tab();
+
+
+        // Get references to the input and output elements
+        var $userPrompt = $('#userPrompt');
+        var $outputPrompt = $('#outputPrompt');
+
+        // Attach an event listener to the input element
+        $userPrompt.on('input', function () {
+            // Get the user's input
+            var input = $userPrompt.val();
+
+            // Update the output element with the input
+            $outputPrompt.text(input);
+        });
+
+        populateButtonGroups(categoryArray, "#inputCategory", "#categorySection");
+        populateButtonGroups(styleArray, "#inputStyle", "#styleSection");
+        populateButtonGroups(lightingArray, "#inputLighting", "#lightingSection");
+        populateButtonGroups(artistArray, "#inputArtist", "#artistSection");
+        populateButtonGroups(cameraArray, "#inputCamera", "#cameraSection");
+        populateButtonGroups(colorsArray, "#inputColors", "#colorsSection");
+        populateButtonGroups(texturesArray, "#inputTextures", "#texturesSection");
+        populateButtonGroups(charactersArray, "#inputCharacters", "#charactersSection");
+
+        registerCopyToClipBoard();
+    });
+
+    function registerCopyToClipBoard() {
+        $('#copyButton').click(function () {
+            var textToCopy = $('#outputPrompt').text(); // Get the text to copy
+            navigator.clipboard.writeText(textToCopy); // Copy the text to clipboard
+
+            $("#copyButton").html("Copy <i class=\"fa fa-check\" aria-hidden=\"true\"></i>");
+        });
+    }
+
+
+    function populateButtonGroups(inputArray, inputButtonId, choiceSectionId) {
+        $(choiceSectionId).on('click', 'button', handleButtonClick);
+        var html = ''; // String to hold the HTML for the buttons
+        // Loop through the button values and create a button element for each one
+        for (var i = 0; i < inputArray.length; i++) {
+            html += '<button type="button" class="btn btn-success m-1" data-value="' + inputArray[i] + '">'
+                + inputArray[i] + '</button>';
+        }
+        // Set the HTML of the buttonList div to the button elements
+        $(choiceSectionId).html(html);
+        $(inputButtonId).click(function () {
+
+            $("#choiceList").show(); // Show the whole div
+            $(".choiceSection").hide(); // Hide all other elements
+            // Show the buttonList div
+            $(choiceSectionId).show(); // Show only current choice
+        });
+    }
+
+
+    // Function to handle button clicks
+    function handleButtonClick() {
+        var button = $(this);
+        var value = button.data('value');
+
+        // Toggle the "active" class on the button to select/unselect it
+        button.toggleClass('active');
+
+        // If the button is selected, add its value to the output array
+        if (button.hasClass('active')) {
+            outputArray.push(value);
+            $(this).addClass("btn-danger").html(`${value} <i class="fa fa-check"></i>`);
+        }
+        // If the button is unselected, remove its value from the output array
+        else {
+            outputArray = outputArray.filter(function (item) {
+                return item !== value;
+            });
+            $(this).removeClass("btn-danger").html(`${value}`);
+        }
+
+        // Log the current state of the output array
+        console.log(outputArray);
+
+        // Get the output string with comma separated values and include userPrompt value
+        var userPromptValue = $('#userPrompt').val().trim();
+        var outputString = userPromptValue + (userPromptValue && outputArray.length ? ', ' : '') + outputArray.join(', ');
+
+        // var outputString = outputArray.join(', ');
+        $('#outputPrompt').text(outputString);
+
+    }
+
+</script>
+
+<style>
+    body {
+        background-color: #c7ffe8;
+        background-image: radial-gradient(#373fed 0.5px, #f5fffe 0.5px);
+        background-size: 10px 10px;
+    }
+
+    .card-header {
+        word-wrap: break-word !important;
+    }
+
+</style>
+
+<!--<div class="row listrecent d-flex align-items-center justify-content-center">-->
+<div class="container">
+    <div class="row">
+        <div class="col text-center text-danger">
+            <h2>Dalle Prompt generator</h2>
+        </div>
+    </div>
+
+    <div class="row justify-content-center m-3">
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between shadow rounded p-4 bg-light align-items-center ts-shadow-surround">
+                <div class="text-black rounded p-2 overflow-y-auto scrollbar">
+                    <!--                    <span class="badge badge-secondary p-2">/imagine: </span>-->
+
+                    <div id="outputPrompt"></div>
+                </div>
+                <button class="btn btn-primary d-flex align-items-center" id="copyButton">
+                    Copy <i class="fa fa-copy ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-3 mt-4">
+        <div class="col-md-8 mx-auto text-center ">
+            <textarea class="form-control border-info" id="userPrompt" rows="2"
+                      placeholder="Start typing your main idea here... Example: A logo or a city etc"></textarea>
+        </div>
+    </div>
+
+    <div class="row justify-content-center m-3">
+        <div class="col-md-8 mx-auto text-center ">
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputCategory">Category</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputStyle">Styles</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputLighting">Lighting</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputArtist">Artist</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputCamera">Camera</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputColors">Colors</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputTextures">Textures</button>
+            <button type="button" class="btn btn-info m-1 inputButton" id="inputCharacters">Characters</button>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center m-3" id="choiceList" style="display:none;">
+
+
+        <div class="col-md-10 mx-auto text-center ">
+            <div id="categorySection" class="choiceSection"></div>
+            <div id="styleSection" class="choiceSection"></div>
+            <div id="lightingSection" class="choiceSection"></div>
+            <div id="artistSection" class="choiceSection"></div>
+            <div id="cameraSection" class="choiceSection"></div>
+            <div id="colorsSection" class="choiceSection"></div>
+            <div id="texturesSection" class="choiceSection"></div>
+            <div id="aspectRatioSection" class="choiceSection"></div>
+            <div id="charactersSection" class="choiceSection"></div>
+
+        </div>
+    </div>
+
+    <div class="container mt-4 my-3 p-3 rounded shadow ts-shadow-surround-md">
+    <div class="row">
+        <div class="col mx-auto text-center">
+            <div class="alert alert-success" role="alert">
+                <strong>Check out our 2000+ AI tools directory <a class="btn btn-success" href="/ai-tools">Click Here</a></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <a href="https://etsy.me/3GUkPIH"><img src="/assets/images/midjourney-prompts-tipseason.jpg"
+                    alt="1600+ midjourney prompts free download" style="width:100%;"></a>
+        </div>
+    
+        <div class="col-md-6 mb-4">
+            <a href="https://etsy.me/3ljbdQ3"><img src="/assets/images/chatgpt-prompts-ai-tools-1000.jpg"
+                    alt="chatgpt prompts and ai tools download" style="width:100%;"></a>
+        </div>
+
+    </div>    
+</div>
+
+    <div class="">
+    
+<div class="container mt-4 my-3 p-3 rounded shadow ts-shadow-surround-md">
+    <h3 class="text-center mb-4 text-danger">Best Free AI tools to try now</h3>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/ai-prompt-generator""><h3 class="card-title pricing-card-title text-info">AI Art prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Create infinite prompts for AI art tools like Midjourney, DALLE-2, Gemini Image creator</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/ai-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/dalle-prompt-generator"><h3 class="card-title pricing-card-title  text-info">DALL·E prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Creative prompt helper to build unique art prompts for OpenAI DALLE AI art generation</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/dalle-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/gemini-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Gemini prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Prompt helper for creating best prompts for Google Gemini AI</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/gemini-prompt-generator">Get Started</a>
+                
+            </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/adobe-firefly-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Adobe firefly prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>AI powered prompts for Adobe firefly to create stunning images from text</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/adobe-firefly-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/leonardo-prompt-generator"><h3 class="card-title pricing-card-title  text-info">Leonardo prompt generator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Create best leonardo prompts with various keywords, topics, lighting, camera and more</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/leonardo-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/reading-time-calculator"><h3 class="card-title pricing-card-title  text-info">Reading time calculator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Estimate the time to read a blog post / any content. Includes word count, character count and more.</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/reading-time-calculator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/time-difference-calculator"><h3 class="card-title pricing-card-title  text-info">Time difference calculator</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Calculate the duration between timestamps or dates with simple copy paste</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/leonardo-prompt-generator">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">Free</h5>
+            </div>
+            <div class="card-body">
+                <a href="/inr-crore-usd-converter"><h3 class="card-title pricing-card-title  text-info">INR crore to USD converter</h3></a>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Indian (INR) crore to US dollar (USD) converter for easy currency estimation</li>
+                </ul>
+                <a type="button" class="btn btn-lg btn-primary" href="/inr-crore-usd-converter">Get Started</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <div class="row justify-content-center m-3" id="subscribe">
+        <iframe src="https://tipseason.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+    <div class="row justify-content-center m-3" id="faqs">
+        <div class="col-md-10 mx-auto text-center ">
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                What is this Dalle Prompt generator tool?
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                         data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Dalle AI art prompt generator tool is a creative helper aid to build unique art
+                            prompts. It provides combinations of art styles, subjects, and techniques to inspire artists
+                            and designers in their creative process of building prompts that can be used to create images using .
+                            AI art tools like DALLE-2, stable diffusion etc.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="tips-accordion">
+                    <div class="card">
+                        <div class="card-header" id="heading-tips">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapse-tips" aria-expanded="false"
+                                        aria-controls="collapse-tips">
+                                    Tips for using the Dalle AI art prompt generator tool
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse-tips" class="collapse" aria-labelledby="heading-tips"
+                             data-parent="#tips-accordion">
+                            <div class="card-body">
+                                <ul>
+                                    <li>Experiment with different combinations of art styles, subjects, and techniques
+                                        to explore new creative possibilities.
+                                    </li>
+                                    <li>Don't be afraid to iterate and generate multiple prompts to find the one that
+                                        resonates with your artistic vision.
+                                    </li>
+                                    <li>Use the generated prompts as a starting point and feel free to add your own
+                                        ideas, interpretations, and personal touches to make the artwork truly unique.
+                                    </li>
+                                </ul>
+                                <p>Yes, you can use the generated art prompts for your commercial art or design
+                                    projects. However, please note that the prompts generated by the tool are for
+                                    inspiration purposes only and may not be used as standalone artworks without proper
+                                    attribution or licensing of any third-party content, if applicable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How do I use the AI art prompt generator tool?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Using the tool is simple:
+
+                            <ol>
+                                <li>Enter a starting prompt. For eg: A dog, A city, A mountain</li>
+                                <li>As you enter, you should see the prompt being generated on the top output box.</li>
+                                <li>Explore the generated prompt and use it as inspiration for your art or design
+                                    project.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="heading-Five">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-Fives" aria-expanded="true" aria-controls=""collapse-Fives">
+                                    Can this tool be used for any AI art generation tools like Midjourney, Stable Diffusion, etc.?
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapse-Fives" class="collapse show" aria-labelledby="heading-Five" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Yes, the AI art prompt generator tool can be used in conjunction with any AI art generation tool to provide additional inspiration and creative direction. The tool generates random art prompts based on user-selected options, and can be used as a starting point or inspiration source for any AI-generated artwork, regardless of the specific tool or platform used to create it.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Question 4 -->
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Can I save or download the generated art prompts?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            The tool does not currently have a save or download feature. However, you can easily capture
+                            screenshots or copy the generated prompts to use in your art or design project.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                                    aria-controls="collapseFive" aria-expanded="false">
+                                Is the AI art prompt generator tool suitable for all skill levels?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            Yes, the tool is designed to cater to artists and designers of all skill levels, from
+                            beginners to experienced professionals. The generated prompts can be used as a creative aid
+                            and inspiration source for artists at any stage of their artistic journey.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"
+                                    aria-expanded="false" aria-controls="collapseSix">
+                                Can I suggest new art styles, subjects, or techniques to be added to the tool?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            Currently, the tool uses a predefined set of art styles, subjects, and techniques. However,
+                            we appreciate user feedback and suggestions for improvement. You can reach out to us with
+                            your suggestions, and we will consider them for future updates of the tool.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+        </div>
+
+
+        
+
+    </div>
+
+    <!-- Categories Jumbotron
+    ================================================== -->
+    <div class="jumbotron fortags">
+        <div class="d-md-flex h-100">
+            <div class="col-md-4 transpdark align-self-center text-center h-100">
+                <div class="d-md-flex align-items-center justify-content-center h-100">
+                    <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span
+                            class="d-none d-md-inline">→</span></h2>
+                </div>
+            </div>
+            <div class="col-md-8 p-5 align-self-center text-center">
+                
+                
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Interviews">Interviews (19)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Java">Java (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Markdown">Markdown (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Database">Database (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#MySQL">MySQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#PostgreSQL">PostgreSQL (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DataScience">DataScience (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Carbon">Carbon (6)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Programming">Programming (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Events">Events (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Behavioral">Behavioral (5)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Resume">Resume (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Golang">Golang (7)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#ChatGPT">ChatGPT (24)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Midjourney">Midjourney (22)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Writing">Writing (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#BardAI">BardAI (4)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Gemini">Gemini (3)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#DALLE-2">DALLE-2 (1)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#SQL">SQL (2)</a>
+                
+                <a class="mt-1 mb-1"
+                   href="/categories#Software-Engineer">Software Engineer (2)</a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center text-lg-left">
+                    <a href="#">Copyright © 2024 Tip Season</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+
+                <div class="col-md-2 col-sm-2 text-center text-lg-left">
+                    <a href="/termsandconditions" rel="noopener noreferrer nofollow">Terms & Conditions</a>
+                </div>
+
+
+                <!--            <div class="col-md-6 col-sm-6 text-center text-lg-right">    -->
+                <!--                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net-->
+                <!--            </div>-->
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+</body>
+</html>

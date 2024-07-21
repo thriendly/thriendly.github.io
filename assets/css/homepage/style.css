@@ -11146,7 +11146,7 @@ textarea.form-control-lg {
 }
 
 .home {
-  min-height: calc(100vh - 50px); /* Adjust 50px to your footer height */
+  min-height: calc(100vh); /* Adjust 50px to your footer height */
 }
 
 

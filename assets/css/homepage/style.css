@@ -11270,15 +11270,18 @@ textarea.form-control-lg {
   border-color: #007bff;
 }
 .submit-button {
-  background-color: #1fb6c7;
+  background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
+  background-size: 600%;
+  color: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 15px;
-  color: #fff;
   cursor: pointer;
   padding: 15px 20px;
-  font-size: 16px;
+  font-size: 24px;
   margin-left: 4px;
   transition: background-color 0.3s, box-shadow 0.3s;
+  animation: anime 16s linear infinite;
+  margin: 10px;
 }
 .submit-button:hover {
   background-color: #0056b3;
@@ -11286,6 +11289,18 @@ textarea.form-control-lg {
 }
 .submit-button:active {
   background-color: #004494;
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .video-container {
@@ -11308,5 +11323,14 @@ iframe {
   display: none;
   margin-left: 10px;
 }
+
+/* demo stuff
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+} */
+
 
 /*# sourceMappingURL=style.css.map */

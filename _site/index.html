@@ -61,15 +61,14 @@
                 <!-- START THE CONTENT FOR THE INTRO  -->
                 <div class="col-md-6 intros text-start">
                     <h1 class="display-2">
-                        <!-- <span class="display-2--intro">Hey!, I'm Patrick</span> -->
                         <span class="display-2--intro ">Fastest way to grow on Threads</span>
                         <span class="display-2--description lh-base boujee-text">
                             <div class="icon fas fa-paper-plane"></div> <span class="boujee-text">&nbsp; AI Comment
                                 Replys in 1
                                 Click</span>
                             <span class="display-2--description lh-base boujee-text">
-                                <div class="icon fas fa-check"></div> <span class="boujee-text">&nbsp; 500+ Viral
-                                    Templates </span>
+                                <div class="icon fas fa-check"></div> <span class="boujee-text">&nbsp; Viral
+                                    Thread Templates </span>
                             </span>
                             <span class="display-2--description lh-base boujee-text">
                                 <div class="icon fas fa-calendar"></div> <span class="boujee-text">&nbsp; Threads
@@ -83,8 +82,6 @@
                             </span>
                     </h1>
 
-                    <h4 style="margin-top: 40px;">Join WaitList! </h4>
-
                     <!--  <form action="https://api.convertkit.com/v3/forms/6850046/subscribe" method="post" id="subscribe-form">
             <div class="form-container">
               <input type="email" name="email" class="text-box" placeholder="Email address" required>
@@ -95,18 +92,25 @@
             </div>
           </form> -->
 
+
+                    <!-- <button type="submit" class="submit-button">
+                        Get Started For FREE
+                        <i class="fas fa-arrow-right" style="margin-left:5px"></i>
+                    </button>
+                    <div id="" style="margin-left: 15px; ">No Credit card required.</div> -->
+
+
+
                     <form id="subscribe-form">
                         <div class="form-container">
-                            <input id="email" type="email" name="email" class="text-box" placeholder="Email address"
-                                required>
-                            <!-- <input type="hidden" name="api_key" value="UrPOToanVD3VBb-OGlEMJA"> -->
-                            <button type="submit" class="submit-button">Submit<i class="fas fa-arrow-right"
-                                    style="margin-left:5px"></i></button>
-                            <span id="email-error" class="error">Please enter a valid email address.</span>
+                            <button type="submit" class="submit-button">
+                                Get Started For FREE
+                                <i class="fas fa-arrow-right" style="margin-left:5px"></i>
+                            </button>
+                            <!-- <span id="email-error" class="error">Please enter a valid email address.</span> -->
                         </div>
+                        <span id="" style="margin-left: 15px; ">No Credit card required.</span>
                     </form>
-
-
 
                     <!-- HTML !-->
 
@@ -115,15 +119,13 @@
         </button> -->
                 </div>
                 <!-- START THE CONTENT FOR THE VIDEO -->
-
-                <div class="video-container">
-                    <iframe
-                        src="https://www.youtube.com/embed/kKaekdlwQsc?autoplay=1&mute=1&loop=1&controls=0&playlist=kKaekdlwQsc"
-                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-
-                <!-- <div class="col-md-6 intros text-end">
-          <div class="video-box">
+                <div class="col-md-6 intros text-end">
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/kKaekdlwQsc?autoplay=1&mute=1&loop=1&controls=0&playlist=kKaekdlwQsc"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <!-- <div class="video-box">
             <img src="images/arts/intro-section-illustration.png" alt="video illutration" class="img-fluid">
             <a href="#" class="glightbox position-absolute top-50 start-50 translate-middle">
               <span>
@@ -132,9 +134,9 @@
               <span class="border-animation border-animation--border-1"></span>
               <span class="border-animation border-animation--border-2"></span>
             </a>
-          </div>
-        </div>
-         -->
+          </div> -->
+                </div>
+
             </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -276,68 +278,9 @@
         $(document).ready(function () {
             $('#subscribe-form').on('submit', function (event) {
                 event.preventDefault();
-                var email = $('#email').val();
-
-                var data = {
-                    parent: { database_id: 'YOUR_DATABASE_ID' }, // Replace with your Notion database ID
-                    properties: {
-                        Email: {
-                            title: [
-                                {
-                                    text: {
-                                        content: email
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                };
-
-                $.ajax({
-                    type: 'POST',
-                    url: 'https://api.notion.com/v1/pages',
-                    headers: {
-                        'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN', // Replace with your Notion Integration Token
-                        'Content-Type': 'application/json',
-                        'Notion-Version': '2022-06-28'
-                    },
-                    data: JSON.stringify(data),
-                    success: function (response) {
-                        alert('Subscription successful!');
-                        window.location.href = 'https://your-own-page.com/thank-you';
-                    },
-                    error: function (error) {
-                        console.error('Error:', error);
-                        alert('Subscription failed. Please try again.');
-                    }
-                });
+                window.location.href = '/loginuser.html';
             });
         });
-
-        // $(document).ready(function () {
-        //   $('#subscribe-form').on('submit', function (event) {
-        //     event.preventDefault();
-
-        //     var email = $('#email').val();
-
-        //     $.ajax({
-        //       type: 'POST',
-        //       url: 'https://script.google.com/macros/s/AKfycbzY03TKiglGV47bUoSuiSLZ9eaBqPGnl1e35bQPEhRU29A-xKm80Mo0wew1gUAKYlLn/exec',
-        //       headers: {
-        //         'Authorization': 'e315fe65b36f8d18079a3c87310c3483-us8'
-        //       },
-        //       data: { email: email },
-        //       contentType: 'application/json',
-        //       success: function (response) {
-        //         // window.location.href = 'https://your-own-page.com/thank-you';
-        //         alert("Subscribed!");
-        //       },
-        //       error: function (error) {
-        //         console.log('Error:', error);
-        //       }
-        //     });
-        //   });
-        // });
 
     </script>
 </body>

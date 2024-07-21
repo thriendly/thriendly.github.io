@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Dashboard with Collapsible Sidebar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --blue-light: #4a90e2;
+            --blue-dark: #2c3e50;
+            --blue-accent: #74b9ff;
+            --bg-color: #f0f3f6;
+            --text-color: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: linear-gradient(to bottom, #0f4687, #053767);
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        #sidebar.active {
+            min-width: 80px;
+            max-width: 80px;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #sidebar.active .sidebar-header h4 {
+            display: none;
+        }
+
+        #sidebar ul.components {
+            padding: 20px 0;
+        }
+
+        #sidebar ul li a {
+            padding: 15px 20px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        #sidebar.active ul li a {
+            padding: 15px 0;
+            text-align: center;
+            justify-content: center;
+        }
+
+        #sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--blue-accent);
+        }
+
+        #sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        #sidebar.active ul li a i {
+            margin-right: 0;
+            font-size: 1.3em;
+        }
+
+        #sidebar.active ul li a span {
+            display: none;
+        }
+
+        #content {
+            width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            background-color: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            color: var(--blue-dark);
+            font-weight: 600;
+        }
+
+        .display-4 {
+            font-weight: 600;
+            color: var(--blue-light);
+        }
+
+        #sidebarCollapse {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        #sidebarCollapse:hover {
+            color: var(--blue-accent);
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                min-width: 80px;
+                max-width: 80px;
+            }
+
+            #sidebar.active {
+                margin-left: -80px;
+            }
+
+            #sidebar .sidebar-header h3,
+            #sidebar .CTAs {
+                display: none;
+            }
+
+            #sidebar ul li a {
+                padding: 15px 0;
+                text-align: center;
+                justify-content: center;
+            }
+
+            #sidebar ul li a i {
+                margin-right: 0;
+                font-size: 1.3em;
+            }
+
+            #sidebar ul li a span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Thriendly</h4>
+                <button type="button" id="sidebarCollapse" class="btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="list-unstyled components">
+                <li><a href="#"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> <span>Analytics</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <!-- <div class="content-header">
+                <h2>Welcome to Thriendly</h2>
+            </div> -->
+
+            <div class="container mt-4">
+                <h3 class="mb-4">Thriendly: Threads Dashboard</h3>
+
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <!-- <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Followers</h5>
+                                <p class="card-text" id="followers_countCount">-</p>
+                                <p class="trend" id="followers_countTrend"></p> 
+                            </div>
+                        </div> -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h5 class="card-title">Followers</h5>
+                                    <i class="fas fa-arrow-trend-up" style="font-size: 1.2rem; color: #000;"></i>
+                                </div>
+                                <p class="card-text" id="followers_countCount">-</p>
+                                <!-- <p class="trend" id="followers_countTrend"></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h5 class="card-title">Likes</h5>
+                                    <i class="fas fa-arrow-trend-up" style="font-size: 1.2rem; color: #000;"></i>
+                                </div>
+                                <p class="card-text" id="likesCount">-</p>
+                                <!-- <p class="trend" id="likesTrend"></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h5 class="card-title">Replies</h5>
+                                    <i class="fas fa-arrow-trend-up" style="font-size: 1.2rem; color: #000;"></i>
+                                </div>
+                                <p class="card-text" id="repliesCount">-</p>
+                                <!-- <p class="trend" id="repliesTrend"></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h5 class="card-title">Reposts</h5>
+                                    <i class="fas fa-arrow-trend-up" style="font-size: 1.2rem; color: #000;"></i>
+                                </div>
+                                <p class="card-text" id="repostsCount">-</p>
+                                <!-- <p class="trend" id="repostsTrend"></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Views Over Time</h5>
+                                <canvas id="viewsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Engagement Distribution</h5>
+                                <canvas id="engagementChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card latest-threads">
+                            <div class="card-body">
+                                <h5 class="card-title">Latest Threads</h5>
+                                <div id="latestThreads"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Simulating API call with the provided sample data
+            const apiData = {
+                "data": [
+                    {
+                        "name": "likes",
+                        "period": "day",
+                        "title": "likes",
+                        "description": "The number of likes on your posts.",
+                        "total_value": {
+                            "value": 490
+                        },
+                        "id": "17841453187567853/insights/likes/day"
+                    },
+                    {
+                        "name": "replies",
+                        "period": "day",
+                        "title": "replies",
+                        "description": "The number of replies on your posts.",
+                        "total_value": {
+                            "value": 287
+                        },
+                        "id": "17841453187567853/insights/replies/day"
+                    },
+                    {
+                        "name": "followers_count",
+                        "period": "day",
+                        "title": "followers_count",
+                        "description": "This is your total number of followers on Threads.",
+                        "total_value": {
+                            "value": 202
+                        },
+                        "id": "17841453187567853/insights/followers_count/day"
+                    },
+                    {
+                        "name": "reposts",
+                        "period": "day",
+                        "title": "reposts",
+                        "description": "The number of times your posts were reposted.",
+                        "total_value": {
+                            "value": 36
+                        },
+                        "id": "17841453187567853/insights/reposts/day"
+                    },
+                    {
+                        "name": "views",
+                        "period": "day",
+                        "values": [
+                            {
+                                "value": 225,
+                                "end_time": "2024-06-30T07:00:00+0000"
+                            },
+                            {
+                                "value": 1110,
+                                "end_time": "2024-07-01T07:00:00+0000"
+                            },
+                            {
+                                "value": 25324,
+                                "end_time": "2024-07-02T07:00:00+0000"
+                            },
+                            {
+                                "value": 26131,
+                                "end_time": "2024-07-03T07:00:00+0000"
+                            },
+                            {
+                                "value": 116,
+                                "end_time": "2024-07-04T07:00:00+0000"
+                            },
+                            {
+                                "value": 28,
+                                "end_time": "2024-07-05T07:00:00+0000"
+                            },
+                            {
+                                "value": 35,
+                                "end_time": "2024-07-06T07:00:00+0000"
+                            },
+                            {
+                                "value": 118,
+                                "end_time": "2024-07-07T07:00:00+0000"
+                            },
+                            {
+                                "value": 139,
+                                "end_time": "2024-07-08T07:00:00+0000"
+                            },
+                            {
+                                "value": 493,
+                                "end_time": "2024-07-09T07:00:00+0000"
+                            },
+                            {
+                                "value": 6432,
+                                "end_time": "2024-07-10T07:00:00+0000"
+                            },
+                            {
+                                "value": 3244,
+                                "end_time": "2024-07-11T07:00:00+0000"
+                            },
+                            {
+                                "value": 7308,
+                                "end_time": "2024-07-12T07:00:00+0000"
+                            },
+                            {
+                                "value": 1399,
+                                "end_time": "2024-07-13T07:00:00+0000"
+                            },
+                            {
+                                "value": 214,
+                                "end_time": "2024-07-14T07:00:00+0000"
+                            },
+                            {
+                                "value": 724,
+                                "end_time": "2024-07-15T07:00:00+0000"
+                            },
+                            {
+                                "value": 1285,
+                                "end_time": "2024-07-16T07:00:00+0000"
+                            },
+                            {
+                                "value": 33684,
+                                "end_time": "2024-07-17T07:00:00+0000"
+                            }
+                        ],
+                        "title": "views",
+                        "description": "The number of times your profile was viewed.",
+                        "id": "17841453187567853/insights/views/day"
+                    },
+                    {
+                        "name": "quotes",
+                        "period": "day",
+                        "title": "quotes",
+                        "description": "The number of times your posts were quoted.",
+                        "total_value": {
+                            "value": 2
+                        },
+                        "id": "17841453187567853/insights/quotes/day"
+                    }
+                ],
+                "paging": {
+                    "previous": "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1718323199&until=1719791999&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
+                    "next": "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1721260801&until=1722729601&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes"
+                }
+            };
+
+            // Update metrics
+            updateMetric('likes', apiData);
+            updateMetric('replies', apiData);
+            updateMetric('followers_count', apiData);
+            updateMetric('reposts', apiData);
+            updateMetric('quotes', apiData);
+
+            // Create views chart
+            createViewsChart(apiData);
+
+            // Create engagement distribution chart
+            createEngagementChart(apiData);
+
+            // Populate latest threads (mock data)
+            populateLatestThreads();
+        });
+
+        function updateMetric(metricName, data) {
+            const metric = data.data.find(item => item.name === metricName);
+            if (metric) {
+                $(`#${metricName}Count`).text(metric.total_value.value.toLocaleString());
+                // Mock trend data
+                const trend = Math.random() > 0.5 ? 5 : -5;
+                const trendHtml = trend > 0 ?
+                    `<i class="fas fa-arrow-up"></i> ${trend}% from last period` :
+                    `<i class="fas fa-arrow-down"></i> ${Math.abs(trend)}% from last period`;
+                $(`#${metricName}Trend`).html(trendHtml).toggleClass('trend-up', trend > 0).toggleClass('trend-down', trend < 0);
+            }
+        }
+
+        function createViewsChart(data) {
+            const viewsData = data.data.find(item => item.name === 'views');
+            if (viewsData) {
+                const ctx = document.getElementById('viewsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: viewsData.values.map(item => new Date(item.end_time).toLocaleDateString()),
+                        datasets: [{
+                            label: 'Views',
+                            data: viewsData.values.map(item => item.value),
+                            // borderColor: 'rgb(75, 192, 192)',
+                            borderColor: 'rgb(33 115 198)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 0, // Remove the box width
+                                    font: {
+                                        size: 14 // Adjust the font size as needed
+                                    },
+                                    color: '#000', // Set the label color
+                                    padding: 5 // Adjust padding as needed
+                                }
+                            },
+                            datalabels: {
+                                color: '#000', // Set the data label color
+                                font: {
+                                    weight: 'bold',
+                                    size: 14 // Adjust the font size as needed
+                                },
+                                formatter: (value, context) => {
+                                    return value; // Return the value to be displayed
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function createEngagementChart(data) {
+            const engagementData = {
+                likes: data.data.find(item => item.name === 'likes').total_value.value,
+                replies: data.data.find(item => item.name === 'replies').total_value.value,
+                reposts: data.data.find(item => item.name === 'reposts').total_value.value,
+                quotes: data.data.find(item => item.name === 'quotes').total_value.value
+            };
+
+            const ctx = document.getElementById('engagementChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(engagementData),
+                    datasets: [{
+                        data: Object.values(engagementData),
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 206, 86)',
+                            'rgb(75, 192, 192)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateLatestThreads() {
+            const mockThreads = [
+                { title: "Better Threads Dashboard", date: "2024/07/03 10:57:54", views: 12230, likes: 3875, reposts: 1829, replies: 2873, quotes: 1111 },
+                { title: "I like Threads", date: "2024/07/03 12:32:21", views: 23485, likes: 3450, reposts: 6823, replies: 2348, quotes: 2231 }
+            ];
+
+            const threadsHtml = mockThreads.map(thread => `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h6 class="card-title">${thread.title}</h6>
+                    <p class="card-text"><small class="text-muted">${thread.date}</small></p>
+                    <div class="d-flex justify-content-between">
+                        <span><i class="fas fa-eye"></i> ${thread.views}</span>
+                        <span><i class="fas fa-heart"></i> ${thread.likes}</span>
+                        <span><i class="fas fa-retweet"></i> ${thread.reposts}</span>
+                        <span><i class="fas fa-reply"></i> ${thread.replies}</span>
+                        <span><i class="fas fa-quote-right"></i> ${thread.quotes}</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+            $('#latestThreads').html(threadsHtml);
+        }
+    </script>
+
+</body>
+
+</html>

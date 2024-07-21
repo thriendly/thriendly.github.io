@@ -4,6 +4,9 @@
 <loc>http://localhost:4000/about</loc>
 </url>
 <url>
+<loc>http://localhost:4000/app/aireplys</loc>
+</url>
+<url>
 <loc>http://localhost:4000/login</loc>
 </url>
 <url>
@@ -31,14 +34,14 @@
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
-<lastmod>2024-07-20T18:02:10-07:00</lastmod>
+<lastmod>2024-07-21T11:41:30-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/loginuser.html</loc>
-<lastmod>2024-07-20T17:54:55-07:00</lastmod>
+<lastmod>2024-07-21T11:08:33-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/threads-dashboard.html</loc>
-<lastmod>2024-07-20T19:36:14-07:00</lastmod>
+<lastmod>2024-07-21T08:08:57-07:00</lastmod>
 </url>
 </urlset>

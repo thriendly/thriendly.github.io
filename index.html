@@ -253,22 +253,6 @@
             window.location.href = 'https://www.threads.net/intent/follow?username=thetipseason';
         }
 
-
-        /*    document.getElementById('subscribe-form').addEventListener('submit', function (event) {
-             var emailInput = document.querySelector('.text-box[name="email"]');
-             var emailError = document.getElementById('email-error');
-             var emailValue = emailInput.value;
-       
-             // Basic email format validation
-             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-             if (!emailPattern.test(emailValue)) {
-               emailError.style.display = 'inline';
-               event.preventDefault(); // Prevent form submission
-             } else {
-               emailError.style.display = 'none';
-             }
-           }); */
-
     </script>
     <script src="assets/js/homepage/bootstrap.bundle.min.js"></script>
 
@@ -278,7 +262,7 @@
         $(document).ready(function () {
             $('#subscribe-form').on('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '/loginuser.html';
+                window.location.href = '/login';
             });
         });
 

@@ -16,8 +16,27 @@ permalink: /app/threads-scheduler
                     <div class="card-body">
                         <div class="row mt-4">
 
+                            <div class="" id="cent">
+                                <h5 class="font-weight-bold">
 
-                            <!-- WRITE CODE HERE -->
+                                    Schedule AI powered Viral threads with out Threads Scheduler. 
+
+                                    <br><br>
+
+                                    Coming Soon! 
+                                    
+                                    <br><br>
+
+                                    Join Priority waitlist here <a class="btn btn-success" target="_blank"
+                                    href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+
+                                </h5>
+                            </div>
+                            <div class="row mt-4 col-md-3">
+                                
+                            </div>
+
+
 
 
                         </div>

@@ -18,7 +18,6 @@ permalink: /app/threads-dashboard
                             <i class="fas fa-arrow-trend-up" style="font-size: 1.2rem; color: #000;"></i>
                         </div>
                         <p class="card-text fs-1" id="followers_countCount">-</p>
-                        <!-- <p class="trend" id="followers_countTrend"></p> -->
                     </div>
                 </div>
             </div>

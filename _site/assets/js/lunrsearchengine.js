@@ -18,7 +18,7 @@ var documents = [{
     "id": 3,
     "url": "http://localhost:4000/login",
     "title": "Login/Signup to TipSeason",
-    "body": "                              Welcome to TipSeason!:           Login:           Enter your credentials                                     Login with Google                                 OR                                                                                                                                                                                                                     Login                         No account Yet?              Sign Up                                       Forgot Password                                       Invalid credentials!                                           "
+    "body": "                              Welcome to Thriendly!:           Login:           Enter your credentials                                                                                                                                                                                                                     Login                         No account Yet?              Sign Up                                       Forgot Password                                       Invalid credentials!                                           "
     }, {
     "id": 4,
     "url": "http://localhost:4000/privacy",
@@ -28,7 +28,7 @@ var documents = [{
     "id": 5,
     "url": "http://localhost:4000/signup",
     "title": "Signup with TipSeason",
-    "body": "                              Welcome to Thriendly!:           It's time to grow as an Influencer. :           Create Account:                                     Signup with Google                                                         OR                                                                                                                                                                                                                     Create Account                         Have an account?              Log In                                       Invalid Email/Password!                                           "
+    "body": "                              Welcome to Thriendly!:           Everyone can be social media influencer!:           Create Account:                                                                                                                                                                                                                     Create Account                         Have an account?              Log In                                       Invalid Email/Password!                                           "
     }, {
     "id": 6,
     "url": "http://localhost:4000/termsandconditions",

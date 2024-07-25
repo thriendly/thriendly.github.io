@@ -38,17 +38,17 @@ var documents = [{
     "id": 7,
     "url": "http://localhost:4000/app/threads-dashboard",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly: Threads Dashboard:                                                       Followers                                      -                                                                                       Likes                                      -                                                                                       Replies                                      -                                                                                       Reposts                                      -                                                                                 Views Over Time                                                                        Engagement Distribution                                                                                Latest Threads                                          "
+    "body": "      Thriendly: Threads Dashboard:                                                       Followers                                      -                                                                           Likes                                      -                                                                                       Replies                                      -                                                                                       Reposts                                      -                                                                                 Views Over Time                                                                        Engagement Distribution                                                                                Latest Threads                                          "
     }, {
     "id": 8,
     "url": "http://localhost:4000/app/threads-scheduler",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Threads Templates:                                                                                                 "
+    "body": "      Thriendly Threads Templates:                                                                                         Schedule AI powered Viral threads with out Threads Scheduler.                                     Coming Soon!                                                       Join Priority waitlist here Thriendly Priority Waitlist                                                                                                                    "
     }, {
     "id": 9,
     "url": "http://localhost:4000/app/threads-templates",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Threads Templates:                                                                                         Viral thread templates that helps you grow faster with threads.                                     Just choose and template and ask our AI to create a thread. It does all the magic.                                     Coming Soon.                                                                                                                                                                     "
+    "body": "      Thriendly Threads Templates:                                                                                         Viral thread templates that helps you grow faster with threads.                                     Just choose and template and ask our AI to create a thread. It does all the magic.                                     Coming Soon!                                                       Join Priority waitlist here Thriendly Priority Waitlist                                                                                                                                                                    "
     }, {
     "id": 10,
     "url": "http://localhost:4000/robots.txt",

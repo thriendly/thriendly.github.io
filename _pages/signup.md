@@ -80,7 +80,7 @@ permalink: /signup
     const googleProvider = new GoogleAuthProvider();
 
     // Get the Google Sign-In button element
-    const googleSignInButton = document.getElementById("googleSignInButton");
+    /* const googleSignInButton = document.getElementById("googleSignInButton");
 
     // Add click event listener to the Google Sign-In button
     googleSignInButton.addEventListener("click", () => {
@@ -89,7 +89,7 @@ permalink: /signup
             .catch((error) => {
                 console.error("Google Sign-In error: ", error.message);
             });
-    });
+    }); */
 
     // Check authentication state
     onAuthStateChanged(auth, (user) => {

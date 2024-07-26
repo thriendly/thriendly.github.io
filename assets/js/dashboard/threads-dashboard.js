@@ -8,7 +8,7 @@ $(document).ready(function () {
         title: "likes",
         description: "The number of likes on your posts.",
         total_value: {
-          value: 1113,
+          value: 1626,
         },
         id: "17841453187567853/insights/likes/day",
       },
@@ -18,7 +18,7 @@ $(document).ready(function () {
         title: "replies",
         description: "The number of replies on your posts.",
         total_value: {
-          value: 421,
+          value: 496,
         },
         id: "17841453187567853/insights/replies/day",
       },
@@ -28,7 +28,7 @@ $(document).ready(function () {
         title: "followers_count",
         description: "This is your total number of followers on Threads.",
         total_value: {
-          value: 458,
+          value: 830,
         },
         id: "17841453187567853/insights/followers_count/day",
       },
@@ -38,7 +38,7 @@ $(document).ready(function () {
         title: "reposts",
         description: "The number of times your posts were reposted.",
         total_value: {
-          value: 78,
+          value: 125,
         },
         id: "17841453187567853/insights/reposts/day",
       },
@@ -139,8 +139,12 @@ $(document).ready(function () {
             end_time: "2024-07-22T07:00:00+0000",
           },
           {
-            value: 1610,
+            value: 1612,
             end_time: "2024-07-23T07:00:00+0000",
+          },
+          {
+            value: 113429,
+            end_time: "2024-07-24T07:00:00+0000",
           },
         ],
         title: "views",
@@ -153,15 +157,15 @@ $(document).ready(function () {
         title: "quotes",
         description: "The number of times your posts were quoted.",
         total_value: {
-          value: 4,
+          value: 5,
         },
         id: "17841453187567853/insights/quotes/day",
       },
     ],
     paging: {
       previous:
-        "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1717804799&until=1719791999&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
-      next: "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1721779201&until=1723766401&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
+        "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1717718399&until=1719791999&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
+      next: "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1721865601&until=1723939201&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
     },
   };
 

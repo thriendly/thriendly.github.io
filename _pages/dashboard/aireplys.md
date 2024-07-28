@@ -69,7 +69,7 @@ permalink: /app/aireplys
                                 <p><b>To Use Thriendly AI Replys for Threads / X:</b></p>
                                 <ol>
                                     <li>Install our Thriendly chrome extension to create "AI Reply" button under
-                                        threads post. </li>
+                                        Threads / X posts </li>
                                     <a target="_blank" class="btn btn-success mt-4"
                                         href="https://chromewebstore.google.com/detail/thriendly-fastest-way-to/pkcbhfpjmikbphjgaibckpnemgbmahkm"><i
                                             class="fa-brands fa-chrome"></i> Install

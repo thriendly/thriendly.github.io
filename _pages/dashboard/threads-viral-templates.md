@@ -24,12 +24,12 @@ permalink: /app/threads-templates
 
                                     <br><br>
 
-                                    Coming Soon! 
-                                    
+                                    Coming Soon!
+
                                     <br><br>
 
                                     Join Priority waitlist here <a class="btn btn-success" target="_blank"
-                                    href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+                                        href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
 
                                 </h5>
                             </div>

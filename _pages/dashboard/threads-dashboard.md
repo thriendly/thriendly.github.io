@@ -7,6 +7,8 @@ permalink: /app/threads-dashboard
 <div id="content">
     <div class="container mt-4">
         <h3 class="mb-4">Thriendly: Threads Dashboard</h3>
+        <h5 class="mb-4">Coming Soon! Join priority waitlist here <a class="btn btn-success btn-sm" target="_blank"
+            href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a></h5>
 
         <div class="row mb-4">
             <div class="col-md-3 mb-3">

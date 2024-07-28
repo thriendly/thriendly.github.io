@@ -478,11 +478,12 @@ progress {
   font-size: calc(1.575rem + 3.9vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1rem + 1.5vw);
 }
 @media (min-width: 1200px) {
-  .display-2 {
-    font-size: 4.5rem;
-  }
+  /* .display-2 {
+    font-size: 1rem;
+  } */
 }
 
 .display-3 {
@@ -10806,7 +10807,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .display-2--description {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     display: inline-block;
   }
 }
@@ -10819,7 +10820,7 @@ textarea.form-control-lg {
   --color-one: hsl(60.43deg 86.23% 44.98%);
   --color-two: hsl(182.95deg 100% 50%);
   font-family: sans-serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   

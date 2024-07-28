@@ -10,7 +10,7 @@ permalink: /signup
             <div class="card shadow">
                 <div class="card-body mx-auto">
                     <h3 class="card-title mt-3 text-center text-info">Welcome to Thriendly!</h3>
-                    <h4 class="card-title mt-3 text-success">Everyone can be social media influencer!</h4>
+                    <h4 class="card-title mt-3 text-success">Everyone can be social influencer!</h4>
 
                     <h4 class="card-title mt-3 text-center">Create Account</h4>
                     <!-- <p>

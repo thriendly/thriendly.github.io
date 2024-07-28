@@ -57,17 +57,32 @@ permalink: /app/aireplys
             <div class="col-12">
                 <div class="card latest-threads">
                     <div class="card-body">
-                        <div class="row mt-4">
-                            <div class="" id="cent">
-                                <h5 class="font-weight-bold">
-                                    Enter this account key on the Chrome extension that you installed.
-                                    <br><br>
 
-                                    Each AI Reply consumes 1 credit.
-
-                                </h5>
+                        <div class="row">
+                            <div class="">
+                                <hr>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="">
+                                <p><b>To Use Thriendly AI Replys for Threads / X:</b></p>
+                                <ol>
+                                    <li>Install our Thriendly chrome extension to create "AI Reply" button under
+                                        threads post. </li>
+                                    <a target="_blank" class="btn btn-success mt-4"
+                                        href="https://chromewebstore.google.com/detail/thriendly-fastest-way-to/pkcbhfpjmikbphjgaibckpnemgbmahkm"><i
+                                            class="fa-brands fa-chrome"></i> Install
+                                        Chrome Extension</a>
+                                    <li class="mt-4">Once you install, Enter the account key above (You can click
+                                        "Generate Key" above if its empty) in the Chrome
+                                        extension that
+                                        you installed</li>
+                                </ol>
+                                Note: Each AI Reply consumes 1 credit.
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="" id="cent">
                                 <hr>

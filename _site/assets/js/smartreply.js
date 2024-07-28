@@ -49,6 +49,7 @@ $(document).ready(function () {
   function fetchUserDataAndHandleFormSubmission(user) {
     const userId = user.uid;
     fetchUserDataAndPopulateApiKey(userId);
+    $("#userEmail").text(user.email);
 
     $("#apiKeyForm").submit(function (event) {
       event.preventDefault();

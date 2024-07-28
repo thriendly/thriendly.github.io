@@ -15,7 +15,7 @@ permalink: /app/aireplys
                     <div class="card-body">
                         <div class="row mt-4">
                             <div class="" id="cent">
-                                <h5 class="font-weight-bold text-success">Total Credits: <span id="credits"></span>
+                                <h5 class="font-weight-bold text-success">Total Credits: <span id="credits">50</span>
                                 </h5>
                             </div>
                         </div>

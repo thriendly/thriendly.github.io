@@ -17,6 +17,9 @@
 <loc>http://localhost:4000/privacy</loc>
 </url>
 <url>
+<loc>http://localhost:4000/refundpolicy</loc>
+</url>
+<url>
 <loc>http://localhost:4000/signup</loc>
 </url>
 <url>

@@ -83,45 +83,57 @@ permalink: /app/aireplys
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="" id="cent">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="row">
+                    </div>
+                </div>
+            </div>
 
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card latest-threads">
+                        <div class="card-body">
+
+                            <p><b>Thriendly extension account key setup:</b></p>
+
+                            <div class="row">
+                                <iframe src="https://www.youtube.com/embed/GPii9SI7I7Y?vq=hd720p60" height="500" width="100%"
+                                    title="Thriendly Chrome extension setup tutorial" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
 
     </div>
 
-</div>
+    <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/smartreply.js"></script>
 
-<script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<script src="{{ site.baseurl }}/assets/js/smartreply.js"></script>
+    <script type="module">
+        import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";
 
-<script type="module">
-    import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";
+        /* // On profile page
+        checkAuthAndExecute(
+            (user) => {
+                console.log("Inside smart reply page : " + user);
+                // User is signed in
+                console.log("Inside smart reply page User is signed in:", user.email);
+                console.log("Inside smart reply page User token:", user.getIdToken());
+                user.getIdToken()
+                    .then((idToken) => {
+                        // idToken contains the ID token string
+                        console.log("ID Token:", idToken);
+                    })
+                    .catch((error) => {
+                        console.error("Error getting ID token:", error.message);
+                    });
+            }
+        ); */
 
-    /* // On profile page
-    checkAuthAndExecute(
-        (user) => {
-            console.log("Inside smart reply page : " + user);
-            // User is signed in
-            console.log("Inside smart reply page User is signed in:", user.email);
-            console.log("Inside smart reply page User token:", user.getIdToken());
-            user.getIdToken()
-                .then((idToken) => {
-                    // idToken contains the ID token string
-                    console.log("ID Token:", idToken);
-                })
-                .catch((error) => {
-                    console.error("Error getting ID token:", error.message);
-                });
-        }
-    ); */
-
-</script>
+    </script>

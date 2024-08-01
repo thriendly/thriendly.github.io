@@ -66,7 +66,8 @@ permalink: /app/aireplys
 
                         <div class="row">
                             <p>80% of Threads followers come from valuable comments to others posts.</p>
-                            <p>Thriendly AI Reply chrome extension helps you create valuable comments that convert to followers in 1 click.</p>
+                            <p>Thriendly AI Reply chrome extension helps you create valuable comments that convert to
+                                followers in 1 click.</p>
                             <p>Get started with Thriendly below 👇 </p>
                         </div>
 
@@ -126,6 +127,7 @@ permalink: /app/aireplys
 
     <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
     <script src="{{ site.baseurl }}/assets/js/smartreply.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/tawk-to-chat.js"></script>
 
     <script type="module">
         import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";

@@ -115,7 +115,7 @@ permalink: /signup
                 // Send email verification
                 verifyUser(user);
 
-                $("#error").text("Signup success. Check inbox for verification email!").show();
+                $("#error").text("Signup success. Please check your email for verification email!").show();
                 // goHome();
             })
             .catch((error) => {

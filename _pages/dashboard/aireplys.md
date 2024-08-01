@@ -65,6 +65,18 @@ permalink: /app/aireplys
                         </div>
 
                         <div class="row">
+                            <p>80% of Threads followers come from valuable comments to others posts.</p>
+                            <p>Thriendly AI Reply chrome extension helps you create valuable comments that convert to followers in 1 click.</p>
+                            <p>Get started with Thriendly below 👇 </p>
+                        </div>
+
+                        <div class="row">
+                            <div class="">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="">
                                 <p><b>To Use Thriendly AI Replys for Threads / X:</b></p>
                                 <ol>
@@ -95,8 +107,8 @@ permalink: /app/aireplys
                             <p><b>Thriendly extension account key setup:</b></p>
 
                             <div class="row">
-                                <iframe src="https://www.youtube.com/embed/GPii9SI7I7Y?vq=hd720p60" height="500" width="100%"
-                                    title="Thriendly Chrome extension setup tutorial" frameborder="0"
+                                <iframe src="https://www.youtube.com/embed/GPii9SI7I7Y?vq=hd720p60" height="500"
+                                    width="100%" title="Thriendly Chrome extension setup tutorial" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

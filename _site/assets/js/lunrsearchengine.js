@@ -58,7 +58,7 @@ var documents = [{
     "id": 11,
     "url": "http://localhost:4000/app/viral-hooks",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Threads Dashboard                  Thriendly Threads Templates:                     Viral thread templates that help you grow faster on Threads        Just choose a template and ask our AI to create a thread. It does all the magic.                                                   More templates coming soon!           Join Priority Waitlist                                &times;      :                           Template:                                  Example:                          Create Similar Hook &nbsp;                  "
+    "body": "      Thriendly Threads Dashboard            Thriendly Threads Templates:                   Viral thread templates that help you grow faster on Threads        Just choose a template and ask our AI to create a thread. It does all the magic.                                                   More templates coming soon!           Join Priority            Waitlist                                     Back to Templates            Create Similar Hook:                                                         Template:                                            Example:                                            View Post &nbsp;                                    Create Your Hook                                    Your Topic                                                    Additional Information (optional)                                      Generate Hook &nbsp;                                              "
     }, {
     "id": 12,
     "url": "http://localhost:4000/app/viral-threads",

@@ -18,7 +18,7 @@ var documents = [{
     "id": 3,
     "url": "http://localhost:4000/forgot-password",
     "title": "Forgot Password - TipSeason",
-    "body": "                              Forgot Password:           Reset Your Password:           Enter your email address to receive a password reset link.                                                                                                                         Send Reset Link                                       Back to Login                                       A password reset link has been sent to your email address.                                       An error occurred. Please try again.                                           "
+    "body": "                              Reset your Password:           Enter your email address to receive a password reset link.                                                                                                                         Send Reset Link                                       Back to Login                                       A password reset link has been sent to your email address.                                       An error occurred. Please try again.                                           "
     }, {
     "id": 4,
     "url": "http://localhost:4000/login",
@@ -38,7 +38,7 @@ var documents = [{
     "id": 7,
     "url": "http://localhost:4000/reset-password",
     "title": "Reset Password - TipSeason",
-    "body": "                              Reset Password:           Enter New Password:           Enter and confirm your new password below.                                                                                                                                                                                                            Reset Password                                       Back to Login                                       Password has been updated successfully.                                       An error occurred. Please try again.                                           "
+    "body": "                              Reset Password:           Enter New Password:           Enter and confirm your new password below.                                                                                                                                                                                                            Reset Password                                       Back to Login                                       Password has been updated successfully. Please login to your account. Link                                       An error occurred. Please try again.                                           "
     }, {
     "id": 8,
     "url": "http://localhost:4000/signup",
@@ -68,12 +68,12 @@ var documents = [{
     "id": 13,
     "url": "http://localhost:4000/app/viral-hooks",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Threads Dashboard            Thriendly Threads Templates:                   Viral thread templates that help you grow faster on Threads        Just choose a template and ask our AI to create a thread. It does all the magic.                                                   More templates coming soon!           Join Priority            Waitlist                                     Back to Templates            Create Similar Hook:                                                         Template:                                            Example:                                            View Post &nbsp;                                    Create Your Hook                                    Your Topic                                                    Additional Information (optional)                                      Generate Hook &nbsp;                                              "
+    "body": "      Thriendly Threads Dashboard            Thriendly Threads Templates:                   Viral thread templates that help you grow faster on Threads        Just choose a template and ask our AI to create a thread. It does all the magic.                                                   More templates coming soon!           Join Priority            Waitlist                                     Back to Templates            Create Similar Hook:                                                         Template:                                            Example:                                            View Post &nbsp;                                    Create Your Hook                                    Your Topic                                                    Additional Information (optional)                                                    Generate Hook &nbsp;                                                                            "
     }, {
     "id": 14,
     "url": "http://localhost:4000/app/viral-threads",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Viral Long Thread Templates:               Viral thread templates that help you grow faster on Threads      Just choose a template and ask our AI to create a thread. It does all the magic.                                     More templates coming soon!         Join Priority Waitlist            "
+    "body": "      Thriendly Viral Long Thread Templates:               Viral thread templates that help you grow faster on Threads      Just choose a template and ask our AI to create a thread. It does all the magic.                                     Coming soon for premium users!         Join Priority Waitlist            "
     }, {
     "id": 15,
     "url": "http://localhost:4000/trending",

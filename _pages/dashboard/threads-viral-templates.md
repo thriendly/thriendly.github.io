@@ -29,7 +29,7 @@ permalink: /app/viral-threads
 
         <div class="row mt-4">
             <div class="col-12 text-center">
-                <p>More templates coming soon!</p>
+                <p>Coming soon for premium users!</p>
                 <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority Waitlist</a>
             </div>
         </div>

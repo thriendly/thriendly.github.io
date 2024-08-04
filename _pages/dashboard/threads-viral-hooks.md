@@ -63,6 +63,13 @@ permalink: /app/viral-hooks
             word-wrap: break-word;
             max-width: 100%;
             overflow-x: hidden;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #444;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -121,14 +128,17 @@ permalink: /app/viral-hooks
                         <div class="mb-3">
                             <label for="topic" class="form-label">Your Topic</label>
                             <input type="text" class="form-control" id="topic" required
-                                placeholder="Eg: 10 ways to make money online">
+                                placeholder="Eg: 10 tips for viral instagram growth">
                         </div>
                         <div class="mb-3">
                             <label for="additionalInfo" class="form-label">Additional Information (optional)</label>
                             <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i
-                                class="fa-solid fa-wand-magic-sparkles"></i></button>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i
+                                    class="fa-solid fa-wand-magic-sparkles"></i></button>
+                            <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
+                        </div>
                     </form>
                     <div id="generatedHook" class="mt-4"></div>
                 </div>
@@ -136,9 +146,15 @@ permalink: /app/viral-hooks
         </div>
     </div>
 
+    <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+        import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";</script>
+
     <script>
+
+
         // Define the JSON data for thread templates
         const threadTemplates = [
             {
@@ -157,6 +173,15 @@ permalink: /app/viral-hooks
                 fullDescription: "Create a comprehensive guide that walks your audience through a process or task. Break down complex topics into easy-to-follow steps, making it simple for readers to implement your advice.",
                 template: "1. Introduction: [Brief overview of the topic]\n2. Step 1: [First step]\n3. Step 2: [Second step]\n...\n10. Conclusion: [Summary and final thoughts]",
                 example: "How to Start a Successful Blog in 10 Steps\n\n1. Introduction: Starting a blog can be a rewarding experience...\n2. Choose your niche: Decide on a topic you're passionate about...\n3. Select a blogging platform: WordPress, Blogger, or Medium...\n...\n10. Conclusion: By following these steps, you'll be well on your way...",
+                link: "#"
+            },
+            {
+                title: "Viral product launch",
+                description: "Hook to help with viral product launch",
+                icon: "fa-solid fa-rocket",
+                fullDescription: "Subscribe to premium plan!",
+                template: "Subscribe to premium plan!",
+                example: "Subscribe to premium plan!",
                 link: "#"
             },
             // Add more templates here
@@ -204,6 +229,14 @@ permalink: /app/viral-hooks
 
         // Load cards and set up event listeners when the document is ready
         $(document).ready(function () {
+            // On profile page
+            checkAuthAndExecute((user) => {
+                // Store user ID globally
+                window.userId = user.uid;
+                // Or use localStorage
+                localStorage.setItem('userId', user.uid);
+            });
+
             loadTemplateCards();
 
             // Make entire card clickable
@@ -230,15 +263,55 @@ permalink: /app/viral-hooks
             // Handle form submission
             $('#hookForm').on('submit', function (e) {
                 e.preventDefault();
+                $("#loading").show();
                 const topic = $('#topic').val();
-                const additionalInfo = $('#additionalInfo').val();
+                const templateContent = $('#templateContent').html();
+                const exampleContent = $('#exampleContent').html();
+                const userId = window.userId || localStorage.getItem('userId');
 
-                // Simulating API call
-                setTimeout(() => {
-                    const generatedHook = `This is just a sample response! Actual AI responses will be available once we launch. Please join priority waitlist meanwhile! \n\nGenerated hook for "${topic}":\n\n${topic} is a game-changer.\nYet people don't know how to leverage it effectively.\n5 strategies that help you maximize ${topic}'s potential.\n(These strategies work across various industries) 🧵`;
-                    $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}</pre>`);
-                }, 1);
+                // Prepare API parameters
+                const apiUrl = 'https://ai.thriendly.com/hook-generator';
+                const apiParams = {
+                    topic: topic,
+                    example: exampleContent,
+                    template: templateContent,
+                    userId: userId
+                };
+
+                // Call the API
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    data: apiParams,
+                    success: function (response) {
+                        // Process the response
+                        const generatedHook = parseResponse(response) || 'No hook generated.';
+                        $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}</pre>`);
+                        $("#loading").hide();
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle errors
+                        $('#generatedHook').html(`<h6>Error:</h6><pre>${error}</pre>`);
+                        $("#loading").hide();
+                    }
+                });
             });
         });
+
+        function parseResponse(data) {
+            if (data && data.candidates && data.candidates.length > 0) {
+                const candidatesRaw = data.candidates[0].content.parts[0].text;
+                var candidates = candidatesRaw.replace("```html", "");
+                candidates = candidates.replaceAll("*", "");
+                finalResponse = candidates.replace("```", "");
+                return finalResponse;
+            } else {
+                if (data && typeof data === 'string' && data.includes("Insufficient Credits")) {
+                    return data;
+                }
+                return "invalid response. try again in sometime!";
+            }
+        }
     </script>
+
 </body>

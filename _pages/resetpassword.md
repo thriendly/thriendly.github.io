@@ -34,7 +34,7 @@ permalink: /reset-password
                             <a href="/login">Back to Login</a>
                         </p>
                         <p class="text-center text-success" id="successMessage" style="display:none;">
-                            Password has been updated successfully.
+                            Password has been updated successfully. Please login to your account. <a href="/login">Link</a>
                         </p>
                         <p class="text-center text-danger" id="errorMessage" style="display:none;">
                             An error occurred. Please try again.

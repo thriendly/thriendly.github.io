@@ -11,6 +11,9 @@
 <loc>http://localhost:4000/app/aireplys</loc>
 </url>
 <url>
+<loc>http://localhost:4000/forgot-password</loc>
+</url>
+<url>
 <loc>http://localhost:4000/login</loc>
 </url>
 <url>
@@ -18,6 +21,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/refundpolicy</loc>
+</url>
+<url>
+<loc>http://localhost:4000/reset-password</loc>
 </url>
 <url>
 <loc>http://localhost:4000/signup</loc>

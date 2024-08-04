@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: dashboard
 title: 100 Viral Hooks to Grow on threads and boost engagement
 ---
 

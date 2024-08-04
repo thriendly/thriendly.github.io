@@ -111,7 +111,8 @@ permalink: /app/viral-hooks
                     </div>
 
                     <div class="viewpost-section">
-                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="col" id="createHookSection">
@@ -119,13 +120,15 @@ permalink: /app/viral-hooks
                     <form id="hookForm">
                         <div class="mb-3">
                             <label for="topic" class="form-label">Your Topic</label>
-                            <input type="text" class="form-control" id="topic" required placeholder="Eg: 10 ways to make money online">
+                            <input type="text" class="form-control" id="topic" required
+                                placeholder="Eg: 10 ways to make money online">
                         </div>
                         <div class="mb-3">
                             <label for="additionalInfo" class="form-label">Additional Information (optional)</label>
                             <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i class="fa-solid fa-wand-magic-sparkles"></i></button>
+                        <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i
+                                class="fa-solid fa-wand-magic-sparkles"></i></button>
                     </form>
                     <div id="generatedHook" class="mt-4"></div>
                 </div>
@@ -232,8 +235,8 @@ permalink: /app/viral-hooks
 
                 // Simulating API call
                 setTimeout(() => {
-                    const generatedHook = `Generated hook for "${topic}":\n\n${topic} is a game-changer.\nYet people don't know how to leverage it effectively.\n5 strategies that help you maximize ${topic}'s potential.\n(These strategies work across various industries) 🧵`;
-                    $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}Yet people don't know how to leverage it effectively.\nYet people don't know how to leverage it effectively.\nYet people don't know how to leverage it effectively.\nYet people don't know how to leverage it effectively.\nYet people don't know how to leverage it effectively.le don't know how to lele don't know how to lele don't know how to lele don't know how to lele don't know how to le\n</pre>`);
+                    const generatedHook = `This is just a sample response! Actual AI responses will be available once we launch. Please join priority waitlist meanwhile! \n\nGenerated hook for "${topic}":\n\n${topic} is a game-changer.\nYet people don't know how to leverage it effectively.\n5 strategies that help you maximize ${topic}'s potential.\n(These strategies work across various industries) 🧵`;
+                    $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}</pre>`);
                 }, 1);
             });
         });

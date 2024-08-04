@@ -117,6 +117,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+
         .card-title {
             color: var(--blue-dark);
             font-weight: 600;
@@ -136,6 +137,42 @@
 
         #sidebarCollapse:hover {
             color: var(--blue-accent);
+        }
+
+        #sidebar ul li a.dropdown-toggle::after {
+            display: none;
+        }
+
+        #sidebar ul li a .fa-chevron-down {
+            transition: transform 0.3s;
+        }
+
+        #sidebar ul li a[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        #sidebar ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        #sidebar.active ul ul a {
+            padding-left: 10px !important;
+        }
+
+        #sidebar ul ul li.active>a,
+        #sidebar ul ul a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #sidebar.active .dropdown-toggle::after {
+            display: none;
+        }
+
+        #sidebar.active ul li a .fa-chevron-down {
+            display: none;
         }
 
         .content-header {
@@ -188,11 +225,22 @@
                 </button>
             </div>
             <ul class="list-unstyled components">
-                <li><a href="/app/aireplys"><i class="fa-regular fa-comment-dots"></i><span>AI Replys</span></a></li>
-                <li><a href="/app/threads-templates"><i class="fa-solid fa-list-check"></i> <span>Viral Templates</span></a></li>
+                <li><a href="/app/aireplys"><i class="fa-regular fa-comment-dots"></i><span>AI Engagement</span></a></li>
+                <li>
+                    <a href="#viralTemplatesSubmenu" class="dropdown-toggle">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Viral Templates &nbsp; </span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <ul class="collapse list-unstyled" id="viralTemplatesSubmenu">
+                        <li><a href="/app/viral-hooks"><span><i class="fa-solid fa-anchor"></i> Hook Templates</span></a></li>
+                        <li><a href="/app/viral-threads"><span><i class="fa-solid fa-pen"></i> Long Post Templates</span></a></li>
+                    </ul>
+                </li>
                 <li><a href="/app/threads-dashboard"><i class="fa-solid fa-chart-line"></i><span>Threads
                             Dashboard</span></a></li>
-                <li><a href="/app/threads-scheduler"><i class="fa-solid fa-calendar"></i> <span>Threads Scheduler</span></a></li>
+                <li><a href="/app/threads-scheduler"><i class="fa-solid fa-calendar"></i> <span>Threads
+                            Scheduler</span></a></li>
             </ul>
             <ul class="list-unstyled fixed-bottom">
                 <li class="nav-item dropdown">
@@ -202,8 +250,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
                         <li><a class="dropdown-item text-secondary" href="#" id="logout">Logout</a></li>
-                        <li><a class="dropdown-item text-secondary" href="mailto:contact@tipseason.com" id="logout">Contact Us</a></li>
-                        <li><a class="dropdown-item text-secondary" id="userEmail" href="#" ></a></li>
+                        <li><a class="dropdown-item text-secondary" href="mailto:contact@tipseason.com"
+                                id="logout">Contact Us</a></li>
+                        <li><a class="dropdown-item text-secondary" id="userEmail" href="#"></a></li>
                     </ul>
                 </li>
             </ul>
@@ -218,6 +267,17 @@
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
+            });
+
+            $('.dropdown-toggle').on('click', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                var submenu = $(this).next('.collapse');
+                submenu.collapse('toggle');
+
+                // Toggle aria-expanded attribute
+                var isExpanded = $(this).attr('aria-expanded') === 'true';
+                $(this).attr('aria-expanded', !isExpanded);
             });
         });
     </script>

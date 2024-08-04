@@ -7,7 +7,8 @@ permalink: /app/aireplys
 <div id="content">
     <div class="container mt-4 col-md-6">
 
-        <h3 class="mb-4">Thriendly: AI Replys</h3>
+        <h2 class="mb-4">Thriendly: AI Engagement</h2>
+        <h5 class="mb-4">10X faster and valuable engagmenets with AI powered replys</h5>
 
         <div class="row">
             <div class="col-12">
@@ -66,7 +67,7 @@ permalink: /app/aireplys
 
                         <div class="row">
                             <p>80% of Threads followers come from valuable comments to others posts.</p>
-                            <p>Thriendly AI Reply chrome extension helps you create valuable comments that convert to
+                            <p>Thriendly AI Reply chrome extension helps you create engaging comments that convert to
                                 followers in 1 click.</p>
                             <p>Get started with Thriendly below 👇 </p>
                         </div>

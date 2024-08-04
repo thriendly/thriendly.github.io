@@ -9,9 +9,8 @@ permalink: /forgot-password
         <div class="col-12 col-md-6 col-lg-4 h-50" style="margin-bottom: 100px;">
             <div class="card shadow mb-10">
                 <div class="card-body mx-auto">
-                    <h3 class="card-title mt-3 text-center text-info">Forgot Password</h3>
+                    <h3 class="card-title mt-3 text-center text-info">Reset your Password</h3>
 
-                    <h4 class="card-title mt-3 text-center">Reset Your Password</h4>
                     <p class="text-center">Enter your email address to receive a password reset link.</p>
 
                     <form id="forgotPasswordForm">

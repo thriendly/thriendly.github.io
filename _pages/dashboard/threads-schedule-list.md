@@ -19,21 +19,30 @@ permalink: /app/threads-scheduler
                             <div class="" id="cent">
                                 <h5 class="font-weight-bold">
 
-                                    Schedule AI powered Viral threads with out Threads Scheduler. 
+                                    Schedule AI powered Viral threads with out Threads Scheduler.
 
                                     <br><br>
 
-                                    Coming Soon! 
-                                    
+                                    Coming Soon!
+
                                     <br><br>
 
-                                    Join Priority waitlist here <a class="btn btn-success" target="_blank"
-                                    href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+
+                                    Join Priority waitlist here 
+                                    <p class="mt-3">
+                                    <a class="btn btn-success" target="_blank"
+                                        href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+                                    </p>
+
+
+                                    <p><a target="_blank" class="btn btn-primary btn"
+                                        href="https://discord.com/invite/kT47PeKz">Join Threads
+                                        Growth community</a></p>
 
                                 </h5>
                             </div>
                             <div class="row mt-4 col-md-3">
-                                
+
                             </div>
 
 

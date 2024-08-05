@@ -17,7 +17,7 @@ permalink: /app/viral-threads
 <div id="content">
     <div class="container mt-4">
         <h3 class="mb-4 text-primary">Thriendly Viral Long Thread Templates</h3>
-        
+
         <div class="mb-4">
             <h5>Viral thread templates that help you grow faster on Threads</h5>
             <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
@@ -30,10 +30,17 @@ permalink: /app/viral-threads
         <div class="row mt-4">
             <div class="col-12 text-center">
                 <p>Coming soon for premium users!</p>
-                <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority Waitlist</a>
+                <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
+
+                <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads
+                    Growth community</a>
+
+                <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
+                    Waitlist</a>
             </div>
         </div>
     </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -102,7 +109,7 @@ permalink: /app/viral-threads
     }
 
     // Load cards when the document is ready
-    $(document).ready(function() {
+    $(document).ready(function () {
         loadTemplateCards();
     });
 </script>

@@ -8,7 +8,10 @@ permalink: /app/threads-dashboard
     <div class="container mt-4">
         <h3 class="mb-4">Thriendly: Threads Dashboard</h3>
         <h5 class="mb-4">Coming Soon! Join priority waitlist here <a class="btn btn-success btn-sm" target="_blank"
-            href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a></h5>
+            href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+            <a target="_blank" class="btn btn-primary btn-sm" href="https://discord.com/invite/kT47PeKz">Join Threads
+                    Growth community</a>
+            </h5>
 
         <div class="row mb-4">
             <div class="col-md-3 mb-3">
@@ -91,8 +94,8 @@ permalink: /app/threads-dashboard
             </div>
         </div>
     </div>
-</div>
 
+</div>
 
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>

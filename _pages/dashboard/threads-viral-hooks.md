@@ -91,6 +91,11 @@ permalink: /app/viral-hooks
             <div class="row mt-4">
                 <div class="col-12 text-center">
                     <p>More templates coming soon!</p>
+                    <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
+
+                    <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads Growth community</a>
+
+
                     <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
                         Waitlist</a>
                 </div>
@@ -165,6 +170,15 @@ permalink: /app/viral-hooks
                 template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
                 example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
                 link: "https://www.threads.net/@thetipseason/post/C90IUTqSsav"
+            },
+            {
+                title: "Create Suspense",
+                description: "Emotional hook to create suspense and making people know the secret",
+                icon: "fa-solid fa-user-secret",
+                fullDescription: "Emotional hook to create suspense and making people know the secret",
+                template: "I shouldn't be sharing this\n\nThey told me to keep it [emotion] 🤐\n\nBut I just can't [action] any longer\n\nMy exact [item] to [achievement] 👇\n\nHint: It's NOT [common solution 1] and NOT [common solution 2]!",
+                example: "I shouldn't be sharing this\n\nThey told me to keep it a secret 🤐\n\nBut I just can't stay silent any longer\n\nMy exact formula to grow from 0 to 1300 followers in 6 weeks 👇\n\nHint: Its NOT a book and NOT a course!",
+                link: "#"
             },
             {
                 title: "How-To Guide",

@@ -1,201 +1,212 @@
 $(document).ready(function () {
   // Simulating API call with the provided sample data
   const apiData = {
-    data: [
-      {
-        name: "likes",
-        period: "day",
-        title: "likes",
-        description: "The number of likes on your posts.",
-        total_value: {
-          value: 4054,
+    "data": [
+        {
+            "name": "likes",
+            "period": "day",
+            "title": "likes",
+            "description": "The number of likes on your posts.",
+            "total_value": {
+                "value": 4181
+            },
+            "id": "17841453187567853/insights/likes/day"
         },
-        id: "17841453187567853/insights/likes/day",
-      },
-      {
-        name: "replies",
-        period: "day",
-        title: "replies",
-        description: "The number of replies on your posts.",
-        total_value: {
-          value: 752,
+        {
+            "name": "replies",
+            "period": "day",
+            "title": "replies",
+            "description": "The number of replies on your posts.",
+            "total_value": {
+                "value": 828
+            },
+            "id": "17841453187567853/insights/replies/day"
         },
-        id: "17841453187567853/insights/replies/day",
-      },
-      {
-        name: "followers_count",
-        period: "day",
-        title: "followers_count",
-        description: "This is your total number of followers on Threads.",
-        total_value: {
-          value: 1294,
+        {
+            "name": "followers_count",
+            "period": "day",
+            "title": "followers_count",
+            "description": "This is your total number of followers on Threads.",
+            "total_value": {
+                "value": 1326
+            },
+            "id": "17841453187567853/insights/followers_count/day"
         },
-        id: "17841453187567853/insights/followers_count/day",
-      },
-      {
-        name: "reposts",
-        period: "day",
-        title: "reposts",
-        description: "The number of times your posts were reposted.",
-        total_value: {
-          value: 384,
+        {
+            "name": "reposts",
+            "period": "day",
+            "title": "reposts",
+            "description": "The number of times your posts were reposted.",
+            "total_value": {
+                "value": 388
+            },
+            "id": "17841453187567853/insights/reposts/day"
         },
-        id: "17841453187567853/insights/reposts/day",
-      },
-      {
-        name: "views",
-        period: "day",
-        values: [
-          {
-            value: 225,
-            end_time: "2024-06-30T07:00:00+0000",
-          },
-          {
-            value: 1110,
-            end_time: "2024-07-01T07:00:00+0000",
-          },
-          {
-            value: 25324,
-            end_time: "2024-07-02T07:00:00+0000",
-          },
-          {
-            value: 26131,
-            end_time: "2024-07-03T07:00:00+0000",
-          },
-          {
-            value: 116,
-            end_time: "2024-07-04T07:00:00+0000",
-          },
-          {
-            value: 28,
-            end_time: "2024-07-05T07:00:00+0000",
-          },
-          {
-            value: 35,
-            end_time: "2024-07-06T07:00:00+0000",
-          },
-          {
-            value: 118,
-            end_time: "2024-07-07T07:00:00+0000",
-          },
-          {
-            value: 139,
-            end_time: "2024-07-08T07:00:00+0000",
-          },
-          {
-            value: 493,
-            end_time: "2024-07-09T07:00:00+0000",
-          },
-          {
-            value: 6432,
-            end_time: "2024-07-10T07:00:00+0000",
-          },
-          {
-            value: 3244,
-            end_time: "2024-07-11T07:00:00+0000",
-          },
-          {
-            value: 7308,
-            end_time: "2024-07-12T07:00:00+0000",
-          },
-          {
-            value: 1399,
-            end_time: "2024-07-13T07:00:00+0000",
-          },
-          {
-            value: 214,
-            end_time: "2024-07-14T07:00:00+0000",
-          },
-          {
-            value: 724,
-            end_time: "2024-07-15T07:00:00+0000",
-          },
-          {
-            value: 1285,
-            end_time: "2024-07-16T07:00:00+0000",
-          },
-          {
-            value: 33684,
-            end_time: "2024-07-17T07:00:00+0000",
-          },
-          {
-            value: 23575,
-            end_time: "2024-07-18T07:00:00+0000",
-          },
-          {
-            value: 9248,
-            end_time: "2024-07-19T07:00:00+0000",
-          },
-          {
-            value: 14503,
-            end_time: "2024-07-20T07:00:00+0000",
-          },
-          {
-            value: 29823,
-            end_time: "2024-07-21T07:00:00+0000",
-          },
-          {
-            value: 6637,
-            end_time: "2024-07-22T07:00:00+0000",
-          },
-          {
-            value: 1612,
-            end_time: "2024-07-23T07:00:00+0000",
-          },
-          {
-            value: 113465,
-            end_time: "2024-07-24T07:00:00+0000",
-          },
-          {
-            value: 314970,
-            end_time: "2024-07-25T07:00:00+0000",
-          },
-          {
-            value: 143486,
-            end_time: "2024-07-26T07:00:00+0000",
-          },
-          {
-            value: 9730,
-            end_time: "2024-07-27T07:00:00+0000",
-          },
-          {
-            value: 4346,
-            end_time: "2024-07-28T07:00:00+0000",
-          },
-          {
-            value: 6112,
-            end_time: "2024-07-29T07:00:00+0000",
-          },
-          {
-            value: 101653,
-            end_time: "2024-07-30T07:00:00+0000",
-          },
-          {
-            value: 126614,
-            end_time: "2024-07-31T07:00:00+0000",
-          },
-        ],
-        title: "views",
-        description: "The number of times your profile was viewed.",
-        id: "17841453187567853/insights/views/day",
-      },
-      {
-        name: "quotes",
-        period: "day",
-        title: "quotes",
-        description: "The number of times your posts were quoted.",
-        total_value: {
-          value: 8,
+        {
+            "name": "views",
+            "period": "day",
+            "values": [
+                {
+                    "value": 225,
+                    "end_time": "2024-06-30T07:00:00+0000"
+                },
+                {
+                    "value": 1110,
+                    "end_time": "2024-07-01T07:00:00+0000"
+                },
+                {
+                    "value": 25324,
+                    "end_time": "2024-07-02T07:00:00+0000"
+                },
+                {
+                    "value": 26131,
+                    "end_time": "2024-07-03T07:00:00+0000"
+                },
+                {
+                    "value": 116,
+                    "end_time": "2024-07-04T07:00:00+0000"
+                },
+                {
+                    "value": 28,
+                    "end_time": "2024-07-05T07:00:00+0000"
+                },
+                {
+                    "value": 35,
+                    "end_time": "2024-07-06T07:00:00+0000"
+                },
+                {
+                    "value": 118,
+                    "end_time": "2024-07-07T07:00:00+0000"
+                },
+                {
+                    "value": 139,
+                    "end_time": "2024-07-08T07:00:00+0000"
+                },
+                {
+                    "value": 493,
+                    "end_time": "2024-07-09T07:00:00+0000"
+                },
+                {
+                    "value": 6432,
+                    "end_time": "2024-07-10T07:00:00+0000"
+                },
+                {
+                    "value": 3244,
+                    "end_time": "2024-07-11T07:00:00+0000"
+                },
+                {
+                    "value": 7308,
+                    "end_time": "2024-07-12T07:00:00+0000"
+                },
+                {
+                    "value": 1399,
+                    "end_time": "2024-07-13T07:00:00+0000"
+                },
+                {
+                    "value": 214,
+                    "end_time": "2024-07-14T07:00:00+0000"
+                },
+                {
+                    "value": 724,
+                    "end_time": "2024-07-15T07:00:00+0000"
+                },
+                {
+                    "value": 1285,
+                    "end_time": "2024-07-16T07:00:00+0000"
+                },
+                {
+                    "value": 33684,
+                    "end_time": "2024-07-17T07:00:00+0000"
+                },
+                {
+                    "value": 23575,
+                    "end_time": "2024-07-18T07:00:00+0000"
+                },
+                {
+                    "value": 9248,
+                    "end_time": "2024-07-19T07:00:00+0000"
+                },
+                {
+                    "value": 14503,
+                    "end_time": "2024-07-20T07:00:00+0000"
+                },
+                {
+                    "value": 29823,
+                    "end_time": "2024-07-21T07:00:00+0000"
+                },
+                {
+                    "value": 6637,
+                    "end_time": "2024-07-22T07:00:00+0000"
+                },
+                {
+                    "value": 1612,
+                    "end_time": "2024-07-23T07:00:00+0000"
+                },
+                {
+                    "value": 113465,
+                    "end_time": "2024-07-24T07:00:00+0000"
+                },
+                {
+                    "value": 314970,
+                    "end_time": "2024-07-25T07:00:00+0000"
+                },
+                {
+                    "value": 143486,
+                    "end_time": "2024-07-26T07:00:00+0000"
+                },
+                {
+                    "value": 9730,
+                    "end_time": "2024-07-27T07:00:00+0000"
+                },
+                {
+                    "value": 4346,
+                    "end_time": "2024-07-28T07:00:00+0000"
+                },
+                {
+                    "value": 6112,
+                    "end_time": "2024-07-29T07:00:00+0000"
+                },
+                {
+                    "value": 101653,
+                    "end_time": "2024-07-30T07:00:00+0000"
+                },
+                {
+                    "value": 126614,
+                    "end_time": "2024-07-31T07:00:00+0000"
+                },
+                {
+                    "value": 2012,
+                    "end_time": "2024-08-01T07:00:00+0000"
+                },
+                {
+                    "value": 2254,
+                    "end_time": "2024-08-02T07:00:00+0000"
+                },
+                {
+                    "value": 1713,
+                    "end_time": "2024-08-03T07:00:00+0000"
+                }
+            ],
+            "title": "views",
+            "description": "The number of times your profile was viewed.",
+            "id": "17841453187567853/insights/views/day"
         },
-        id: "17841453187567853/insights/quotes/day",
-      },
+        {
+            "name": "quotes",
+            "period": "day",
+            "title": "quotes",
+            "description": "The number of times your posts were quoted.",
+            "total_value": {
+                "value": 8
+            },
+            "id": "17841453187567853/insights/quotes/day"
+        }
     ],
-    paging: {
-      previous:
-        "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1717113599&until=1719791999&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
-      next: "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1722470401&until=1725148801&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
-    },
-  };
+    "paging": {
+        "previous": "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1716854399&until=1719791999&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes",
+        "next": "https://graph.threads.net/v1.0/17841463126859639/threads_insights?access_token=THQWJWSnJEMENpZAU1hc0c0bF9hbHBLR05VdVI3M2RjUnUweXAtZAnFoMTdnamUteTlwV043TldLRFdYbVYxcndadUJjYWJ2M043eU5JcTdEN29LVWxTS3E2NGpwNm5xRGZAXYnppOURDMFpWdTdybUktcVVfQ2hSZAGZAKbXcZD&since=1722729601&until=1725667201&metric=likes%2Creplies%2Cfollowers_count%2Creposts%2Cviews%2Cquotes"
+    }
+};
 
   // Update metrics
   updateMetric("likes", apiData);

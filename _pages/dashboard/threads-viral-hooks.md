@@ -178,7 +178,7 @@ permalink: /app/viral-hooks
                 fullDescription: "Emotional hook to create suspense and making people know the secret",
                 template: "I shouldn't be sharing this\n\nThey told me to keep it [emotion] 🤐\n\nBut I just can't [action] any longer\n\nMy exact [item] to [achievement] 👇\n\nHint: It's NOT [common solution 1] and NOT [common solution 2]!",
                 example: "I shouldn't be sharing this\n\nThey told me to keep it a secret 🤐\n\nBut I just can't stay silent any longer\n\nMy exact formula to grow from 0 to 1300 followers in 6 weeks 👇\n\nHint: Its NOT a book and NOT a course!",
-                link: "#"
+                link: "https://www.threads.net/@thetipseason/post/C-RnnJJxy9F"
             },
             {
                 title: "How-To Guide",

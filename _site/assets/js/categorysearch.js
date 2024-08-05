@@ -73,7 +73,7 @@ var documents = [{
     "id": 14,
     "url": "http://localhost:4000/app/viral-threads",
     "title": "Thriendly Threads Dashboard - Fastest way to grow on threads",
-    "body": "      Thriendly Viral Long Thread Templates:           Viral thread templates that help you grow faster on Threads      Just choose a template and ask our AI to create a thread. It does all the magic.                                     Coming soon for premium users!         For faster access and 10x growth tips, join our community or signup for waitlist         Join Threads          Growth community        Join Priority          Waitlist            "
+    "body": "      Thriendly Viral Long Thread Templates:           Viral thread templates that help you grow faster on Threads      Just choose a template and ask our AI to create a thread. It does all the magic.                       Coming soon for premium users!:                 Join Priority          Waitlist        Join Threads          Growth community                              "
     }, {
     "id": 15,
     "url": "http://localhost:4000/trending",

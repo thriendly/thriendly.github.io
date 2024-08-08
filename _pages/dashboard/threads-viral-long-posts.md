@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads Dashboard - Fastest way to grow on threads
-permalink: /app/viral-hooks
+permalink: /app/viral-long-posts
 ---
 
 <head>
@@ -85,6 +85,8 @@ permalink: /app/viral-hooks
             </div>
 
             <div class="row" id="templateCards">
+
+
                 <!-- Template cards will be dynamically inserted here -->
             </div>
 
@@ -93,8 +95,7 @@ permalink: /app/viral-hooks
                     <p>More templates coming soon!</p>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads
-                        Growth community</a>
+                    <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads Growth community</a>
 
 
                     <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
@@ -141,12 +142,12 @@ permalink: /app/viral-hooks
                             <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
                         </div> -->
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i
+                            <button type="submit" class="btn btn-primary">Generate Post &nbsp;<i
                                     class="fa-solid fa-wand-magic-sparkles"></i></button>
                             <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
                         </div>
                         <div class="mb-3">
-                            <p> Note: Each hook generation takes 1 Credit </p>
+                            <p> Note: Each long post generation takes 10 Credits </p>
                         </div>
                     </form>
                     <div id="generatedHook" class="mt-4"></div>
@@ -167,11 +168,101 @@ permalink: /app/viral-hooks
         // Define the JSON data for thread templates
         const threadTemplates = [
             {
-                title: "Grab Attention",
-                description: "Hook designed to grab users attention. Best suited to increase followers and views",
+                title: "Viral Listicle",
+                description: "Template to create viral list of posts",
                 icon: "fas fa-eye",
-                fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
-                template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
+                fullDescription: "Template to create viral list of posts",
+                template: `20 year old kids are making $5,000/month with these 3 hacks.
+
+They are like money printing machines.
+
+3 most underrated niches that can print money in 2024 ⬇️
+
+( 3rd one is my favorite )
+
+
+>> 
+
+1. Micro-Niche Blogging with Affiliate Marketing:
+
+Create a blog that focuses on a highly specific niche.
+Instead of general topics like "fitness," go for "fitness for new mothers" or "fitness for seniors with arthritis."
+
+Why It Works:
+
+Smaller niches have less competition, making it easier to rank in search engines. This targeted audience is more likely to trust your recommendations and convert through affiliate links.
+
+Lets looks at how ⬇
+
+>> 
+
+Steps:
+
+Choose a micro-niche with a passionate audience.
+
+Create high-quality, valuable content regularly.
+
+Use SEO strategies to drive organic traffic.
+
+Monetize through affiliate marketing by recommending relevant products.
+
+But there is one more interesting one ⬇
+
+>> 
+
+2. Print-on-Demand (POD) Services:
+Design and sell custom merchandise like T-shirts, mugs, or phone cases using print-on-demand platforms such as Printful, Teespring, or Redbubble.
+
+Why It Works:
+
+There's no need for upfront inventory investment, and the platforms handle
+printing, shipping, and customer service.
+
+But how to achieve this ?
+
+>> 
+
+Steps:
+
+Create unique, appealing designs or hire a designer.
+Upload your designs to a POD platform and choose products.
+Promote your products via social media, email marketing, or a dedicated website.
+Earn a profit from each sale without worrying about inventory management.
+There is one last thing ⬇
+
+>> 
+
+3. Flipping Digital Assets:
+
+Buy undervalued digital assets such as domain names, websites, or social media accounts, improve them, and sell them at a higher price.
+
+Why It Works:
+With the right skills, you can significantly increase the value of a digital asset through improvements in design, SEO, and monetization strategies.
+
+Let’s look at how ⬇
+
+>> 
+
+Steps:
+
+Identify undervalued digital assets using marketplaces like Flippa, Empire Flippers, or Sedo.
+
+Enhance the asset's value through redesign, content improvement, or SEO optimization.
+
+Sell the improved asset at a higher price for a profit. ⬇
+
+>> 
+
+What’s next ?
+
+We will dive into 5 more high conversion niches in the next post.
+
+To make sure you don't miss
+
+1. Follow me to get guidance to earn your first dollar online
+2. Like / Retweet to add value to your followers.
+
+                `,
                 example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
                 link: "https://www.threads.net/@thetipseason/post/C90IUTqSsav"
             },
@@ -185,6 +276,15 @@ permalink: /app/viral-hooks
                 link: "https://www.threads.net/@thetipseason/post/C-RnnJJxy9F"
             },
             {
+                title: "How-To Guide",
+                description: "Step-by-step instructions on a specific topic",
+                icon: "fas fa-list-ol",
+                fullDescription: "Create a comprehensive guide that walks your audience through a process or task. Break down complex topics into easy-to-follow steps, making it simple for readers to implement your advice.",
+                template: "1. Introduction: [Brief overview of the topic]\n2. Step 1: [First step]\n3. Step 2: [Second step]\n...\n10. Conclusion: [Summary and final thoughts]",
+                example: "How to Start a Successful Blog in 10 Steps\n\n1. Introduction: Starting a blog can be a rewarding experience...\n2. Choose your niche: Decide on a topic you're passionate about...\n3. Select a blogging platform: WordPress, Blogger, or Medium...\n...\n10. Conclusion: By following these steps, you'll be well on your way...",
+                link: "#"
+            },
+            {
                 title: "Viral product launch",
                 description: "Hook to help with viral product launch",
                 icon: "fa-solid fa-rocket",
@@ -193,61 +293,6 @@ permalink: /app/viral-hooks
                 example: "Subscribe to premium plan!",
                 link: "#"
             },
-            {
-                "title": "Hype Explosion",
-                "description": "Create massive excitement for your product with a dramatic and engaging hook.",
-                "icon": "fa-solid fa-explosion",
-                "fullDescription": "This hook aims to generate excitement and anticipation by highlighting the groundbreaking nature of the product. It uses energetic language to create a sense of urgency and hype around the launch.",
-                "template": "🔥 The countdown is ON! 🔥\n\nIntroducing [product]—the next big thing in [industry/field]!\n\nWhat sets it apart? [unique feature or benefit]\n\nGet ready to witness the future of [industry/field] and grab your [exclusive offer/early access] before it’s gone! 🚀\n\nDon’t miss out on this game-changing launch! 🧵",
-                "example": "🔥 The countdown is ON! 🔥\n\nIntroducing ChatGPT Ultra—the next big thing in AI communication!\n\nWhat sets it apart? Seamless integration with all major platforms and unparalleled customization.\n\nGet ready to witness the future of AI and grab your early access discount before it’s gone! 🚀\n\nDon’t miss out on this game-changing launch! 🧵",
-                "link": "#"
-            },
-            {
-                "title": "Exclusive Preview",
-                "description": "Offer a sneak peek into your product launch to generate buzz and anticipation.",
-                "icon": "fa-solid fa-eye",
-                "fullDescription": "This hook offers an exclusive preview or behind-the-scenes look at the upcoming product. It builds excitement by giving a glimpse into the product’s features and benefits before the official launch.",
-                "template": "👀 Sneak peek alert! 👀\n\nWe’re about to launch [product], and here’s your exclusive first look:\n\n[unique feature or benefit]\n\nGet a behind-the-scenes view and see what makes [product] a must-have in [industry/field] before everyone else does! 🌟\n\nStay tuned for the full reveal and an exclusive offer! 🧵",
-                "example": "👀 Sneak peek alert! 👀\n\nWe’re about to launch ChatGPT Ultra, and here’s your exclusive first look:\n\nAdvanced real-time language processing and AI-powered customization.\n\nGet a behind-the-scenes view and see what makes ChatGPT Ultra a must-have in AI technology before everyone else does! 🌟\n\nStay tuned for the full reveal and an exclusive early bird offer! 🧵",
-                "link": "#"
-            },
-            {
-                "title": "Unveil a Secret",
-                "description": "Create curiosity by revealing a hidden or lesser-known fact.",
-                "icon": "fa-solid fa-mask",
-                "fullDescription": "This template sparks curiosity by hinting at a secret or surprising fact. It builds anticipation by promising to reveal something that isn’t commonly known or discussed.",
-                "template": "Here’s a secret you didn’t know 🤫\n\nMost people think [common misconception]\n\nBut the truth is [reveal or fact]\n\nFind out how this can change your [aspect] 🧵",
-                "example": "Here’s a secret you didn’t know 🤫\n\nMost people think that gaining followers is all about posting more\n\nBut the truth is that engagement and consistency are key\n\nFind out how this can change your social media strategy 🧵",
-                "link": "#"
-            },
-            {
-                "title": "Shock Value",
-                "description": "Use surprising or shocking information to grab attention.",
-                "icon": "fa-solid fa-bolt",
-                "fullDescription": "This hook is designed to surprise or shock the audience with unexpected information, prompting them to read more to understand the context or learn more.",
-                "template": "You won’t believe this...\n\nDid you know [shocking fact or statistic]?\n\nHere’s what this means for you and your [specific aspect] ⬇️",
-                "example": "You won’t believe this...\n\nDid you know that 90% of online businesses fail within the first year?\n\nHere’s what this means for you and your startup ⬇️",
-                "link": "#"
-            },
-            {
-                "title": "Urgency Alert",
-                "description": "Create a sense of urgency to prompt immediate action.",
-                "icon": "fa-solid fa-exclamation-circle",
-                "fullDescription": "This hook emphasizes the urgency of taking action now, often highlighting limited availability or time-sensitive offers to encourage immediate responses.",
-                "template": "Act now before it’s too late!\n\nOnly [number] spots left for [offer or event]\n\nDon’t miss out on [benefit or reward]—grab your chance before [deadline or condition] ⏳",
-                "example": "Act now before it’s too late!\n\nOnly 5 spots left for our exclusive workshop\n\nDon’t miss out on mastering ChatGPT—grab your chance before the end of the week ⏳",
-                "link": "#"
-            },
-            {
-                "title": "Challenge Question",
-                "description": "Pose a challenging question to engage your audience and provoke thought.",
-                "icon": "fa-solid fa-question-circle",
-                "fullDescription": "This hook engages the audience by presenting a challenging or thought-provoking question. It encourages readers to think critically and respond, increasing engagement.",
-                "template": "Can you answer this?\n\nWhat’s the biggest obstacle you face in [specific area]?\n\nShare your thoughts and discover how others are overcoming similar challenges 🔍",
-                "example": "Can you answer this?\n\nWhat’s the biggest obstacle you face in growing your online presence?\n\nShare your thoughts and discover how others are overcoming similar challenges 🔍",
-                "link": "#"
-            }
-
             // Add more templates here
         ];
 
@@ -334,7 +379,7 @@ permalink: /app/viral-hooks
                 const userId = window.userId || localStorage.getItem('userId');
 
                 // Prepare API parameters
-                const apiUrl = 'https://ai.thriendly.com/hook-generator';
+                const apiUrl = 'https://ai.thriendly.com/post-generator';
                 const apiParams = {
                     topic: topic,
                     example: exampleContent,

@@ -23,22 +23,24 @@ permalink: /app/viral-threads
             <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
         </div>
 
-        <div class="row" id="templateCards">
-            <!-- Template cards will be dynamically inserted here -->
-        </div>
-
         <div class="row mt-4">
-            <div class="col-12 text-center">
-                <p>Coming soon for premium users!</p>
-                <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
+            <div class="col-12">
+                <h4 class="">Coming soon for premium users!</h4>
+                
+                <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
+                    Waitlist</a>
 
                 <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads
                     Growth community</a>
 
-                <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
-                    Waitlist</a>
             </div>
         </div>
+
+        <div class="row mt-4" id="templateCards">
+            <!-- Template cards will be dynamically inserted here -->
+        </div>
+
+        
     </div>
 
 </div>

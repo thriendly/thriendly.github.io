@@ -8,7 +8,7 @@ permalink: /app/aireplys
     <div class="container mt-4 col-md-6">
 
         <h2 class="mb-4">Thriendly: AI Engagement</h2>
-        <h5 class="mb-4">10X faster and valuable engagmenets with AI powered replys</h5>
+        <h5 class="mb-4">10X faster and valuable engagements with AI powered replys</h5>
 
         <div class="row">
             <div class="col-12">

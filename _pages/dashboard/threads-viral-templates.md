@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads Dashboard - Fastest way to grow on threads
-permalink: /app/viral-threads
+permalink: /app/viral-templates
 ---
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">

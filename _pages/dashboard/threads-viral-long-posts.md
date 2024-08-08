@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads Dashboard - Fastest way to grow on threads
-permalink: /app/viral-long-posts
+permalink: /app/viral-threads
 ---
 
 <head>
@@ -84,6 +84,7 @@ permalink: /app/viral-long-posts
                 <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
             </div>
 
+            
             <div class="row" id="templateCards">
 
 
@@ -92,7 +93,7 @@ permalink: /app/viral-long-posts
 
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <p>More templates coming soon!</p>
+                    <h4>Premium templates coming soon!</h4>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
                     <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads Growth community</a>
@@ -108,7 +109,7 @@ permalink: /app/viral-long-posts
             <button id="backButton" class="btn btn-secondary mb-3">
                 <i class="fas fa-arrow-left"></i> Back to Templates
             </button>
-            <h4 class="mb-4">Create Similar Hook</h4>
+            <h4 class="mb-4">Create long form threads based on example template</h4>
             <div class="row g-2">
                 <div class="col" id="templateSection">
                     <h5 id="templateTitle" class="mb-3"></h5>
@@ -130,10 +131,10 @@ permalink: /app/viral-long-posts
                     </div>
                 </div>
                 <div class="col" id="createHookSection">
-                    <h5>Create Your Hook</h5>
+                    <h5>Long form viral thread generator</h5>
                     <form id="hookForm">
                         <div class="mb-3">
-                            <label for="topic" class="form-label">Your Topic</label>
+                            <label for="topic" class="form-label">Your topic</label>
                             <input type="text" class="form-control" id="topic" required
                                 placeholder="Eg: 10 tips for viral instagram growth">
                         </div>
@@ -229,27 +230,6 @@ Upload your designs to a POD platform and choose products.
 Promote your products via social media, email marketing, or a dedicated website.
 Earn a profit from each sale without worrying about inventory management.
 There is one last thing ⬇
-
->> 
-
-3. Flipping Digital Assets:
-
-Buy undervalued digital assets such as domain names, websites, or social media accounts, improve them, and sell them at a higher price.
-
-Why It Works:
-With the right skills, you can significantly increase the value of a digital asset through improvements in design, SEO, and monetization strategies.
-
-Let’s look at how ⬇
-
->> 
-
-Steps:
-
-Identify undervalued digital assets using marketplaces like Flippa, Empire Flippers, or Sedo.
-
-Enhance the asset's value through redesign, content improvement, or SEO optimization.
-
-Sell the improved asset at a higher price for a profit. ⬇
 
 >> 
 

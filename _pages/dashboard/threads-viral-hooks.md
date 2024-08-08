@@ -90,7 +90,7 @@ permalink: /app/viral-hooks
 
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <p>More templates coming soon!</p>
+                    <p>Premium viral templates coming soon!</p>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
                     <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads

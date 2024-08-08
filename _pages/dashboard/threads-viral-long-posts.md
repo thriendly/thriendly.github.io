@@ -93,7 +93,7 @@ permalink: /app/viral-threads
 
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <h4>Premium templates coming soon!</h4>
+                    <h4>Premium viral templates coming soon!</h4>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
                     <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads Growth community</a>
@@ -262,15 +262,6 @@ To make sure you don't miss
                 fullDescription: "Create a comprehensive guide that walks your audience through a process or task. Break down complex topics into easy-to-follow steps, making it simple for readers to implement your advice.",
                 template: "1. Introduction: [Brief overview of the topic]\n2. Step 1: [First step]\n3. Step 2: [Second step]\n...\n10. Conclusion: [Summary and final thoughts]",
                 example: "How to Start a Successful Blog in 10 Steps\n\n1. Introduction: Starting a blog can be a rewarding experience...\n2. Choose your niche: Decide on a topic you're passionate about...\n3. Select a blogging platform: WordPress, Blogger, or Medium...\n...\n10. Conclusion: By following these steps, you'll be well on your way...",
-                link: "#"
-            },
-            {
-                title: "Viral product launch",
-                description: "Hook to help with viral product launch",
-                icon: "fa-solid fa-rocket",
-                fullDescription: "Subscribe to premium plan!",
-                template: "Subscribe to premium plan!",
-                example: "Subscribe to premium plan!",
                 link: "#"
             },
             // Add more templates here

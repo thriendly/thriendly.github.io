@@ -36,7 +36,7 @@ permalink: /app/threads-scheduler
 
 
                                     <p><a target="_blank" class="btn btn-primary btn"
-                                        href="https://discord.com/invite/kT47PeKz">Join Threads
+                                        href="https://discord.gg/7UqWEuqqhk">Join Threads
                                         Growth community</a></p>
 
                                 </h5>

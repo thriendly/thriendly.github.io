@@ -72,6 +72,7 @@ permalink: /app/viral-hooks
             border-radius: 4px;
         }
     </style>
+
 </head>
 
 <body>
@@ -93,7 +94,7 @@ permalink: /app/viral-hooks
                     <p>Premium viral templates coming soon!</p>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.com/invite/kT47PeKz">Join Threads
+                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads
                         Growth community</a>
 
 
@@ -185,13 +186,13 @@ permalink: /app/viral-hooks
                 link: "https://www.threads.net/@thetipseason/post/C-RnnJJxy9F"
             },
             {
-                title: "Viral product launch",
-                description: "Hook to help with viral product launch",
-                icon: "fa-solid fa-rocket",
-                fullDescription: "Subscribe to premium plan!",
-                template: "Subscribe to premium plan!",
-                example: "Subscribe to premium plan!",
-                link: "#"
+                "title": "You don't know this",
+                "description": "Reveal the insights from extensive analysis to help your audience understand how to make content go viral.",
+                "icon": "fa-solid fa-lightbulb",
+                "fullDescription": "This hook provides valuable insights based on extensive analysis of viral content. It promises to share key takeaways that can help your audience achieve viral success.",
+                "template": "You don’t understand how to make content go viral yet\n\nBut you will after this 👇🏼\n\n(5 key takeaways from 500+ hours of analyzing viral content)",
+                "example": "You don’t understand how to make content go viral yet\n\nBut you will after this 👇🏼\n\n(5 key takeaways from 500+ hours of analyzing viral content)",
+                "link": "#"
             },
             {
                 "title": "Hype Explosion",
@@ -246,7 +247,8 @@ permalink: /app/viral-hooks
                 "template": "Can you answer this?\n\nWhat’s the biggest obstacle you face in [specific area]?\n\nShare your thoughts and discover how others are overcoming similar challenges 🔍",
                 "example": "Can you answer this?\n\nWhat’s the biggest obstacle you face in growing your online presence?\n\nShare your thoughts and discover how others are overcoming similar challenges 🔍",
                 "link": "#"
-            }
+            },
+            
 
             // Add more templates here
         ];

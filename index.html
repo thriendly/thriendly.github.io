@@ -132,7 +132,11 @@
                         <div class="form-container">
                             <button type="submit" class="submit-button">
                                 Get Started For FREE
-                                <i class="fas fa-arrow-right" style="margin-left:5px"></i>
+                                <i class="fas fa-check" style="margin-left:5px"></i>
+                            </button>
+                            <button type="button" class="submit-button" id="bookDemo">
+                                Book a Demo
+                                <i class="fas fa-calendar" style="margin-left:5px"></i>
                             </button>
                             <!-- <span id="email-error" class="error">Please enter a valid email address.</span> -->
                         </div>
@@ -291,6 +295,11 @@
             $('#subscribe-form').on('submit', function (event) {
                 event.preventDefault();
                 window.location.href = '/signup';
+            });
+
+            $('#bookDemo').on('click', function (event) {
+                event.preventDefault();
+                window.location.href = 'https://calendly.com/thriendly/thriendly';
             });
         });
 

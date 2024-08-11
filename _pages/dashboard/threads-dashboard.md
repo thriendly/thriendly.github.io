@@ -12,8 +12,9 @@ permalink: /app/threads-dashboard
             <a target="_blank" class="btn btn-primary btn-sm" href="https://discord.gg/7UqWEuqqhk">Join Threads
                     Growth community</a>
             </h5>
+        <h6>This is a sample dashboard of how your account will look like once you link Threads account</h6>
 
-        <div class="row mb-4">
+        <div class="row mb-4 mt-3">
             <div class="col-md-3 mb-3">
 
                 <div class="card">

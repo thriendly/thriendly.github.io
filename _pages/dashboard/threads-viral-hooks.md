@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Thriendly Dashboard - Viral Thread hooks
 permalink: /app/viral-hooks
 ---
 
@@ -77,7 +77,7 @@ permalink: /app/viral-hooks
 
 <body>
     <div id="content" class="container mt-4">
-        <h3 class="mb-4 text-primary">Thriendly Threads Templates</h3>
+        <h3 class="mb-4 text-primary">Viral Thread hook templates</h3>
 
         <div id="templatesView">
             <div class="mb-4">
@@ -228,7 +228,7 @@ permalink: /app/viral-hooks
                 "fullDescription": "This hook is designed to surprise or shock the audience with unexpected information, prompting them to read more to understand the context or learn more.",
                 "template": "You won’t believe this...\n\nDid you know [shocking fact or statistic]?\n\nHere’s what this means for you and your [specific aspect] ⬇️",
                 "example": "You won’t believe this...\n\nDid you know that 90% of online businesses fail within the first year?\n\nHere’s what this means for you and your startup ⬇️",
-                "link": "#"
+                "link": "https://www.threads.net/@thetipseason/post/C-RnnJJxy9F"
             },
             {
                 "title": "Urgency Alert",
@@ -248,7 +248,7 @@ permalink: /app/viral-hooks
                 "example": "Can you answer this?\n\nWhat’s the biggest obstacle you face in growing your online presence?\n\nShare your thoughts and discover how others are overcoming similar challenges 🔍",
                 "link": "#"
             },
-            
+
 
             // Add more templates here
         ];
@@ -323,6 +323,20 @@ permalink: /app/viral-hooks
                     }
                 } else {
                     showTemplatesView();
+                }
+            });
+
+            $('#templateSectionLink').on('click', function (e) {
+                var href = $(this).attr('href');
+
+                // Check if href value is '#'
+                if (href === '#') {
+                    // Prevent default action for href = '#'
+                    e.preventDefault();
+                } else {
+                    // Open the link in a new tab for other href values
+                    window.open(href, '_blank');
+                    e.preventDefault(); // Prevent the default link action
                 }
             });
 

@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Thriendly AI Replys
 permalink: /app/aireplys
 ---
 
@@ -143,7 +143,7 @@ permalink: /app/aireplys
                 user.getIdToken()
                     .then((idToken) => {
                         // idToken contains the ID token string
-                        console.log("ID Token:", idToken);
+                        console.log("Got token");
                     })
                     .catch((error) => {
                         console.error("Error getting ID token:", error.message);

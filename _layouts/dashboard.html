@@ -9,14 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
+
     <script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics}}"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', '{{site.google_analytics}}');
+        gtag('config', '{{site.google_analytics}}');
     </script>
 
     <style>
@@ -185,6 +185,10 @@
             display: none;
         }
 
+        #sidebar.active .thriendly-logo{
+            display: none;
+        }
+
         .content-header {
             margin-bottom: 30px;
             display: flex;
@@ -229,30 +233,34 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h4>Thriendly</h4>
+                <h4 class="thriendly-logo">Thriendly</h4>
                 <button type="button" id="sidebarCollapse" class="btn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <ul class="list-unstyled components">
-                <li><a href="/app/aireplys"><i class="fa-regular fa-comment-dots"></i><span>AI Engagement</span></a></li>
-                <li>
+                <li><a href="/app/home"><i class="fa-solid fa-house"></i><span>Thriendly Home</span></a></li>
+                <li><a href="/app/aireplys"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Engagement</span></a>
+                </li>
+                <!-- <li>
                     <a href="#viralTemplatesSubmenu" class="dropdown-toggle">
                         <i class="fa-solid fa-list-check"></i>
                         <span>Viral Templates &nbsp; </span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
                     <ul class="collapse list-unstyled" id="viralTemplatesSubmenu">
-                        <li><a href="/app/viral-hooks"><span><i class="fa-solid fa-anchor"></i> Hook Templates</span></a></li>
-                        <li><a href="/app/viral-threads"><span><i class="fa-solid fa-pen"></i> Long Post Templates</span></a></li>
+                        <li><a href="/app/viral-hooks"><span><i class="fa-solid fa-anchor"></i>Viral Hook Templates</span></a></li>
+                        <li><a href="/app/viral-threads"><span><i class="fa-solid fa-pen"></i> Viral Long Posts</span></a></li>
                     </ul>
+                </li> -->
+                <li><a href="/app/viral-hooks"><i class="fa-solid fa-anchor"></i><span>Viral Hook Templates</span></a>
                 </li>
+                <li><a href="/app/viral-threads"><i class="fa-solid fa-pen"></i><span>Viral Long Posts</span></a></li>
                 <li><a href="/app/threads-dashboard"><i class="fa-solid fa-chart-line"></i><span>Threads
                             Dashboard</span></a></li>
                 <li><a href="/app/threads-scheduler"><i class="fa-solid fa-calendar"></i> <span>Threads
                             Scheduler</span></a></li>
-            </ul>
-            <ul class="list-unstyled fixed-bottom">
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -265,6 +273,8 @@
                         <li><a class="dropdown-item text-secondary" id="userEmail" href="#"></a></li>
                     </ul>
                 </li>
+
+                
             </ul>
         </nav>
 

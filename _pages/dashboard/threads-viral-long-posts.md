@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Thriendly Threads Dashboard - Viral long posts
 permalink: /app/viral-threads
 ---
 
@@ -76,15 +76,16 @@ permalink: /app/viral-threads
 
 <body>
     <div id="content" class="container mt-4">
-        <h3 class="mb-4 text-primary">Thriendly Threads Templates</h3>
+        <h3 class="mb-4 text-primary">Viral long post generator</h3>
 
         <div id="templatesView">
             <div class="mb-4">
-                <h5>Viral thread templates that help you grow faster on Threads</h5>
-                <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
+                <h5>Long post thread templates that help you grow faster on Threads</h5>
+                <p>Choose a template and create a long form thread with AI in one click. You can edit and submit on
+                    threads</p>
             </div>
 
-            
+
             <div class="row" id="templateCards">
 
 
@@ -96,7 +97,8 @@ permalink: /app/viral-threads
                     <h4>Premium viral templates coming soon!</h4>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads Growth community</a>
+                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads Growth
+                        community</a>
 
 
                     <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
@@ -110,25 +112,27 @@ permalink: /app/viral-threads
                 <i class="fas fa-arrow-left"></i> Back to Templates
             </button>
             <h4 class="mb-4">Create long form threads based on example template</h4>
+            <p class="mb-4">Just enter a topic and our AI creates content similar to the example show below</p>
             <div class="row g-2">
                 <div class="col" id="templateSection">
                     <h5 id="templateTitle" class="mb-3"></h5>
                     <p id="templateDescription" class="mb-4"></p>
 
-                    <div class="template-section">
-                        <h5 class="section-title">Template:</h5>
-                        <div id="templateContent" class="content-area"></div>
-                    </div>
-
-                    <div class="example-section">
-                        <h5 class="section-title">Example:</h5>
-                        <div id="exampleContent" class="content-area"></div>
-                    </div>
-
                     <div class="viewpost-section">
                         <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i
                                 class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
+
+                    <div class="template-section mt-3">
+                        <h5 class="section-title">Template:</h5>
+                        <div id="templateContent" class="content-area"></div>
+                    </div>
+
+                    <!-- <div class="example-section">
+                        <h5 class="section-title">Example:</h5>
+                        <div id="exampleContent" class="content-area"></div>
+                    </div> -->
+
                 </div>
                 <div class="col" id="createHookSection">
                     <h5>Long form viral thread generator</h5>
@@ -244,7 +248,7 @@ To make sure you don't miss
 
                 `,
                 example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
-                link: "https://www.threads.net/@thetipseason/post/C90IUTqSsav"
+                link: "https://www.threads.net/@thetipseason/post/C9h-WNIvOxg"
             },
             {
                 title: "Create Suspense",
@@ -337,6 +341,20 @@ To make sure you don't miss
                     }
                 } else {
                     showTemplatesView();
+                }
+            });
+
+            $('#templateSectionLink').on('click', function (e) {
+                var href = $(this).attr('href');
+
+                // Check if href value is '#'
+                if (href === '#') {
+                    // Prevent default action for href = '#'
+                    e.preventDefault();
+                } else {
+                    // Open the link in a new tab for other href values
+                    window.open(href, '_blank');
+                    e.preventDefault(); // Prevent the default link action
                 }
             });
 

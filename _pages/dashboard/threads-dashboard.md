@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Thriendly Threads dashboard
 permalink: /app/threads-dashboard
 ---
 

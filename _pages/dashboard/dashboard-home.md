@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Thriendly Dashboard Home
 permalink: /app/home
 ---
 
@@ -77,12 +77,11 @@ permalink: /app/home
 
 <body>
     <div id="content" class="container mt-4">
-        <h3 class="mb-4 text-primary">Thriendly Threads Templates</h3>
+        <h3 class="mb-4 text-primary">Welcome to Thriendly!</h3>
 
         <div id="templatesView">
             <div class="mb-4">
-                <h5>Viral thread templates that help you grow faster on Threads</h5>
-                <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
+                <h5>Thriendly is the fastest way to grow on Threads / X </h5>
             </div>
 
             <div class="row" id="templateCards">
@@ -90,70 +89,28 @@ permalink: /app/home
             </div>
 
             <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <p>Premium viral templates coming soon!</p>
-                    <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
+                <div class="col-12">
+                    <div class="callout">
+                        Get 200+ free credits and Threads growth 1:1 session free
+                        <a target="_blank" href="https://calendly.com/thriendly/thriendly" class="btn btn-warning"
+                            id="bookDemo">
+                            Book a Demo
+                            <i class="fas fa-calendar" style="margin-left:5px"></i>
+                        </a>
+                    </div>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads
-                        Growth community</a>
+                    <div>
+                        <p class="mt-3">For faster access and 10x growth tips, join our community
 
+                            <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Threads
+                                Growth community</a>
+                        </p>
+                    </div>
 
-                    <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
-                        Waitlist</a>
                 </div>
             </div>
         </div>
 
-        <div class="hook-creation">
-            <button id="backButton" class="btn btn-secondary mb-3">
-                <i class="fas fa-arrow-left"></i> Back to Templates
-            </button>
-            <h4 class="mb-4">Create Similar Hook</h4>
-            <div class="row g-2">
-                <div class="col" id="templateSection">
-                    <h5 id="templateTitle" class="mb-3"></h5>
-                    <p id="templateDescription" class="mb-4"></p>
-
-                    <div class="template-section">
-                        <h5 class="section-title">Template:</h5>
-                        <div id="templateContent" class="content-area"></div>
-                    </div>
-
-                    <div class="example-section">
-                        <h5 class="section-title">Example:</h5>
-                        <div id="exampleContent" class="content-area"></div>
-                    </div>
-
-                    <div class="viewpost-section">
-                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="col" id="createHookSection">
-                    <h5>Create Your Hook</h5>
-                    <form id="hookForm">
-                        <div class="mb-3">
-                            <label for="topic" class="form-label">Your Topic</label>
-                            <input type="text" class="form-control" id="topic" required
-                                placeholder="Eg: 10 tips for viral instagram growth">
-                        </div>
-                        <!-- <div class="mb-3">
-                            <label for="additionalInfo" class="form-label">Additional Information (optional)</label>
-                            <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
-                        </div> -->
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Generate Hook &nbsp;<i
-                                    class="fa-solid fa-wand-magic-sparkles"></i></button>
-                            <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
-                        </div>
-                        <div class="mb-3">
-                            <p> Note: Each hook generation takes 1 Credit </p>
-                        </div>
-                    </form>
-                    <div id="generatedHook" class="mt-4"></div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
@@ -168,21 +125,57 @@ permalink: /app/home
         // Define the JSON data for thread templates
         const threadTemplates = [
             {
-                title: "Grab Attention",
-                description: "Hook designed to grab users attention. Best suited to increase followers and views",
-                icon: "fas fa-eye",
+                title: "AI Engagment",
+                description: "The secret threads growth weapon to boost your engagement by 10x with Thriendly AI Reply Chrome extension",
+                icon: "fa-solid fa-wand-magic-sparkles",
                 fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
                 template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
                 example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
-                link: "https://www.threads.net/@thetipseason/post/C90IUTqSsav"
+                link: "/app/aireplys"
             },
+            {
+                title: "Viral Hook templates",
+                description: "Craft content that spreads like wildfire with viral thread hooks. Select a template and generate similar hooks by yourself or with AI",
+                icon: "fa-solid fa-anchor",
+                fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
+                template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
+                example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
+                link: "/app/viral-hooks"
+            },
+            {
+                title: "Long post generator",
+                description: "Create long form posts from viral examples to gain massive threads growth. Edit and post to threads. AI powered!",
+                icon: "fa-solid fa-pen",
+                fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
+                template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
+                example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
+                link: "/app/viral-threads"
+            },
+            {
+                title: "Threads Analytics",
+                description: "Critical Threads profile metrics to track and improve your weak / strong areas (Coming Soon)",
+                icon: "fa-solid fa-chart-line",
+                fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
+                template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
+                example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
+                link: "/app/threads-dashboard"
+            },
+            {
+                title: "Threads Scheduler",
+                description: "Compose and schedule your threads post that get delivered even when you sleep! (Coming Soon)",
+                icon: "fa-solid fa-calendar",
+                fullDescription: "This template is designed to quickly capture the audience's attention by highlighting a powerful tool or technology and its potential benefits. It then promises to provide valuable resources or strategies to help users leverage this tool effectively.",
+                template: "{Tool/Technology} is a {benefit/advantage}.\nYet people don't know how to {specific action related to the benefit}.\n{X number} of {templates/resources/strategies} that help you {achieve the benefit}.\n({Additional detail about versatility or reuse}) 🧵",
+                example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
+                link: "/app/threads-scheduler"
+            }
         ];
 
         // Function to create a card for each template
         function createTemplateCard(template, index) {
             return `
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 card-hover" data-index="${index}">
+                    <div class="card h-100 card-hover p-2" data-index="${index}">
                         <div class="card-body text-center">
                             <i class="${template.icon} fa-3x mb-3 text-primary"></i>
                             <h5 class="card-title">${template.title}</h5>
@@ -233,7 +226,7 @@ permalink: /app/home
             // Make entire card clickable
             $(document).on('click', '.card', function () {
                 const index = $(this).data('index');
-                showHookCreation(threadTemplates[index]);
+                window.location.href = threadTemplates[index].link;
             });
 
             // Handle "Back to Templates" button click

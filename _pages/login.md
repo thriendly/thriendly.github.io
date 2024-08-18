@@ -109,7 +109,7 @@ permalink: /login
                 if (result) {
                     if (result.user) {
                         console.log("User is signed in:", result.user.email);
-                        window.location.href = "/app/aireplys";
+                        window.location.href = "/app/home";
                     } else {
                         console.log("No user signed in through the redirect.");
                     }
@@ -136,7 +136,7 @@ permalink: /login
                 console.log("User is signed in:", user.email);
 
                 // Redirect to the secure home page
-                window.location.href = "/app/aireplys";
+                window.location.href = "/app/home";
             })
             .catch((error) => {
                 // Handle login error

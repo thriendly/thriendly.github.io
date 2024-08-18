@@ -4,75 +4,68 @@ title: Thriendly Threads Dashboard - Viral long posts
 permalink: /app/viral-threads
 ---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thriendly Threads Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+<style>
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
 
-        .template-section,
-        .example-section {
-            /* background-color: #f8f9fa; */
-            background-color: #e4f5f7;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
+    .template-section,
+    .example-section {
+        /* background-color: #f8f9fa; */
+        background-color: #e4f5f7;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
 
-        .example-section {
-            /* background-color: #0e467d; */
-            background-color: #f5f5f5;
-        }
+    .example-section {
+        /* background-color: #0e467d; */
+        background-color: #f5f5f5;
+    }
 
-        .content-area {
-            white-space: pre-wrap;
-            font-family: monospace;
-            margin-top: 5px;
-        }
+    .content-area {
+        white-space: pre-wrap;
+        font-family: monospace;
+        margin-top: 5px;
+    }
 
-        .section-title {
-            margin-bottom: 0;
-            font-weight: bold;
-        }
+    .section-title {
+        margin-bottom: 0;
+        font-weight: bold;
+    }
 
-        .hook-creation {
-            display: none;
-        }
+    .hook-creation {
+        display: none;
+    }
 
-        .hook-creation .row {
-            min-height: 400px;
-            column-gap: 20px;
-        }
+    .hook-creation .row {
+        min-height: 400px;
+        column-gap: 20px;
+    }
 
-        .hook-creation .col {
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-        }
+    .hook-creation .col {
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+    }
 
-        #generatedHook pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            max-width: 100%;
-            overflow-x: hidden;
-            font-size: 1em;
-            line-height: 1.5;
-            color: #444;
-            background-color: #fff;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
-</head>
+    #generatedHook pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-width: 100%;
+        overflow-x: hidden;
+        font-size: 1em;
+        line-height: 1.5;
+        color: #444;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
 
 <body>
     <div id="content" class="container mt-4">
@@ -162,8 +155,6 @@ permalink: /app/viral-threads
     </div>
 
     <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module">
         import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";</script>
 
@@ -319,6 +310,7 @@ To make sure you don't miss
                 window.userId = user.uid;
                 // Or use localStorage
                 localStorage.setItem('userId', user.uid);
+                $("#userEmail").text(user.email);
             });
 
             loadTemplateCards();

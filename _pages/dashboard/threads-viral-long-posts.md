@@ -1,90 +1,84 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Fastest way to grow on threads
+title: Viral long posts
 permalink: /app/viral-threads
 ---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thriendly Threads Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+<style>
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
 
-        .template-section,
-        .example-section {
-            /* background-color: #f8f9fa; */
-            background-color: #e4f5f7;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
+    .template-section,
+    .example-section {
+        /* background-color: #f8f9fa; */
+        background-color: #e4f5f7;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
 
-        .example-section {
-            /* background-color: #0e467d; */
-            background-color: #f5f5f5;
-        }
+    .example-section {
+        /* background-color: #0e467d; */
+        background-color: #f5f5f5;
+    }
 
-        .content-area {
-            white-space: pre-wrap;
-            font-family: monospace;
-            margin-top: 5px;
-        }
+    .content-area {
+        white-space: pre-wrap;
+        font-family: monospace;
+        margin-top: 5px;
+    }
 
-        .section-title {
-            margin-bottom: 0;
-            font-weight: bold;
-        }
+    .section-title {
+        margin-bottom: 0;
+        font-weight: bold;
+    }
 
-        .hook-creation {
-            display: none;
-        }
+    .hook-creation {
+        display: none;
+    }
 
-        .hook-creation .row {
-            min-height: 400px;
-            column-gap: 20px;
-        }
+    .hook-creation .row {
+        min-height: 400px;
+        column-gap: 20px;
+    }
 
-        .hook-creation .col {
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-        }
+    .hook-creation .col {
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+    }
 
-        #generatedHook pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            max-width: 100%;
-            overflow-x: hidden;
-            font-size: 1em;
-            line-height: 1.5;
-            color: #444;
-            background-color: #fff;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
-</head>
+    #generatedHook pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-width: 100%;
+        overflow-x: hidden;
+        font-size: 1em;
+        line-height: 1.5;
+        color: #444;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
 
 <body>
     <div id="content" class="container mt-4">
-        <h3 class="mb-4 text-primary">Thriendly Threads Templates</h3>
+        <h3 class="mb-4 text-primary">Viral long post generator</h3>
 
         <div id="templatesView">
             <div class="mb-4">
-                <h5>Viral thread templates that help you grow faster on Threads</h5>
-                <p>Just choose a template and ask our AI to create a thread. It does all the magic.</p>
+                <h5>Long post thread templates that help you grow faster on Threads</h5>
+                <p>Choose a template and create a long form thread with AI in one click. You can edit and submit on
+                    threads</p>
             </div>
 
-            
+
             <div class="row" id="templateCards">
 
 
@@ -96,7 +90,8 @@ permalink: /app/viral-threads
                     <h4>Premium viral templates coming soon!</h4>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads Growth community</a>
+                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads Growth
+                        community</a>
 
 
                     <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
@@ -110,25 +105,27 @@ permalink: /app/viral-threads
                 <i class="fas fa-arrow-left"></i> Back to Templates
             </button>
             <h4 class="mb-4">Create long form threads based on example template</h4>
+            <p class="mb-4">Just enter a topic and our AI creates content similar to the example show below</p>
             <div class="row g-2">
                 <div class="col" id="templateSection">
                     <h5 id="templateTitle" class="mb-3"></h5>
                     <p id="templateDescription" class="mb-4"></p>
 
-                    <div class="template-section">
-                        <h5 class="section-title">Template:</h5>
-                        <div id="templateContent" class="content-area"></div>
-                    </div>
-
-                    <div class="example-section">
-                        <h5 class="section-title">Example:</h5>
-                        <div id="exampleContent" class="content-area"></div>
-                    </div>
-
                     <div class="viewpost-section">
                         <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i
                                 class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
+
+                    <div class="template-section mt-3">
+                        <h5 class="section-title">Template:</h5>
+                        <div id="templateContent" class="content-area"></div>
+                    </div>
+
+                    <!-- <div class="example-section">
+                        <h5 class="section-title">Example:</h5>
+                        <div id="exampleContent" class="content-area"></div>
+                    </div> -->
+
                 </div>
                 <div class="col" id="createHookSection">
                     <h5>Long form viral thread generator</h5>
@@ -158,8 +155,6 @@ permalink: /app/viral-threads
     </div>
 
     <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module">
         import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";</script>
 
@@ -244,7 +239,7 @@ To make sure you don't miss
 
                 `,
                 example: "ChatGPT is a money making machine.\nYet people don't know how to monetize from it.\n10 ChatGPT master prompt templates that help you make money.\n(Prompts can be reused in multiple niches) 🧵",
-                link: "https://www.threads.net/@thetipseason/post/C90IUTqSsav"
+                link: "https://www.threads.net/@thetipseason/post/C9h-WNIvOxg"
             },
             {
                 title: "Create Suspense",
@@ -315,6 +310,7 @@ To make sure you don't miss
                 window.userId = user.uid;
                 // Or use localStorage
                 localStorage.setItem('userId', user.uid);
+                $("#userEmail").text(user.email);
             });
 
             loadTemplateCards();
@@ -337,6 +333,20 @@ To make sure you don't miss
                     }
                 } else {
                     showTemplatesView();
+                }
+            });
+
+            $('#templateSectionLink').on('click', function (e) {
+                var href = $(this).attr('href');
+
+                // Check if href value is '#'
+                if (href === '#') {
+                    // Prevent default action for href = '#'
+                    e.preventDefault();
+                } else {
+                    // Open the link in a new tab for other href values
+                    window.open(href, '_blank');
+                    e.preventDefault(); // Prevent the default link action
                 }
             });
 

@@ -1,27 +1,4 @@
 $(document).ready(function () {
-  // const apiUrlFetchUser = `http://127.0.0.1:12345/users?userId=`;
-  // const apiUrlGenerateKey = `http://127.0.0.1:12345/keys/generate`;
-
-  const apiUrlFetchUser = `https://composer.manigopalmurthy.workers.dev/users?userId=`;
-  const apiUrlGenerateKey = `https://composer.manigopalmurthy.workers.dev/keys/generate`;
-
-  // Function to fetch user data and populate apiKey on page load
-  function fetchUserDataAndPopulateApiKey(userId) {
-    $.ajax({
-      url: `${apiUrlFetchUser}${userId}`,
-      type: "GET",
-      success: function (response) {
-        $("#apiKey").val(response.api_key);
-        $("#credits").text(response.credits);
-        $("#loading").hide();
-      },
-      error: function (error) {
-        console.error("Error fetching user data:", error);
-        $("#loading").hide();
-      },
-    });
-  }
-
   // Function to handle form submission
   function handleFormSubmission(idToken) {
     const payload = {
@@ -45,10 +22,17 @@ $(document).ready(function () {
     });
   }
 
+  // Define the callback function
+  function handleUserSuccess(response) {
+    $("#apiKey").val(response.api_key);
+    $("#credits").text(response.credits);
+    $("#loading").hide();
+  }
+
   // Function to fetch user data and populate apiKey on page load
   function fetchUserDataAndHandleFormSubmission(user) {
     const userId = user.uid;
-    fetchUserDataAndPopulateApiKey(userId);
+    fetchUserDataAndPopulateApiKey(userId, handleUserSuccess);
     $("#userEmail").text(user.email);
 
     $("#apiKeyForm").submit(function (event) {

@@ -1,7 +1,11 @@
 // const apiUrlFetchUser = `http://127.0.0.1:12345/users?userId=`;
 // const apiUrlGenerateKey = `http://127.0.0.1:12345/keys/generate`;
+
+
 const apiUrlFetchUser = `https://composer.manigopalmurthy.workers.dev/users?userId=`;
 const apiUrlGenerateKey = `https://composer.manigopalmurthy.workers.dev/keys/generate`;
+// const apiUrlSetupUser = `https://composer.manigopalmurthy.workers.dev/users/setup`;
+const apiUrlSetupUser = `https://ai.thriendly.com/users/setup`;
 
 // Function to fetch user data and execute a callback on success
 function fetchUserDataAndPopulateApiKey(userId, onSuccessCallback) {
@@ -28,6 +32,28 @@ function generateAPIKey(idToken, onSuccessCallback) {
 
   $.ajax({
     url: apiUrlGenerateKey,
+    type: "POST",
+    dataType: "json",
+    data: JSON.stringify(payload),
+    success: function (response) {
+      if (typeof onSuccessCallback === "function") {
+        onSuccessCallback(response);
+      }
+    },
+    error: function (error) {
+      console.error("Error generating key:", error);
+    },
+  });
+}
+
+function setupUser(idToken, userEmail) {
+  const payload = {
+    idToken: idToken,
+    email: userEmail,
+  };
+
+  $.ajax({
+    url: apiUrlSetupUser,
     type: "POST",
     dataType: "json",
     data: JSON.stringify(payload),

@@ -80,6 +80,7 @@ permalink: /app/home
             <h5 class="text-success">
                 Your account credits: <span id="credits" style="display: none;">&nbsp;&nbsp;</span>
                 <img src="/assets/images/tipseason-loading.gif" id="loading">
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <a target="_blank" href="https://tipseason.gumroad.com/l/thriendly-premium"
                     class="btn btn-success btn-sm pl-2">
                     Get more credits! </a>
@@ -243,6 +244,7 @@ permalink: /app/home
                         fetchUserDataAndPopulateApiKey(user.uid, (newResponse) => {
                             // Now handle the updated response with the new credits
                             updateCreditsDisplay(newResponse.credits);
+                            setupUser(idToken, user.email);
                         });
                     });
                 });

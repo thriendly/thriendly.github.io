@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Viral templates
+title: Thriendly Viral templates
 permalink: /app/viral-templates
 ---
 

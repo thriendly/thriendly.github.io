@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Threads Dashboard - Viral long posts
+title: Viral long posts
 permalink: /app/viral-threads
 ---
 

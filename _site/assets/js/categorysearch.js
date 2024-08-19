@@ -77,12 +77,12 @@ var documents = [{
     }, {
     "id": 15,
     "url": "http://localhost:4000/app/viral-threads",
-    "title": "Thriendly Threads Dashboard - Viral long posts",
+    "title": "Viral long posts",
     "body": "      Viral long post generator:                   Long post thread templates that help you grow faster on Threads        Choose a template and create a long form thread with AI in one click. You can edit and submit on          threads                                                   Premium viral templates coming soon!:           For faster access and 10x growth tips, join our community or signup for waitlist           Join Threads Growth            community          Join Priority            Waitlist                                     Back to Templates            Create long form threads based on example template:       Just enter a topic and our AI creates content similar to the example show below                                                         View Post &nbsp;                                Template:                                                          Long form viral thread generator                                    Your topic                                                                Generate Post &nbsp;                                                     Note: Each long post generation takes 10 Credits                                                           "
     }, {
     "id": 16,
     "url": "http://localhost:4000/app/viral-templates",
-    "title": "Thriendly Threads Dashboard - Viral templates",
+    "title": "Thriendly Viral templates",
     "body": "      Thriendly Viral Long Thread Templates:           Viral thread templates that help you grow faster on Threads      Just choose a template and ask our AI to create a thread. It does all the magic.                       Coming soon for premium users!:                 Join Priority          Waitlist        Join Threads          Growth community                              "
     }, {
     "id": 17,

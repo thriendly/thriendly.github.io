@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: 100 Viral Hooks to Grow on threads and boost engagement
+title: 10x Threads Growth + Free Gift from Thriendly
 ---
 
 Hey there!

@@ -112,7 +112,7 @@ permalink: /app/viral-threads
                     <p id="templateDescription" class="mb-4"></p>
 
                     <div class="viewpost-section">
-                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Post &nbsp;<i
+                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Example Post &nbsp;<i
                                 class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
 
@@ -133,7 +133,7 @@ permalink: /app/viral-threads
                         <div class="mb-3">
                             <label for="topic" class="form-label">Your topic</label>
                             <input type="text" class="form-control" id="topic" required
-                                placeholder="Eg: 10 tips for viral instagram growth">
+                                placeholder="Eg: 5 tips for viral instagram growth">
                         </div>
                         <!-- <div class="mb-3">
                             <label for="additionalInfo" class="form-label">Additional Information (optional)</label>
@@ -259,6 +259,54 @@ To make sure you don't miss
                 example: "How to Start a Successful Blog in 10 Steps\n\n1. Introduction: Starting a blog can be a rewarding experience...\n2. Choose your niche: Decide on a topic you're passionate about...\n3. Select a blogging platform: WordPress, Blogger, or Medium...\n...\n10. Conclusion: By following these steps, you'll be well on your way...",
                 link: "#"
             },
+            {
+                "title": "Curiosity Hook",
+                "description": "Engage your audience by piquing their curiosity. \n Create a hook that leaves your audience with unanswered questions, making them eager to read more.",
+                "icon": "fa-regular fa-face-surprise",
+                "fullDescription": "Create a hook that leaves your audience with unanswered questions, making them eager to read more. Use surprising statistics, facts, or shocking claims to draw them in and compel them to keep reading.",
+                "template": `
+[Statistic/Percentage] of [Content/Activities] [fail/succeed] to [achieve desired outcome]. 📈
+But the [small percentage/elite group] achieve [benefit or result] with [simple action/minimal effort]!
+[Number] game-changing SECRETS 🤫 to make your next [content type/action] [explode/grow/achieve a specific outcome]!
+(Be prepared for [specific result, e.g., massive success, growth, etc.]) ⬇️
+
+--- 
+
+Secret #1: [Unique Secret Name]
+
+[Brief description of how this secret works, why it's effective, and an actionable tip].
+[Optional: Add a brief, relatable example to illustrate the point].
+
+But the next one is much more important ⬇️
+
+--- 
+... 
+
+Total [Number] of secrets given by user. 
+                `,
+                "example": `
+99% of THREADS fail to go viral. 📈
+But the 1% add hundreds of FOLLOWERS during sleep!
+10 game-changing SECRETS 🤫 to make your next thread explode!
+(Be prepared for your followers to skyrocket) ⬇️
+
+---
+
+Secret 1 : The Curiosity Hook
+Curiosity hooks create viral magic.
+Start your thread with an unexpected fact or shocking stat.
+Something that forces people to stop scrolling and ask, "Wait, what?"
+This is how you reel them in instantly.
+Example:
+"80% of millionaires are made during recessions. Here's how you can join them…"
+But the next one is much more important ⬇️
+
+--- 
+... 
+                `,
+                "link": "https://www.threads.net/@thetipseason/post/C_CpzTsRRG4"
+            }
+
             // Add more templates here
         ];
 

@@ -23,7 +23,7 @@ var documents = [{
     "id": 4,
     "url": "http://localhost:4000/shop",
     "title": "Thriendly Dashboard Home",
-    "body": "  Thriendly MRR Products  Buy Once, Sell Forever - It's time to make money online! Our hot selling products with monthly recurring revenue with and master resell rights:   More MRR products will be added each month and included free with Thriendly paid plans        "
+    "body": "  Thriendly MRR Products  Buy Once, Sell Forever - It's time to make money online! Our hot selling products with monthly recurring revenue and master resell rights:   More MRR products will be added each month and included free with Thriendly paid plans. View plans        "
     }, {
     "id": 5,
     "url": "http://localhost:4000/forgot-password",

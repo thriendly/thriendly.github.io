@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Dashboard Home
+title: Thriendly Shop
 permalink: /shop
 ---
 

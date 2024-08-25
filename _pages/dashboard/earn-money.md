@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-title: Thriendly Dashboard Home
+title: Thriendly Shop
 permalink: /shop
 ---
 
@@ -71,7 +71,7 @@ permalink: /shop
         <p class="text-center">It's time to make money online! Our hot selling products with monthly recurring revenue
             and master resell rights</p>
         <p class="text-center mb-5">More MRR products will be added each month and included free with Thriendly paid
-            plans. -+*<a href="/#pricing" class="btn btn-info btn-sm">View plans</a></p>
+            plans <a href="/#pricing" class="btn btn-info btn-sm">View plans</a></p>
     </div>
 
     <div class="row mt-4" id="productCards">

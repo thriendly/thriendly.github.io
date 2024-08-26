@@ -19,7 +19,7 @@ permalink: /app/threads-scheduler
                             <div class="" id="cent">
                                 <h5 class="font-weight-bold">
 
-                                    Schedule AI powered Viral threads with out Threads Scheduler.
+                                    Schedule AI powered Viral threads with our Threads Scheduler.
 
                                     <br><br>
 

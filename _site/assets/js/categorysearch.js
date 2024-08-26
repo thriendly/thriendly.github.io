@@ -23,7 +23,7 @@ var documents = [{
     "id": 4,
     "url": "http://localhost:4000/shop",
     "title": "Thriendly Shop",
-    "body": "      Thriendly MRR Products    Buy Once, Sell Forever!:     It's time to make money online! Our hot selling products with monthly recurring revenue      and master resell rights     More MRR products will be added each month and included free with Thriendly paid      plans View plans                       Become our affiliate. 40% monthly recurring commision. Limited time offer! Signup here      "
+    "body": "      Make money with Thriendly!    Buy Once, Sell Forever!:         Earn monthly recurring revenue with our top-selling products, all with master resell rights (MRR) included    Buy them once or access them free with our premium plan &nbsp; &nbsp; View plans    MRR allows you to resell the products and keep 100% of the profits every time                       Become our affiliate. 40% monthly recurring commision. Limited time offer! Signup here      "
     }, {
     "id": 5,
     "url": "http://localhost:4000/forgot-password",
@@ -73,7 +73,7 @@ var documents = [{
     "id": 14,
     "url": "http://localhost:4000/app/threads-scheduler",
     "title": "Thriendly Threads scheduler",
-    "body": "      Thriendly Threads Templates:                                                                                         Schedule AI powered Viral threads with out Threads Scheduler.                                     Coming Soon!                                    Join Priority waitlist here                                     Thriendly Priority Waitlist                                     Join Threads                    Growth community                                                                                                     "
+    "body": "      Thriendly Threads Templates:                                                                                         Schedule AI powered Viral threads with our Threads Scheduler.                                     Coming Soon!                                    Join Priority waitlist here                                     Thriendly Priority Waitlist                                     Join Threads                    Growth community                                                                                                     "
     }, {
     "id": 15,
     "url": "http://localhost:4000/app/viral-hooks",

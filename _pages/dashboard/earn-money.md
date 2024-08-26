@@ -66,12 +66,13 @@ permalink: /shop
 
 <div id="content" class="container mt-5">
     <div class="row mt-4">
-        <h1 class="text-center main-title mb-3">Thriendly MRR Products</h1>
-        <h4 class="text-center">Buy Once, Sell Forever!</h4>
-        <p class="text-center">It's time to make money online! Our hot selling products with monthly recurring revenue
-            and master resell rights</p>
-        <p class="text-center mb-5">More MRR products will be added each month and included free with Thriendly paid
-            plans <a href="/#pricing" class="btn btn-info btn-sm">View plans</a></p>
+        <h1 class="text-center main-title mb-3">Make money with Thriendly!</h1>
+        <h3 class="text-center">Buy Once, Sell Forever!</h3>
+        
+        <h5 class="text-center mt-2">Earn monthly recurring revenue with our top-selling products, all with master resell rights (MRR) included</h5>
+        <h6 class="text-center mt-2">Buy them once or access them free with our premium plan &nbsp; &nbsp; <a href="/#pricing" class="btn btn-info btn-sm">View plans</a></h6>
+
+        <p class="text-center mb-5 mt-2">MRR allows you to resell the products and keep 100% of the profits every time</p>
     </div>
 
     <div class="row mt-4" id="productCards">

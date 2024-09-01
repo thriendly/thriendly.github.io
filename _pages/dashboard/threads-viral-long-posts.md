@@ -251,7 +251,7 @@ To make sure you don't miss
                 "template": `
 YOU have a DIGITAL PRODUCT to sell ! 💪
 But you don't know how to make SALES from it 😭
-10 ChatGPT / Gemini prompts for 10X digital product sales!
+8 ChatGPT / Gemini prompts for 10X digital product sales!
 (Save them to sell your stuff ) ⏬
 #ThriendlyThread
 --- 
@@ -269,14 +269,14 @@ Write a script for a 5-minute product demo of {product_name}, showcasing its {to
 
 --- 
 
-3. "Engaging Webinar Pitch Outline"
+...
+
+
+8. "Engaging Webinar Pitch Outline"
 Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
 ⏬
 
 ---
-
-...
-
 If you are interested to make money online.
 1. Follow me
 2. Repost / Like this thread.
@@ -285,7 +285,7 @@ Most importantly leave a comment of interest to be the first one to be notified.
                 "example": `
 YOU have a DIGITAL PRODUCT to sell ! 💪
 But you don't know how to make SALES from it 😭
-10 ChatGPT / Gemini prompts for 10X digital product sales!
+8 ChatGPT / Gemini prompts for 10X digital product sales!
 (Save them to sell your stuff ) ⏬
 #ThriendlyThread
 --- 
@@ -303,13 +303,14 @@ Write a script for a 5-minute product demo of {product_name}, showcasing its {to
 
 --- 
 
-3. "Engaging Webinar Pitch Outline"
+... 
+
+
+8. "Engaging Webinar Pitch Outline"
 Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
 ⏬
 
 ---
-
-...
 
 If you are interested to make money online.
 1. Follow me

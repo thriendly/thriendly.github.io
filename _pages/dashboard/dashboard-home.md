@@ -87,6 +87,12 @@ permalink: /app/home
             </h5>
         </div>
 
+        <div class="row mt-4 ml-3">
+            <div class="alert alert-warning" role="warning">
+                Get 300 free credits  by sharing a post about Thriendly on Threads / your social media. <br> Just share and DM on <a href="https://instagram.com/thetipseason">instagram</a>  to avail limited time offer.
+            </div>
+        </div>
+
         <div class="row mt-4" id="templateCards">
             <!-- Template cards will be dynamically inserted here -->
         </div>

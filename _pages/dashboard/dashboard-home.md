@@ -85,11 +85,11 @@ permalink: /app/home
                     class="btn btn-success btn-sm pl-2">
                     Get more credits! </a>
             </h5>
+        </div>
 
-            <div class="row col-10 mt-4">
-                <div class="alert alert-warning" role="warning">
-                    Get 1 month free by sharing a post about Thriendly on Threads / your social media. Just share and DM on <a href="https://instagram.com/thetipseason">instagram</a>  to avail limited time offer
-                </div>
+        <div class="row mt-4 ml-3">
+            <div class="alert alert-warning" role="warning">
+                Get 300 free credits  by sharing a post about Thriendly on Threads / your social media. <br> Just share and DM on <a href="https://instagram.com/thetipseason">instagram</a>  to avail limited time offer.
             </div>
         </div>
 

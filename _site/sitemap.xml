@@ -24,6 +24,9 @@
 <loc>http://localhost:4000/forgot-password</loc>
 </url>
 <url>
+<loc>http://localhost:4000/join</loc>
+</url>
+<url>
 <loc>http://localhost:4000/login</loc>
 </url>
 <url>

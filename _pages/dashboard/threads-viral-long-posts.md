@@ -112,13 +112,14 @@ permalink: /app/viral-threads
                     <p id="templateDescription" class="mb-4"></p>
 
                     <div class="viewpost-section">
-                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Example Post &nbsp;<i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Example Post
+                            &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
 
                     <div class="template-section mt-3">
                         <h5 class="section-title">Template:</h5>
                         <div id="templateContent" class="content-area"></div>
+                        <input type="hidden" id="instructions" value="" />
                     </div>
 
                     <!-- <div class="example-section">
@@ -242,6 +243,82 @@ To make sure you don't miss
                 link: "https://www.threads.net/@thetipseason/post/C9h-WNIvOxg"
             },
             {
+                "title": "ChatGPT Prompt Generator Thread",
+                "description": "Create AI meta prompt listicle based on ChatGPT. This is one of the most useful threads that go viral on Threads / X",
+                "icon": "fa-solid fa-wand-magic-sparkles",
+                "fullDescription": "Create a list of powerful ChatGPT prompts. This type of content is one of the most popular and viral threads on Threads or X",
+                "instructions": "Content of each post should be written as a master template detailed prompt with 2-3 variables for AI tools like ChatGPT / Gemini. The focus should be on creating actionable prompts, not tips or general advice. The output should clearly guide users on how to use the prompts to achieve specific results. Additionally, ensure that the hook in the first post explicitly mentions that the thread is focused on providing these actionable prompts",
+                "template": `
+YOU have a DIGITAL PRODUCT to sell ! 💪
+But you don't know how to make SALES from it 😭
+10 ChatGPT / Gemini prompts for 10X digital product sales!
+(Save them to sell your stuff ) ⏬
+#ThriendlyThread
+--- 
+
+1. "Captivating Social Media Ad Copy"
+
+Create scroll-stopping ad copy for [product_name] to be used on [social_media_platform]. Begin with a powerful headline that addresses [main_pain_point] of [target_audience]. Use concise, benefit-driven body text with emojis for visual break. Include a clear value proposition, social proof, and a strong call-to-action. End with an urgency-inducing offer to drive immediate clicks.
+⏬
+
+--- 
+
+2. "High-Converting Product Demo Script"
+Write a script for a 5-minute product demo of {product_name}, showcasing its {top_feature} to {ideal_customer}. Start with a hook that addresses their main pain point. Walk through the key features, emphasizing benefits at each step. Include 2-3 practical use cases. End with a special offer for demo viewers and a clear next step to purchase.
+⏬
+
+--- 
+
+3. "Engaging Webinar Pitch Outline"
+Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
+⏬
+
+---
+
+...
+
+If you are interested to make money online.
+1. Follow me
+2. Repost / Like this thread.
+Most importantly leave a comment of interest to be the first one to be notified.
+                `,
+                "example": `
+YOU have a DIGITAL PRODUCT to sell ! 💪
+But you don't know how to make SALES from it 😭
+10 ChatGPT / Gemini prompts for 10X digital product sales!
+(Save them to sell your stuff ) ⏬
+#ThriendlyThread
+--- 
+
+1. "Captivating Social Media Ad Copy"
+
+Create scroll-stopping ad copy for [product_name] to be used on [social_media_platform]. Begin with a powerful headline that addresses [main_pain_point] of [target_audience]. Use concise, benefit-driven body text with emojis for visual break. Include a clear value proposition, social proof, and a strong call-to-action. End with an urgency-inducing offer to drive immediate clicks.
+⏬
+
+--- 
+
+2. "High-Converting Product Demo Script"
+Write a script for a 5-minute product demo of {product_name}, showcasing its {top_feature} to {ideal_customer}. Start with a hook that addresses their main pain point. Walk through the key features, emphasizing benefits at each step. Include 2-3 practical use cases. End with a special offer for demo viewers and a clear next step to purchase.
+⏬
+
+--- 
+
+3. "Engaging Webinar Pitch Outline"
+Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
+⏬
+
+---
+
+...
+
+If you are interested to make money online.
+1. Follow me
+2. Repost / Like this thread.
+Most importantly leave a comment of interest to be the first one to be notified.
+                `,
+                "link": "https://www.threads.net/@thetipseason/post/C_CpzTsRRG4"
+            },
+            {
                 title: "Create Suspense",
                 description: "Emotional hook to create suspense and making people know the secret",
                 icon: "fa-solid fa-user-secret",
@@ -282,7 +359,6 @@ But the next one is much more important ⬇️
 --- 
 ... 
 
-Total [Number] of secrets given by user. 
                 `,
                 "example": `
 99% of THREADS fail to go viral. 📈
@@ -340,6 +416,7 @@ But the next one is much more important ⬇️
             $('#templateDescription').text(template.fullDescription);
             $('#templateSectionLink').attr('href', template.link);
             $('#templateContent').text(template.template);
+            $('#instructions').val(template.instructions);
             $('#exampleContent').text(template.example);
             $('.hook-creation').show();
         }
@@ -376,7 +453,7 @@ But the next one is much more important ⬇️
                     if (confirm("You have a draft topic. Are you sure you want to go back? Your progress will be lost.")) {
                         showTemplatesView();
                         $('#topic').val('');
-                        $('#additionalInfo').val('');
+                        $('#instructions').val('');
                         $('#generatedHook').empty();
                     }
                 } else {
@@ -405,6 +482,8 @@ But the next one is much more important ⬇️
                 const topic = $('#topic').val();
                 const templateContent = $('#templateContent').html();
                 const exampleContent = $('#exampleContent').html();
+                const instructions = $('#instructions').val();
+                console.log('Instructinos: ' + instructions);
                 const userId = window.userId || localStorage.getItem('userId');
 
                 // Prepare API parameters
@@ -413,6 +492,7 @@ But the next one is much more important ⬇️
                     topic: topic,
                     example: exampleContent,
                     template: templateContent,
+                    instructions: instructions,
                     userId: userId
                 };
 

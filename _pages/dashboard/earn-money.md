@@ -65,25 +65,31 @@ permalink: /shop
 </style>
 
 <div id="content" class="container mt-5">
-    <div class="row mt-4">
+ 
+    <div class="row">
         <h1 class="text-center main-title mb-3">Make money with Thriendly!</h1>
         <h3 class="text-center">Buy Once, Sell Forever!</h3>
-        
-        <h5 class="text-center mt-2">Earn monthly recurring revenue with our top-selling products, all with master resell rights (MRR) included</h5>
-        <h6 class="text-center mt-2">Buy them once or access them free with our premium plan &nbsp; &nbsp; <a href="/#pricing" class="btn btn-info btn-sm">View plans</a></h6>
 
-        <p class="text-center mb-5 mt-2">MRR allows you to resell the products and keep 100% of the profits every time</p>
+        <h5 class="text-center mt-2">Earn monthly recurring revenue with our top-selling products, all with master
+            resell rights (MRR) included</h5>
+        <h6 class="text-center mt-2">Buy them once or access them free with our premium plan &nbsp; &nbsp; <a
+                href="/#pricing" class="btn btn-info btn-sm">View plans</a></h6>
+
+        <p class="text-center mb-5 mt-2">MRR allows you to resell the products and keep 100% of the profits every time
+        </p>
+    </div>
+
+    <div class="row col-10 mt-4">
+        <div class="alert alert-warning" role="warning">
+            Become our affiliate. 40% monthly recurring commision. Limited time offer! <a
+                href="https://tipseason.gumroad.com/affiliates">Signup here</a>
+        </div>
     </div>
 
     <div class="row mt-4" id="productCards">
         <!-- Product cards will be dynamically inserted here -->
     </div>
 
-    <div class="row col-10 mt-4">
-        <div class="alert alert-warning" role="warning">
-            Become our affiliate. 40% monthly recurring commision. Limited time offer! <a href="https://tipseason.gumroad.com/affiliates">Signup here</a>
-        </div>
-    </div>
 </div>
 
 <!-- jQuery and Bootstrap Bundle (includes Popper) -->

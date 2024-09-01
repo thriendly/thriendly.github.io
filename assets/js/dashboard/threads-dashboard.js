@@ -8,7 +8,7 @@ $(document).ready(function () {
         title: "likes",
         description: "The number of likes on your posts.",
         total_value: {
-          value: 7740,
+          value: 9783,
         },
         id: "17841453187567853/insights/likes/day",
       },
@@ -18,7 +18,7 @@ $(document).ready(function () {
         title: "replies",
         description: "The number of replies on your posts.",
         total_value: {
-          value: 1783,
+          value: 2301,
         },
         id: "17841453187567853/insights/replies/day",
       },
@@ -28,7 +28,7 @@ $(document).ready(function () {
         title: "followers_count",
         description: "This is your total number of followers on Threads.",
         total_value: {
-          value: 2295,
+          value: 3081,
         },
         id: "17841453187567853/insights/followers_count/day",
       },
@@ -38,7 +38,7 @@ $(document).ready(function () {
         title: "reposts",
         description: "The number of times your posts were reposted.",
         total_value: {
-          value: 634,
+          value: 803,
         },
         id: "17841453187567853/insights/reposts/day",
       },
@@ -250,6 +250,46 @@ $(document).ready(function () {
             value: 10968,
             end_time: "2024-08-19T07:00:00+0000",
           },
+          {
+            value: 3394,
+            end_time: "2024-08-20T07:00:00+0000",
+          },
+          {
+            value: 11498,
+            end_time: "2024-08-21T07:00:00+0000",
+          },
+          {
+            value: 26829,
+            end_time: "2024-08-22T07:00:00+0000",
+          },
+          {
+            value: 16527,
+            end_time: "2024-08-23T07:00:00+0000",
+          },
+          {
+            value: 18873,
+            end_time: "2024-08-24T07:00:00+0000",
+          },
+          {
+            value: 46118,
+            end_time: "2024-08-25T07:00:00+0000",
+          },
+          {
+            value: 32222,
+            end_time: "2024-08-26T07:00:00+0000",
+          },
+          {
+            value: 6378,
+            end_time: "2024-08-27T07:00:00+0000",
+          },
+          {
+            value: 3615,
+            end_time: "2024-08-28T07:00:00+0000",
+          },
+          {
+            value: 5707,
+            end_time: "2024-08-29T07:00:00+0000",
+          },
         ],
         title: "views",
         description: "The number of times your profile was viewed.",
@@ -261,7 +301,7 @@ $(document).ready(function () {
         title: "quotes",
         description: "The number of times your posts were quoted.",
         total_value: {
-          value: 24,
+          value: 35,
         },
         id: "17841453187567853/insights/quotes/day",
       },

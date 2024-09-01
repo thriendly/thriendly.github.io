@@ -317,7 +317,7 @@ If you are interested to make money online.
 2. Repost / Like this thread.
 Most importantly leave a comment of interest to be the first one to be notified.
                 `,
-                "link": "https://www.threads.net/@thetipseason/post/C_CpzTsRRG4"
+                "link": "https://www.threads.net/@thetipseason/post/C_YQBp5vGkV"
             },
             {
                 title: "Create Suspense",

@@ -18,7 +18,7 @@ var documents = [{
     "id": 3,
     "url": "http://localhost:4000/app/home",
     "title": "Thriendly Dashboard Home",
-    "body": "  Welcome to Thriendly!:             Thriendly is the fastest way to grow on Threads / X                       Your account credits: &nbsp;&nbsp;                &nbsp;&nbsp;&nbsp;&nbsp;                  Get more credits!                                                     Get 200+ free credits and Threads growth 1:1 session free                      Book a Demo                                                For faster access and 10x growth tips, join our community            Threads              Growth community                               "
+    "body": "  Welcome to Thriendly!:             Thriendly is the fastest way to grow on Threads / X                       Your account credits: &nbsp;&nbsp;                &nbsp;&nbsp;&nbsp;&nbsp;                  Get more credits!                               Get 1 month free by sharing a post about Thriendly on Threads / your social media. Just share and DM on instagram to avail limited time offer                                                            Get 200+ free credits and Threads growth 1:1 session free                      Book a Demo                                                For faster access and 10x growth tips, join our community            Threads              Growth community                               "
     }, {
     "id": 4,
     "url": "http://localhost:4000/shop",

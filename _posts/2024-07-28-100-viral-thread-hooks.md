@@ -1,5 +1,5 @@
 ---
-layout: dashboard
+layout: blog
 title: 100 Viral Hooks to Grow on threads and boost engagement
 ---
 
@@ -8,7 +8,7 @@ title: 100 Viral Hooks to Grow on threads and boost engagement
 
 In the ever-evolving world of social media, capturing attention is more crucial than ever. Threads, with its emphasis on concise, impactful content, is no exception. If you're aiming to elevate your Threads engagement, leveraging compelling hooks can make a world of difference. Here are 100 viral hooks to get your Threads buzzing.
 
-#### 1. **The Surprising Truth About [Topic]**
+#### 1. The Surprising Truth About [Topic]
 
 Unveil a lesser-known fact or myth-busting truth.
 

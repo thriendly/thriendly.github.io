@@ -12,7 +12,7 @@ permalink: /shop
     }
 
     .card-img-top {
-        height: 200px;
+        height: 250px;
         object-fit: cover;
     }
 
@@ -75,11 +75,11 @@ permalink: /shop
         <h6 class="text-center mt-2">Buy them once or access them free with our premium plan &nbsp; &nbsp; <a
                 href="/#pricing" class="btn btn-info btn-sm">View plans</a></h6>
 
-        <p class="text-center mb-5 mt-2">MRR allows you to resell the products and keep 100% of the profits every time
+        <p class="text-center mb-5 mt-2">MRR allows you to resell the products and keep 100% of the profits life time. 
         </p>
     </div>
 
-    <div class="row col-10 mt-4">
+    <div class="row col-10">
         <div class="alert alert-warning" role="warning">
             Become our affiliate. 40% monthly recurring commision. Limited time offer! <a
                 href="https://tipseason.gumroad.com/affiliates">Signup here</a>
@@ -112,6 +112,13 @@ permalink: /shop
             image: "https://i.etsystatic.com/41329643/r/il/ea6c27/5812159862/il_1588xN.5812159862_gnxa.jpg",
             link: "https://tipseason.etsy.com/listing/1771099853",
             price: 9.99
+        },
+        {
+            title: "5555+ ChatGPT Prompts for etsy sales and make money | MRR Rights",
+            description: "5555+ ChatGPT Prompts for etsy sales and make money | Etsy listing generator | Grow your Etsy Shop with expert AI advice | gemini , chatgpt",
+            image: "https://public-files.gumroad.com/2etif4mdl38jzmvq93dtrmpfck95",
+            link: "https://tipseason.gumroad.com/l/qgrfm",
+            price: 8.99
         }
     ];
 

@@ -78,7 +78,7 @@ var documents = [{
     "id": 15,
     "url": "http://localhost:4000/app/threads-scheduler",
     "title": "Thriendly Threads scheduler",
-    "body": "      Thriendly Threads Templates:                                                                                         Schedule AI powered Viral threads with our Threads Scheduler.                                     Coming Soon!                                    Join Priority waitlist here                                     Thriendly Priority Waitlist                                     Join Threads                    Growth community                                                                                                     "
+    "body": "      Create Thread:                                             Enter your content here                                                                          Select Date:                                                                                    Select Time:                                                                                                        Create With AI                                                                    Schedule                                                                "
     }, {
     "id": 16,
     "url": "http://localhost:4000/app/viral-hooks",

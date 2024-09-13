@@ -5,12 +5,54 @@ permalink: /app/threads-scheduler
 ---
 
 <div id="content">
-    <div class="container mt-4 col-md-6">
+    <div class="container mt-4 col-md-6 text-center">
 
-        <h3 class="mb-4 text-primary">Thriendly Threads Templates</h3>
+        <h3 class="mb-4 text-primary">Create Thread</h3>
 
+        <!-- ================= Scheduler code ================= -->
 
         <div class="row mt-4">
+            <div class="col-md-8 offset-md-2">
+                <form id="threadForm" class="border p-2">
+                    <div class="mb-3">
+                        <label for="threadContent" class="form-label">Enter your content here</label>
+                        <textarea class="form-control" id="threadContent" rows="6"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="date" class="col-form-label">Select Date:</label>
+                                <input type="date" class="form-control" id="date" name="date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="appt" class="col-form-label">Select Time:</label>
+                                <input type="time" class="form-control" id="appt" name="appt">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-primary me-2" id="createAI">Create With AI</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-success" id="scheduleButton">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= End Scheduler code ================= -->
+
+        <!-- <div class="row mt-4">
             <div class="col-12">
                 <div class="card latest-threads">
                     <div class="card-body">
@@ -52,14 +94,15 @@ permalink: /app/threads-scheduler
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
 </div>
 
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<script src="{{ site.baseurl }}/assets/js/smartreply.js"></script>
+<!-- <script src="{{ site.baseurl }}/assets/js/smartreply.js"></script> -->
+<script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
 
 <script type="module">
     import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";

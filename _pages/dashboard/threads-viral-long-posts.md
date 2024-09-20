@@ -400,7 +400,8 @@ But the next one is much more important ⬇️
                 "icon": "fa-regular fa-lightbulb",
                 "fullDescription": "A thread to share creative, actionable,out of the box ideas for a specific topic.",
                 "link": "https://www.threads.net/@thetipseason/post/DAH86KSxCS7",
-                "instructions":"Make sure the ideas are creative, actionable, out of the box. If the input has a count make sure to give that count of ideas. If not give 10 ideas. No words like unleash, unlock, tired etc. For the runnign thread indication just give 👇",
+                "instructions": "Make sure the ideas are creative, actionable, out of the box. If the input has a count make sure to give that count of ideas. If not give 10 ideas. No words like unleash, unlock, tired etc. For the runnign thread indication just give 👇. End the post with a CTA like in the template example",
+                "placeholder":"10 ways to make money with canva",
                 "template": `
 Pinterest is a profit powerhouse 💸
 
@@ -492,6 +493,10 @@ Until then.
             $('#templateContent').text(template.template);
             $('#instructions').val(template.instructions);
             $('#exampleContent').text(template.example);
+
+            // Set the placeholder for the topic field with a default value if template.topic is empty
+            $('#topic').attr('placeholder', template.placeholder || 'Eg: 5 tips for viral Instagram growth');
+
             $('.hook-creation').show();
         }
 

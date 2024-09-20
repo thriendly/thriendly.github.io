@@ -259,12 +259,14 @@ But you don't know how to make SALES from it 😭
 1. "Captivating Social Media Ad Copy"
 
 Create scroll-stopping ad copy for [product_name] to be used on [social_media_platform]. Begin with a powerful headline that addresses [main_pain_point] of [target_audience]. Use concise, benefit-driven body text with emojis for visual break. Include a clear value proposition, social proof, and a strong call-to-action. End with an urgency-inducing offer to drive immediate clicks.
+
 ⏬
 
 --- 
 
 2. "High-Converting Product Demo Script"
 Write a script for a 5-minute product demo of {product_name}, showcasing its {top_feature} to {ideal_customer}. Start with a hook that addresses their main pain point. Walk through the key features, emphasizing benefits at each step. Include 2-3 practical use cases. End with a special offer for demo viewers and a clear next step to purchase.
+
 ⏬
 
 --- 
@@ -274,6 +276,7 @@ Write a script for a 5-minute product demo of {product_name}, showcasing its {to
 
 8. "Engaging Webinar Pitch Outline"
 Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
+
 ⏬
 
 ---
@@ -390,6 +393,68 @@ But the next one is much more important ⬇️
 ... 
                 `,
                 "link": "https://www.threads.net/@thetipseason/post/C_CpzTsRRG4"
+            },
+            {
+                "title": "Creative Idea Generator Thread",
+                "description": "A thread to share creative, actionable,out of the box ideas for a specific topic.",
+                "icon": "fa-regular fa-lightbulb",
+                "fullDescription": "A thread to share creative, actionable,out of the box ideas for a specific topic.",
+                "link": "https://www.threads.net/@thetipseason/post/DAH86KSxCS7",
+                "instructions":"Make sure the ideas are creative, actionable, out of the box. If the input has a count make sure to give that count of ideas. If not give 10 ideas. No words like unleash, unlock, tired etc. For the runnign thread indication just give 👇",
+                "template": `
+Pinterest is a profit powerhouse 💸
+
+And only few people know how to make money with it.
+
+30 profitable pinterest ideas to earn in 2024.
+
+( Time to make some real money ) 👇
+---
+
+1. Create and sell digital products like eBooks or printables.
+Pinterest users love downloadable resources that save them time. Create pins to point to your ebooks / printables.
+
+2. Start affiliate marketing by sharing product links.
+When people click and buy, you earn a commission. 
+
+3. Offer Pinterest management services.
+Many businesses need help creating and scheduling pins.
+
+👇
+
+---
+
+4. Sell your own physical products by linking to your online store.
+Pinterest is like a visual catalog for millions of shoppers.
+
+5. Create Pinterest boards for local businesses.
+Help small businesses showcase their products and services to a wider audience. Charge them for curating and managing their boards.
+
+6. Teach a Pinterest course.
+If you're great at using Pinterest, show others how to succeed.
+
+👇
+
+--- 
+
+...
+
+
+28. Write case studies showing how businesses can grow with Pinterest.
+Charge for these detailed insights.
+29. Use Pinterest to grow a community around a specific niche.
+Then monetize the community with events, products, or services.
+30. Turn your Pinterest expertise into a book.
+Sell it directly to your audience or on other platforms.
+
+What's next ? 👇
+--- 
+
+In the next post we will talke about Step by step plan to monetize with Threads + Pinterest.
+Until then.
+1. Follow me.
+2. Repost / like the first post to add value to your followers.
+                `,
             }
 
             // Add more templates here

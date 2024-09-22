@@ -19,16 +19,16 @@ function confirmDelete(id) {
   
   4 ONLINE JOBS that are in HIGH DEMAND. 
   
-  (Work from anywhere, set your own hours) 🧵`, scheduled: "2024-07-21 10:00 AM" },
-    { id: 2, content: "Thread 2", scheduled: "2024-07-22 10:00 AM" },
-    { id: 3, content: "Thread 3", scheduled: "2024-07-23 10:00 AM" },
-    { id: 4, content: "Thread 4", scheduled: "2024-07-24 10:00 AM" },
-    { id: 5, content: "Thread 5", scheduled: "2024-07-25 10:00 AM" },
-    { id: 6, content: "Thread 6", scheduled: "2024-07-26 10:00 AM" },
-    { id: 7, content: "Thread 7", scheduled: "2024-07-27 10:00 AM" },
-    { id: 8, content: "Thread 8", scheduled: "2024-07-28 10:00 AM" },
-    { id: 9, content: "Thread 9", scheduled: "2024-07-29 10:00 AM" },
-    { id: 10, content: "Thread 10", scheduled: "2024-07-30 10:00 AM" },
+  (Work from anywhere, set your own hours) 🧵`, scheduled: "Sep 21, 2024 10:00 AM" },
+    { id: 2, content: "Thread 2", scheduled: "Sep 20, 2024 10:00 AM" },
+    { id: 3, content: "Thread 3", scheduled: "Sep 19, 2024 10:00 AM" },
+    { id: 4, content: "Thread 4", scheduled: "Sep 18, 2024 10:00 AM" },
+    { id: 5, content: "Thread 5", scheduled: "Sep 17, 2024 10:00 AM" },
+    { id: 6, content: "Thread 6", scheduled: "Sep 16, 2024 10:00 AM" },
+    { id: 7, content: "Thread 7", scheduled: "Sep 15, 2024 10:00 AM" },
+    { id: 8, content: "Thread 8", scheduled: "Sep 14, 2024 10:00 AM" },
+    { id: 9, content: "Thread 9", scheduled: "Sep 13, 2024 10:00 AM" },
+    { id: 10, content: "Thread 10", scheduled: "Sep 12, 2024 10:00 AM" },
   ];
   
   const itemsPerPage = 5;

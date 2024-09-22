@@ -1,6 +1,5 @@
 function confirmDelete(id) {
     if (confirm("Are you sure you want to delete this thread?")) {
-      // Find and remove the thread from the array
       const index = threads.findIndex((thread) => thread.id === id);
       if (index !== -1) {
         threads.splice(index, 1);
@@ -13,7 +12,14 @@ function confirmDelete(id) {
   
   // Example data: list of threads
   const threads = [
-    { id: 1, content: "Thread 1 <br> thread 2 content<br> thread 2 content<br> thread 2 content<br> thread 2 content", scheduled: "2024-07-21 10:00 AM" },
+    { id: 1, content: `
+  The Gig economy is booming 💥
+  
+  Yet people don't know how to find the right opportunities.
+  
+  4 ONLINE JOBS that are in HIGH DEMAND. 
+  
+  (Work from anywhere, set your own hours) 🧵`, scheduled: "2024-07-21 10:00 AM" },
     { id: 2, content: "Thread 2", scheduled: "2024-07-22 10:00 AM" },
     { id: 3, content: "Thread 3", scheduled: "2024-07-23 10:00 AM" },
     { id: 4, content: "Thread 4", scheduled: "2024-07-24 10:00 AM" },
@@ -39,17 +45,17 @@ function confirmDelete(id) {
     $.each(threadsToDisplay, function(index, thread) {
       const threadCard = `
         <div class="card mb-4">
-          <div class="card-body d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center justify-content-between w-100">
-              <p class="mb-0">${thread.content}</p>
-              <span class="time-display ms-3" title="${new Date(thread.scheduled).toLocaleString()}">
+          <div class="card-body">
+            <div class="thread-content mb-3">${formatContent(thread.content)}</div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="time-display mt-3" title="${new Date(thread.scheduled).toLocaleString()}">
                 <i class="fas fa-clock clock-icon"></i>
                 ${new Date(thread.scheduled).toLocaleDateString()} ${new Date(thread.scheduled).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </span>
+              <button class="btn btn-outline-secondary btn-sm delete-btn" data-id="${thread.id}">
+                <i class="fas fa-trash"></i> 
+              </button>
             </div>
-            <button class="btn btn-danger btn-sm delete-btn" data-id="${thread.id}">
-              <i class="fas fa-times"></i>
-            </button>
           </div>
         </div>
       `;
@@ -62,6 +68,10 @@ function confirmDelete(id) {
     });
   
     renderPagination();
+  }
+  
+  function formatContent(content) {
+    return content.split('\n').map(line => `<p class="mb-1">${line}</p>`).join('');
   }
   
   function renderPagination() {
@@ -80,11 +90,13 @@ function confirmDelete(id) {
   
     $(".page-link").on("click", function(e) {
       e.preventDefault();
-      currentPage = $(this).text();
+      currentPage = parseInt($(this).text());
       renderThreads();
     });
   }
   
   // Initial render
-  renderThreads();
+  $(document).ready(function() {
+    renderThreads();
+  });
   

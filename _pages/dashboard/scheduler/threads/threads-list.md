@@ -4,6 +4,27 @@ title: Thriendly Threads scheduler
 permalink: /app/threads/list
 ---
 
+<style>
+    .thread-content {
+        white-space: pre-wrap;
+        word-break: break-word;
+        text-align: left;
+    }
+
+    .thread-content p {
+        margin-bottom: 0.25rem;
+    }
+
+    .time-display {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .clock-icon {
+        margin-right: 0.25rem;
+    }
+</style>
+
 <div id="content">
     <div class="container mt-4 col-md-6 text-center">
         <!-- ================= Listing code ================= -->

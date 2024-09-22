@@ -51,7 +51,10 @@
 <loc>http://localhost:4000/app/threads-dashboard</loc>
 </url>
 <url>
-<loc>http://localhost:4000/app/threads-scheduler</loc>
+<loc>http://localhost:4000/app/threads/list</loc>
+</url>
+<url>
+<loc>http://localhost:4000/app/threads/scheduler</loc>
 </url>
 <url>
 <loc>http://localhost:4000/app/viral-hooks</loc>

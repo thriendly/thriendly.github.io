@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads scheduler
-permalink: /app/threads-scheduler
+permalink: /app/threads/scheduler
 ---
 
 <div id="content">
@@ -35,66 +35,14 @@ permalink: /app/threads-scheduler
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <button type="button" class="btn btn-primary me-2" id="createAI">Create With AI</button>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
+                        <div class="text-center mb-3">
+                                <a href="/app/threads/list" class="btn btn-primary me-2" id="viewThreads">View Threads</a>
                                 <button type="button" class="btn btn-success" id="scheduleButton">Schedule</button>
-                            </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
-        <!-- ================= End Scheduler code ================= -->
-
-        <!-- <div class="row mt-4">
-            <div class="col-12">
-                <div class="card latest-threads">
-                    <div class="card-body">
-                        <div class="row mt-4">
-
-                            <div class="" id="cent">
-                                <h5 class="font-weight-bold">
-
-                                    Schedule AI powered Viral threads with our Threads Scheduler.
-
-                                    <br><br>
-
-                                    Coming Soon!
-
-                                    <br><br>
-
-
-                                    Join Priority waitlist here 
-                                    <p class="mt-3">
-                                    <a class="btn btn-success" target="_blank"
-                                        href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
-                                    </p>
-
-
-                                    <p><a target="_blank" class="btn btn-primary btn"
-                                        href="https://discord.gg/7UqWEuqqhk">Join Threads
-                                        Growth community</a></p>
-
-                                </h5>
-                            </div>
-                            <div class="row mt-4 col-md-3">
-
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
     </div>
 

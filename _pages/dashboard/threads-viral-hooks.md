@@ -94,7 +94,7 @@ permalink: /app/viral-hooks
                     <p>Premium viral templates coming soon!</p>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads
+                    <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads
                         Growth community</a>
 
 

@@ -9,7 +9,7 @@ permalink: /app/threads-dashboard
         <h3 class="mb-4">Thriendly: Threads Dashboard</h3>
         <h5 class="mb-4">Coming Soon! Join priority waitlist here <a class="btn btn-success btn-sm" target="_blank"
             href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
-            <a target="_blank" class="btn btn-primary btn-sm" href="https://discord.gg/7UqWEuqqhk">Join Threads
+            <a target="_blank" class="btn btn-primary btn-sm" href="https://www.skool.com/thriendly">Join Threads
                     Growth community</a>
             </h5>
         <h6>This is a sample dashboard of how your account will look like once you link Threads account</h6>

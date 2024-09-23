@@ -36,7 +36,7 @@ permalink: /app/threads-scheduler
 
 
                                     <p><a target="_blank" class="btn btn-primary btn"
-                                        href="https://discord.gg/7UqWEuqqhk">Join Threads
+                                        href="https://www.skool.com/thriendly">Join Threads
                                         Growth community</a></p>
 
                                 </h5>

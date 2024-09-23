@@ -30,7 +30,7 @@ permalink: /app/viral-templates
                 <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
                     Waitlist</a>
 
-                <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads
+                <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads
                     Growth community</a>
 
             </div>

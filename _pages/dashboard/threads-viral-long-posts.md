@@ -90,7 +90,7 @@ permalink: /app/viral-threads
                     <h4>Premium viral templates coming soon!</h4>
                     <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
 
-                    <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Join Threads Growth
+                    <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads Growth
                         community</a>
 
 

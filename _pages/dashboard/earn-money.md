@@ -52,6 +52,17 @@ permalink: /shop
         margin-left: 0.5rem;
     }
 
+    .credits-tag {
+        background-color: #fff5bf;
+        color: #000;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-left: 0.5rem;
+        float:right;
+    }
+
     .main-title {
         color: #0056b3;
         font-weight: bold;
@@ -104,22 +115,41 @@ permalink: /shop
             description: "7500+ AI prompts for social media marketing with MRR rights | instagram | threads | tiktok | twitter | facebook | linkedin | pinterest, snapchat,Gemini",
             image: "https://public-files.gumroad.com/ptkppn93jr1spq8q28hvuy1li95j",
             link: "https://tipseason.gumroad.com/l/social-media-chatgpt",
-            price: 8.99
+            price: 8.99,
+            credits: "1 MRR credit"
         },
         {
             title: "2000+ AI Tools database with MRR rights",
             description: "2000+ AI Tools list (MRR) | Passive income tools resell ideas | Side project tool database | Easy to use tools list | Free, paid",
             image: "https://i.etsystatic.com/41329643/r/il/ea6c27/5812159862/il_1588xN.5812159862_gnxa.jpg",
             link: "https://tipseason.etsy.com/listing/1771099853",
-            price: 9.99
+            price: 9.99,
+            credits: "1 MRR credit"
+        },
+        {
+            title: "10,000+ ChatGPT / Gemini Prompts with MRR rights",
+            description: "10,000+ ChatGPT, Gemini, any AI Prompts | MRR Rights | 40+ categories | High quality prompts for email marketing, business, social media, coding , teachers, content creators and more..",
+            image: "https://public-files.gumroad.com/r00ajc17lc79f2gv3s8kcfl7e98a",
+            link: "https://tipseason.gumroad.com/l/odltnd",
+            price: 14.99,
+            credits: "2 MRR credits"
+        },
+        {
+            title: "3000+ AI video generator prompts | MRR Rights",
+            description: "5555+ ChatGPT Prompts for etsy sales and make money | Etsy listing generator | Grow your Etsy Shop with expert AI advice | gemini , chatgpt",
+            image: "https://public-files.gumroad.com/aulf84rk2y4guaawzwmanww7esx2",
+            link: "https://tipseason.gumroad.com/l/svpqi",
+            price: 8.99,
+            credits: "1 MRR credit"
         },
         {
             title: "5555+ ChatGPT Prompts for etsy sales and make money | MRR Rights",
             description: "5555+ ChatGPT Prompts for etsy sales and make money | Etsy listing generator | Grow your Etsy Shop with expert AI advice | gemini , chatgpt",
             image: "https://public-files.gumroad.com/2etif4mdl38jzmvq93dtrmpfck95",
             link: "https://tipseason.gumroad.com/l/qgrfm",
-            price: 8.99
-        }
+            price: 8.99,
+            credits: "1 MRR credit"
+        },
     ];
 
     // Function to create a card for each product
@@ -138,6 +168,7 @@ permalink: /shop
                         </div>
                         <div class="card-footer bg-white border-top-0">
                             <a href="${product.link}" class="btn btn-primary btn-block">Buy Now</a>
+                            <span class="credits-tag">${product.credits}</span>
                         </div>
                     </div>
                 </div>

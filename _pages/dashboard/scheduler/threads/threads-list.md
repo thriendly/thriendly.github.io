@@ -37,40 +37,50 @@ permalink: /app/threads/list
         <div class="row mt-4">
             <div class="col-12">
                 <div id="thread-list"></div>
-                <nav>
-                    <ul class="pagination justify-content-center" id="pagination"></ul>
-                </nav>
+
+                <!-- Load More Button Container -->
+                <div id="load-more-container" class="text-center mt-4"></div>
             </div>
         </div>
 
         <!-- ================= End of Listing code ================= -->
     </div>
-
 </div>
 
+<!-- Update Thread Modal -->
+<div class="modal fade" id="updateThreadModal" tabindex="-1" aria-labelledby="updateThreadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="update-thread-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateThreadModalLabel">Update Thread</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="threadContent" class="form-label">Content</label>
+            <textarea class="form-control" id="threadContent" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="threadPostId">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<!-- <script src="{{ site.baseurl }}/assets/js/smartreply.js"></script> -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>
 
 <script type="module">
     import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";
-
-    /* // On profile page
-    checkAuthAndExecute(
-        (user) => {
-            console.log("Inside smart reply page : " + user);
-            // User is signed in
-            console.log("Inside smart reply page User is signed in:", user.email);
-            console.log("Inside smart reply page User token:", user.getIdToken());
-            user.getIdToken()
-                .then((idToken) => {
-                    // idToken contains the ID token string
-                    console.log("ID Token:", idToken);
-                })
-                .catch((error) => {
-                    console.error("Error getting ID token:", error.message);
-                });
-        }
-    ); */
-
 </script>
+
+<!-- Include Bootstrap JS and jQuery if not already included -->
+<!-- Place these scripts before the closing </body> tag -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>

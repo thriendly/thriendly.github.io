@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       const schedulerAPI =
-        "https://scheduler.manigopalmurthy.workers.dev/threads/schedule";
+        "http://localhost:8787/threads/schedule";
 
       $.ajax({
         url: schedulerAPI,

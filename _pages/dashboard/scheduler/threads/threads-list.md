@@ -59,18 +59,23 @@ permalink: /app/threads/list
         <div class="modal-body">
           <div class="mb-3">
             <label for="threadContent" class="form-label">Content</label>
-            <textarea class="form-control" id="threadContent" rows="5"></textarea>
+            <textarea class="form-control" id="threadContent" rows="4" required></textarea>
           </div>
+          <div class="mb-3">
+            <label for="threadScheduleTime" class="form-label">Schedule Time</label>
+            <input type="datetime-local" class="form-control" id="threadScheduleTime">
+          </div>
+          <input type="hidden" id="threadPostId">
         </div>
         <div class="modal-footer">
-          <input type="hidden" id="threadPostId">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 
 <!-- Scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>

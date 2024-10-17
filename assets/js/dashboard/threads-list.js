@@ -1,5 +1,3 @@
-// threads-list.js
-
 const itemsPerPage = 2; // Number of threads per page
 let currentPage = 1;
 let threads = [];
@@ -117,11 +115,32 @@ function renderLoadMoreButton(hasMore) {
 // Confirm delete function
 function confirmDelete(postId) {
   if (confirm("Are you sure you want to delete this thread?")) {
-    const index = threads.findIndex((thread) => thread.postId === postId);
-    if (index !== -1) {
-      threads.splice(index, 1);
-      renderThreads();
-    }
+    $.ajax({
+      url: `http://localhost:8787/threads/delete?userId=aQzG1BOWzlbaVRVZ6Wq1NfgZvu22&postId=${postId}`,
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${idToken}`,
+        "Content-Type": "application/json"
+      },
+      success: function (response, textStatus, jqXHR) {
+        if (jqXHR.status === 200) {
+          console.log("Thread deleted successfully:", response);
+          // Remove the deleted thread from the local threads array
+          const index = threads.findIndex((thread) => thread.postId === postId);
+          if (index !== -1) {
+            threads.splice(index, 1);
+            renderThreads();
+          }
+        } else {
+          console.error("Failed to delete thread. Status code:", jqXHR.status);
+          alert("Failed to delete the thread. Please try again.");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error deleting thread:", error);
+        alert("Failed to delete the thread. Please try again.");
+      }
+    });
   } else {
     console.log("Delete action cancelled");
   }
@@ -133,20 +152,63 @@ function openUpdateModal(postId) {
   if (thread) {
     $("#threadContent").val(thread.content);
     $("#threadPostId").val(postId);
+    const scheduledTime = new Date(thread.scheduledTime);
+    const formattedTime = scheduledTime.getFullYear() + '-' +
+      String(scheduledTime.getMonth() + 1).padStart(2, '0') + '-' +
+      String(scheduledTime.getDate()).padStart(2, '0') + 'T' +
+      String(scheduledTime.getHours()).padStart(2, '0') + ':' +
+      String(scheduledTime.getMinutes()).padStart(2, '0');
+
+    $("#threadScheduleTime").val(formattedTime);
     $("#updateThreadModal").modal("show");
   }
 }
+
 
 // Handle update form submission
 $("#update-thread-form").on("submit", function (e) {
   e.preventDefault();
   const updatedContent = $("#threadContent").val();
   const postId = $("#threadPostId").val();
+  const newScheduleTimeInput = $("#threadScheduleTime").val();
+
   const thread = threads.find((t) => t.postId === postId);
   if (thread) {
-    thread.content = updatedContent;
-    $("#updateThreadModal").modal("hide");
-    renderThreads();
+    // Prepare data for API call
+    const data = {
+      content: updatedContent,
+      newScheduleTime: new Date(newScheduleTimeInput).toISOString()
+    };
+
+    // Make the API call to update the thread
+    $.ajax({
+      url: `http://localhost:8787/threads/update?userId=aQzG1BOWzlbaVRVZ6Wq1NfgZvu22&postId=${postId}`,
+      method: "PATCH",
+      headers: {
+        "Authorization": `Bearer ${idToken}`,
+        "Content-Type": "application/json"
+      },
+      data: JSON.stringify(data),
+      success: function (response, textStatus, jqXHR) {
+        if (jqXHR.status === 200) {
+          console.log("Thread updated successfully:", response);
+          // Update the thread in the local array
+          thread.content = updatedContent;
+          if (data.newScheduleTime) {
+            thread.scheduledTime = data.newScheduleTime;
+          }
+          $("#updateThreadModal").modal("hide");
+          renderThreads();
+        } else {
+          console.error("Failed to update thread. Status code:", jqXHR.status);
+          alert("Failed to update the thread. Please try again.");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error updating thread:", error);
+        alert("Failed to update the thread. Please try again.");
+      }
+    });
   }
 });
 

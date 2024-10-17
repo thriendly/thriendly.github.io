@@ -78,7 +78,7 @@ var documents = [{
     "id": 15,
     "url": "http://localhost:4000/app/threads/list",
     "title": "Thriendly Threads scheduler",
-    "body": "                Scheduled Threads:       Create Thread                                                                     Update Thread                        Content                             Cancel     Save Changes          "
+    "body": "                Scheduled Threads:       Create Thread                                                                     Update Thread                        Content                      Schedule Time                             Save Changes     Cancel          "
     }, {
     "id": 16,
     "url": "http://localhost:4000/app/threads/scheduler",

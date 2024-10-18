@@ -2,9 +2,10 @@ const itemsPerPage = 2; // Number of threads per page
 let currentPage = 1;
 let threads = [];
 let idToken = ''; // Global variable to store the idToken
+let userId = '';  // Global variable to store the userId
 
 // Fetch scheduled threads from the API using the idToken
-function fetchScheduledThreads(idToken, page) {
+function fetchScheduledThreads(idToken, userId, page) {
   $.ajax({
     url: `http://localhost:8787/threads/list`,
     method: "GET",
@@ -13,7 +14,7 @@ function fetchScheduledThreads(idToken, page) {
       "Content-Type": "application/json"
     },
     data: {
-      userId: "aQzG1BOWzlbaVRVZ6Wq1NfgZvu22",
+      userId: userId,
       status: "scheduled",
       page: page,
       itemsPerPage: itemsPerPage
@@ -107,7 +108,7 @@ function renderLoadMoreButton(hasMore) {
 
     $("#load-more-button").off("click").on("click", function () {
       currentPage++;
-      fetchScheduledThreads(idToken, currentPage);
+      fetchScheduledThreads(idToken, userId, currentPage);
     });
   }
 }
@@ -116,7 +117,7 @@ function renderLoadMoreButton(hasMore) {
 function confirmDelete(postId) {
   if (confirm("Are you sure you want to delete this thread?")) {
     $.ajax({
-      url: `http://localhost:8787/threads/delete?userId=aQzG1BOWzlbaVRVZ6Wq1NfgZvu22&postId=${postId}`,
+      url: `http://localhost:8787/threads/delete?userId=${userId}&postId=${postId}`,
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${idToken}`,
@@ -164,7 +165,6 @@ function openUpdateModal(postId) {
   }
 }
 
-
 // Handle update form submission
 $("#update-thread-form").on("submit", function (e) {
   e.preventDefault();
@@ -182,7 +182,7 @@ $("#update-thread-form").on("submit", function (e) {
 
     // Make the API call to update the thread
     $.ajax({
-      url: `http://localhost:8787/threads/update?userId=aQzG1BOWzlbaVRVZ6Wq1NfgZvu22&postId=${postId}`,
+      url: `http://localhost:8787/threads/update?userId=${userId}&postId=${postId}`,
       method: "PATCH",
       headers: {
         "Authorization": `Bearer ${idToken}`,
@@ -215,9 +215,15 @@ $("#update-thread-form").on("submit", function (e) {
 // Function to be executed after user authentication
 function authenticatedAction(user) {
   user.getIdToken().then((token) => {
-    console.log("User token:", token);
     idToken = token;
-    fetchScheduledThreads(idToken, currentPage); // Fetch the first page of threads
+    const allKeys = Object.keys(sessionStorage);
+
+    const matchingKey = allKeys.find(key => key.startsWith('firebase:authUser'));
+    const sessionData = sessionStorage.getItem(matchingKey);
+    const parsedData = JSON.parse(sessionData);
+    userId = parsedData?.uid; // Assign to global userId
+
+    fetchScheduledThreads(idToken, userId, currentPage); // Fetch the first page of threads
   }).catch((error) => {
     console.error("Error getting ID token:", error.message);
   });

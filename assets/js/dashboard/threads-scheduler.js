@@ -23,7 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const text = document.getElementById("threadContent").value;
       const date = document.getElementById("date").value;
       const time = document.getElementById("appt").value;
-      const user_id = "aQzG1BOWzlbaVRVZ6Wq1NfgZvu22"; // Hard-coded
+      const sessionDataKey = Object.keys(sessionStorage).find((key) =>
+        key.startsWith('firebase:authUser')
+      );
+      if (!sessionDataKey) {
+        alert("User session data not found!");
+        return;
+      }
+
+      const sessionData = JSON.parse(sessionStorage.getItem(sessionDataKey));
+      const user_id = sessionData?.uid; // Extracting user_id dynamically
       const threads_user_id = "26317239004558600"; // Hard-coded
       const status = "SCHEDULED";
 
@@ -31,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Please select both schedule date and time");
         return;
       }
-
      
       const combinedDateTime = `${date}T${time}:00`;
       const localDateTime = new Date(combinedDateTime);

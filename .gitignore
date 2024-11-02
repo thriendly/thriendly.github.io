@@ -12,3 +12,4 @@ _site
 _site/feed.xml
 _site/index.html
 _site/sitemap.xml
+_site/*

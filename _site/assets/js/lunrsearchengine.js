@@ -23,7 +23,7 @@ var documents = [{
     "id": 4,
     "url": "http://localhost:4000/shop",
     "title": "Thriendly Shop",
-    "body": "       Make money with Thriendly!    Buy Once, Sell Forever!:     Earn monthly recurring revenue with our top-selling products, all with master      resell rights (MRR) included    Buy them once or access them free with our premium plan &nbsp; &nbsp; View plans    MRR allows you to resell the products and keep 100% of the profits life time.                    Become our affiliate. 40% monthly recurring commision. Limited time offer! Signup here              "
+    "body": "      Make money with Thriendly!    Buy Once, Sell Forever!:     Earn monthly recurring revenue with our top-selling products, all with master      resell rights (MRR) included    Buy them once or access them free with our premium plan &nbsp; &nbsp; View plans    MRR allows you to resell the products and keep 100% of the profits life time.                   Become our affiliate. 40% monthly recurring commision. Limited time offer! Signup here              "
     }, {
     "id": 5,
     "url": "http://localhost:4000/forgot-password",

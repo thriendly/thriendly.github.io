@@ -15,6 +15,9 @@
 <loc>http://localhost:4000/app/aireplys</loc>
 </url>
 <url>
+<loc>http://localhost:4000/blog</loc>
+</url>
+<url>
 <loc>http://localhost:4000/app/home</loc>
 </url>
 <url>
@@ -72,15 +75,12 @@
 <loc>http://localhost:4000/category/threads/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/category/hooks/</loc>
-</url>
-<url>
 <loc>http://localhost:4000/assets/static/TipSeasonSponsorshipDeckInfo.pdf</loc>
 <lastmod>2024-11-02T00:04:26-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
-<lastmod>2024-11-02T00:04:26-07:00</lastmod>
+<lastmod>2024-11-03T23:36:18-08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/index_old.html</loc>

@@ -1,8 +1,7 @@
 ---
 layout: blog
 title: 100 Viral Hooks to Grow on threads and boost engagement
-author: Pramod
-categories: [ threads, hooks ]
+categories: [ threads ]
 featured: false
 toc: true
 description: 100+ Hooks to help you grow viral on Threads, instagram, Tiktok or any other social platforms. 

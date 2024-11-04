@@ -5,33 +5,30 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- <title>Thriendly: Fastest way to grow and monetize on Threads and X, Grow as Influencer</title> -->
-<title>Thriendly: Become an infuencer on Threads and X with AI, Viral templates & more</title>
-<!-- Primary Meta Tags -->
-<meta name="title" content="Thriendly: Fastest way to grow and monetize on Threads and X, Grow as Influencer">
-<meta name="description"
-    content="Thriendly offers set of tools to 10X threads growth. Tools include AI Engagement chrome extension, Viral thread templates, threads scheduler, threads dashboard and more" />
-
-<meta property="og:locale" content="en_US" />
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://thriendly.com/">
-<meta property="og:title" content="Thriendly: Fastest way to grow and monetize on Threads and X, Grow as Influencer">
-<meta property="og:description"
-    content="Thriendly offers set of tools to 10X threads growth. Tools include AI Engagement chrome extension, Viral thread templates, threads scheduler, threads dashboard and more">
-<meta property="og:image" content="https://thriendly.com//assets/images/thriendly-image.png">
-<meta property="og:site_name" content="Thriendly: Fastest way to grow and monetize on Threads" />
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://thriendly.com/">
-<meta property="twitter:title"
-    content="Thriendly: Fastest way to grow and monetize on Threads and X, Grow as Influencer">
-<meta property="twitter:description"
-    content="Thriendly offers set of tools to 10X threads growth. Tools include AI Engagement chrome extension, Viral thread templates, threads scheduler, threads dashboard and more">
-<meta property="twitter:image" content="https://thriendly.com//assets/landing/images/thriendly-image.png">
 
 <!--====== Favicon Icon ======-->
-<link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/ico" />
+<link rel="icon" href="/assets/images/favicon.ico" type="image/ico" />
+
+{% seo title=false %}
+<title>{{ page.title }}</title>
+
+{% if jekyll.environment == 'production' %}
+<!-- change your GA id in _config.yml -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics}}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', '{{site.google_analytics}}');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9831694095749557"
+    crossorigin="anonymous"></script>
+
+
+{% endif %}
 
 <!-- ===== All CSS files ===== -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -326,7 +323,7 @@
     <!-- ====== Footer End ====== -->
 
     <!-- ====== Back To Top Start ====== -->
-  <!--   <a href="javascript:void(0)" class="back-to-top">
+    <!--   <a href="javascript:void(0)" class="back-to-top">
         <i class="lni lni-chevron-up"> </i>
     </a> -->
     <!-- ====== Back To Top End ====== -->

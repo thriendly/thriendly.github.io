@@ -2446,8 +2446,8 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
 
 .ud-articles-box .ud-articles-box-title {
   font-weight: 600;
-  font-size: 28px;
-  padding-bottom: 25px;
+  font-size: 25px;
+  padding-bottom: 10px; 
   position: relative;
   margin-bottom: 20px;
 }

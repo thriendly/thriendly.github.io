@@ -1,6 +1,7 @@
 ---
-layout: dashboard
+layout: blog
 title: 10x Threads Growth + Free Gift from Thriendly
+categories: [ threads ]
 ---
 
 Hey there!

@@ -39,6 +39,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
+<style>
+    
+</style>
+
 <body>
     <!-- ====== Header Start ====== -->
     <header class="ud-header navbar-dark text-white">
@@ -65,57 +69,26 @@
                                     <a class="ud-menu-scroll" href="/#features">Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="ud-menu-scroll" href="/#pricing">Pricing</a>
-                                </li>
-                                <li class="nav-item">
                                     <a target="_blank" class="" href="https://www.skool.com/thriendly"
                                         rel="nofollow">Growth Community</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a target="_blank" class="" href="https://calendly.com/thriendly/thriendly">Book a
-                                        Demo</a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a href="/shop" class="Make money">Make Money</a>
                                 </li>
-                                <!-- <li class="nav-item nav-item-has-children">
-                  <a href="javascript:void(0)"> Pages </a>
-                  <ul class="ud-submenu">
-                    <li class="ud-submenu-item">
-                      <a href="about.html" class="ud-submenu-link">
-                        About Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="pricing.html" class="ud-submenu-link">
-                        Pricing Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="contact.html" class="ud-submenu-link">
-                        Contact Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="blog.html" class="ud-submenu-link">
-                        Blog Grid Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="blog-details.html" class="ud-submenu-link">
-                        Blog Details Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="login.html" class="ud-submenu-link">
-                        Sign In Page
-                      </a>
-                    </li>
-                    <li class="ud-submenu-item">
-                      <a href="404.html" class="ud-submenu-link">404 Page</a>
-                    </li>
-                  </ul>
-                </li> -->
+                                <li class="nav-item">
+                                    <a class="ud-menu-scroll" href="/blog">Blog</a>
+                                </li>
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="javascript:void(0)"> Free Tools </a>
+                                    <ul class="ud-submenu">
+                                        <li class="ud-submenu-item">
+                                            <a href="/threads-formatter" class="ud-submenu-link">
+                                                Threads post formatter
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
 
@@ -134,37 +107,51 @@
     </header>
     <!-- ====== Header End ====== -->
 
-
     <section id="blog-post" class="blog-post">
         <div class="container">
+
+            <div class="row">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="/blog"><a href="/blog">Blog</a></li>
+                    </ol>
+                </nav>
+            </div>
             <div class="row">
                 <div class="col-lg-8">
                     {{ content }}
                 </div>
 
-                <!-- <div class="col-lg-4">
+                <!-- Start of Sidebar for list of posts  -->
+
+                <div class="col-lg-4">
                     <div class="ud-blog-sidebar">
-                        <div class="ud-articles-box">
-                            <h3 class="ud-articles-box-title">Popular Articles</h3>
-                            <ul class="ud-articles-list">
-                                <li>
-                                    <div class="ud-article-content">
-                                        <h5 class="ud-article-title">
-                                            <a href="javascript:void(0)">
-                                                The 8 best landing page builders, reviewed
+                        <div class="ud-articles-box card shadow-sm border-0">
+                            <!-- Use a lighter background color for the header -->
+                            <h4 class="ud-articles-box-title card-header text-primary" style="background-color: #f4f6fb;">Popular</h4>
+                            <ul class="ud-articles-list list-unstyled mb-0 overflow-auto" style="max-height: 300px;">
+                                {% for post in site.posts %}
+                                {% unless post.url == page.url %}
+                                <li class="mb-3 p-2 border-bottom">
+                                    <div class="ud-article-content d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text text-secondary me-2"></i> <!-- Optional Icon -->
+                                        <h5 class="ud-article-title h6 mb-0">
+                                            <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+                                                {{ post.title }}
                                             </a>
                                         </h5>
-                                        <a class="ud-article-author" target="_blank"
-                                            href="https://www.threads.net/@thetipseason">Mani</a>
                                     </div>
                                 </li>
+                                {% endunless %}
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
-                </div>
-
-            -->
-
+                </div>                
+                
+                
+                <!-- End of Sidebar for list of posts  -->
             </div>
         </div>
     </section>

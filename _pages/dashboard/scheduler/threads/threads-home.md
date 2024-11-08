@@ -12,15 +12,22 @@ permalink: /app/threads/home
         cursor: pointer;
     }
 
+    /* Style for disabled cards */
+    .disabled-card {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
     /* Style for profile info */
     #profileInfo h5 {
         display: flex;
         align-items: left;
+        color: #198755; /* Bootstrap success color */
     }
 
     #profilePicture {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         margin-left: 10px;
     }
@@ -29,12 +36,6 @@ permalink: /app/threads/home
     #loading img {
         width: 30px;
         height: 30px;
-    }
-
-    
-    /* Make profile info text black */
-    #profileInfo h5 {
-        color: #198755; /* Black color */
     }
 
     /* Style the Connect button */
@@ -50,13 +51,19 @@ permalink: /app/threads/home
     #connectThreadsButton:hover {
         background-color: #218838; /* Darker green on hover */
     }
+
+    /* Hide content initially */
+    #schedulerContent,
+    #waitlistCard {
+        display: none;
+    }
 </style>
 
 <div id="content" class="container mt-4">
     <h3 class="mb-4 text-primary">Thriendly Threads Scheduler</h3>
 
     <!-- Loading Icon -->
-    <div id="loading" style="display: none; text-align: left;">
+    <div id="loading" style="text-align: left;">
         <img src="/assets/images/tipseason-loading.gif" alt="Loading...">
     </div>
 
@@ -72,48 +79,73 @@ permalink: /app/threads/home
     <!-- Profile Info -->
     <div id="profileInfo" style="display: none;">
         <h5>
-            Scheduling threads for: &nbsp; &nbsp; <span id="profileUsername"></span>
-            <img id="profilePicture" src="" alt="Profile Picture">
+            Scheduling threads for:&nbsp;<img id="profilePicture" src="" alt="Profile Picture"> &nbsp; <span id="profileUsername"></span>
         </h5>
     </div>
 
-    <!-- Cards Section -->
-    <div class="row mt-4" id="functionCards">
-        <!-- Schedule New Thread Card -->
-        <div class="col-md-4 mb-4">
-            <a href="/app/threads/scheduler" class="text-decoration-none">
-                <div class="card h-100 card-hover p-2">
-                    <div class="card-body text-center">
-                        <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>
-                        <h5 class="card-title">Schedule New Thread</h5>
-                        <p class="card-text">Compose and schedule your Threads posts that get delivered even when you sleep!</p>
+    <!-- Scheduler Content -->
+    <div id="schedulerContent">
+        <!-- Cards Section -->
+        <div class="row mt-4" id="functionCards">
+            <!-- Schedule New Thread Card -->
+            <div class="col-md-4 mb-4">
+                <a href="/app/threads/scheduler" class="text-decoration-none scheduler-card">
+                    <div class="card h-100 card-hover p-2">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Schedule New Thread</h5>
+                            <p class="card-text">Compose and schedule your Threads posts that get delivered even when you sleep!</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+            <!-- List Scheduled Threads Card -->
+            <div class="col-md-4 mb-4">
+                <a href="/app/threads/list" class="text-decoration-none scheduler-card">
+                    <div class="card h-100 card-hover p-2">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-list fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">List Scheduled Threads</h5>
+                            <p class="card-text">View and manage your scheduled threads.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Coming Soon Card -->
+            <div class="col-md-4 mb-4">
+                <a href="#" class="text-decoration-none scheduler-card">
+                    <div class="card h-100 card-hover p-2">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-plus fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">More Features Coming Soon</h5>
+                            <p class="card-text">Stay tuned for more exciting features!</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-        <!-- List Scheduled Threads Card -->
-        <div class="col-md-4 mb-4">
-            <a href="/app/threads/list" class="text-decoration-none">
-                <div class="card h-100 card-hover p-2">
-                    <div class="card-body text-center">
-                        <i class="fa-solid fa-list fa-3x mb-3 text-primary"></i>
-                        <h5 class="card-title">List Scheduled Threads</h5>
-                        <p class="card-text">View and manage your scheduled threads.</p>
-                    </div>
+    </div>
+
+    <!-- Waitlist Card -->
+    <div id="waitlistCard">
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <h5 class="font-weight-bold">
+                        Schedule AI powered viral threads with our Threads Scheduler.
+                        <br><br>
+                        Coming Soon!
+                        <br><br>
+                        Join Priority Waitlist Here
+                        <p class="mt-3">
+                            <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Thriendly Priority Waitlist</a>
+                        </p>
+                        <p>
+                            <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads Growth Community</a>
+                        </p>
+                    </h5>
                 </div>
-            </a>
-        </div>
-        <!-- Coming Soon Card -->
-        <div class="col-md-4 mb-4">
-            <a href="#" class="text-decoration-none">
-                <div class="card h-100 card-hover p-2">
-                    <div class="card-body text-center">
-                        <i class="fa-solid fa-plus fa-3x mb-3 text-primary"></i>
-                        <h5 class="card-title">More Features Coming Soon</h5>
-                        <p class="card-text">Stay tuned for more exciting features!</p>
-                    </div>
-                </div>
-            </a>
+            </div>
         </div>
     </div>
 </div>

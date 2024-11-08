@@ -57,7 +57,7 @@ $(document).ready(function () {
           threadsUserId: threads_user_id,
       };
 
-      const schedulerAPI = "http://localhost:8787/threads/schedule";
+      const schedulerAPI = "https://scheduler-dev.pramodnanduri.workers.dev/threads/schedule";
 
       $.ajax({
           url: schedulerAPI,
@@ -69,7 +69,6 @@ $(document).ready(function () {
               "Content-Type": "application/json",
           },
           success: function (data) {
-              console.log("Success:", data);
               alert("Thread scheduled successfully!");
               // Clear the form
               $("#threadContent").val('');

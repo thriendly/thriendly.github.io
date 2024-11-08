@@ -48,6 +48,9 @@
 <loc>http://localhost:4000/app/thread-maker</loc>
 </url>
 <url>
+<loc>http://localhost:4000/app/threads/auth</loc>
+</url>
+<url>
 <loc>http://localhost:4000/app/threads-dashboard</loc>
 </url>
 <url>

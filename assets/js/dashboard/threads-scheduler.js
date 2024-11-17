@@ -45,7 +45,7 @@ $(document).ready(function () {
 
       const created_time = new Date().toISOString();
 
-      const threads_user_id = "YOUR_THREADS_USER_ID"; // Replace with actual Threads user ID
+      const threads_user_id = userId;
       const status = "SCHEDULED";
 
       const threadData = {

@@ -49,8 +49,8 @@ $(document).ready(function () {
             sessionStorage.setItem("currentUserId", userId);
 
             // Call the /users API to check user features
-            const userAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/schedule"; // Adjust the URL as needed
-
+            const userAPI = "https://scheduler.manigopalmurthy.workers.dev/users"; // Adjust the URL as needed
+            
             const userUrl = new URL(userAPI);
             userUrl.searchParams.append("userId", userId);
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
             function checkThreadsProfile() {
                 // Call the /threads/profile API to check if Threads account is connected
-                const profileAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/schedule"; // Adjust the URL as needed
+                const profileAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/profile"; // Adjust the URL as needed
 
                 const url = new URL(profileAPI);
                 url.searchParams.append("userId", userId);

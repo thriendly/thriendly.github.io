@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "tech",
+      "name": "Technology",
+      "description": "Tech news and innovations",
+      "icon": "computer"
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "description": "Movies, TV, and pop culture",
+      "icon": "film"
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "description": "Sports news and highlights",
+      "icon": "basketball"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "description": "Video games and esports",
+      "icon": "gamepad"
+    },
+    {
+      "id": "food",
+      "name": "Food & Cooking",
+      "description": "Recipes and culinary arts",
+      "icon": "utensils"
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "description": "Scientific discoveries and news",
+      "icon": "microscope"
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "description": "Music news and releases",
+      "icon": "music"
+    }
+  ]
+}

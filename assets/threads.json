@@ -1,0 +1,134 @@
+{
+  "threads": [
+    {
+      "id": "CuXXX123XXX",
+      "url": "https://www.threads.net/@thetipseason/post/C-uHIW6RvQ_",
+      "category": "tech",
+      "author": "@markzuckerberg",
+      "timestamp": "2024-01-15T10:30:00Z",
+      "viralScore": 95,
+      "engagement": {
+        "likes": 150000,
+        "replies": 25000,
+        "reposts": 35000
+      }
+    },
+    {
+      "id": "CuYYY456YYY",
+      "url": "https://www.threads.net/@thetipseason/post/DCBeO_URQOX",
+      "category": "entertainment",
+      "author": "@ladygaga",
+      "timestamp": "2024-01-14T15:45:00Z",
+      "viralScore": 92,
+      "engagement": {
+        "likes": 120000,
+        "replies": 18000,
+        "reposts": 30000
+      }
+    },
+    {
+      "id": "CuZZZ789ZZZ",
+      "url": "https://www.threads.net/@lebronjames/post/CuZZZ789ZZZ",
+      "category": "sports",
+      "author": "@lebronjames",
+      "timestamp": "2024-01-13T20:15:00Z",
+      "viralScore": 88,
+      "engagement": {
+        "likes": 95000,
+        "replies": 15000,
+        "reposts": 25000
+      }
+    },
+    {
+      "id": "CuAAA012AAA",
+      "url": "https://www.threads.net/@ninja/post/CuAAA012AAA",
+      "category": "gaming",
+      "author": "@ninja",
+      "timestamp": "2024-01-12T18:20:00Z",
+      "viralScore": 85,
+      "engagement": {
+        "likes": 80000,
+        "replies": 12000,
+        "reposts": 20000
+      }
+    },
+    {
+      "id": "CuBBB345BBB",
+      "url": "https://www.threads.net/@gordonramsay/post/CuBBB345BBB",
+      "category": "food",
+      "author": "@gordonramsay",
+      "timestamp": "2024-01-11T12:10:00Z",
+      "viralScore": 87,
+      "engagement": {
+        "likes": 88000,
+        "replies": 14000,
+        "reposts": 22000
+      }
+    },
+    {
+      "id": "CuCCC678CCC",
+      "url": "https://www.threads.net/@neiltyson/post/CuCCC678CCC",
+      "category": "science",
+      "author": "@neiltyson",
+      "timestamp": "2024-01-10T14:30:00Z",
+      "viralScore": 86,
+      "engagement": {
+        "likes": 85000,
+        "replies": 13000,
+        "reposts": 21000
+      }
+    },
+    {
+      "id": "CuDDD901DDD",
+      "url": "https://www.threads.net/@taylorswift/post/CuDDD901DDD",
+      "category": "music",
+      "author": "@taylorswift",
+      "timestamp": "2024-01-09T16:45:00Z",
+      "viralScore": 94,
+      "engagement": {
+        "likes": 140000,
+        "replies": 22000,
+        "reposts": 32000
+      }
+    },
+    {
+      "id": "CuEEE234EEE",
+      "url": "https://www.threads.net/@elonmusk/post/CuEEE234EEE",
+      "category": "tech",
+      "author": "@elonmusk",
+      "timestamp": "2024-01-08T21:00:00Z",
+      "viralScore": 91,
+      "engagement": {
+        "likes": 110000,
+        "replies": 19000,
+        "reposts": 28000
+      }
+    },
+    {
+      "id": "CuFFF567FFF",
+      "url": "https://www.threads.net/@tomcruise/post/CuFFF567FFF",
+      "category": "entertainment",
+      "author": "@tomcruise",
+      "timestamp": "2024-01-07T19:15:00Z",
+      "viralScore": 89,
+      "engagement": {
+        "likes": 98000,
+        "replies": 16000,
+        "reposts": 26000
+      }
+    },
+    {
+      "id": "CuGGG890GGG",
+      "url": "https://www.threads.net/@cristianoronaldo/post/CuGGG890GGG",
+      "category": "sports",
+      "author": "@cristianoronaldo",
+      "timestamp": "2024-01-06T17:30:00Z",
+      "viralScore": 93,
+      "engagement": {
+        "likes": 130000,
+        "replies": 20000,
+        "reposts": 30000
+      }
+    }
+  ]
+}

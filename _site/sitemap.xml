@@ -9,6 +9,10 @@
 <lastmod>2024-11-03T00:00:00-07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/viral-threads/</loc>
+<lastmod>2024-11-06T00:00:00-08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about</loc>
 </url>
 <url>
@@ -70,6 +74,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/trending</loc>
+</url>
+<url>
+<loc>http://localhost:4000/trending-threads</loc>
 </url>
 <url>
 <loc>http://localhost:4000/category/threads/</loc>

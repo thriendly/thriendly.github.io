@@ -1,18 +1,16 @@
 ---
 layout: dashboard
-title: Thriendly Threads scheduler
+title: Thriendly Threads Scheduler
 permalink: /app/threads/scheduler
 ---
 
 <div id="content">
-    <div class="container mt-4 col-md-6 text-center">
-
+    <div class="container mt-4 col-md-8 offset-md-2">
         <h3 class="mb-4 text-primary">Create Thread</h3>
 
-        <!-- ================= Scheduler code ================= -->
-
+        <!-- Scheduler Form -->
         <div class="row mt-4">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-12">
                 <form id="threadForm" class="border p-2">
                     <div class="mb-3">
                         <label for="threadContent" class="form-label">Enter your content here</label>
@@ -36,41 +34,20 @@ permalink: /app/threads/scheduler
 
                     <div class="row">
                         <div class="text-center mb-3">
-                                <a href="/app/threads/list" class="btn btn-primary me-2" id="viewThreads">View Threads</a>
-                                <button type="button" class="btn btn-success" id="scheduleButton">Schedule</button>
+                            <a href="/app/threads/home" class="btn btn-secondary me-2">Back</a>
+                            <button type="button" class="btn btn-success" id="scheduleButton">Schedule</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
-
 </div>
 
+<!-- Scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<!-- <script src="{{ site.baseurl }}/assets/js/smartreply.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include Bootstrap JS and its dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include the JavaScript file -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
-
-<script type="module">
-    import { checkAuthAndExecute } from "{{ site.baseurl }}/assets/js/firebaseauth.js";
-
-    /* // On profile page
-    checkAuthAndExecute(
-        (user) => {
-            console.log("Inside smart reply page : " + user);
-            // User is signed in
-            console.log("Inside smart reply page User is signed in:", user.email);
-            console.log("Inside smart reply page User token:", user.getIdToken());
-            user.getIdToken()
-                .then((idToken) => {
-                    // idToken contains the ID token string
-                    console.log("ID Token:", idToken);
-                })
-                .catch((error) => {
-                    console.error("Error getting ID token:", error.message);
-                });
-        }
-    ); */
-
-</script>

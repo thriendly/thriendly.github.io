@@ -57,7 +57,7 @@ $(document).ready(function () {
           threadsUserId: threads_user_id,
       };
 
-      const schedulerAPI = "https://scheduler-dev.pramodnanduri.workers.dev/threads/schedule";
+      const schedulerAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/schedule";
 
       $.ajax({
           url: schedulerAPI,

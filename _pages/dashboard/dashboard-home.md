@@ -111,7 +111,7 @@ permalink: /app/home
                 <div>
                     <p class="mt-3">For faster access and 10x growth tips, join our community
 
-                        <a target="_blank" class="btn btn-primary" href="https://discord.gg/7UqWEuqqhk">Threads
+                        <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Threads
                             Growth community</a>
                     </p>
                 </div>

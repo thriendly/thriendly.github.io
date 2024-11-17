@@ -23,7 +23,7 @@ $(document).ready(function () {
   // Functions for listing scheduled threads
   function fetchScheduledThreads(idToken, userId, page) {
       $.ajax({
-          url: `https://scheduler-dev.pramodnanduri.workers.dev/threads/list`,
+          url: `https://scheduler.manigopalmurthy.workers.dev/threads/list`,
           method: "GET",
           headers: {
               "Authorization": `Bearer ${idToken}`,
@@ -127,7 +127,7 @@ $(document).ready(function () {
   function confirmDelete(postId) {
       if (confirm("Are you sure you want to delete this thread?")) {
           $.ajax({
-              url: `http://scheduler-dev.pramodnanduri.workers.dev/threads/delete?userId=${userId}&postId=${postId}`,
+              url: `http://scheduler.manigopalmurthy.workers.dev/threads/delete?userId=${userId}&postId=${postId}`,
               method: "DELETE",
               headers: {
                   "Authorization": `Bearer ${idToken}`,
@@ -186,7 +186,7 @@ $(document).ready(function () {
 
           // Make the API call to update the thread
           $.ajax({
-              url: `https://scheduler-dev.pramodnanduri.workers.dev/threads/update?userId=${userId}&postId=${postId}`,
+              url: `https://scheduler.manigopalmurthy.workers.dev/threads/update?userId=${userId}&postId=${postId}`,
               method: "PATCH",
               headers: {
                   "Authorization": `Bearer ${idToken}`,

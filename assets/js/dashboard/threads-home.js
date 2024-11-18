@@ -31,7 +31,7 @@ $(document).ready(function () {
         const state = Math.random().toString(36).substring(2);
         sessionStorage.setItem("oauthState", state);
 
-        const threadsAuthUrl = 'https://threads.net/oauth/authorize?client_id=1023999582681781&redirect_uri=https://thriendly/threads/auth&scope=threads_basic,threads_content_publish&response_type=code&state=' + state;
+        const threadsAuthUrl = 'https://threads.net/oauth/authorize?client_id=1023999582681781&redirect_uri=https://scheduler-dev.pramodnanduri.workers.dev/threads/auth&scope=threads_basic,threads_content_publish&response_type=code&state=' + state;
 
         // Redirect the user to the authorization URL
         window.location.href = threadsAuthUrl;
@@ -49,8 +49,8 @@ $(document).ready(function () {
             sessionStorage.setItem("currentUserId", userId);
 
             // Call the /users API to check user features
-            const userAPI = "https://scheduler.manigopalmurthy.workers.dev/users"; // Adjust the URL as needed
-            
+            const userAPI = `${SCHEDULER_URL}/users`; // Adjust the URL as needed
+
             const userUrl = new URL(userAPI);
             userUrl.searchParams.append("userId", userId);
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
             function checkThreadsProfile() {
                 // Call the /threads/profile API to check if Threads account is connected
-                const profileAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/profile"; // Adjust the URL as needed
+                const profileAPI = `${SCHEDULER_URL}/threads/profile`; // Adjust the URL as needed
 
                 const url = new URL(profileAPI);
                 url.searchParams.append("userId", userId);

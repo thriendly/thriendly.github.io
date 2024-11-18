@@ -28,7 +28,7 @@ $(document).ready(function () {
             idToken = token;
 
             // Construct the API URL with query parameters
-            const authAPI = `https://scheduler.manigopalmurthy.workers.dev/threads/auth?code=${encodeURIComponent(code)}`;
+            const authAPI = `${SCHEDULER_URL}/threads/auth?code=${encodeURIComponent(code)}`;
 
             // Send the authorization code to your backend /threads/auth endpoint
             fetch(authAPI, {

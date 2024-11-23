@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads Authentication
-permalink: app/threads/auth
+permalink: /app/threads/auth
 ---
 
 <div id="content" class="container mt-4">

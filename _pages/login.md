@@ -9,10 +9,10 @@ permalink: /login
         <div class="col-12 col-md-6 col-lg-4 h-50" style="margin-bottom: 100px;">
             <div class="card shadow mb-10">
                 <div class="card-body mx-auto">
-                    <h3 class="card-title mt-3 text-center text-info">Welcome to Thriendly!</h3>
+                    <h3 class="card-title mt-3 text-center text-info">Welcome to Thriendly</h3>
+                    <h4 class="card-title mt-3 text-center">The fastest way to grow on Threads & Bluesky!</h4>
 
-                    <h4 class="card-title mt-3 text-center">Login</h4>
-                    <p class="text-center">Enter your credentials</p>
+                    <h4 class="card-title mt-3 text-center">Login Here</h4>
                     <!-- <p>
                         <a href="#" class="btn btn-block btn-danger" id="googleSignInButton">
                             <i class="fab fa-google mr-2"></i>Login with Google</a>

@@ -166,7 +166,6 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (response) {
-                console.log('API Response:', response);
                 const thread = response.threadDetails;
                 if (!thread) {
                     alert("Failed to load thread content. Please try again.");

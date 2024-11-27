@@ -245,7 +245,5 @@ permalink: /app/threads/list
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JS and its dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Include Font Awesome JS for icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <!-- Include the JavaScript file -->
-<script src="/assets/js/dashboard/threads-list.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>

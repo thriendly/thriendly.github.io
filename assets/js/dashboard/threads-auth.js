@@ -42,7 +42,6 @@ $(document).ready(function () {
                 .then((response) => response.json().then(data => ({ status: response.status, data })))
                 .then(({ status, data }) => {
                     if (status === 200 && data && data.success) {
-                        console.log("Threads authentication successful:", data);
                         $('#message').removeClass('alert-info').addClass('alert-success').text('Connected successfully!');
                     } else {
                         console.error("Error during Threads authentication:", data);

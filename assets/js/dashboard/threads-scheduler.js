@@ -22,6 +22,7 @@ $(document).ready(function () {
         user.getIdToken().then((token) => {
             idToken = token;
             userId = user.uid;
+            threadsUserId = sessionStorage.getItem("currentThreadsUserId");
         }).catch((error) => {
             console.error("Error getting ID token:", error.message);
         });
@@ -117,7 +118,6 @@ $(document).ready(function () {
         const localDateTime = new Date(combinedDateTime);
         const schedule_time = localDateTime.toISOString();
         const created_time = new Date().toISOString();
-        const threads_user_id = userId;
         const status = "SCHEDULED";
 
         // Use the updated splitting function
@@ -129,15 +129,13 @@ $(document).ready(function () {
             thread_content: chunk
         }));
 
-        console.log(contentArray);
-
         const threadData = {
             content: contentArray, // Use the new format here
             schedule_time: schedule_time,
             created_time: created_time,
             status: status,
             userId: userId,
-            threadsUserId: threads_user_id,
+            threadsUserId: threadsUserId,
         };
 
         const schedulerAPI = `${SCHEDULER_URL}/threads/schedule`;

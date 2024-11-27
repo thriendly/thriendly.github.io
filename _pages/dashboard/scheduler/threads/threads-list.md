@@ -240,7 +240,7 @@ permalink: /app/threads/list
 </div>
 
 <!-- Include necessary scripts -->
-<script type="module" src="/assets/js/firebaseauth.js"></script>
+<script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
 <script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JS and its dependencies -->

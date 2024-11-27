@@ -152,6 +152,7 @@ permalink: /app/threads/home
 
 <!-- Scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
+<script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
 <!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JS and its dependencies -->

@@ -14,19 +14,6 @@ $(document).ready(function () {
     // Handle the "Connect Threads Account" button
     $("#connectThreadsButton").on("click", function () {
 
-        // Ensure userId is set
-        if (!userId) {
-            userId = sessionStorage.getItem("currentUserId");
-        }
-
-        if (!userId) {
-            alert("User ID is not available. Please log in again.");
-            return;
-        }
-
-        // Save the userId in sessionStorage for later use
-        sessionStorage.setItem("currentUserId", userId);
-
         // Generate a random state parameter for security
         const state = Math.random().toString(36).substring(2);
         sessionStorage.setItem("oauthState", state);
@@ -42,15 +29,10 @@ $(document).ready(function () {
         user.getIdToken().then((token) => {
             idToken = token;
             userId = user.uid;
-            console.log("ID Token:", idToken);
-            console.log("User ID:", userId);
-
-            // Save userId in sessionStorage
-            sessionStorage.setItem("currentUserId", userId);
 
             // Call the /users API to check user features
-            const userAPI = "https://scheduler.manigopalmurthy.workers.dev/users"; // Adjust the URL as needed
-            
+            const userAPI = `${SCHEDULER_URL}/users`; // Adjust the URL as needed
+
             const userUrl = new URL(userAPI);
             userUrl.searchParams.append("userId", userId);
 
@@ -62,7 +44,6 @@ $(document).ready(function () {
             })
                 .then((response) => response.json())
                 .then((userData) => {
-                    console.log("User data:", userData);
 
                     // Check if the user has the 'scheduler' feature
                     if (userData && userData.threadsFeatures && userData.threadsFeatures.includes("scheduler")) {
@@ -89,7 +70,7 @@ $(document).ready(function () {
 
             function checkThreadsProfile() {
                 // Call the /threads/profile API to check if Threads account is connected
-                const profileAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/profile"; // Adjust the URL as needed
+                const profileAPI = `${SCHEDULER_URL}/threads/profile`; // Adjust the URL as needed
 
                 const url = new URL(profileAPI);
                 url.searchParams.append("userId", userId);
@@ -101,7 +82,6 @@ $(document).ready(function () {
                     },
                 })
                     .then((response) => {
-                        console.log("Response status:", response.status);
                         return response.json();
                     })
                     .then((data) => {
@@ -111,6 +91,7 @@ $(document).ready(function () {
                         if (data && data.userId && data.username) {
                             // Threads account is connected
                             // Hide the "Connect Threads Account" button
+                            sessionStorage.setItem("currentThreadsUserId", data.threadsUserId);
                             $("#connectThreadsContainer").hide();
 
                             // Display the profile username and profile picture

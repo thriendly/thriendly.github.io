@@ -29,7 +29,8 @@ $(document).ready(function () {
             userId = user.uid;
             
             // Construct the API URL with query parameters
-            const authAPI = `https://scheduler.manigopalmurthy.workers.dev/threads/auth?code=${encodeURIComponent(code)}&userId=${userId}`;
+            const authAPI = `${SCHEDULER_URL}/threads/auth?code=${encodeURIComponent(code)}&userId=${userId}`;
+
 
             // Send the authorization code to your backend /threads/auth endpoint
             fetch(authAPI, {
@@ -43,7 +44,6 @@ $(document).ready(function () {
                 .then((response) => response.json().then(data => ({ status: response.status, data })))
                 .then(({ status, data }) => {
                     if (status === 200 && data && data.success) {
-                        console.log("Threads authentication successful:", data);
                         $('#message').removeClass('alert-info').addClass('alert-success').text('Connected successfully!');
                     } else {
                         console.error("Error during Threads authentication:", data);

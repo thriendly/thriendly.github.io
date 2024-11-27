@@ -1,84 +1,172 @@
 // threads-scheduler.js
 
 $(document).ready(function () {
-  let idToken = '';
-  let userId = '';
+    let idToken = '';
+    let userId = '';
 
-  // Initialize date input
-  const dateInput = document.getElementById("date");
-  if (dateInput) {
-      const today = new Date();
-      const currentDate = today.toISOString().split("T")[0];
-      dateInput.setAttribute("min", currentDate);
+    // Initialize date input
+    const dateInput = document.getElementById("date");
+    if (dateInput) {
+        const today = new Date();
+        const currentDate = today.toISOString().split("T")[0];
+        dateInput.setAttribute("min", currentDate);
 
-      const futureDate = new Date();
-      futureDate.setDate(today.getDate() + 31);
-      const maxDate = futureDate.toISOString().split("T")[0];
+        const futureDate = new Date();
+        futureDate.setDate(today.getDate() + 31);
+        const maxDate = futureDate.toISOString().split("T")[0];
+        dateInput.setAttribute("max", maxDate);
+    }
 
-      dateInput.setAttribute("max", maxDate);
-  }
+    // Handle user authentication
+    checkAuthAndExecute((user) => {
+        user.getIdToken().then((token) => {
+            idToken = token;
+            userId = user.uid;
+            threadsUserId = sessionStorage.getItem("currentThreadsUserId");
+        }).catch((error) => {
+            console.error("Error getting ID token:", error.message);
+        });
+    });
 
-  // Handle user authentication
-  checkAuthAndExecute((user) => {
-      user.getIdToken().then((token) => {
-          idToken = token;
-          userId = user.uid;
-      }).catch((error) => {
-          console.error("Error getting ID token:", error.message);
-      });
-  });
+    
+    // Helper function to split text into chunks of maxLength characters, splitting at spaces
+    function splitTextIntoChunks(text, maxLength) {
+        const chunks = [];
+        let remainingText = text;
+        while (remainingText.length > maxLength) {
+            let chunk = remainingText.substring(0, maxLength + 1);
+            let lastSpace = chunk.lastIndexOf(' ');
+            if (lastSpace > -1 && lastSpace > 0) {
+                chunk = remainingText.substring(0, lastSpace);
+            } else {
+                chunk = remainingText.substring(0, maxLength);
+            }
+            chunks.push(chunk.trim());
+            remainingText = remainingText.substring(chunk.length).trim();
+        }
+        if (remainingText.length > 0) {
+            chunks.push(remainingText);
+        }
+        return chunks;
+    }
 
-  // Handle scheduling a new thread
-  $("#scheduleButton").on("click", function () {
-      const text = $("#threadContent").val();
-      const date = $("#date").val();
-      const time = $("#appt").val();
+    // Updated function to split text based on '---' delimiter and ensure each subpost is <= 500 characters
+    function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
+        const subposts = text.split(delimiter)
+                             .map(s => s.trim())
+                             .filter(s => s.length > 0);
 
-      if (!date || !time) {
-          alert("Please select both schedule date and time");
-          return;
-      }
+        const result = [];
+        subposts.forEach(subpost => {
+            if (subpost.length <= maxLength) {
+                result.push(subpost);
+            } else {
+                // Further split subposts longer than maxLength
+                const chunks = splitTextIntoChunks(subpost, maxLength);
+                result.push(...chunks);
+            }
+        });
+        return result;
+    }
 
-      const combinedDateTime = `${date}T${time}:00`;
-      const localDateTime = new Date(combinedDateTime);
-      const schedule_time = localDateTime.toISOString();
+    // Update the preview whenever the content changes
+    $("#threadContent").on("input", function () {
+        updatePreview();
+    });
 
-      const created_time = new Date().toISOString();
+    function updatePreview() {
+        const content = $("#threadContent").val();
+        const subposts = splitTextByDelimiter(content);
+        let previewHtml = '';
 
-      const threads_user_id = userId;
-      const status = "SCHEDULED";
+        subposts.forEach((subpost, index) => {
+            previewHtml += `
+                <div class="thread-preview">
+                    <div class="thread-number">${index + 1}</div>
+                    <div class="thread-content">${subpost}</div>
+                    <span class="char-count">${subpost.length} characters</span>
+                    ${
+                        index < subposts.length - 1
+                            ? '<div class="connecting-line"></div>'
+                            : ''
+                    }
+                </div>
+                
+            `;
+        });
 
-      const threadData = {
-          text: text,
-          schedule_time: schedule_time,
-          created_time: created_time,
-          status: status,
-          userId: userId,
-          threadsUserId: threads_user_id,
-      };
+        $("#preview").html(previewHtml);
+    }
 
-      const schedulerAPI = "https://scheduler.manigopalmurthy.workers.dev/threads/schedule";
+    // Handle scheduling a new thread
+    $("#scheduleButton").on("click", function () {
+        // Disable the schedule button
+        const $scheduleButton = $(this);
+        $scheduleButton.prop('disabled', true);
 
-      $.ajax({
-          url: schedulerAPI,
-          type: "POST",
-          dataType: "json",
-          data: JSON.stringify(threadData),
-          headers: {
-              Authorization: "Bearer " + idToken,
-              "Content-Type": "application/json",
-          },
-          success: function (data) {
-              alert("Thread scheduled successfully!");
-              // Clear the form
-              $("#threadContent").val('');
-              $("#date").val('');
-              $("#appt").val('');
-          },
-          error: function (xhr, status, error) {
-              console.error("Error:", error);
-              alert("An error occurred while scheduling the thread.");
-          },
-      });
-  });
+        const text = $("#threadContent").val();
+        const date = $("#date").val();
+        const time = $("#appt").val();
+
+        if (!date || !time) {
+            alert("Please select both schedule date and time");
+            $scheduleButton.prop('disabled', false); // Re-enable the button
+            return;
+        }
+
+        const combinedDateTime = `${date}T${time}:00`;
+        const localDateTime = new Date(combinedDateTime);
+        const schedule_time = localDateTime.toISOString();
+        const created_time = new Date().toISOString();
+        const status = "SCHEDULED";
+
+        // Use the updated splitting function
+        const textChunks = splitTextByDelimiter(text);
+
+        // Create an array of JSON objects with thread_id and thread_content
+        const contentArray = textChunks.map(chunk => ({
+            thread_id: "",
+            thread_content: chunk
+        }));
+
+        const threadData = {
+            content: contentArray, // Use the new format here
+            schedule_time: schedule_time,
+            created_time: created_time,
+            status: status,
+            userId: userId,
+            threadsUserId: threadsUserId,
+        };
+
+        const schedulerAPI = `${SCHEDULER_URL}/threads/schedule`;
+
+        $.ajax({
+            url: schedulerAPI,
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(threadData),
+            headers: {
+                Authorization: "Bearer " + idToken,
+                "Content-Type": "application/json",
+            },
+            success: function (data) {
+                alert("Thread scheduled successfully!");
+                
+                // Clear the form and preview
+                $("#threadContent").val('');
+                $("#date").val('');
+                $("#appt").val('');
+                $("#preview").html('');
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+                alert("An error occurred while scheduling the thread. Please try again.");
+            },
+            complete: function () {
+                // Re-enable the schedule button
+                $scheduleButton.prop('disabled', false);
+            }
+        });
+    });
 });
+

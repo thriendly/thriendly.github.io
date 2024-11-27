@@ -26,9 +26,11 @@ $(document).ready(function () {
     checkAuthAndExecute((user) => {
         user.getIdToken().then((token) => {
             idToken = token;
-
+            userId = user.uid;
+            
             // Construct the API URL with query parameters
-            const authAPI = `${SCHEDULER_URL}/threads/auth?code=${encodeURIComponent(code)}`;
+            const authAPI = `${SCHEDULER_URL}/threads/auth?code=${encodeURIComponent(code)}&userId=${userId}`;
+
 
             // Send the authorization code to your backend /threads/auth endpoint
             fetch(authAPI, {

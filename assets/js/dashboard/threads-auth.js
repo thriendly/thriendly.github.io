@@ -18,7 +18,7 @@ $(document).ready(function () {
         // Redirect after displaying the message
         setTimeout(() => {
             window.location.href = '/app/threads/home';
-        }, 5000);
+        }, 10000);
         return;
     }
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
             })
                 .then((response) => response.json().then(data => ({ status: response.status, data })))
                 .then(({ status, data }) => {
-                    if (status === 200 && data && data.success) {
+                    if (status === 200) {
                         $('#message').removeClass('alert-info').addClass('alert-success').text('Connected successfully!');
                     } else {
                         console.error("Error during Threads authentication:", data);

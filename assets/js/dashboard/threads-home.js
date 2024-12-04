@@ -18,7 +18,7 @@ $(document).ready(function () {
         const state = Math.random().toString(36).substring(2);
         sessionStorage.setItem("oauthState", state);
 
-        const threadsAuthUrl = 'https://threads.net/oauth/authorize?client_id=1023999582681781&redirect_uri=https://thriendly.com/app/threads/auth&scope=threads_basic,threads_content_publish&response_type=code&state=' + state;
+        const threadsAuthUrl = 'https://threads.net/oauth/authorize?client_id=1023999582681781&redirect_uri=https://thriendly.com/app/threads/auth&scope=threads_basic,threads_content_publish,threads_manage_replies,threads_manage_insights,threads_read_replies&response_type=code&state=' + state;
 
         // Redirect the user to the authorization URL
         window.location.href = threadsAuthUrl;

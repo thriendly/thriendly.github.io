@@ -61,7 +61,7 @@ $(document).ready(function () {
                     renderLoadMoreButton(hasMore);
                 } else {
                     // No more threads to load
-                    alert("There are no more scheduled threads. Go to 'Threads' to schedule more.");
+                    alert("There are no more scheduled threads. Go to Threads Scheduler to schedule more.");
                     renderLoadMoreButton(false);
                 }
             },
@@ -175,11 +175,55 @@ $(document).ready(function () {
                 $("#updateThreadPostId").val(postId);
 
                 // Set scheduled date and time
-                const scheduledTime = new Date(thread.scheduledTime);
-                const formattedDate = scheduledTime.toISOString().slice(0, 10);
-                const formattedTime = scheduledTime.toTimeString().slice(0, 5);
+                const currentScheduledDate = new Date(new Date(thread.scheduledTime).toLocaleDateString());
+                //const currentScheduledTime = new Date(new Date(thread.scheduledTime)).toLocaleTimeString();
+                const currentScheduledTime = new Date(thread.scheduledTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+                const formattedDate = currentScheduledDate.toISOString().slice(0, 10);
+                const formattedTime = currentScheduledTime;
                 $("#updateThreadScheduleDate").val(formattedDate);
                 $("#updateThreadScheduleTime").val(formattedTime);
+
+                console.log(currentScheduledTime);
+                console.log(currentScheduledDate);
+
+                // Get today's local date in YYYY-MM-DD
+                const today = new Date();
+                const currentLocalDate = today.getFullYear() + '-' +
+                    String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                    String(today.getDate()).padStart(2, '0');
+
+                // Set the min attribute to prevent selecting older dates
+                $("#updateThreadScheduleDate").attr("min", currentLocalDate);
+
+                // Add a change event to reset if older date is entered
+                $("#updateThreadScheduleDate").off("change").on("change", function () {
+                    const selectedDate = $(this).val();
+                    if (selectedDate && selectedDate < currentLocalDate) {
+                        alert("You cannot select a date older than today.");
+                        $(this).val(''); // Reset the date field
+                    }
+                });
+
+                $("#updateThreadScheduleTime").off("change").on("change", function () {
+                    const selectedDate = $("#updateThreadScheduleDate").val();
+                    const selectedTime = $(this).val();
+                    if (!selectedTime || !selectedDate) return;
+    
+                    // If the selected date is today, verify the time constraint
+                    if (selectedDate === currentLocalDate) {
+                        const now = new Date();
+                        const [selHour, selMinute] = selectedTime.split(':').map(Number);
+                        const selectedDateObj = new Date(now.getFullYear(), now.getMonth(), now.getDate(), selHour, selMinute);
+    
+                        // Minimum allowed time is now + 1 minute
+                        const minAllowedTime = new Date(now.getTime());
+    
+                        if (selectedDateObj < minAllowedTime) {
+                            alert("Thriendly cannot schedule a post for current time, Please select a future time.");
+                            $(this).val(''); // Reset the time field
+                        }
+                    }
+                });
 
                 // Process content
                 let contentString = '';
@@ -204,9 +248,6 @@ $(document).ready(function () {
 
                 $("#updateThreadContent").val(contentString);
 
-                // Resize the textarea to fit content
-                //autoResizeTextarea($("#updateThreadContent"));
-
                 // Update the preview
                 updateModalPreview();
 
@@ -218,13 +259,6 @@ $(document).ready(function () {
                 alert("Failed to load thread content. Please try again.");
             }
         });
-    }
-
-    // Function to auto-resize textarea on modal load
-    function autoResizeTextarea(textarea) {
-        textarea.css('height', 'auto');
-        const scrollHeight = textarea[0].scrollHeight;
-        textarea.css('height', scrollHeight + 'px');
     }
 
     // Update the preview in the modal whenever content changes
@@ -331,7 +365,10 @@ $(document).ready(function () {
         // Combine date and time into ISO string in UTC
         const [year, month, day] = scheduleDate.split('-').map(Number);
         const [hour, minute] = scheduleTime.split(':').map(Number);
-        const newScheduleTime = new Date(Date.UTC(year, month - 1, day, hour, minute)).toISOString();
+        const localDate = new Date(year, month - 1, day, hour, minute);
+
+        // Convert to UTC using getTime() and toISOString()
+        const newScheduleTime = new Date(localDate.toUTCString()).toISOString();
 
         // Get content from the textarea
         let contentString = $("#updateThreadContent").val();

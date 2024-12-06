@@ -8,13 +8,23 @@ $(document).ready(function () {
     const dateInput = document.getElementById("date");
     if (dateInput) {
         const today = new Date();
-        const currentDate = today.toISOString().split("T")[0];
+        const currentDate = today.getFullYear() + '-' +
+            String(today.getMonth() + 1).padStart(2, '0') + '-' +
+            String(today.getDate()).padStart(2, '0');
         dateInput.setAttribute("min", currentDate);
 
         const futureDate = new Date();
         futureDate.setDate(today.getDate() + 31);
-        const maxDate = futureDate.toISOString().split("T")[0];
+        const maxDate = futureDate.toISOString("en-US").split("T")[0];
         dateInput.setAttribute("max", maxDate);
+
+        dateInput.addEventListener('change', () => {
+            const selectedDate = dateInput.value;
+            if (selectedDate && selectedDate < currentDate) {
+                alert('You cannot select a date older than today.');
+                dateInput.value = '';
+            }
+        });
     }
 
     // Handle user authentication

@@ -81,6 +81,20 @@ permalink: /app/threads/list
         gap: 10px;
     }
 
+        .btn-view {
+        background-color: #28a745; /* Green background */
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+    }
+    .btn-view:hover {
+        background-color: #218838;
+    }
+    .btn-view:focus {
+        outline: none;
+    }
+
+
     .btn-edit {
         background-color: #007bff; /* Blue */
         color: white;
@@ -163,6 +177,18 @@ permalink: /app/threads/list
     .number-padding {
         padding-top: 20px;
     }
+
+    .nav-pills .nav-link {
+    background: none;
+    border: none;
+    color: #28a745; /* Green text for non-selected pills */
+}
+
+.nav-pills .nav-link.active {
+    background-color: #28a745; /* Green background for selected pill */
+    color: #fff; /* White text for the selected pill */
+}
+
 </style>
 
 <div id="content">
@@ -170,6 +196,17 @@ permalink: /app/threads/list
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="text-primary">Scheduled Threads</h3>
             <a href="/app/threads/home" class="btn btn-secondary">Back</a>
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <ul class="nav nav-pills me-2" id="statusNav" role="tablist" style="font-size: 0.85rem;">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link px-2 py-1" data-status="scheduled" type="button" role="tab">Scheduled</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link px-2 py-1" data-status="success" type="button" role="tab">Published</button>
+                </li>
+            </ul>
         </div>
 
         <div id="loading" style="text-align: left;">

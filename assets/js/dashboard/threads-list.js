@@ -4,9 +4,10 @@ $(document).ready(function () {
     let threads = [];
     let idToken = '';
     let userId = '';
+    let currentStatus = 'scheduled';
 
     $("#loading").show();
-    
+
     // Handle user authentication
     checkAuthAndExecute((user) => {
         user.getIdToken().then((token) => {
@@ -20,6 +21,26 @@ $(document).ready(function () {
         });
     });
 
+    $(`.nav-link[data-status="${currentStatus}"]`).addClass('active');
+
+    $(".nav-link").on("click", function() {
+        const newStatus = $(this).data("status");
+        if (newStatus !== currentStatus) {
+            currentStatus = newStatus;
+            currentPage = 1;
+            threads = [];
+            $("#thread-list").empty();
+            $("#loading").show();
+
+            // Update active state visually
+            $(".nav-link").removeClass('active');
+            $(this).addClass('active');
+
+            // Fetch threads based on new status
+            fetchScheduledThreads(idToken, userId, currentPage);
+        }
+    });
+
     // Functions for listing scheduled threads
     function fetchScheduledThreads(idToken, userId, page) {
         $.ajax({
@@ -30,7 +51,7 @@ $(document).ready(function () {
             },
             data: {
                 userId: userId,
-                status: "scheduled",
+                status: currentStatus,
                 page: page,
                 itemsPerPage: itemsPerPage
             },
@@ -74,17 +95,30 @@ $(document).ready(function () {
     function renderThreads() {
         const threadList = $("#thread-list");
         threadList.empty();
-
+    
         if (threads.length === 0) {
             threadList.html("<p>No threads to display.</p>");
             return;
         }
-
+    
         $.each(threads, function (index, thread) {
             const contentHtml = formatContent(thread.contentPreview);
             const scheduledTime = new Date(thread.scheduledTime);
             const formattedDate = scheduledTime.toLocaleDateString();
             const formattedTime = scheduledTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    
+            let actionButtonsHtml;
+            if (thread.status && thread.status.toUpperCase() === "SUCCESS") {
+                // Published post: show green "View" button only
+                actionButtonsHtml = `<button class="btn btn-sm btn-success btn-view" data-id="${thread.postId}">View</button>`;
+            } else {
+                // Scheduled or other statuses: show Edit and Delete
+                actionButtonsHtml = `
+                    <button class="btn btn-sm btn-edit" data-id="${thread.postId}">Edit</button>
+                    <button class="btn btn-sm btn-delete" data-id="${thread.postId}">Delete</button>
+                `;
+            }
+    
             const threadCard = `
                 <div class="card mb-4 thread-card" data-id="${thread.postId || thread.post_id}">
                     <div class="card-body">
@@ -95,8 +129,7 @@ $(document).ready(function () {
                                 ${formattedDate} ${formattedTime}
                             </span>
                             <div class="action-buttons">
-                                <button class="btn btn-sm btn-edit" data-id="${thread.postId}">Edit</button>
-                                <button class="btn btn-sm btn-delete" data-id="${thread.postId}">Delete</button>
+                                ${actionButtonsHtml}
                             </div>
                         </div>
                     </div>
@@ -104,24 +137,27 @@ $(document).ready(function () {
             `;
             threadList.append(threadCard);
         });
-
-        // Attach click event to edit buttons
+    
+        // Update event bindings
         $(".btn-edit").off("click").on("click", function (e) {
             e.stopPropagation();
             const postId = $(this).data("id");
             openUpdateModal(postId);
         });
-
-        // Attach click event to delete buttons
         $(".btn-delete").off("click").on("click", function (e) {
             e.stopPropagation();
             const postId = $(this).data("id");
             deleteThread(postId);
         });
-
-        // Attach click event to thread cards (excluding buttons)
+    
+        $(".btn-view").off("click").on("click", function (e) {
+            e.stopPropagation();
+            const postId = $(this).data("id");
+            openUpdateModal(postId); // Same modal, but we’ll hide compose parts if success
+        });
+    
         $(".thread-card").off("click").on("click", function (e) {
-            if (!$(e.target).hasClass('btn-edit') && !$(e.target).hasClass('btn-delete')) {
+            if (!$(e.target).hasClass('btn-edit') && !$(e.target).hasClass('btn-delete') && !$(e.target).hasClass('btn-view')) {
                 const postId = $(this).data("id");
                 openUpdateModal(postId);
             }
@@ -153,6 +189,27 @@ $(document).ready(function () {
         }
     }
 
+    function resetModalUI() {
+        $(".section-header").show();
+        $(".datetime-row").show();
+        $("#updateThreadContent").closest(".mb-3").show();
+        $("#charCount").show();
+        $("#update-thread-form button[type='submit']").show();
+        $("#updateThreadModalLabel").text("Update Thread");
+    
+        // Restore the preview header text
+        $(".preview-header").text("Preview");
+    
+        // Target the edit and preview columns
+        const editCol = $(".modal-body .row .col-md-6").first();
+        const previewCol = $(".modal-body .row .col-md-6").last();
+    
+        editCol.show();
+        previewCol.removeClass('offset-md-3 text-center col-12').addClass('col-md-6');
+    
+        $("#updatePreview").removeClass('text-center');
+    }
+
     function openUpdateModal(postId) {
         $.ajax({
             url: `${SCHEDULER_URL}/threads/post`,
@@ -171,6 +228,8 @@ $(document).ready(function () {
                     alert("Failed to load thread content. Please try again.");
                     return;
                 }
+
+                resetModalUI();
 
                 $("#updateThreadPostId").val(postId);
 
@@ -250,6 +309,29 @@ $(document).ready(function () {
 
                 // Update the preview
                 updateModalPreview();
+                if (thread.status && thread.status.toUpperCase() === "SUCCESS") {
+                    // Hide the compose UI elements as before
+                    $(".section-header").hide();
+                    $(".datetime-row").hide();
+                    $("#updateThreadContent").closest(".mb-3").hide();
+                    $("#charCount").hide();
+                    $("#update-thread-form button[type='submit']").hide();
+                    $("#updateThreadModalLabel").text("View Thread");
+                
+                    // Change "Preview" to "Published Thread"
+                    $(".preview-header").text("Published Thread");
+                
+                    // Hide the edit column (first col-md-6)
+                    $(".modal-body .row .col-md-6").first().hide();
+                
+                    // Center the preview column by adding an offset
+                    const previewCol = $(".modal-body .row .col-md-6").last();
+                    // Keep it col-md-6, just add offset-md-3 to center it in a 12-column grid
+                    previewCol.removeClass('col-md-6').addClass('col-md-6 offset-md-3');
+                
+                    // Center the preview content text
+                    $("#updatePreview").addClass('text-center');
+                }   
 
                 // Show the modal
                 $("#updateThreadModal").modal("show");

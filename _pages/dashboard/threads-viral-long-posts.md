@@ -68,7 +68,12 @@ permalink: /app/viral-threads
 </style>
 
 <body>
+    <div id="schedulerContainer" style="display:none;">
+    {% include thread-scheduler.html %}
+    </div>
+
     <div id="content" class="container mt-4">
+    <div id="GenerationContainer" style="display:block;">
         <h3 class="mb-4 text-primary">Viral long post generator</h3>
 
         <div id="templatesView">
@@ -145,6 +150,7 @@ permalink: /app/viral-threads
                                     class="fa-solid fa-wand-magic-sparkles"></i></button>
                             <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
                         </div>
+                        <button id="loadSchedulerButton" class="btn btn-info" type="button">Open Scheduler</button>
                         <div class="mb-3">
                             <p> Note: Each long post generation takes 10 Credits </p>
                         </div>
@@ -152,6 +158,7 @@ permalink: /app/viral-threads
                     <div id="generatedHook" class="mt-4"></div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -593,6 +600,28 @@ Until then.
                     }
                 });
             });
+            
+            const loadSchedulerButton = document.getElementById('loadSchedulerButton');
+            if (loadSchedulerButton) {
+                loadSchedulerButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Show the scheduler UI
+                    document.getElementById("schedulerContainer").style.display = 'block';
+                    
+
+                    // Get generated hook from the <pre> inside #generatedHook
+                    const preElement = document.querySelector("#generatedHook pre");
+                    const generatedHook = preElement ? preElement.innerText : '';
+
+                    // Fill the scheduler textarea
+                    const threadContentElement = document.getElementById("threadContent");
+                    if (threadContentElement) {
+                        threadContentElement.value = generatedHook;
+                        updatePreview();
+                    }
+                    document.getElementById("GenerationContainer").style.display = 'none';
+                });
+            }
         });
 
         function parseResponse(data) {
@@ -610,5 +639,5 @@ Until then.
             }
         }
     </script>
-
+    <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
 </body>

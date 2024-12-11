@@ -94,7 +94,7 @@ permalink: /app/threads/home
                         <div class="card-body text-center">
                             <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>
                             <h5 class="card-title">Schedule New Thread</h5>
-                            <p class="card-text">Compose and schedule your Threads posts that get delivered even when you sleep!</p>
+                            <p class="card-text">Compose and schedule your posts that get delivered even when you sleep!</p>
                         </div>
                     </div>
                 </a>
@@ -106,11 +106,25 @@ permalink: /app/threads/home
                         <div class="card-body text-center">
                             <i class="fa-solid fa-list fa-3x mb-3 text-primary"></i>
                             <h5 class="card-title">List Scheduled Threads</h5>
-                            <p class="card-text">View and manage your scheduled threads.</p>
+                            <p class="card-text">View and manage your scheduled posts.</p>
                         </div>
                     </div>
                 </a>
             </div>
+
+            <!-- Manage Profiles Card -->
+            <div class="col-md-4 mb-4">
+                <a href="/app/threads/profiles" class="text-decoration-none scheduler-card">
+                    <div class="card h-100 card-hover p-2">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-user fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Manage Profiles</h5>
+                            <p class="card-text">View, add, and delete your connected profiles.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
             <!-- Coming Soon Card -->
             <div class="col-md-4 mb-4">
                 <a href="#" class="text-decoration-none scheduler-card">

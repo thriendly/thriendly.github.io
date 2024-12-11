@@ -1,0 +1,361 @@
+<style>
+    .section-header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .preview-header {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .datetime-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .thread-preview {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        padding: 15px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .thread-number {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        background-color: #007bff;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .thread-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .char-count {
+        font-size: 0.8rem;
+        color: #6c757d;
+    }
+
+    .connecting-line {
+        width: 3px;
+        background-color: #007bff;
+        height: 20px;
+        margin: 0 auto;
+        position: absolute;
+        left: 21px;
+        bottom: -20px;
+    }
+</style>
+
+<div id="content">
+    <div class="container mt-4">
+        <!-- Header Row -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-primary">Schedule a Thread</h3>
+        </div>
+
+        <!-- Thread Details (flat, no card) -->
+        <h5 class="section-header">Thread Details</h5>
+        <div class="row align-items-center mb-4">
+            <!-- Profile Dropdown -->
+            <div class="col-md-3 mb-3">
+                <div>
+                    <label for="profileSelect">Select Profile:</label>
+                    <select id="profileSelect" class="form-control">
+                        <option value="">Select a profile</option>
+                    </select>
+                </div>                
+            </div>
+
+            <!-- Date Input -->
+            <div class="col-md-3 mb-3">
+                <label for="detailDate" class="col-form-label">Select Date:</label>
+                <input type="date" class="form-control" id="detailDate" name="detailDate">
+            </div>
+
+            <!-- Time Input -->
+            <div class="col-md-3 mb-3">
+                <label for="detailTime" class="col-form-label">Select Time:</label>
+                <input type="time" class="form-control" id="detailTime" name="detailTime">
+            </div>
+
+            <!-- Schedule Button on same row -->
+            <div class="col-md-3 mb-3 text-center">
+                <button type="button" class="btn btn-success mt-4" id="scheduleButton">Schedule</button>
+            </div>
+        </div>
+
+        <!-- Compose and Preview Headers Row -->
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="section-header">Compose Thread</h5>
+            </div>
+            <div class="col-md-6">
+                <h5 class="preview-header">Preview</h5>
+            </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Compose Thread Column (no card) -->
+            <div class="col-md-6">
+                <form id="threadForm">
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <textarea class="form-control" id="threadContent" placeholder="Use '---' to create a new sub-thread." rows="10"></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="insertDelimiterButton">Insert ---</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Preview Column -->
+            <div class="col-md-6">
+                <div id="preview">
+                    <!-- Subposts will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function updatePreview() {
+    const content = $("#threadContent").val();
+    const subposts = splitTextByDelimiter(content);
+    let previewHtml = '';
+
+    subposts.forEach((subpost, index) => {
+        previewHtml += `
+            <div class="thread-preview">
+                <div class="thread-number">${index + 1}</div>
+                <div class="thread-content">${subpost}</div>
+                <span class="char-count">${subpost.length} characters</span>
+                ${
+                    index < subposts.length - 1
+                        ? '<div class="connecting-line"></div>'
+                        : ''
+                }
+            </div>
+        `;
+    });
+
+    $("#preview").html(previewHtml);
+}
+
+function splitTextIntoChunks(text, maxLength) {
+    const chunks = [];
+    let remainingText = text;
+    while (remainingText.length > maxLength) {
+        let chunk = remainingText.substring(0, maxLength + 1);
+        let lastSpace = chunk.lastIndexOf(' ');
+        if (lastSpace > -1 && lastSpace > 0) {
+            chunk = remainingText.substring(0, lastSpace);
+        } else {
+            chunk = remainingText.substring(0, maxLength);
+        }
+        chunks.push(chunk.trim());
+        remainingText = remainingText.substring(chunk.length).trim();
+    }
+    if (remainingText.length > 0) {
+        chunks.push(remainingText);
+    }
+    return chunks;
+}
+
+function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
+    const subposts = text.split(delimiter)
+                         .map(s => s.trim())
+                         .filter(s => s.length > 0);
+
+    const result = [];
+    subposts.forEach(subpost => {
+        if (subpost.length <= maxLength) {
+            result.push(subpost);
+        } else {
+            const chunks = splitTextIntoChunks(subpost, maxLength);
+            result.push(...chunks);
+        }
+    });
+    return result;
+}
+
+$(document).ready(function () {
+    let idToken = '';
+    let userId = '';
+    let selectedThreadsUserId = '';
+
+    // Insert '---' at cursor position
+    $("#insertDelimiterButton").on("click", function() {
+        const textarea = document.getElementById("threadContent");
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const text = textarea.value;
+        const before = text.substring(0, start);
+        const after = text.substring(end, text.length);
+        textarea.value = before + '---' + after;
+        textarea.selectionStart = textarea.selectionEnd = start + 3;
+        updatePreview();
+    });
+
+    // Initialize date input
+    const dateInput = document.getElementById("detailDate");
+    if (dateInput) {
+        const today = new Date();
+        const currentDate = today.getFullYear() + '-' +
+            String(today.getMonth() + 1).padStart(2, '0') + '-' +
+            String(today.getDate()).padStart(2, '0');
+        dateInput.setAttribute("min", currentDate);
+
+        const futureDate = new Date();
+        futureDate.setDate(today.getDate() + 31);
+        const maxDate = futureDate.toISOString().split("T")[0];
+        dateInput.setAttribute("max", maxDate);
+
+        dateInput.addEventListener('change', () => {
+            const selectedDate = dateInput.value;
+            if (selectedDate && selectedDate < currentDate) {
+                alert('You cannot select a date older than today.');
+                dateInput.value = '';
+            }
+        });
+    }
+
+    $("#profileDropdownButton").text("Select Profile");
+
+    checkAuthAndExecute((user) => {
+        user.getIdToken().then((token) => {
+            idToken = token;
+            userId = user.uid;
+
+            const profileAPI = `${SCHEDULER_URL}/threads/profile`;
+            const url = new URL(profileAPI);
+            url.searchParams.append("userId", userId);
+
+            fetch(url, {
+                headers: { Authorization: "Bearer " + idToken }
+            })
+            .then(response => response.json())
+            .then(accounts => {
+                const $profileSelect = $("#profileSelect");
+                $profileSelect.empty();
+                $profileSelect.append('<option value="">Select a profile</option>');
+
+                if (accounts && accounts.length > 0) {
+                    accounts.forEach((account) => {
+                        $profileSelect.append(`<option value="${account.threadsUserId}">${account.username}</option>`);
+                    });
+                } else {
+                    $profileSelect.append('<option value="">No profiles found</option>');
+                }
+
+                // Handle profile selection
+                $profileSelect.on("change", function() {
+                    selectedThreadsUserId = $(this).val();
+                });
+
+            })
+            .catch(error => {
+                console.error("Error fetching profiles:", error);
+                alert("An error occurred while fetching Threads profiles.");
+            });
+        }).catch((error) => {
+            console.error("Error getting ID token:", error.message);
+        });
+    });
+
+    $("#threadContent").on("input", function () {
+        updatePreview();
+    });
+
+    $("#scheduleButton").on("click", function () {
+        const $scheduleButton = $(this);
+        $scheduleButton.prop('disabled', true);
+
+        const text = $("#threadContent").val();
+        const date = $("#detailDate").val();
+        const time = $("#detailTime").val();
+
+        if (!date || !time) {
+            alert("Please select both schedule date and time");
+            $scheduleButton.prop('disabled', false);
+            return;
+        }
+
+        if (!selectedThreadsUserId) {
+            alert("Please select a profile before scheduling.");
+            $scheduleButton.prop('disabled', false);
+            return;
+        }
+
+        const combinedDateTime = `${date}T${time}:00`;
+        const localDateTime = new Date(combinedDateTime);
+        const schedule_time = localDateTime.toISOString();
+        const created_time = new Date().toISOString();
+        const status = "SCHEDULED";
+
+        const textChunks = splitTextByDelimiter(text);
+
+        const contentArray = textChunks.map(chunk => ({
+            thread_id: "",
+            thread_content: chunk
+        }));
+
+        const threadData = {
+            content: contentArray,
+            schedule_time: schedule_time,
+            created_time: created_time,
+            status: status,
+            userId: userId,
+            threadsUserId: selectedThreadsUserId,
+        };
+
+        const schedulerAPI = `${SCHEDULER_URL}/threads/schedule`;
+
+        $.ajax({
+            url: schedulerAPI,
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(threadData),
+            headers: {
+                Authorization: "Bearer " + idToken,
+                "Content-Type": "application/json",
+            },
+            success: function (data) {
+                alert("Thread scheduled successfully!");
+                $("#threadContent").val('');
+                $("#detailDate").val('');
+                $("#detailTime").val('');
+                $("#preview").html('');
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+                alert("An error occurred while scheduling the thread. Please try again.");
+            },
+            complete: function () {
+                $scheduleButton.prop('disabled', false);
+            }
+        });
+    });
+});
+</script>

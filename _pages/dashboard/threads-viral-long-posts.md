@@ -65,10 +65,24 @@ permalink: /app/viral-threads
         border: 1px solid #ddd;
         border-radius: 4px;
     }
+
+    #loadSchedulerButton {
+    font-size: 0.8em;
+    padding: 5px 10px;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -10px;
+    }
+
+    #loadSchedulerButton:hover {
+        background-color: #0056b3;
+    }
 </style>
 
 <body>
-    <div id="schedulerContainer" style="display:none;">
+    <div id="schedulerContainer" class="scheduler" style="display:none;">
     {% include thread-scheduler.html %}
     </div>
 
@@ -150,7 +164,6 @@ permalink: /app/viral-threads
                                     class="fa-solid fa-wand-magic-sparkles"></i></button>
                             <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
                         </div>
-                        <button id="loadSchedulerButton" class="btn btn-info" type="button">Open Scheduler</button>
                         <div class="mb-3">
                             <p> Note: Each long post generation takes 10 Credits </p>
                         </div>
@@ -547,6 +560,15 @@ Until then.
                 }
             });
 
+
+            // Handle "Back" button click on scheduler page
+            $('#schedulerBackButton').on('click', function () {
+                if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+                    $('#schedulerContainer').hide();
+                    $('#GenerationContainer').show();
+                }
+            });
+
             $('#templateSectionLink').on('click', function (e) {
                 var href = $(this).attr('href');
 
@@ -590,8 +612,23 @@ Until then.
                     success: function (response) {
                         // Process the response
                         const generatedHook = parseResponse(response) || 'No hook generated.';
-                        $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}</pre>`);
+                        $('#generatedHook').html(`<div class="d-flex justify-content-between    align-items-center">
+                            <h6>Generated Hook:</h6>
+                            <button id="loadSchedulerButton" class="btn btn-primary" type="button">Edit & Post</button></div><pre>${generatedHook}</pre>`);
                         $("#loading").hide();
+                        $('#loadSchedulerButton').on('click', function () {
+                            // Show the scheduler UI
+                            $('#schedulerContainer').show();
+                            $('#GenerationContainer').hide();
+
+                            // Populate the scheduler textarea with the generated hook
+                            const threadContentElement = document.getElementById('threadContent');
+                            if (threadContentElement) {
+                                threadContentElement.value = generatedHook;
+                                updatePreview();
+                                autoResizeTextarea(threadContentElement);
+                            }
+                        });
                     },
                     error: function (xhr, status, error) {
                         // Handle errors
@@ -617,6 +654,7 @@ Until then.
                     const threadContentElement = document.getElementById("threadContent");
                     if (threadContentElement) {
                         threadContentElement.value = generatedHook;
+                        autoResizeTextarea(threadContentElement);
                         updatePreview();
                     }
                     document.getElementById("GenerationContainer").style.display = 'none';
@@ -639,5 +677,8 @@ Until then.
             }
         }
     </script>
-    <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include the JavaScript file -->
+<script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>

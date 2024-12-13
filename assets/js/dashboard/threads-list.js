@@ -23,22 +23,33 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
-                const $profileSelect = $("#profileSelect");
-                $profileSelect.empty();
-                $profileSelect.append('<option value="">Select a profile</option>');
+                const $profileDropdownMenu = $("#profileDropdownMenu");
+                    $profileDropdownMenu.empty();
+                    $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
 
-                if (accounts && accounts.length > 0) {
-                    accounts.forEach((account) => {
-                        $profileSelect.append(`<option value="${account.threadsUserId}">${account.username}</option>`);
+                    if (accounts && accounts.length > 0) {
+                        accounts.forEach((account) => {
+                            $profileDropdownMenu.append(
+                                `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+                            );
+                        });
+                    }
+
+                    // Handle dropdown item click
+                    $profileDropdownMenu.on("click", ".dropdown-item", function () {
+                        const selectedValue = $(this).data("value");
+                        const selectedText = $(this).text();
+                        $("#profileDropdownButton").text(selectedText); // Update button text
+                        selectedThreadsUserId = selectedValue; // Update selected profile ID
+                    
+                        // Fetch threads for the selected profile
+                        currentPage = 1; // Reset to the first page
+                        threads = []; // Clear existing threads
+                        $("#thread-list").empty(); // Clear thread list UI
+                        $("#loading").show(); // Show loading spinner
+                        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId);
                     });
-                } else {
-                    $profileSelect.append('<option value="">No profiles found</option>');
-                }
-
-                // Handle profile selection
-                $profileSelect.on("change", function() {
-                    selectedThreadsUserId = $(this).val();
-                });
+                    
 
             })
             .catch(error => {
@@ -74,7 +85,7 @@ $(document).ready(function () {
     });
 
     // Functions for listing scheduled threads
-    function fetchScheduledThreads(idToken, userId, page) {
+    function fetchScheduledThreads(idToken, userId, page, threadsUserId = null) {
         $.ajax({
             url: `${SCHEDULER_URL}/threads/list`,
             method: "GET",
@@ -83,6 +94,7 @@ $(document).ready(function () {
             },
             data: {
                 userId: userId,
+                threadsUserId: threadsUserId,
                 status: currentStatus,
                 page: page,
                 itemsPerPage: itemsPerPage

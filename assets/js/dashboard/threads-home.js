@@ -23,6 +23,14 @@ $(document).ready(function () {
         // Redirect the user to the authorization URL
         window.location.href = threadsAuthUrl;
     });
+    
+    // Handle "Back" button click on scheduler page
+    $('#schedulerBackButton').on('click', function () {
+        if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+            $('#schedulerContainer').hide();
+            $('#GenerationContainer').show();
+        }
+    });
 
     // Handle user authentication
     checkAuthAndExecute((user) => {

@@ -217,12 +217,15 @@ permalink: /app/threads/list
             </ul>
             <!-- Profile Dropdown -->
             <div class="col-md-3 mb-3">
-                <div>
-                    <label for="profileSelect">Select Profile:</label>
-                    <select id="profileSelect" class="form-select btn btn-secondary">
-                        <option value="">Select a profile</option>
-                    </select>
-                </div>                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Profile
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                        <li><a class="dropdown-item" href="#" data-value="">Select a profile</a></li>
+                        <!-- Profile options will be dynamically appended here -->
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -302,3 +305,5 @@ permalink: /app/threads/list
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>
+<!-- Bootstrap CSS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

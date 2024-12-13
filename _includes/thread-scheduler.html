@@ -7,6 +7,11 @@
         margin-bottom: 15px;
     }
 
+    .content{
+        height: 250px;
+        resize: none;
+        overflow: hidden;
+    }
     .preview-header {
         background-color: #28a745;
         color: white;
@@ -70,20 +75,26 @@
     <div class="container mt-4">
         <!-- Header Row -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-primary">Schedule a Thread</h3>
+            <h3 class="text-primary">Schedule a Post</h3>
         </div>
+        <button id="schedulerBackButton" class="btn btn-secondary mb-3">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
 
         <!-- Thread Details (flat, no card) -->
         <h5 class="section-header">Thread Details</h5>
         <div class="row align-items-center mb-4">
             <!-- Profile Dropdown -->
             <div class="col-md-3 mb-3">
-                <div>
-                    <label for="profileSelect">Select Profile:</label>
-                    <select id="profileSelect" class="form-control">
-                        <option value="">Select a profile</option>
-                    </select>
-                </div>                
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Profile
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                        <li><a class="dropdown-item" href="#" data-value="">Select a profile</a></li>
+                        <!-- Profile options will be dynamically appended here -->
+                    </ul>
+                </div>             
             </div>
 
             <!-- Date Input -->
@@ -121,10 +132,7 @@
                 <form id="threadForm">
                     <div class="mb-3">
                         <div class="input-group">
-                            <textarea class="form-control" id="threadContent" placeholder="Use '---' to create a new sub-thread." rows="10"></textarea>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="insertDelimiterButton">Insert ---</button>
-                            </div>
+                            <textarea class="form-control content" id="threadContent" placeholder="Use '---' to create a new sub-thread." rows="10"></textarea>
                         </div>
                     </div>
                 </form>
@@ -200,23 +208,15 @@ function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
     return result;
 }
 
+function autoResizeTextarea(textarea) {
+        textarea.style.height = 'auto'; // Reset height
+        textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height to scrollHeight
+    }
+
 $(document).ready(function () {
     let idToken = '';
     let userId = '';
     let selectedThreadsUserId = '';
-
-    // Insert '---' at cursor position
-    $("#insertDelimiterButton").on("click", function() {
-        const textarea = document.getElementById("threadContent");
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        const text = textarea.value;
-        const before = text.substring(0, start);
-        const after = text.substring(end, text.length);
-        textarea.value = before + '---' + after;
-        textarea.selectionStart = textarea.selectionEnd = start + 3;
-        updatePreview();
-    });
 
     // Initialize date input
     const dateInput = document.getElementById("detailDate");
@@ -257,21 +257,23 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
-                const $profileSelect = $("#profileSelect");
-                $profileSelect.empty();
-                $profileSelect.append('<option value="">Select a profile</option>');
+                const $profileDropdownMenu = $("#profileDropdownMenu");
+                $profileDropdownMenu.empty();
 
                 if (accounts && accounts.length > 0) {
                     accounts.forEach((account) => {
-                        $profileSelect.append(`<option value="${account.threadsUserId}">${account.username}</option>`);
+                        $profileDropdownMenu.append(
+                            `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+                        );
                     });
-                } else {
-                    $profileSelect.append('<option value="">No profiles found</option>');
                 }
 
-                // Handle profile selection
-                $profileSelect.on("change", function() {
-                    selectedThreadsUserId = $(this).val();
+                // Handle dropdown item click
+                $profileDropdownMenu.on("click", ".dropdown-item", function () {
+                    const selectedValue = $(this).data("value");
+                    const selectedText = $(this).text();
+                    $("#profileDropdownButton").text(selectedText); // Update button text
+                    selectedThreadsUserId = selectedValue; // Update selected profile ID
                 });
 
             })
@@ -285,6 +287,7 @@ $(document).ready(function () {
     });
 
     $("#threadContent").on("input", function () {
+        autoResizeTextarea(this);
         updatePreview();
     });
 
@@ -359,3 +362,6 @@ $(document).ready(function () {
     });
 });
 </script>
+<script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+

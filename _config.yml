@@ -16,7 +16,7 @@ permalink: /:title/
 assetsUrl: https://assets.tipseason.com
 imagesUrl: https://assets.tipseason.com/images
 schedulerService: https://scheduler.manigopalmurthy.workers.dev
-
+#schedulerService: http://localhost:8787
 
 # Authors
 authors:

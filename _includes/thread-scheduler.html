@@ -261,11 +261,20 @@ $(document).ready(function () {
                 $profileDropdownMenu.empty();
 
                 if (accounts && accounts.length > 0) {
-                    accounts.forEach((account) => {
+                    accounts.forEach((account, index) => {
                         $profileDropdownMenu.append(
                             `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
                         );
+
+                        if (index === 0) {
+                            $("#profileDropdownButton").text(account.username); // Set button text
+                            selectedThreadsUserId = account.threadsUserId; // Set first profile as default
+                        }
                     });
+                } else {
+                    $profileDropdownMenu.append('<li class="no-profiles">No profiles found.</li>');
+                    $("#profileDropdownButton").text("Demo"); // Set button text to "Demo"
+                    selectedThreadsUserId = "demo"; // Set threads_user_id to "demo"
                 }
 
                 // Handle dropdown item click
@@ -298,6 +307,12 @@ $(document).ready(function () {
         const text = $("#threadContent").val();
         const date = $("#detailDate").val();
         const time = $("#detailTime").val();
+
+        if (selectedThreadsUserId === "demo") {
+            window.open("/#pricing", "_blank"); 
+            $scheduleButton.prop('disabled', false);
+            return; // Exit the function to prevent further execution
+        }
 
         if (!date || !time) {
             alert("Please select both schedule date and time");

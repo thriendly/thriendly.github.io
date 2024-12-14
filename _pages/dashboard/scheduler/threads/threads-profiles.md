@@ -118,6 +118,20 @@ permalink: /app/threads/profiles
         border-radius: 0.5rem;
         background-color: #f8f9fa;
     }
+    
+    .profile-actions button {
+        width: 100px; /* Set a consistent width for all buttons */
+        text-align: center; /* Align text inside the button */
+        font-size: 0.8rem;
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 10px; /* Adds spacing between the buttons */
+        justify-content: flex-end; /* Aligns buttons to the end of the container */
+        align-items: center; /* Vertically centers the buttons */
+    }
+
 </style>
 
 <div id="content" class="container mt-4">

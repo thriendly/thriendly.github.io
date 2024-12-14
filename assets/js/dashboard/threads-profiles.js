@@ -2,6 +2,9 @@ $(document).ready(function () {
     let idToken = '';
     let userId = '';
 
+    console.log(idToken);
+    console.log(userId);
+
     // Show loading icon initially
     $("#loading").show();
 
@@ -84,20 +87,32 @@ $(document).ready(function () {
 
                         if (data && Array.isArray(data) && data.length > 0) {
                             data.forEach(account => {
-                                const picUrl = account.profilePictureUrl;
+                                const picUrl = account.profilePictureUrl || '/assets/images/default-profile.png';
+                                const isDefault = account.isDefault === 1;
                                 const listItem = `
                                     <li class="profile-item">
                                         <div class="profile-details">
-                                            <img src="${picUrl}" alt="${account.username}'s Profile Picture" onerror="this.src='/assets/images/default-profile.png'">
+                                            <img src="${picUrl}" alt="${account.username}'s Profile Picture">
                                             <div>
                                                 <div class="username">${account.username}</div>
+                                                ${isDefault ? '<div class="badge bg-success mt-1">Default</div>' : ''}
                                             </div>
                                         </div>
-                                        <button class="delete-button" data-threads-user-id="${account.threadsUserId}">Delete</button>
+                                        <div class="profile-actions">
+                                            <button class="btn btn-secondary set-default-button" data-threads-user-id="${account.threadsUserId}" ${isDefault ? 'disabled' : ''}>
+                                                ${isDefault ? 'Default' : 'Set Default'}
+                                            </button>
+                                            <button class="delete-button btn btn-danger" data-threads-user-id="${account.threadsUserId}">Delete</button>
+                                        </div>
                                     </li>
                                 `;
                                 $profileList.append(listItem);
                             });
+
+                            $profileList.off("click", ".set-default-button").on("click", ".set-default-button", function () {
+                                const threadsUserId = $(this).data("threads-user-id");
+                                setDefaultProfile(threadsUserId);
+                            });                            
 
                             // Attach delete event handler
                             $profileList.off("click", ".delete-button").on("click", ".delete-button", function () {
@@ -154,6 +169,29 @@ $(document).ready(function () {
                         alert("An error occurred while fetching Threads profiles.");
                     });
             }
+
+            function setDefaultProfile(threadsUserId) {
+                fetch(`${SCHEDULER_URL}/threads/profile/default?userId=${encodeURIComponent(userId)}&threadsUserId=${encodeURIComponent(threadsUserId)}`, {
+                    method: "PATCH",
+                    headers: {
+                        Authorization: "Bearer " + idToken,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            alert("Default profile set successfully.");
+                            loadThreadsProfiles(); // Reload the profiles
+                        } else {
+                            throw new Error("Failed to set default profile");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error setting default profile:", error);
+                        alert("An error occurred. Try again later.");
+                    });
+            }
+
 
         }).catch((error) => {
             console.error("Error getting ID token:", error.message);

@@ -33,6 +33,14 @@ permalink: /app/threads/list
         color: #6c757d;
     }
 
+    .profile-icon {
+        margin-right: 0.25rem;
+    }
+
+    .profile-name{
+        margin-right: 5px;
+    }
+
     .clock-icon {
         margin-right: 0.25rem;
     }
@@ -81,7 +89,7 @@ permalink: /app/threads/list
         gap: 10px;
     }
 
-        .btn-view {
+    .btn-view {
         background-color: #28a745; /* Green background */
         color: #fff;
         border: none;
@@ -207,6 +215,18 @@ permalink: /app/threads/list
                     <button class="nav-link px-2 py-1" data-status="success" type="button" role="tab">Published</button>
                 </li>
             </ul>
+            <!-- Profile Dropdown -->
+            <div class="col-md-3 mb-3">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Profile
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                        <li><a class="dropdown-item" href="#" data-value="">Select a profile</a></li>
+                        <!-- Profile options will be dynamically appended here -->
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div id="loading" style="text-align: left;">
@@ -282,5 +302,8 @@ permalink: /app/threads/list
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JS and its dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>
+<!-- Bootstrap CSS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

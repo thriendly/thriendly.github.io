@@ -23,6 +23,14 @@ $(document).ready(function () {
         // Redirect the user to the authorization URL
         window.location.href = threadsAuthUrl;
     });
+    
+    // Handle "Back" button click on scheduler page
+    $('#schedulerBackButton').on('click', function () {
+        if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+            $('#schedulerContainer').hide();
+            $('#GenerationContainer').show();
+        }
+    });
 
     // Handle user authentication
     checkAuthAndExecute((user) => {
@@ -46,11 +54,12 @@ $(document).ready(function () {
                 .then((userData) => {
 
                     // Check if the user has the 'scheduler' feature
-                    if (userData && userData.threadsFeatures && userData.threadsFeatures.includes("scheduler")) {
+                    if (userData && userData.threadsFeatures.includes("scheduler")) {
                         // User has 'scheduler' feature
-
-                        // Now, check if Threads account is connected
-                        checkThreadsProfile();
+                        $("#loading").hide();
+                        // Show the scheduler content
+                        $("#schedulerContent").show();
+                        
                     } else {
                         // User does not have 'scheduler' feature
                         // Hide loading icon
@@ -67,82 +76,6 @@ $(document).ready(function () {
                     console.error("Error fetching user data:", error);
                     alert("An error occurred while fetching user data.");
                 });
-
-            function checkThreadsProfile() {
-                // Call the /threads/profile API to check if Threads account is connected
-                const profileAPI = `${SCHEDULER_URL}/threads/profile`; // Adjust the URL as needed
-
-                const url = new URL(profileAPI);
-                url.searchParams.append("userId", userId);
-
-                fetch(url, {
-                    method: "GET",
-                    headers: {
-                        Authorization: "Bearer " + idToken,
-                    },
-                })
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((data) => {
-                        // Hide loading icon
-                        $("#loading").hide();
-
-                        if (data && data.userId && data.username) {
-                            // Threads account is connected
-                            // Hide the "Connect Threads Account" button
-                            sessionStorage.setItem("currentThreadsUserId", data.threadsUserId);
-                            $("#connectThreadsContainer").hide();
-
-                            // Display the profile username and profile picture
-                            $("#profileUsername").text(data.username);
-
-                            if (data.profilePictureUrl) {
-                                $("#profilePicture").attr("src", data.profilePictureUrl);
-                            } else {
-                                $("#profilePicture").attr("src", "/assets/images/default-profile.png"); // Default image
-                            }
-
-                            $("#profileInfo").show();
-
-                            // Show the scheduler content
-                            $("#schedulerContent").show();
-
-                        } else {
-                            // Threads account is not connected
-                            $("#connectThreadsContainer").show();
-                            $("#profileInfo").hide();
-
-                            // Show the scheduler content with disabled cards
-                            $("#schedulerContent").show();
-
-                            // Disable the scheduler cards
-                            $(".scheduler-card").addClass("disabled-card").on("click", function (e) {
-                                e.preventDefault();
-                                alert("Connect Threads account to access these features.");
-                            });
-                        }
-
-                    })
-                    .catch((error) => {
-                        // Hide loading icon
-                        $("#loading").hide();
-
-                        console.error("Error fetching profile:", error);
-                        alert("An error occurred while checking Threads account status.");
-                        // Show the "Connect Threads Account" button
-                        $("#connectThreadsContainer").show();
-
-                        // Show the scheduler content with disabled cards
-                        $("#schedulerContent").show();
-
-                        // Disable the scheduler cards
-                        $(".scheduler-card").addClass("disabled-card").on("click", function (e) {
-                            e.preventDefault();
-                            alert("Connect Threads account to access these features.");
-                        });
-                    });
-            }
 
         }).catch((error) => {
             console.error("Error getting ID token:", error.message);

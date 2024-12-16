@@ -65,10 +65,29 @@ permalink: /app/viral-threads
         border: 1px solid #ddd;
         border-radius: 4px;
     }
+
+    #loadSchedulerButton {
+    font-size: 0.8em;
+    padding: 5px 10px;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -10px;
+    }
+
+    #loadSchedulerButton:hover {
+        background-color: #0056b3;
+    }
 </style>
 
 <body>
+    <div id="schedulerContainer" class="scheduler" style="display:none;">
+    {% include thread-scheduler.html %}
+    </div>
+
     <div id="content" class="container mt-4">
+    <div id="GenerationContainer" style="display:block;">
         <h3 class="mb-4 text-primary">Viral long post generator</h3>
 
         <div id="templatesView">
@@ -152,6 +171,7 @@ permalink: /app/viral-threads
                     <div id="generatedHook" class="mt-4"></div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -540,6 +560,15 @@ Until then.
                 }
             });
 
+
+            // Handle "Back" button click on scheduler page
+            $('#schedulerBackButton').on('click', function () {
+                if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+                    $('#schedulerContainer').hide();
+                    $('#GenerationContainer').show();
+                }
+            });
+
             $('#templateSectionLink').on('click', function (e) {
                 var href = $(this).attr('href');
 
@@ -583,8 +612,23 @@ Until then.
                     success: function (response) {
                         // Process the response
                         const generatedHook = parseResponse(response) || 'No hook generated.';
-                        $('#generatedHook').html(`<h6>Generated Hook:</h6><pre>${generatedHook}</pre>`);
+                        $('#generatedHook').html(`<div class="d-flex justify-content-between    align-items-center">
+                            <h6>Generated Hook:</h6>
+                            <button id="loadSchedulerButton" class="btn btn-primary" type="button">Edit & Post</button></div><pre>${generatedHook}</pre>`);
                         $("#loading").hide();
+                        $('#loadSchedulerButton').on('click', function () {
+                            // Show the scheduler UI
+                            $('#schedulerContainer').show();
+                            $('#GenerationContainer').hide();
+
+                            // Populate the scheduler textarea with the generated hook
+                            const threadContentElement = document.getElementById('threadContent');
+                            if (threadContentElement) {
+                                threadContentElement.value = generatedHook;
+                                updatePreview();
+                                autoResizeTextarea(threadContentElement);
+                            }
+                        });
                     },
                     error: function (xhr, status, error) {
                         // Handle errors
@@ -593,6 +637,29 @@ Until then.
                     }
                 });
             });
+            
+            const loadSchedulerButton = document.getElementById('loadSchedulerButton');
+            if (loadSchedulerButton) {
+                loadSchedulerButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Show the scheduler UI
+                    document.getElementById("schedulerContainer").style.display = 'block';
+                    
+
+                    // Get generated hook from the <pre> inside #generatedHook
+                    const preElement = document.querySelector("#generatedHook pre");
+                    const generatedHook = preElement ? preElement.innerText : '';
+
+                    // Fill the scheduler textarea
+                    const threadContentElement = document.getElementById("threadContent");
+                    if (threadContentElement) {
+                        threadContentElement.value = generatedHook;
+                        autoResizeTextarea(threadContentElement);
+                        updatePreview();
+                    }
+                    document.getElementById("GenerationContainer").style.display = 'none';
+                });
+            }
         });
 
         function parseResponse(data) {
@@ -610,5 +677,8 @@ Until then.
             }
         }
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include the JavaScript file -->
+<script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>

@@ -14,6 +14,49 @@ $(document).ready(function () {
             idToken = token;
             userId = user.uid;
 
+            const profileAPI = `${SCHEDULER_URL}/threads/profile`;
+            const url = new URL(profileAPI);
+            url.searchParams.append("userId", userId);
+
+            fetch(url, {
+                headers: { Authorization: "Bearer " + idToken }
+            })
+            .then(response => response.json())
+            .then(accounts => {
+                const $profileDropdownMenu = $("#profileDropdownMenu");
+                    $profileDropdownMenu.empty();
+                    $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
+
+                    if (accounts && accounts.length > 0) {
+                        accounts.forEach((account) => {
+                            $profileDropdownMenu.append(
+                                `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+                            );
+                        });
+                    }
+
+                    // Handle dropdown item click
+                    $profileDropdownMenu.on("click", ".dropdown-item", function () {
+                        const selectedValue = $(this).data("value");
+                        const selectedText = $(this).text();
+                        $("#profileDropdownButton").text(selectedText); // Update button text
+                        selectedThreadsUserId = selectedValue; // Update selected profile ID
+                    
+                        // Fetch threads for the selected profile
+                        currentPage = 1; // Reset to the first page
+                        threads = []; // Clear existing threads
+                        $("#thread-list").empty(); // Clear thread list UI
+                        $("#loading").show(); // Show loading spinner
+                        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId);
+                    });
+                    
+
+            })
+            .catch(error => {
+                console.error("Error fetching profiles:", error);
+                alert("An error occurred while fetching Threads profiles.");
+            });
+
             // Fetch scheduled threads
             fetchScheduledThreads(idToken, userId, currentPage);
         }).catch((error) => {
@@ -42,7 +85,7 @@ $(document).ready(function () {
     });
 
     // Functions for listing scheduled threads
-    function fetchScheduledThreads(idToken, userId, page) {
+    function fetchScheduledThreads(idToken, userId, page, threadsUserId = null) {
         $.ajax({
             url: `${SCHEDULER_URL}/threads/list`,
             method: "GET",
@@ -51,6 +94,7 @@ $(document).ready(function () {
             },
             data: {
                 userId: userId,
+                threadsUserId: threadsUserId,
                 status: currentStatus,
                 page: page,
                 itemsPerPage: itemsPerPage
@@ -120,11 +164,13 @@ $(document).ready(function () {
             }
     
             const threadCard = `
-                <div class="card mb-4 thread-card" data-id="${thread.postId || thread.post_id}">
+                <div class="card mb-4 thread-card" data-id="${thread.postId}">
                     <div class="card-body">
                         <div class="thread-content mb-3">${contentHtml}</div>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="time-display mt-3" title="${scheduledTime.toLocaleString()}">
+                                <i class="bi profile-icon bi-person-circle mr-2"></i>
+                                <span class="profile-name">${thread.profileName}</span>
                                 <i class="fas fa-clock clock-icon"></i>
                                 ${formattedDate} ${formattedTime}
                             </span>
@@ -241,9 +287,6 @@ $(document).ready(function () {
                 const formattedTime = currentScheduledTime;
                 $("#updateThreadScheduleDate").val(formattedDate);
                 $("#updateThreadScheduleTime").val(formattedTime);
-
-                console.log(currentScheduledTime);
-                console.log(currentScheduledDate);
 
                 // Get today's local date in YYYY-MM-DD
                 const today = new Date();

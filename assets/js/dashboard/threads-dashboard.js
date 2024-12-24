@@ -1,474 +1,269 @@
 $(document).ready(function () {
-  // Simulating API call with the provided sample data
-  const apiData = {
-    data: [
-      {
-        name: "likes",
-        period: "day",
-        title: "likes",
-        description: "The number of likes on your posts.",
-        total_value: {
-          value: 9783,
-        },
-        id: "17841453187567853/insights/likes/day",
-      },
-      {
-        name: "replies",
-        period: "day",
-        title: "replies",
-        description: "The number of replies on your posts.",
-        total_value: {
-          value: 2301,
-        },
-        id: "17841453187567853/insights/replies/day",
-      },
-      {
-        name: "followers_count",
-        period: "day",
-        title: "followers_count",
-        description: "This is your total number of followers on Threads.",
-        total_value: {
-          value: 3081,
-        },
-        id: "17841453187567853/insights/followers_count/day",
-      },
-      {
-        name: "reposts",
-        period: "day",
-        title: "reposts",
-        description: "The number of times your posts were reposted.",
-        total_value: {
-          value: 803,
-        },
-        id: "17841453187567853/insights/reposts/day",
-      },
-      {
-        name: "views",
-        period: "day",
-        values: [
-          {
-            value: 225,
-            end_time: "2024-06-30T07:00:00+0000",
-          },
-          {
-            value: 1110,
-            end_time: "2024-07-01T07:00:00+0000",
-          },
-          {
-            value: 25324,
-            end_time: "2024-07-02T07:00:00+0000",
-          },
-          {
-            value: 26131,
-            end_time: "2024-07-03T07:00:00+0000",
-          },
-          {
-            value: 116,
-            end_time: "2024-07-04T07:00:00+0000",
-          },
-          {
-            value: 28,
-            end_time: "2024-07-05T07:00:00+0000",
-          },
-          {
-            value: 35,
-            end_time: "2024-07-06T07:00:00+0000",
-          },
-          {
-            value: 118,
-            end_time: "2024-07-07T07:00:00+0000",
-          },
-          {
-            value: 139,
-            end_time: "2024-07-08T07:00:00+0000",
-          },
-          {
-            value: 493,
-            end_time: "2024-07-09T07:00:00+0000",
-          },
-          {
-            value: 6432,
-            end_time: "2024-07-10T07:00:00+0000",
-          },
-          {
-            value: 3244,
-            end_time: "2024-07-11T07:00:00+0000",
-          },
-          {
-            value: 7308,
-            end_time: "2024-07-12T07:00:00+0000",
-          },
-          {
-            value: 1399,
-            end_time: "2024-07-13T07:00:00+0000",
-          },
-          {
-            value: 214,
-            end_time: "2024-07-14T07:00:00+0000",
-          },
-          {
-            value: 724,
-            end_time: "2024-07-15T07:00:00+0000",
-          },
-          {
-            value: 1285,
-            end_time: "2024-07-16T07:00:00+0000",
-          },
-          {
-            value: 33684,
-            end_time: "2024-07-17T07:00:00+0000",
-          },
-          {
-            value: 23575,
-            end_time: "2024-07-18T07:00:00+0000",
-          },
-          {
-            value: 9248,
-            end_time: "2024-07-19T07:00:00+0000",
-          },
-          {
-            value: 14503,
-            end_time: "2024-07-20T07:00:00+0000",
-          },
-          {
-            value: 29823,
-            end_time: "2024-07-21T07:00:00+0000",
-          },
-          {
-            value: 6637,
-            end_time: "2024-07-22T07:00:00+0000",
-          },
-          {
-            value: 1612,
-            end_time: "2024-07-23T07:00:00+0000",
-          },
-          {
-            value: 113465,
-            end_time: "2024-07-24T07:00:00+0000",
-          },
-          {
-            value: 314970,
-            end_time: "2024-07-25T07:00:00+0000",
-          },
-          {
-            value: 143486,
-            end_time: "2024-07-26T07:00:00+0000",
-          },
-          {
-            value: 9730,
-            end_time: "2024-07-27T07:00:00+0000",
-          },
-          {
-            value: 4346,
-            end_time: "2024-07-28T07:00:00+0000",
-          },
-          {
-            value: 6112,
-            end_time: "2024-07-29T07:00:00+0000",
-          },
-          {
-            value: 101653,
-            end_time: "2024-07-30T07:00:00+0000",
-          },
-          {
-            value: 126614,
-            end_time: "2024-07-31T07:00:00+0000",
-          },
-          {
-            value: 2012,
-            end_time: "2024-08-01T07:00:00+0000",
-          },
-          {
-            value: 2254,
-            end_time: "2024-08-02T07:00:00+0000",
-          },
-          {
-            value: 1713,
-            end_time: "2024-08-03T07:00:00+0000",
-          },
-          {
-            value: 8113,
-            end_time: "2024-08-04T07:00:00+0000",
-          },
-          {
-            value: 4253,
-            end_time: "2024-08-05T07:00:00+0000",
-          },
-          {
-            value: 4301,
-            end_time: "2024-08-06T07:00:00+0000",
-          },
-          {
-            value: 2783,
-            end_time: "2024-08-07T07:00:00+0000",
-          },
-          {
-            value: 11937,
-            end_time: "2024-08-08T07:00:00+0000",
-          },
-          {
-            value: 23189,
-            end_time: "2024-08-09T07:00:00+0000",
-          },
-          {
-            value: 27578,
-            end_time: "2024-08-10T07:00:00+0000",
-          },
-          {
-            value: 18062,
-            end_time: "2024-08-11T07:00:00+0000",
-          },
-          {
-            value: 3283,
-            end_time: "2024-08-12T07:00:00+0000",
-          },
-          {
-            value: 10463,
-            end_time: "2024-08-13T07:00:00+0000",
-          },
-          {
-            value: 48864,
-            end_time: "2024-08-14T07:00:00+0000",
-          },
-          {
-            value: 33302,
-            end_time: "2024-08-15T07:00:00+0000",
-          },
-          {
-            value: 74240,
-            end_time: "2024-08-16T07:00:00+0000",
-          },
-          {
-            value: 47556,
-            end_time: "2024-08-17T07:00:00+0000",
-          },
-          {
-            value: 25901,
-            end_time: "2024-08-18T07:00:00+0000",
-          },
-          {
-            value: 10968,
-            end_time: "2024-08-19T07:00:00+0000",
-          },
-          {
-            value: 3394,
-            end_time: "2024-08-20T07:00:00+0000",
-          },
-          {
-            value: 11498,
-            end_time: "2024-08-21T07:00:00+0000",
-          },
-          {
-            value: 26829,
-            end_time: "2024-08-22T07:00:00+0000",
-          },
-          {
-            value: 16527,
-            end_time: "2024-08-23T07:00:00+0000",
-          },
-          {
-            value: 18873,
-            end_time: "2024-08-24T07:00:00+0000",
-          },
-          {
-            value: 46118,
-            end_time: "2024-08-25T07:00:00+0000",
-          },
-          {
-            value: 32222,
-            end_time: "2024-08-26T07:00:00+0000",
-          },
-          {
-            value: 6378,
-            end_time: "2024-08-27T07:00:00+0000",
-          },
-          {
-            value: 3615,
-            end_time: "2024-08-28T07:00:00+0000",
-          },
-          {
-            value: 5707,
-            end_time: "2024-08-29T07:00:00+0000",
-          },
-        ],
-        title: "views",
-        description: "The number of times your profile was viewed.",
-        id: "17841453187567853/insights/views/day",
-      },
-      {
-        name: "quotes",
-        period: "day",
-        title: "quotes",
-        description: "The number of times your posts were quoted.",
-        total_value: {
-          value: 35,
-        },
-        id: "17841453187567853/insights/quotes/day",
-      },
-    ],
-    paging: {
-      previous: "#",
-      next: "#",
-    },
-  };
+  let idToken = '';
+  let userId = '';
+  let selectedThreadsUserId = '';
+  let viewsChartInstance;
+  let engagementChartInstance;
 
-  // Update metrics
-  updateMetric("likes", apiData);
-  updateMetric("replies", apiData);
-  updateMetric("followers_count", apiData);
-  updateMetric("reposts", apiData);
-  updateMetric("quotes", apiData);
+  let cachedWeeklyInsights = null;
+  let cachedMonthlyInsights = null;
 
-  // Create views chart
-  createViewsChart(apiData);
+  // ADDED: Track current range (monthly or weekly)
+  let currentRange = 'monthly';
 
-  // Create engagement distribution chart
-  createEngagementChart(apiData);
+  // Pill elements
+  const pillMonthly = $("#pill-monthly");
+  const pillWeekly = $("#pill-weekly");
+  const dataTimestampEl = $("#dataTimestamp");
 
-  // Populate latest threads (mock data)
-  populateLatestThreads();
-});
+  // ----- EXISITING CODE: SCRAPE BUTTON -----
+  $("#scrapeButton").on("click", function () {
+      if (!selectedThreadsUserId || selectedThreadsUserId === "demo") {
+          alert("Please select a valid profile before scraping insights.");
+          return;
+      }
 
-function updateMetric(metricName, data) {
-  const metric = data.data.find((item) => item.name === metricName);
-  if (metric) {
-    $(`#${metricName}Count`).text(metric.total_value.value.toLocaleString());
-    // Mock trend data
-    const trend = Math.random() > 0.5 ? 5 : -5;
-    const trendHtml =
-      trend > 0
-        ? `<i class="fas fa-arrow-up"></i> ${trend}% from last period`
-        : `<i class="fas fa-arrow-down"></i> ${Math.abs(
-            trend
-          )}% from last period`;
-    $(`#${metricName}Trend`)
-      .html(trendHtml)
-      .toggleClass("trend-up", trend > 0)
-      .toggleClass("trend-down", trend < 0);
+      $("#loading").show();
+      $("#charts").hide();
+
+      const scrapeURL = new URL(`${SCHEDULER_URL}/insights/scrape`);
+      scrapeURL.searchParams.append("userId", userId);
+      scrapeURL.searchParams.append("threadsUserId", selectedThreadsUserId);
+
+      fetch(scrapeURL.toString(), {
+          headers: {
+              Authorization: "Bearer " + idToken
+          }
+      })
+      .then(response => {
+          if (response.status === 200) {
+              return response.json();
+          } else {
+              clearDashboard();
+              alert("Failed to scrape insights.");
+          }
+      })
+      .then(data => {
+          $("#loading").hide();
+          clearDashboard(); // Clear old charts before fetching new insights
+          fetchAndDisplayInsights();
+          $("#charts").show();
+      })
+      .catch(error => {
+          console.error("Error scraping insights:", error);
+          alert("An error occurred while scraping insights.");
+      });
+  });
+
+  // ----- EXISITING CODE: FETCH AND DISPLAY INSIGHTS -----
+  function fetchAndDisplayInsights() {
+      if (!selectedThreadsUserId || selectedThreadsUserId === "demo") {
+          clearDashboard();
+          return;
+      }
+
+      const insightsURL = new URL(`${SCHEDULER_URL}/insights`);
+      insightsURL.searchParams.append("userId", userId);
+      insightsURL.searchParams.append("threadsUserId", selectedThreadsUserId);
+
+      fetch(insightsURL.toString(), {
+          headers: {
+              Authorization: "Bearer " + idToken
+          }
+      })
+      .then(response => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            clearDashboard();
+            alert("Failed to fetch insights.");
+        }
+      })
+      .then(data => {
+        if(data && data.insights){
+          // data.insights is expected to have { weekly_insights, monthly_insights }
+          const { weekly_insights, monthly_insights } = data.insights;
+
+          // Store them in our cache
+          cachedWeeklyInsights = weekly_insights || null;
+          cachedMonthlyInsights = monthly_insights || null;
+
+          // Set last-fetched timestamp
+          dataTimestampEl.text(new Date().toLocaleString());
+
+          // By default or previously selected range
+          updateUI(currentRange);
+
+          $("#loading").hide();
+          $("#charts").show();
+        } else {
+          clearDashboard();
+          $("#loading").hide();
+          $("#charts").show();
+          alert("Unable to get insights for this profile. Please try again later.")
+        }
+      })
+      .catch(error => {
+          console.error("Error fetching insights:", error);
+          alert("An error occurred while fetching insights data.");
+      });
   }
-}
 
-function createViewsChart(data) {
-  const viewsData = data.data.find((item) => item.name === "views");
-  if (viewsData) {
-    const ctx = document.getElementById("viewsChart").getContext("2d");
-    new Chart(ctx, {
-      type: "line",
+  // ----- EXISITING CODE: CLEAR DASHBOARD -----
+  function clearDashboard() {
+      $("#followers_countCount").text('-');
+      $("#likesCount").text('-');
+      $("#repliesCount").text('-');
+      $("#repostsCount").text('-');
+      if (viewsChartInstance) {
+        viewsChartInstance.destroy();
+        viewsChartInstance = null;
+      }
+      if (engagementChartInstance) {
+        engagementChartInstance.destroy();
+        engagementChartInstance = null;
+      }
+  }
+
+  // ----- EXISITING CODE: UPDATE METRICS (SINGLE DATASET) -----
+  function updateMetrics(apiData) {
+      updateMetric("likes", apiData);
+      updateMetric("replies", apiData);
+      updateMetric("followers_count", apiData);
+      updateMetric("reposts", apiData);
+      updateMetric("quotes", apiData);
+  }
+
+  function updateMetric(metricName, data) {
+    const metric = data.data.find((item) => item.name === metricName);
+    if (metric) {
+      if (metric.total_value && metric.total_value.value !== undefined) {
+        $(`#${metricName}Count`).text(metric.total_value.value.toLocaleString());
+      }
+      // The "trend" elements exist only if you un-comment them in HTML
+      const trend = Math.random() > 0.5 ? 5 : -5;
+      const trendHtml =
+        trend > 0
+          ? `<i class="fas fa-arrow-up"></i> ${trend}% from last period`
+          : `<i class="fas fa-arrow-down"></i> ${Math.abs(trend)}% from last period`;
+      $(`#${metricName}Trend`)
+        .html(trendHtml)
+        .toggleClass("trend-up", trend > 0)
+        .toggleClass("trend-down", trend < 0);
+    }
+  }
+
+  // ----- EXISITING CODE: CREATE VIEWS CHART (SINGLE DATASET) -----
+  function createViewsChart(data) {
+    const viewsData = data.data.find((item) => item.name === "views");
+    if (viewsData && viewsData.values) {
+      const ctx = document.getElementById("viewsChart").getContext("2d");
+      if (viewsChartInstance) viewsChartInstance.destroy();
+      viewsChartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: viewsData.values.map((item) =>
+            new Date(item.end_time).toLocaleDateString()
+          ),
+          datasets: [
+            {
+              label: "Views",
+              data: viewsData.values.map((item) => item.value),
+              borderColor: "rgb(33 115 198)",
+              tension: 0.1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true },
+          },
+          plugins: {
+            legend: {
+              position: "top",
+              labels: {
+                boxWidth: 0,
+                font: { size: 14 },
+                color: "#000",
+                padding: 5,
+              },
+            },
+          },
+        },
+      });
+    }
+  }
+
+  // ----- EXISITING CODE: CREATE ENGAGEMENT CHART (SINGLE DATASET) -----
+  function createEngagementChart(data) {
+    const likes = data.data.find((item) => item.name === "likes");
+    const replies = data.data.find((item) => item.name === "replies");
+    const reposts = data.data.find((item) => item.name === "reposts");
+    const quotes = data.data.find((item) => item.name === "quotes");
+
+    const engagementData = {
+      likes: (likes && likes.total_value) ? likes.total_value.value : 0,
+      replies: (replies && replies.total_value) ? replies.total_value.value : 0,
+      reposts: (reposts && reposts.total_value) ? reposts.total_value.value : 0,
+      quotes: (quotes && quotes.total_value) ? quotes.total_value.value : 0,
+    };
+
+    const ctx = document.getElementById("engagementChart").getContext("2d");
+    if (engagementChartInstance) engagementChartInstance.destroy();
+    engagementChartInstance = new Chart(ctx, {
+      type: "doughnut",
       data: {
-        labels: viewsData.values.map((item) =>
-          new Date(item.end_time).toLocaleDateString()
-        ),
+        labels: Object.keys(engagementData),
         datasets: [
           {
-            label: "Views",
-            data: viewsData.values.map((item) => item.value),
-            // borderColor: 'rgb(75, 192, 192)',
-            borderColor: "rgb(33 115 198)",
-            tension: 0.1,
+            data: Object.values(engagementData),
+            backgroundColor: [
+              "#9D1F5C",
+              "rgb(54, 162, 235)",
+              "rgb(255, 206, 86)",
+              "rgb(75, 192, 192)",
+            ],
           },
         ],
       },
       options: {
         responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
         plugins: {
-          legend: {
-            position: "top",
-            labels: {
-              boxWidth: 0, // Remove the box width
-              font: {
-                size: 14, // Adjust the font size as needed
-              },
-              color: "#000", // Set the label color
-              padding: 5, // Adjust padding as needed
-            },
-          },
-          datalabels: {
-            color: "#000", // Set the data label color
-            font: {
-              weight: "bold",
-              size: 14, // Adjust the font size as needed
-            },
-            formatter: (value, context) => {
-              return value; // Return the value to be displayed
-            },
-          },
+          legend: { position: "bottom" },
         },
       },
     });
   }
-}
 
-function createEngagementChart(data) {
-  const engagementData = {
-    likes: data.data.find((item) => item.name === "likes").total_value.value,
-    replies: data.data.find((item) => item.name === "replies").total_value
-      .value,
-    reposts: data.data.find((item) => item.name === "reposts").total_value
-      .value,
-    quotes: data.data.find((item) => item.name === "quotes").total_value.value,
-  };
-
-  const ctx = document.getElementById("engagementChart").getContext("2d");
-  new Chart(ctx, {
-    type: "doughnut",
-    data: {
-      labels: Object.keys(engagementData),
-      datasets: [
-        {
-          data: Object.values(engagementData),
-          backgroundColor: [
-            // "rgb(255, 99, 132)",
-            "#9D1F5C",
-            "rgb(54, 162, 235)",
-            "rgb(255, 206, 86)",
-            "rgb(75, 192, 192)",
-          ],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "bottom",
-        },
+  // ----- EXISITING CODE: POPULATE LATEST THREADS (MOCK DATA) -----
+  function populateLatestThreads() {
+    const mockThreads = [
+      {
+        title: "Better Threads Dashboard",
+        date: "2024/07/03 10:57:54",
+        views: 12230,
+        likes: 3875,
+        reposts: 1829,
+        replies: 2873,
+        quotes: 1111,
       },
-    },
-  });
-}
+      {
+        title: "I like Threads",
+        date: "2024/07/03 12:32:21",
+        views: 23485,
+        likes: 3450,
+        reposts: 6823,
+        replies: 2348,
+        quotes: 2231,
+      },
+    ];
 
-function populateLatestThreads() {
-  const mockThreads = [
-    {
-      title: "Better Threads Dashboard",
-      date: "2024/07/03 10:57:54",
-      views: 12230,
-      likes: 3875,
-      reposts: 1829,
-      replies: 2873,
-      quotes: 1111,
-    },
-    {
-      title: "I like Threads",
-      date: "2024/07/03 12:32:21",
-      views: 23485,
-      likes: 3450,
-      reposts: 6823,
-      replies: 2348,
-      quotes: 2231,
-    },
-  ];
-
-  const threadsHtml = mockThreads
-    .map(
-      (thread) => `
-    <div class="card mb-3">
-        <div class="card-body">
+    const threadsHtml = mockThreads
+      .map(
+        (thread) => `
+        <div class="card mb-3">
+          <div class="card-body">
             <h6 class="card-title">${thread.title}</h6>
             <p class="card-text"><small class="text-muted">${thread.date}</small></p>
             <div class="d-flex justify-content-between">
@@ -478,11 +273,105 @@ function populateLatestThreads() {
                 <span><i class="fas fa-reply"></i> ${thread.replies}</span>
                 <span><i class="fas fa-quote-right"></i> ${thread.quotes}</span>
             </div>
+          </div>
         </div>
-    </div>
-`
-    )
-    .join("");
+      `
+      )
+      .join("");
 
-  $("#latestThreads").html(threadsHtml);
-}
+    $("#latestThreads").html(threadsHtml);
+  }
+
+  // ----- EXISITING CODE: AUTH + LOAD PROFILES -----
+  checkAuthAndExecute((user) => {
+    user.getIdToken().then((token) => {
+      idToken = token;
+      userId = user.uid;
+
+      const profileAPI = `${SCHEDULER_URL}/threads/profile`;
+      const url = new URL(profileAPI);
+      url.searchParams.append("userId", userId);
+
+      fetch(url, {
+        headers: { Authorization: "Bearer " + idToken }
+      })
+      .then(response => response.json())
+      .then(accounts => {
+        const $profileDropdownMenu = $("#profileDropdownMenu");
+        $profileDropdownMenu.empty();
+
+        if (Array.isArray(accounts) && accounts.length > 0) {
+          accounts.forEach((account, index) => {
+            $profileDropdownMenu.append(
+              `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+            );
+            if (index === 0) {
+              $("#profileDropdownButton").text(account.username);
+              selectedThreadsUserId = account.threadsUserId;
+            }
+          });
+        } else {
+          $profileDropdownMenu.append('<li class="no-profiles">No profiles found.</li>');
+          $("#profileDropdownButton").text("Demo");
+          selectedThreadsUserId = "demo";
+        }
+
+        $profileDropdownMenu.on("click", ".dropdown-item", function () {
+          const selectedValue = $(this).data("value");
+          const selectedText = $(this).text();
+          $("#profileDropdownButton").text(selectedText);
+          selectedThreadsUserId = selectedValue;
+          clearDashboard();
+          fetchAndDisplayInsights();
+        });
+
+        clearDashboard();
+        fetchAndDisplayInsights();
+      })
+      .catch(error => {
+        console.error("Error fetching profiles:", error);
+        alert("An error occurred while fetching Threads profiles.");
+      });
+    }).catch((error) => {
+      console.error("Error getting ID token:", error.message);
+    });
+  });
+
+  // =====================
+  // ADDED: PILL TOGGLE LOGIC
+  // =====================
+  pillMonthly.on("click", function () {
+    currentRange = "monthly";
+    pillMonthly.addClass("active");
+    pillWeekly.removeClass("active");
+    updateUI("monthly");
+  });
+
+  pillWeekly.on("click", function () {
+    currentRange = "weekly";
+    pillWeekly.addClass("active");
+    pillMonthly.removeClass("active");
+    updateUI("weekly");
+  });
+
+  /**
+   * Updates the dashboard UI to show either weekly or monthly data,
+   * assuming we've cached `cachedWeeklyInsights` and `cachedMonthlyInsights`.
+   */
+  function updateUI(range) {
+    // Pick which data object to use
+    let chosenData = range === "weekly" ? cachedWeeklyInsights : cachedMonthlyInsights;
+    if (!chosenData) {
+      console.log(`No ${range} data available`);
+      clearDashboard();
+      return;
+    }
+
+    // Refresh metrics & charts
+    clearDashboard(); // Destroy old charts
+    updateMetrics(chosenData);
+    createViewsChart(chosenData);
+    createEngagementChart(chosenData);
+    populateLatestThreads(); // If you want to fetch differently for weekly vs monthly, adjust as needed
+  }
+});

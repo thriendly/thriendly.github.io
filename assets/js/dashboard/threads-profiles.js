@@ -87,7 +87,9 @@ $(document).ready(function () {
 
                         if (data && Array.isArray(data) && data.length > 0) {
                             data.forEach(account => {
-                                const picUrl = account.profilePictureUrl || '/assets/images/default-profile.png';
+                                
+                                const picUrl = account.profilePic ? account.profilePic : '/assets/images/default-profile.png';
+    
                                 const isDefault = account.isDefault === 1;
                                 const listItem = `
                                     <li class="profile-item">
@@ -134,10 +136,9 @@ $(document).ready(function () {
                                         },
                                     })
                                         .then(res => {
-                                            if (res.status != 200) {
-                                                throw new Error('Network response was not ok');
+                                            if (res.status === 200) {
+                                                return res.json();
                                             }
-                                            return res.json();
                                         })
                                         .then(() => {
                                             alert("Profile deleted successfully.");

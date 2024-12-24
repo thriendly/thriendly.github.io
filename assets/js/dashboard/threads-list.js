@@ -391,6 +391,8 @@ $(document).ready(function () {
         updateModalPreview();
     });
 
+    
+
     function updateModalPreview() {
         // Get content from the textarea
         const content = $('#updateThreadContent').val();

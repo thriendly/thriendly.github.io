@@ -133,6 +133,16 @@ permalink: /app/threads/list
         outline: none;
     }
 
+    .dropdown-toggle {
+        background-color: #28a745 !important;
+        color: #fff !important;
+        border: 1px solid #28a745 !important;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 100px; /* Ensures consistent button size */
+        white-space: nowrap;
+    }
+
     .section-header {
         background-color: #007bff; /* Blue background */
         color: white;              /* White text */
@@ -181,21 +191,22 @@ permalink: /app/threads/list
         max-height: calc(100vh - 350px); /* Adjust as needed */
     }
     
+    
     /* Add margin between posts */
     .number-padding {
         padding-top: 20px;
     }
 
     .nav-pills .nav-link {
-    background: none;
-    border: none;
-    color: #28a745; /* Green text for non-selected pills */
-}
+        background: none;
+        border: none;
+        color: #28a745; /* Green text for non-selected pills */
+        }
 
-.nav-pills .nav-link.active {
-    background-color: #28a745; /* Green background for selected pill */
-    color: #fff; /* White text for the selected pill */
-}
+    .nav-pills .nav-link.active {
+        background-color: #28a745; /* Green background for selected pill */
+        color: #fff; /* White text for the selected pill */
+    }
 
 </style>
 
@@ -206,8 +217,8 @@ permalink: /app/threads/list
             <a href="/app/threads/home" class="btn btn-secondary">Back</a>
         </div>
 
-        <div class="d-flex align-items-center mb-3">
-            <ul class="nav nav-pills me-2" id="statusNav" role="tablist" style="font-size: 0.85rem;">
+        <div class="d-flex align-items-center mb-3 justify-content-between">
+            <ul class="nav nav-pills" id="statusNav" role="tablist" style="font-size: 0.85rem;">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link px-2 py-1" data-status="scheduled" type="button" role="tab">Scheduled</button>
                 </li>
@@ -215,19 +226,18 @@ permalink: /app/threads/list
                     <button class="nav-link px-2 py-1" data-status="success" type="button" role="tab">Published</button>
                 </li>
             </ul>
-            <!-- Profile Dropdown -->
-            <div class="col-md-3 mb-3">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Select Profile
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
-                        <li><a class="dropdown-item" href="#" data-value="">Select a profile</a></li>
-                        <!-- Profile options will be dynamically appended here -->
-                    </ul>
-                </div>
+           <div class="dropdown ms-auto">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    All Profiles
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                    <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
+                    <!-- Add other profiles here -->
+                </ul>
             </div>
+
         </div>
+
 
         <div id="loading" style="text-align: left;">
             <img src="/assets/images/tipseason-loading.gif" alt="Loading...">

@@ -125,6 +125,20 @@ permalink: /app/threads/home
                 </a>
             </div>
 
+            <!-- Insights Card -->
+            <div class="col-md-4 mb-4">
+                <a href="/app/threads/dashboard" class="text-decoration-none scheduler-card">
+                    <div class="card h-100 card-hover p-2">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-chart-line fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Insights</h5>
+                            <p class="card-text">View metrics and analytics to track your Threads performance.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
             <!-- Coming Soon Card -->
             <div class="col-md-4 mb-4">
                 <a href="#" class="text-decoration-none scheduler-card">

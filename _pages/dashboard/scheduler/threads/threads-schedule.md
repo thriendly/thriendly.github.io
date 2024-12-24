@@ -22,4 +22,3 @@ permalink: /app/threads/scheduler
         });
     });
 </script>
-<script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>

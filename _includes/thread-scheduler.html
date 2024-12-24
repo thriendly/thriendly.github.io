@@ -360,11 +360,15 @@ $(document).ready(function () {
                 "Content-Type": "application/json",
             },
             success: function (data) {
-                alert("Thread scheduled successfully!");
-                $("#threadContent").val('');
-                $("#detailDate").val('');
-                $("#detailTime").val('');
-                $("#preview").html('');
+                if (xhr.status === 200) {
+                    alert("Thread scheduled successfully!");
+                    $("#threadContent").val('');
+                    $("#detailDate").val('');
+                    $("#detailTime").val('');
+                    $("#preview").html('');
+                } else {
+                    alert("User does not have permission.");
+                }
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);

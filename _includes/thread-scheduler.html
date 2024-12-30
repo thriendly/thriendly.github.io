@@ -359,14 +359,14 @@ $(document).ready(function () {
                 Authorization: "Bearer " + idToken,
                 "Content-Type": "application/json",
             },
-            success: function (data) {
-                if (xhr.status === 200) {
+            success: function (data, textStatus, jqXHR) {
+                if (jqXHR.status === 200) {
                     alert("Thread scheduled successfully!");
                     $("#threadContent").val('');
                     $("#detailDate").val('');
                     $("#detailTime").val('');
                     $("#preview").html('');
-                } else {
+                } else if(jqXHR.status === 400) {
                     alert("User does not have permission.");
                 }
             },

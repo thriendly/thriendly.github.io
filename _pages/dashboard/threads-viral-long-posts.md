@@ -679,6 +679,6 @@ Until then.
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Include the JavaScript file -->
-<script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script>
+<!-- <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>

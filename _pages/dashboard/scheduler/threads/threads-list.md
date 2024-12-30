@@ -133,10 +133,10 @@ permalink: /app/threads/list
         outline: none;
     }
 
-    .dropdown-toggle {
-        background-color: #28a745 !important;
-        color: #fff !important;
-        border: 1px solid #28a745 !important;
+    #profileDropdownButton {
+        background-color: #28a745;
+        color: #fff;
+        border: 1px solid #28a745;
         font-size: 0.85rem;
         padding: 0.25rem 0.5rem;
         min-width: 100px; /* Ensures consistent button size */
@@ -210,44 +210,50 @@ permalink: /app/threads/list
 
 </style>
 
-<div id="content">
-    <div class="container mt-4 col-md-8 offset-md-2">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-primary">Scheduled Threads</h3>
-            <a href="/app/threads/home" class="btn btn-secondary">Back</a>
-        </div>
+<div id="schedulerContainer" class="scheduler" style="display:none;">
+    {% include thread-scheduler.html %}
+</div>
 
-        <div class="d-flex align-items-center mb-3 justify-content-between">
-            <ul class="nav nav-pills" id="statusNav" role="tablist" style="font-size: 0.85rem;">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link px-2 py-1" data-status="scheduled" type="button" role="tab">Scheduled</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link px-2 py-1" data-status="success" type="button" role="tab">Published</button>
-                </li>
-            </ul>
-           <div class="dropdown ms-auto">
-                <button class="btn btn-sm dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    All Profiles
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
-                    <li><a class="dropdown-item" href="#" data-value="all">All</a></li>
-                    <!-- Add other profiles here -->
-                </ul>
+<div id="content">
+    <div id="listPostsContainer">
+        <div class="container mt-4 col-md-8 offset-md-2">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="text-primary">Scheduled Threads</h3>
+                <a href="/app/threads/home" class="btn btn-secondary">Back</a>
             </div>
 
-        </div>
+            <div class="d-flex align-items-center mb-3 justify-content-between">
+                <ul class="nav nav-pills" id="statusNav" role="tablist" style="font-size: 0.85rem;">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link nav-custom px-2 py-1" data-status="scheduled" type="button" role="tab">Scheduled</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link nav-custom px-2 py-1" data-status="success" type="button" role="tab">Published</button>
+                    </li>
+                </ul>
+            <div class="dropdown ms-auto">
+                    <button class="btn btn-sm dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        All Profiles
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                       
+                        <!-- Add other profiles here -->
+                    </ul>
+                </div>
+
+            </div>
 
 
-        <div id="loading" style="text-align: left;">
-            <img src="/assets/images/tipseason-loading.gif" alt="Loading...">
-        </div>
-        <div class="row mt-4">
-            <div class="col-12">
-                <div id="thread-list"></div>
+            <div id="loading" style="text-align: left;">
+                <img src="/assets/images/tipseason-loading.gif" alt="Loading...">
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div id="thread-list"></div>
 
-                <!-- Load More Button Container -->
-                <div id="load-more-container" class="text-center mt-4"></div>
+                    <!-- Load More Button Container -->
+                    <div id="load-more-container" class="text-center mt-4"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -299,6 +305,7 @@ permalink: /app/threads/list
                 <div class="modal-footer">
                     <span id="charCount" class="me-auto"></span>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button class="btn btn-primary" id="reuseButton" type="button">Repost</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
@@ -311,9 +318,8 @@ permalink: /app/threads/list
 <script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JS and its dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>
 <!-- Bootstrap CSS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

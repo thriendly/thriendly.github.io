@@ -23,17 +23,21 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
+                
                 const $profileDropdownMenu = $("#profileDropdownMenu");
                     $profileDropdownMenu.empty();
                     $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
-
                     if (accounts && accounts.length > 0) {
                         accounts.forEach((account) => {
+                            console.log(account.username);
                             $profileDropdownMenu.append(
                                 `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
                             );
                         });
                     }
+
+                    console.log($profileDropdownMenu.html());
+
 
                     // Handle dropdown item click
                     $profileDropdownMenu.on("click", ".dropdown-item", function () {
@@ -64,9 +68,9 @@ $(document).ready(function () {
         });
     });
 
-    $(`.nav-link[data-status="${currentStatus}"]`).addClass('active');
+    $(`.nav-custom[data-status="${currentStatus}"]`).addClass('active');
 
-    $(".nav-link").on("click", function() {
+    $(".nav-custom").on("click", function() {
         const newStatus = $(this).data("status");
         if (newStatus !== currentStatus) {
             currentStatus = newStatus;
@@ -76,7 +80,7 @@ $(document).ready(function () {
             $("#loading").show();
 
             // Update active state visually
-            $(".nav-link").removeClass('active');
+            $(".nav-custom").removeClass('active');
             $(this).addClass('active');
 
             // Fetch threads based on new status
@@ -360,6 +364,8 @@ $(document).ready(function () {
                     $("#charCount").hide();
                     $("#update-thread-form button[type='submit']").hide();
                     $("#updateThreadModalLabel").text("View Thread");
+
+                    $("#reuseButton").show();
                 
                     // Change "Preview" to "Published Thread"
                     $(".preview-header").text("Published Thread");
@@ -374,10 +380,47 @@ $(document).ready(function () {
                 
                     // Center the preview content text
                     $("#updatePreview").addClass('text-center');
-                }   
+                } else {
+                    $("#reuseButton").hide();
+                }
 
-                // Show the modal
-                $("#updateThreadModal").modal("show");
+                $("#reuseButton").on("click", function(e) {
+                    e.preventDefault();
+                    
+                    // Get the content from modal text box
+                    const content = $("#updateThreadContent").val();
+                  
+                    // Hide current content container, show scheduler container, etc.
+                    $("#schedulerContainer").show();
+                    $("#listPostsContainer").hide();
+                    $(".section-header").show();
+                  
+                    // Populate scheduler textarea (e.g., #threadContent) with the content
+                    $("#threadContent").val(content);
+                  
+                    // Optionally call any resizing or preview updates
+                    autoResizeTextarea(document.getElementById("threadContent"));
+
+                    updatePreview();
+                  
+                    // Close the modal if desired
+                    $("#updateThreadModal").modal("hide");
+                  });
+
+                $("#updateThreadModal").modal({
+                    backdrop: 'static',  // Prevent clicking outside to close immediately
+                    keyboard: false      // Disables ESC key from closing the modal
+                }).modal("show");
+
+                // Handle "Back" button click on scheduler page
+            $('#schedulerBackButton').on('click', function () {
+                if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+                    $('#schedulerContainer').hide();
+                    $("#listPostsContainer").show();
+                    $("#updateThreadModal").modal("show");
+                }
+            });
+
             },
             error: function (xhr, status, error) {
                 console.error("Error fetching thread content:", error);

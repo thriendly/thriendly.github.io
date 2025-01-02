@@ -44,7 +44,7 @@ $(document).ready(function () {
                 .then((response) => response.json().then(data => ({ status: response.status, data })))
                 .then(({ status, data }) => {
                     if (status === 200) {
-                        $('#message').removeClass('alert-info').addClass('alert-success').text('Connected successfully!');
+                        $('#message').removeClass('alert-info').addClass('alert-success').text('Connected successfully! Please wait for page to refresh...');
                     } else {
                         console.error("Error during Threads authentication:", data);
                         $('#message').removeClass('alert-info').addClass('alert-danger').text('Connecting Threads account failed, please try again later.');

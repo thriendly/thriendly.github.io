@@ -29,7 +29,7 @@ $(document).ready(function () {
             })
         })
         .then(response => {
-            if (!response.ok) throw new Error("Add failed");
+            if (!response.ok) throw new Error("Error adding profile.");
             return response.json();
         })
         .then(() => {
@@ -39,7 +39,7 @@ $(document).ready(function () {
         })
         .catch(error => {
             console.error("Error adding profile:", error);
-            alert("Error adding profile. Check console.");
+            alert("Error adding profile. Incorrect username or Password");
         });
     });
 

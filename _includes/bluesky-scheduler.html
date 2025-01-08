@@ -288,7 +288,7 @@ $(document).ready(function () {
             })
             .catch(error => {
                 console.error("Error fetching profiles:", error);
-                alert("An error occurred while fetching Threads profiles.");
+                alert("An error occurred while fetching profiles.");
             });
         }).catch((error) => {
             console.error("Error getting ID token:", error.message);
@@ -361,7 +361,7 @@ $(document).ready(function () {
             },
             success: function (data, textStatus, jqXHR) {
                 if (jqXHR.status === 200) {
-                    alert("Thread scheduled successfully!");
+                    alert("Post scheduled successfully!");
                     $("#threadContent").val('');
                     $("#detailDate").val('');
                     $("#detailTime").val('');
@@ -372,7 +372,7 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);
-                alert("An error occurred while scheduling the thread. Please try again.");
+                alert("An error occurred while scheduling the post. Please try again.");
             },
             complete: function () {
                 $scheduleButton.prop('disabled', false);

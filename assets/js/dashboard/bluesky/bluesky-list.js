@@ -58,7 +58,7 @@ $(document).ready(function () {
             })
             .catch(error => {
                 console.error("Error fetching profiles:", error);
-                alert("An error occurred while fetching Threads profiles.");
+                alert("An error occurred while fetching profiles.");
             });
 
             // Fetch scheduled threads
@@ -130,12 +130,12 @@ $(document).ready(function () {
                     renderLoadMoreButton(hasMore);
                 } else {
                     // No more threads to load
-                    alert("There are no more scheduled threads. Go to Threads Scheduler to schedule more.");
+                    alert("There are no more scheduled posts. Go to Scheduler to schedule more.");
                     renderLoadMoreButton(false);
                 }
             },
             error: function (xhr, status, error) {
-                $("#thread-list").html("<p>Error loading threads.</p>");
+                $("#thread-list").html("<p>Error loading Posts.</p>");
             }
         });
     }
@@ -145,7 +145,7 @@ $(document).ready(function () {
         threadList.empty();
     
         if (threads.length === 0) {
-            threadList.html("<p>No threads to display.</p>");
+            threadList.html("<p>No Posts to display.</p>");
             return;
         }
     
@@ -275,7 +275,7 @@ $(document).ready(function () {
             success: function (response) {
                 const thread = response.threadDetails;
                 if (!thread) {
-                    alert("Failed to load thread content. Please try again.");
+                    alert("Failed to load Post. Please try again.");
                     return;
                 }
 
@@ -586,13 +586,13 @@ $(document).ready(function () {
                     }
                     $("#updateThreadModal").modal("hide");
                 } else {
-                    console.error("Failed to update thread. Status code:", jqXHR.status);
-                    alert("Failed to update the thread. Please try again.");
+                    console.error("Failed to update Post. Status code:", jqXHR.status);
+                    alert("Failed to update the Post. Please try again.");
                 }
             },
             error: function (xhr, status, error) {
-                console.error("Error updating thread:", error);
-                alert("Failed to update the thread. Please try again.");
+                console.error("Error updating Post:", error);
+                alert("Failed to update the Post. Please try again.");
             },
             complete: function () {
                 // Re-enable the Save Changes button
@@ -603,7 +603,7 @@ $(document).ready(function () {
 
     // Function to delete a thread
     function deleteThread(postId) {
-        if (!confirm("Are you sure you want to delete this thread?")) {
+        if (!confirm("Are you sure you want to delete this Post?")) {
             return;
         }
 
@@ -619,15 +619,15 @@ $(document).ready(function () {
                     // Remove the thread from the threads array
                     threads = threads.filter((t) => t.postId !== postId);
                     renderThreads();
-                    alert("Thread deleted successfully.");
+                    alert("Post deleted successfully.");
                 } else {
-                    console.error("Failed to delete thread. Status code:", jqXHR.status);
-                    alert("Failed to delete the thread. Please try again.");
+                    console.error("Failed to delete post. Status code:", jqXHR.status);
+                    alert("Failed to delete the Post. Please try again.");
                 }
             },
             error: function (xhr, status, error) {
-                console.error("Error deleting thread:", error);
-                alert("Failed to delete the thread. Please try again.");
+                console.error("Error deleting Post:", error);
+                alert("Failed to delete the Post. Please try again.");
             }
         });
     }

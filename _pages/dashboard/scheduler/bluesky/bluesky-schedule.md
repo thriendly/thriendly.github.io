@@ -17,7 +17,7 @@ permalink: /app/bluesky/scheduler
     $(document).ready(function () {
         $('#schedulerBackButton').on('click', function () {
             if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
-                window.location.href = '/app/threads/home'; // Redirect to the desired path
+                window.location.href = '/app/bluesky/home'; // Redirect to the desired path
             }
         });
     });

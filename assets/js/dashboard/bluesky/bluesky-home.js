@@ -14,7 +14,7 @@ $(document).ready(function () {
     $('#schedulerBackButton').on('click', function () {
         if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
             $('#schedulerContainer').hide();
-            $('#GenerationContainer').show();
+            
         }
     });
 

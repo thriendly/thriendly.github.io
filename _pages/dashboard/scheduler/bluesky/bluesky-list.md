@@ -219,7 +219,7 @@ permalink: /app/bluesky/list
         <div class="container mt-4 col-md-8 offset-md-2">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="text-primary">Scheduled Bluesky Posts</h3>
-                <a href="/app/threads/home" class="btn btn-secondary">Back</a>
+                <a href="/app/bluesky/home" class="btn btn-secondary">Back</a>
             </div>
 
             <div class="d-flex align-items-center mb-3 justify-content-between">

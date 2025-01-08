@@ -263,7 +263,7 @@ $(document).ready(function () {
                 if (accounts && accounts.length > 0) {
                     accounts.forEach((account, index) => {
                         $profileDropdownMenu.append(
-                            `<li><a class="dropdown-item" href="#" data-value="${account.blueskyUsername}">${account.blueskyUsername}</a></li>`
+                            `<li><a class="dropdown-item" href="#" data-value="${account.blueskyDid}">${account.blueskyUsername}</a></li>`
                         );
 
                         if (index === 0) {
@@ -345,7 +345,7 @@ $(document).ready(function () {
             created_time: created_time,
             status: status,
             userId: userId,
-            blueskyUsername: selectedThreadsUserId,
+            blueskyDid: selectedThreadsUserId,
         };
 
         const schedulerAPI = `${SCHEDULER_URL}/bluesky/schedule`;

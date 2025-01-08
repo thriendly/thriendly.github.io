@@ -60,7 +60,7 @@ permalink: /app/bluesky/home
 </style>
 
 <div id="content" class="container mt-4">
-    <h3 class="mb-4 text-primary">Bluesky Threads Scheduler</h3>
+    <h3 class="mb-4 text-primary">Bluesky Scheduler</h3>
 
     <!-- Loading Icon -->
     <div id="loading" style="text-align: left;">
@@ -77,7 +77,7 @@ permalink: /app/bluesky/home
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Schedule New Thread</h5>
+                            <h5 class="card-title">Schedule New Bluesky Post</h5>
                             <p class="card-text">Compose and schedule your posts that get delivered even when you sleep!</p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ permalink: /app/bluesky/home
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-list fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">List Scheduled Threads</h5>
+                            <h5 class="card-title">List Scheduled Bluesky Posts</h5>
                             <p class="card-text">View and manage your scheduled posts.</p>
                         </div>
                     </div>

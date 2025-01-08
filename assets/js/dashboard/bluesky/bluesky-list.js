@@ -29,7 +29,7 @@ $(document).ready(function () {
                     $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
                     if (accounts && accounts.length > 0) {
                         accounts.forEach((account) => {
-                            console.log(account.username);
+                            console.log(account.blueskyUsername);
                             $profileDropdownMenu.append(
                                 `<li><a class="dropdown-item" href="#" data-value="${account.blueskyUsername}">${account.blueskyUsername}</a></li>`
                             );
@@ -262,7 +262,7 @@ $(document).ready(function () {
 
     function openUpdateModal(postId) {
         $.ajax({
-            url: `${SCHEDULER_URL}/threads/post`,
+            url: `${SCHEDULER_URL}/bluesky/post`,
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${idToken}`
@@ -497,7 +497,7 @@ $(document).ready(function () {
         return chunks;
     }
 
-    function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
+    function splitTextByDelimiter(text, delimiter = '---', maxLength = 300) {
         const subposts = text.split(delimiter)
                              .map(s => s.trim())
                              .filter(s => s.length > 0);
@@ -560,7 +560,7 @@ $(document).ready(function () {
 
         // Make the API call to update the thread
         $.ajax({
-            url: `${SCHEDULER_URL}/threads/update?userId=${userId}&postId=${postId}`,
+            url: `${SCHEDULER_URL}/bluesky/update?userId=${userId}&postId=${postId}`,
             method: "PATCH",
             headers: {
                 "Authorization": `Bearer ${idToken}`,
@@ -608,7 +608,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: `${SCHEDULER_URL}/threads/delete?userId=${userId}&postId=${postId}`,
+            url: `${SCHEDULER_URL}/bluesky/delete?userId=${userId}&postId=${postId}`,
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${idToken}`,

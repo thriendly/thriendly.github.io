@@ -218,7 +218,7 @@ permalink: /app/bluesky/list
     <div id="listPostsContainer">
         <div class="container mt-4 col-md-8 offset-md-2">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="text-primary">Scheduled Threads</h3>
+                <h3 class="text-primary">Scheduled Bluesky Posts</h3>
                 <a href="/app/threads/home" class="btn btn-secondary">Back</a>
             </div>
 
@@ -238,6 +238,8 @@ permalink: /app/bluesky/list
                     <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
                        
                         <!-- Add other profiles here -->
+
+                        
                     </ul>
                 </div>
 
@@ -316,8 +318,7 @@ permalink: /app/bluesky/list
 <!-- Include necessary scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
 <script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Include Bootstrap JS and its dependencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>\
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->

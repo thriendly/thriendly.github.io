@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Threads Home
-permalink: /app/threads/home
+permalink: /app/bluesky/home
 ---
 
 <style>
@@ -60,7 +60,7 @@ permalink: /app/threads/home
 </style>
 
 <div id="content" class="container mt-4">
-    <h3 class="mb-4 text-primary">Thriendly Threads Scheduler</h3>
+    <h3 class="mb-4 text-primary">Bluesky Scheduler</h3>
 
     <!-- Loading Icon -->
     <div id="loading" style="text-align: left;">
@@ -73,11 +73,11 @@ permalink: /app/threads/home
         <div class="row mt-4" id="functionCards">
             <!-- Schedule New Thread Card -->
             <div class="col-md-4 mb-4">
-                <a href="/app/threads/scheduler" class="text-decoration-none scheduler-card">
+                <a href="/app/bluesky/scheduler" class="text-decoration-none scheduler-card">
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Schedule New Thread</h5>
+                            <h5 class="card-title">Schedule New Bluesky Post</h5>
                             <p class="card-text">Compose and schedule your posts that get delivered even when you sleep!</p>
                         </div>
                     </div>
@@ -85,11 +85,11 @@ permalink: /app/threads/home
             </div>
             <!-- List Scheduled Threads Card -->
             <div class="col-md-4 mb-4">
-                <a href="/app/threads/list" class="text-decoration-none scheduler-card">
+                <a href="/app/bluesky/list" class="text-decoration-none scheduler-card">
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-list fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">List Scheduled Threads</h5>
+                            <h5 class="card-title">List Scheduled Bluesky Posts</h5>
                             <p class="card-text">View and manage your scheduled posts.</p>
                         </div>
                     </div>
@@ -98,25 +98,12 @@ permalink: /app/threads/home
 
             <!-- Manage Profiles Card -->
             <div class="col-md-4 mb-4">
-                <a href="/app/threads/profiles" class="text-decoration-none scheduler-card">
+                <a href="/app/bluesky/profiles" class="text-decoration-none scheduler-card">
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-user fa-3x mb-3 text-primary"></i>
                             <h5 class="card-title">Manage Profiles</h5>
                             <p class="card-text">View, add, and delete your connected profiles.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Insights Card -->
-            <div class="col-md-4 mb-4">
-                <a href="/app/threads/dashboard" class="text-decoration-none scheduler-card">
-                    <div class="card h-100 card-hover p-2">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-chart-line fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Insights</h5>
-                            <p class="card-text">View metrics and analytics to track your Threads performance.</p>
                         </div>
                     </div>
                 </a>
@@ -170,4 +157,4 @@ permalink: /app/threads/home
 <!-- Include Bootstrap JS and its dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Include the JavaScript file -->
-<script src="{{ site.baseurl }}/assets/js/dashboard/threads-home.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dashboard/bluesky/bluesky-home.js"></script>

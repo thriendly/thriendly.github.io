@@ -1,7 +1,7 @@
 ---
 layout: dashboard
 title: Thriendly Scheduled Threads
-permalink: /app/threads/list
+permalink: /app/bluesky/list
 ---
 
 <style>
@@ -211,15 +211,15 @@ permalink: /app/threads/list
 </style>
 
 <div id="schedulerContainer" class="scheduler" style="display:none;">
-    {% include thread-scheduler.html %}
+    {% include bluesky-scheduler.html %}
 </div>
 
 <div id="content">
     <div id="listPostsContainer">
         <div class="container mt-4 col-md-8 offset-md-2">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="text-primary">Scheduled Threads</h3>
-                <a href="/app/threads/home" class="btn btn-secondary">Back</a>
+                <h3 class="text-primary">Scheduled Bluesky Posts</h3>
+                <a href="/app/bluesky/home" class="btn btn-secondary">Back</a>
             </div>
 
             <div class="d-flex align-items-center mb-3 justify-content-between">
@@ -238,6 +238,8 @@ permalink: /app/threads/list
                     <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
                        
                         <!-- Add other profiles here -->
+
+                        
                     </ul>
                 </div>
 
@@ -314,12 +316,11 @@ permalink: /app/threads/list
 </div>
 
 <!-- Include necessary scripts -->
-<!-- Bootstrap CSS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Include Bootstrap JS and its dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>\
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->
-<script src="{{ site.baseurl }}/assets/js/dashboard/threads-list.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dashboard/bluesky/bluesky-list.js"></script>
+<!-- Bootstrap CSS -->

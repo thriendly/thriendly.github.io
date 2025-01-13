@@ -5,6 +5,23 @@ $(document).ready(function () {
     let idToken = '';
     let userId = '';
     let currentStatus = 'scheduled';
+    let selectedThreadsUserId = null;
+
+    function showAlert(message, type = "info") {
+        const alertElement = $("#globalAlert");
+        alertElement
+            .removeClass("d-none alert-info alert-success alert-warning alert-danger")
+            .addClass(`alert-${type}`)
+            .text(message)
+            .show();
+    }
+    
+    function hideAlert() {
+        const alertElement = $("#globalAlert");
+        alertElement.hide().addClass("d-none");
+    }
+    
+    
 
     $("#loading").show();
 
@@ -23,21 +40,18 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
-                
+                const profileMeny = $("#profileDropdownMenu");
+                console.log(profileMeny.html());
                 const $profileDropdownMenu = $("#profileDropdownMenu");
                     $profileDropdownMenu.empty();
                     $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
                     if (accounts && accounts.length > 0) {
                         accounts.forEach((account) => {
-                            console.log(account.username);
                             $profileDropdownMenu.append(
                                 `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
                             );
                         });
                     }
-
-                    console.log($profileDropdownMenu.html());
-
 
                     // Handle dropdown item click
                     $profileDropdownMenu.on("click", ".dropdown-item", function () {
@@ -106,6 +120,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 $("#loading").hide();
+                hideAlert();
                 if (response.Threads && response.Threads.length > 0) {
                     // Process threads to include contentPreview
                     response.Threads.forEach(thread => {
@@ -129,8 +144,7 @@ $(document).ready(function () {
                     const hasMore = response.Threads.length === itemsPerPage;
                     renderLoadMoreButton(hasMore);
                 } else {
-                    // No more threads to load
-                    alert("There are no more scheduled threads. Go to Threads Scheduler to schedule more.");
+                    showAlert("No threads available.", "info");
                     renderLoadMoreButton(false);
                 }
             },
@@ -143,9 +157,10 @@ $(document).ready(function () {
     function renderThreads() {
         const threadList = $("#thread-list");
         threadList.empty();
+        hideAlert();
+
     
         if (threads.length === 0) {
-            threadList.html("<p>No threads to display.</p>");
             return;
         }
     

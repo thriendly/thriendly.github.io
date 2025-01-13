@@ -6,6 +6,20 @@ $(document).ready(function () {
     let userId = '';
     let currentStatus = 'scheduled';
 
+    function showAlert(message, type = "info") {
+        const alertElement = $("#globalAlert");
+        alertElement
+            .removeClass("d-none alert-info alert-success alert-warning alert-danger")
+            .addClass(`alert-${type}`)
+            .text(message)
+            .show();
+    }
+    
+    function hideAlert() {
+        const alertElement = $("#globalAlert");
+        alertElement.hide().addClass("d-none");
+    }
+
     $("#loading").show();
 
     // Handle user authentication
@@ -106,6 +120,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 $("#loading").hide();
+                hideAlert();
                 if (response.Threads && response.Threads.length > 0) {
                     // Process threads to include contentPreview
                     response.Threads.forEach(thread => {
@@ -129,8 +144,7 @@ $(document).ready(function () {
                     const hasMore = response.Threads.length === itemsPerPage;
                     renderLoadMoreButton(hasMore);
                 } else {
-                    // No more threads to load
-                    alert("There are no more scheduled posts. Go to Scheduler to schedule more.");
+                    showAlert("No Posts available.", "info");
                     renderLoadMoreButton(false);
                 }
             },
@@ -143,9 +157,9 @@ $(document).ready(function () {
     function renderThreads() {
         const threadList = $("#thread-list");
         threadList.empty();
+        hideAlert();
     
         if (threads.length === 0) {
-            threadList.html("<p>No Posts to display.</p>");
             return;
         }
     

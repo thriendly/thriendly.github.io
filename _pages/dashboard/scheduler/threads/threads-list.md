@@ -231,12 +231,12 @@ permalink: /app/threads/list
                         <button class="nav-link nav-custom px-2 py-1" data-status="success" type="button" role="tab">Published</button>
                     </li>
                 </ul>
-            <div class="dropdown ms-auto">
+            <div class="dropdown ms-auto" id="profileMenu">
                     <button class="btn btn-sm dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
                         All Profiles
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
-                       
+                       <li><a class="dropdown-item" href="#" data-value="null">All</a></li>
                         <!-- Add other profiles here -->
                     </ul>
                 </div>
@@ -247,6 +247,7 @@ permalink: /app/threads/list
             <div id="loading" style="text-align: left;">
                 <img src="/assets/images/tipseason-loading.gif" alt="Loading...">
             </div>
+            <div id="globalAlert" class="alert text-center d-none" role="alert"></div>
             <div class="row mt-4">
                 <div class="col-12">
                     <div id="thread-list"></div>

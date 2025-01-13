@@ -249,6 +249,7 @@ permalink: /app/bluesky/list
             <div id="loading" style="text-align: left;">
                 <img src="/assets/images/tipseason-loading.gif" alt="Loading...">
             </div>
+            <div id="globalAlert" class="alert text-center d-none" role="alert"></div>
             <div class="row mt-4">
                 <div class="col-12">
                     <div id="thread-list"></div>

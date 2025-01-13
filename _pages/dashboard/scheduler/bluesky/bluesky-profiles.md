@@ -5,32 +5,75 @@ permalink: /app/bluesky/profiles
 ---
 
 <style>
-    /* Shared styles for profile list UI */
     .profile-list {
-        list-style: none; padding: 0; margin: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
     .profile-item {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 10px; border: 1px solid #dee2e6; border-radius: 0.5rem; background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        background-color: #fff;
         margin-bottom: 10px;
     }
+    .profile-details {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* space between image and username */
+    }
+    .profile-details .profile-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
     .profile-details .username {
-        font-weight: bold; font-size: 1.1rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    .no-profiles {
+        text-align: center;
+        color: #6c757d;
+        font-size: 1rem;
+        padding: 20px;
+        border: 1px dashed #dee2e6;
+        border-radius: 0.5rem;
+        background-color: #f8f9fa;
+    }
+    .profile-actions {
+        display: flex;
+        gap: 10px;
+    }
+    .delete-button, .set-default-button {
+        font-size: 0.9rem;
     }
     .delete-button {
-        background-color: #dc3545; border: none; color: #fff; padding: 6px 12px;
-        border-radius: 4px; cursor: pointer; font-size: 0.9rem;
+        background-color: #dc3545; 
+        color: #fff; 
+        border: none; 
+        padding: 6px 12px; 
+        border-radius: 4px; 
+        cursor: pointer;
     }
     .delete-button:hover {
         background-color: #c82333;
     }
-    .no-profiles {
-        text-align: center; color: #6c757d; font-size: 1rem; padding: 20px;
-        border: 1px dashed #dee2e6; border-radius: 0.5rem; background-color: #f8f9fa;
+    .badge.bg-success {
+        font-size: 0.8rem;
     }
     #connectBlueskyButton {
-        color: #fff; background-color: #198755; border: none; padding: 10px 20px;
-        font-size: 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 20px;
+        color: #fff; 
+        background-color: #198755; 
+        border: none; 
+        padding: 10px 20px;
+        font-size: 1rem; 
+        border-radius: 4px; 
+        cursor: pointer; 
+        margin-bottom: 20px;
     }
 </style>
 
@@ -49,6 +92,23 @@ permalink: /app/bluesky/profiles
     <ul class="profile-list" id="profileList"></ul>
 </div>
 
+<!-- Hidden template item (cloned in JS) -->
+<ul style="display: none;">
+    <li class="profile-item" id="blueskyProfileTemplate">
+        <div class="profile-details">
+            <img class="profile-pic" src="/assets/images/default-profile.png" alt="Profile Picture">
+            <div>
+                <div class="username"></div>
+                <div class="badge bg-success mt-1 default-badge" style="display:none;">Default</div>
+            </div>
+        </div>
+        <div class="profile-actions">
+            <button class="btn btn-secondary set-default-button">Set Default</button>
+            <button class="delete-button btn btn-danger">Delete</button>
+        </div>
+    </li>
+</ul>
+
 <!-- Modal for adding Bluesky account -->
 <div class="modal fade" id="blueskyModal" tabindex="-1" aria-labelledby="blueskyModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -64,10 +124,13 @@ permalink: /app/bluesky/profiles
             <input type="text" class="form-control" id="blueskyUsername" required>
           </div>
           <div class="mb-3">
-            <label for="blueskyPassword" class="form-label">Bluesky App Password</label>
+            <label for="blueskyPassword" class="form-label">Bluesky App Password</label><br>
+            <small>Create an app-password using this link,  <a href="https://bsky.app/settings/app-passwords" target="_blank">bluesky app-password.</a></small>
             <input type="password" class="form-control" id="blueskyPassword" required>
           </div>
         </form>
+        <div class="mb-3">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -81,6 +144,5 @@ permalink: /app/bluesky/profiles
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-
+<!-- Our main JS -->
 <script src="{{ site.baseurl }}/assets/js/dashboard/bluesky/bluesky-profiles.js"></script>
-<!-- Bootstrap CSS -->

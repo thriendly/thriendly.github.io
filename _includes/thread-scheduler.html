@@ -77,9 +77,14 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="text-primary">Schedule a Post</h3>
         </div>
-        <button id="schedulerBackButton" class="btn btn-secondary mb-3">
-            <i class="fas fa-arrow-left"></i> Back
-        </button>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <button id="schedulerBackButton" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button id="viewThreadsButton" class="btn btn-primary">
+                <i class="fas fa-list"></i> View Scheduled Threads
+            </button>
+        </div>
 
         <!-- Thread Details (flat, no card) -->
         <h5 class="section-header">Thread Details</h5>
@@ -112,6 +117,7 @@
             <!-- Schedule Button on same row -->
             <div class="col-md-3 mb-3 text-center">
                 <button type="button" class="btn btn-success mt-4" id="scheduleButton">Schedule</button>
+                <button type="button" class="btn btn-success mt-4" id="postNowButton">Post Now</button>
             </div>
         </div>
 
@@ -213,6 +219,38 @@ function autoResizeTextarea(textarea) {
         textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height to scrollHeight
     }
 
+ 
+function scheduleThread(scheduleTime, threadContent, userId, selectedThreadsUserId, idToken) {
+    const created_time = new Date().toISOString();
+    const status = "SCHEDULED";
+
+    const textChunks = splitTextByDelimiter(threadContent);
+    const contentArray = textChunks.map(chunk => ({
+        thread_id: "",
+        thread_content: chunk
+    }));
+
+    const threadData = {
+        content: contentArray,
+        schedule_time: scheduleTime,
+        created_time: created_time,
+        status: status,
+        userId: userId,
+        threadsUserId: selectedThreadsUserId,
+    };
+
+    return $.ajax({
+        url: `${SCHEDULER_URL}/threads/schedule`,
+        type: "POST",
+        dataType: "json",
+        data: JSON.stringify(threadData),
+        headers: {
+            Authorization: "Bearer " + idToken,
+            "Content-Type": "application/json",
+        }
+    });
+}
+
 $(document).ready(function () {
     let idToken = '';
     let userId = '';
@@ -300,85 +338,105 @@ $(document).ready(function () {
         updatePreview();
     });
 
-    $("#scheduleButton").on("click", function () {
-        const $scheduleButton = $(this);
-        $scheduleButton.prop('disabled', true);
-
-        const text = $("#threadContent").val();
-        const date = $("#detailDate").val();
-        const time = $("#detailTime").val();
-
-        if (selectedThreadsUserId === "demo") {
-            window.open("/#pricing", "_blank"); 
-            $scheduleButton.prop('disabled', false);
-            return; // Exit the function to prevent further execution
-        }
-
-        if (!date || !time) {
-            alert("Please select both schedule date and time");
-            $scheduleButton.prop('disabled', false);
-            return;
-        }
-
-        if (!selectedThreadsUserId) {
-            alert("Please select a profile before scheduling.");
-            $scheduleButton.prop('disabled', false);
-            return;
-        }
-
-        const combinedDateTime = `${date}T${time}:00`;
-        const localDateTime = new Date(combinedDateTime);
-        const schedule_time = localDateTime.toISOString();
-        const created_time = new Date().toISOString();
-        const status = "SCHEDULED";
-
-        const textChunks = splitTextByDelimiter(text);
-
-        const contentArray = textChunks.map(chunk => ({
-            thread_id: "",
-            thread_content: chunk
-        }));
-
-        const threadData = {
-            content: contentArray,
-            schedule_time: schedule_time,
-            created_time: created_time,
-            status: status,
-            userId: userId,
-            threadsUserId: selectedThreadsUserId,
-        };
-
-        const schedulerAPI = `${SCHEDULER_URL}/threads/schedule`;
-
-        $.ajax({
-            url: schedulerAPI,
-            type: "POST",
-            dataType: "json",
-            data: JSON.stringify(threadData),
-            headers: {
-                Authorization: "Bearer " + idToken,
-                "Content-Type": "application/json",
-            },
-            success: function (data, textStatus, jqXHR) {
-                if (jqXHR.status === 200) {
-                    alert("Thread scheduled successfully!");
-                    $("#threadContent").val('');
-                    $("#detailDate").val('');
-                    $("#detailTime").val('');
-                    $("#preview").html('');
-                } else if(jqXHR.status === 400) {
-                    alert("User does not have permission.");
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Error:", error);
-                alert("An error occurred while scheduling the thread. Please try again.");
-            },
-            complete: function () {
-                $scheduleButton.prop('disabled', false);
-            }
-        });
+    $("#viewThreadsButton").on("click", function () {
+        window.location.href = "/app/threads/list";
     });
+
+$("#scheduleButton").on("click", function () {
+    const $scheduleButton = $(this);
+    $scheduleButton.prop('disabled', true);
+
+    const text = $("#threadContent").val();
+    const date = $("#detailDate").val();
+    const time = $("#detailTime").val();
+
+    if (selectedThreadsUserId === "demo") {
+        window.open("/#pricing", "_blank");
+        $scheduleButton.prop('disabled', false);
+        return;
+    }
+
+    if (!date || !time) {
+        alert("Please select both schedule date and time");
+        $scheduleButton.prop('disabled', false);
+        return;
+    }
+
+    if (!selectedThreadsUserId) {
+        alert("Please select a profile before scheduling.");
+        $scheduleButton.prop('disabled', false);
+        return;
+    }
+
+    // Construct an ISO date/time from date/time pickers
+    const combinedDateTime = `${date}T${time}:00`;
+    const localDateTime = new Date(combinedDateTime);
+    const isoScheduleTime = localDateTime.toISOString();
+
+    scheduleThread(isoScheduleTime, text, userId, selectedThreadsUserId, idToken)
+        .done((data, textStatus, jqXHR) => {
+            if (jqXHR.status === 200) {
+                alert("Thread scheduled successfully!");
+                $("#threadContent").val('');
+                $("#detailDate").val('');
+                $("#detailTime").val('');
+                $("#preview").html('');
+            } else if (jqXHR.status === 400) {
+                alert("User does not have permission.");
+            }
+        })
+        .fail((xhr, status, error) => {
+            console.error("Error:", error);
+            alert("An error occurred while scheduling the thread.");
+        })
+        .always(() => {
+            $scheduleButton.prop('disabled', false);
+        });
+});
+
+$("#postNowButton").on("click", function () {
+    const $postNowButton = $(this);
+    $postNowButton.prop('disabled', true);
+
+    if (selectedThreadsUserId === "demo") {
+        window.open("/#pricing", "_blank");
+        $postNowButton.prop('disabled', false);
+        return;
+    }
+
+    const text = $("#threadContent").val();
+    if (!selectedThreadsUserId) {
+        alert("Please select a profile before posting.");
+        $postNowButton.prop('disabled', false);
+        return;
+    }
+
+    // Schedule the post one minute from now
+    const nowPlusOne = new Date();
+    nowPlusOne.setMinutes(nowPlusOne.getMinutes() + 1);
+    const isoScheduleTime = nowPlusOne.toISOString();
+
+    scheduleThread(isoScheduleTime, text, userId, selectedThreadsUserId, idToken)
+        .done((data, textStatus, jqXHR) => {
+            if (jqXHR.status === 200) {
+                alert("Post scheduled for the next minute!");
+                $("#threadContent").val('');
+                $("#detailDate").val('');
+                $("#detailTime").val('');
+                $("#preview").html('');
+            } else if (jqXHR.status === 400) {
+                alert("User does not have permission.");
+            }
+        })
+        .fail((xhr, status, error) => {
+            console.error("Error:", error);
+            alert("An error occurred while scheduling the thread.");
+        })
+        .always(() => {
+            $postNowButton.prop('disabled', false);
+        });
+});
+
 });
 </script>
 <script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>

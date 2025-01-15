@@ -79,15 +79,48 @@ permalink: /app/viral-threads
     #loadSchedulerButton:hover {
         background-color: #0056b3;
     }
+    <style>
+  /* Row for heading + dropdown */
+  .title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Heading on the left, dropdown on the right */
+    margin-bottom: 1rem;
+  }
+
+  /* Heading style */
+  .page-title {
+    margin: 0; 
+  }
+
+  /* Container for label + dropdown */
+  .api-select {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Small spacing between label and select */
+  }
+
+  /* Label style */
+  .api-label {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* Dropdown style */
+  .api-dropdown {
+    font-size: 0.9rem; 
+    padding: 0.25rem;
+    width: auto; 
+  }
 </style>
 
 <body>
     <div id="schedulerContainer" class="scheduler" style="display:none;">
-    {% include thread-scheduler.html %}
+    {% include scheduler.html %}
     </div>
 
     <div id="content" class="container mt-4">
-    <div id="GenerationContainer" style="display:block;">
+    <div id="GenerationContainer" style="display:block;">  
         <h3 class="mb-4 text-primary">Viral long post generator</h3>
 
         <div id="templatesView">
@@ -120,9 +153,21 @@ permalink: /app/viral-threads
         </div>
 
         <div class="hook-creation">
-            <button id="backButton" class="btn btn-secondary mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                 <button id="backButton" class="btn btn-secondary mb-3">
                 <i class="fas fa-arrow-left"></i> Back to Templates
             </button>
+
+                <div id="viralVesicleDropdown">
+                    <div class="api-select">
+                        <label for="apiTypeSelect" class="api-label">Select API Type:</label>
+                        <select id="apiTypeSelect" class="api-dropdown">
+                        <option value="threads" charCount="500" selected>Threads</option>
+                        <option value="bluesky" charCount="300">Bluesky</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <h4 class="mb-4">Create long form threads based on example template</h4>
             <p class="mb-4">Just enter a topic and our AI creates content similar to the example show below</p>
             <div class="row g-2">
@@ -518,6 +563,12 @@ Until then.
             $('#topic').attr('placeholder', template.placeholder || 'Eg: 5 tips for viral Instagram growth');
 
             $('.hook-creation').show();
+
+            if (template.title === "Viral Listicle") {
+                $("#viralVesicleDropdown").show();
+            } else {
+                $("#viralVesicleDropdown").hide();
+            }
         }
 
         // Function to show templates view
@@ -526,17 +577,35 @@ Until then.
             $('#templatesView').show();
         }
 
+        function updatePlatformParam() {
+            const selectedOption = $("#apiTypeSelect").find(":selected");
+            const platform = selectedOption.val();
+            const charCount = selectedOption.attr("charCount");
+
+            const currentUrl = new URL(window.location.href); 
+            currentUrl.searchParams.set("platform", platform); 
+            currentUrl.searchParams.set("charCount", charCount); 
+
+            window.history.replaceState({}, "", currentUrl);
+        }
+
         // Load cards and set up event listeners when the document is ready
         $(document).ready(function () {
+            let idToken = '';
             // On profile page
             checkAuthAndExecute((user) => {
+                user.getIdToken().then((token) => {
+                idToken = token;
+                
                 // Store user ID globally
                 window.userId = user.uid;
                 // Or use localStorage
                 localStorage.setItem('userId', user.uid);
                 $("#userEmail").text(user.email);
+                });
             });
 
+            updatePlatformParam();
             loadTemplateCards();
 
             // Make entire card clickable
@@ -545,10 +614,13 @@ Until then.
                 showHookCreation(threadTemplates[index]);
             });
 
+            $("#apiTypeSelect").on("change", updatePlatformParam);
+
             // Handle "Back to Templates" button click
             $('#backButton').on('click', function () {
                 const topic = $('#topic').val().trim();
                 if (topic) {
+                    console.log('topic');
                     if (confirm("You have a draft topic. Are you sure you want to go back? Your progress will be lost.")) {
                         showTemplatesView();
                         $('#topic').val('');
@@ -556,16 +628,23 @@ Until then.
                         $('#generatedHook').empty();
                     }
                 } else {
+                    console.log('noTopic');
                     showTemplatesView();
                 }
             });
 
 
+            const threadContent = $("#threadContent").val().trim();
+
             // Handle "Back" button click on scheduler page
             $('#schedulerBackButton').on('click', function () {
-                if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
-                    $('#schedulerContainer').hide();
-                    $('#GenerationContainer').show();
+                const threadContent = $("#threadContent").val().trim();
+
+                if (threadContent.length > 0) {
+                    if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
+                        $('#schedulerContainer').hide();
+                        $('#GenerationContainer').show();
+                    }
                 }
             });
 
@@ -625,6 +704,8 @@ Until then.
                             const threadContentElement = document.getElementById('threadContent');
                             if (threadContentElement) {
                                 threadContentElement.value = generatedHook;
+                                const { platform } = getApiParams();
+                                fetchProfiles(userId, platform, idToken);
                                 updatePreview();
                                 autoResizeTextarea(threadContentElement);
                             }

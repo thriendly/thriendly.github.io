@@ -66,7 +66,7 @@ $(document).ready(function () {
 
             function loadThreadsProfiles() {
                 // Call the /threads/profile API to fetch all connected profiles
-                const profileAPI = `${SCHEDULER_URL}/threads/profile`; // Adjust the URL as needed
+                const profileAPI = `${SCHEDULER_URL}/threads/profiles/list`; // Adjust the URL as needed
 
                 const url = new URL(profileAPI);
                 url.searchParams.append("userId", userId);
@@ -88,23 +88,23 @@ $(document).ready(function () {
                         if (data && Array.isArray(data) && data.length > 0) {
                             data.forEach(account => {
                                 
-                                const picUrl = account.profilePic ? account.profilePic : '/assets/images/default-profile.png';
+                                const picUrl = account.profilePictureUrl ? account.profilePictureUrl : '/assets/images/default-profile.png';
     
-                                const isDefault = account.isDefault === 1;
+                                const isDefault = account.defaultAccount === 1;
                                 const listItem = `
                                     <li class="profile-item">
                                         <div class="profile-details">
-                                            <img src="${picUrl}" alt="${account.username}'s Profile Picture">
+                                            <img src="${picUrl}" alt="${account.profileUsername}'s Profile Picture">
                                             <div>
-                                                <div class="username">${account.username}</div>
+                                                <div class="username">${account.profileUsername}</div>
                                                 ${isDefault ? '<div class="badge bg-success mt-1">Default</div>' : ''}
                                             </div>
                                         </div>
                                         <div class="profile-actions">
-                                            <button class="btn btn-secondary set-default-button" data-threads-user-id="${account.threadsUserId}" ${isDefault ? 'disabled' : ''}>
+                                            <button class="btn btn-secondary set-default-button" data-threads-user-id="${account.profileId}" ${isDefault ? 'disabled' : ''}>
                                                 ${isDefault ? 'Default' : 'Set Default'}
                                             </button>
-                                            <button class="delete-button btn btn-danger" data-threads-user-id="${account.threadsUserId}">Delete</button>
+                                            <button class="delete-button btn btn-danger" data-threads-user-id="${account.profileId}">Delete</button>
                                         </div>
                                     </li>
                                 `;

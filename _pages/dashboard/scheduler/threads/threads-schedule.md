@@ -4,7 +4,7 @@ title: Thriendly Threads Scheduler
 permalink: /app/threads/scheduler
 ---
 
-{% include thread-scheduler.html %}
+{% include scheduler.html %}
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,21 +12,4 @@ permalink: /app/threads/scheduler
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<script>
-
-    $(document).ready(function () {
-        $('#schedulerBackButton').on('click', function () {
-            const threadContent = $("#threadContent").val().trim();
-
-            if (threadContent.length > 0) {
-                // Show confirmation dialog only if there is content in the text box
-                if (confirm("Are you sure you want to go back? Any edits made to the post will be lost.")) {
-                    window.location.href = '/app/threads/home'; // Redirect to the desired path
-                }
-            } else {
-                // No content, directly navigate back
-                window.location.href = '/app/threads/home';
-            }
-        });
-    });
-</script>
+<script type="module" src="{{ site.baseurl }}/assets/js/dashboard/threads-schedule.js"></script>

@@ -20,6 +20,14 @@ $(document).ready(function () {
         const alertElement = $("#globalAlert");
         alertElement.hide().addClass("d-none");
     }
+
+    function updatePlatformParam() {
+        const currentUrl = new URL(window.location.href); 
+        currentUrl.searchParams.set("platform", "threads"); 
+        currentUrl.searchParams.set("charCount", "500"); 
+
+        window.history.replaceState({}, "", currentUrl);
+    }
     
     
 
@@ -31,7 +39,7 @@ $(document).ready(function () {
             idToken = token;
             userId = user.uid;
 
-            const profileAPI = `${SCHEDULER_URL}/threads/profile`;
+            const profileAPI = `${SCHEDULER_URL}/threads/profiles/list`;
             const url = new URL(profileAPI);
             url.searchParams.append("userId", userId);
 
@@ -40,15 +48,13 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
-                const profileMeny = $("#profileDropdownMenu");
-                console.log(profileMeny.html());
                 const $profileDropdownMenu = $("#profileDropdownMenu");
                     $profileDropdownMenu.empty();
                     $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
                     if (accounts && accounts.length > 0) {
                         accounts.forEach((account) => {
                             $profileDropdownMenu.append(
-                                `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+                                `<li><a class="dropdown-item" href="#" data-value="${account.profileId}">${account.profileUsername}</a></li>`
                             );
                         });
                     }
@@ -299,9 +305,9 @@ $(document).ready(function () {
                 $("#updateThreadPostId").val(postId);
 
                 // Set scheduled date and time
-                const currentScheduledDate = new Date(new Date(thread.scheduledTime).toLocaleDateString());
+                const currentScheduledDate = new Date(new Date(thread.scheduleTime).toLocaleDateString());
                 //const currentScheduledTime = new Date(new Date(thread.scheduledTime)).toLocaleTimeString();
-                const currentScheduledTime = new Date(thread.scheduledTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+                const currentScheduledTime = new Date(thread.scheduleTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
                 const formattedDate = currentScheduledDate.toISOString().slice(0, 10);
                 const formattedTime = currentScheduledTime;
                 $("#updateThreadScheduleDate").val(formattedDate);
@@ -401,10 +407,15 @@ $(document).ready(function () {
 
                 $("#reuseButton").on("click", function(e) {
                     e.preventDefault();
+
+                    updatePlatformParam();
+
+                    const { platform } = getApiParams();
                     
                     // Get the content from modal text box
                     const content = $("#updateThreadContent").val();
-                  
+                    fetchProfiles(userId, platform, idToken);
+
                     // Hide current content container, show scheduler container, etc.
                     $("#schedulerContainer").show();
                     $("#listPostsContainer").hide();

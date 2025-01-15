@@ -15,9 +15,18 @@ $(document).ready(function () {
             .show();
     }
     
+    
     function hideAlert() {
         const alertElement = $("#globalAlert");
         alertElement.hide().addClass("d-none");
+    }
+
+    function updatePlatformParam() {
+        const currentUrl = new URL(window.location.href); 
+        currentUrl.searchParams.set("platform", "bluesky"); 
+        currentUrl.searchParams.set("charCount", "300"); 
+
+        window.history.replaceState({}, "", currentUrl);
     }
 
     $("#loading").show();
@@ -37,21 +46,16 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(accounts => {
-                
                 const $profileDropdownMenu = $("#profileDropdownMenu");
                     $profileDropdownMenu.empty();
                     $profileDropdownMenu.append('<li><a class="dropdown-item" href="#" data-value="null">All</a></li>');
                     if (accounts && accounts.length > 0) {
                         accounts.forEach((account) => {
-                            console.log(account.blueskyUsername);
                             $profileDropdownMenu.append(
-                                `<li><a class="dropdown-item" href="#" data-value="${account.blueskyUsername}">${account.blueskyUsername}</a></li>`
+                                `<li><a class="dropdown-item" href="#" data-value="${account.profileId}">${account.profileUsername}</a></li>`
                             );
                         });
                     }
-
-                    console.log($profileDropdownMenu.html());
-
 
                     // Handle dropdown item click
                     $profileDropdownMenu.on("click", ".dropdown-item", function () {
@@ -298,9 +302,9 @@ $(document).ready(function () {
                 $("#updateThreadPostId").val(postId);
 
                 // Set scheduled date and time
-                const currentScheduledDate = new Date(new Date(thread.scheduledTime).toLocaleDateString());
+                const currentScheduledDate = new Date(new Date(thread.scheduleTime).toLocaleDateString());
                 //const currentScheduledTime = new Date(new Date(thread.scheduledTime)).toLocaleTimeString();
-                const currentScheduledTime = new Date(thread.scheduledTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+                const currentScheduledTime = new Date(thread.scheduleTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
                 const formattedDate = currentScheduledDate.toISOString().slice(0, 10);
                 const formattedTime = currentScheduledTime;
                 $("#updateThreadScheduleDate").val(formattedDate);
@@ -400,9 +404,13 @@ $(document).ready(function () {
 
                 $("#reuseButton").on("click", function(e) {
                     e.preventDefault();
+                    updatePlatformParam();
+
+                    const { platform } = getApiParams();
                     
                     // Get the content from modal text box
                     const content = $("#updateThreadContent").val();
+                    fetchProfiles(userId, platform, idToken);
                   
                     // Hide current content container, show scheduler container, etc.
                     $("#schedulerContainer").show();
@@ -414,6 +422,7 @@ $(document).ready(function () {
                   
                     // Optionally call any resizing or preview updates
                     autoResizeTextarea(document.getElementById("threadContent"));
+
 
                     updatePreview();
                   

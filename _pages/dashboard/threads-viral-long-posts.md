@@ -160,7 +160,7 @@ permalink: /app/viral-threads
 
                 <div id="viralVesicleDropdown">
                     <div class="api-select">
-                        <label for="apiTypeSelect" class="api-label">Select API Type:</label>
+                        <label for="apiTypeSelect" class="api-label">Select Platform:</label>
                         <select id="apiTypeSelect" class="api-dropdown">
                         <option value="threads" charCount="500" selected>Threads</option>
                         <option value="bluesky" charCount="300">Bluesky</option>

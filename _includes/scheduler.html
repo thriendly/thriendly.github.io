@@ -305,7 +305,6 @@ $(document).ready(function () {
     let userId = '';
 
     const dateInput = document.getElementById("detailDate");
-    const { platform, charCount } = getApiParams();
 
     if (dateInput) {
         const today = new Date();
@@ -352,6 +351,7 @@ $(document).ready(function () {
     });
 
     $("#viewThreadsButton").on("click", function () {
+        const { platform, charCount } = getApiParams();
         window.location.href = `/app/${platform}/list`;
     });
 

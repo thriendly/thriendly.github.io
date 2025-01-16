@@ -4,7 +4,7 @@ title: Thriendly Threads Scheduler
 permalink: /scheduler-demo
 ---
 
-{% include thread-scheduler.html %}
+{% include scheduler.html %}
 <style>
   #schedulerBackButton {
     display: none !important;

@@ -73,7 +73,7 @@ permalink: /app/bluesky/home
         <div class="row mt-4" id="functionCards">
             <!-- Schedule New Thread Card -->
             <div class="col-md-4 mb-4">
-                <a href="/app/bluesky/scheduler" class="text-decoration-none scheduler-card">
+                <a href="/app/bluesky/scheduler?platform=bluesky&charCount=300" class="text-decoration-none scheduler-card">
                     <div class="card h-100 card-hover p-2">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-pen fa-3x mb-3 text-primary"></i>

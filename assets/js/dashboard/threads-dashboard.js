@@ -288,7 +288,7 @@ $(document).ready(function () {
       idToken = token;
       userId = user.uid;
 
-      const profileAPI = `${SCHEDULER_URL}/threads/profile`;
+      const profileAPI = `${SCHEDULER_URL}/threads/profiles/list`;
       const url = new URL(profileAPI);
       url.searchParams.append("userId", userId);
 
@@ -303,11 +303,11 @@ $(document).ready(function () {
         if (Array.isArray(accounts) && accounts.length > 0) {
           accounts.forEach((account, index) => {
             $profileDropdownMenu.append(
-              `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
+              `<li><a class="dropdown-item" href="#" data-value="${account.profileId}">${account.profileUsername}</a></li>`
             );
             if (index === 0) {
-              $("#profileDropdownButton").text(account.username);
-              selectedThreadsUserId = account.threadsUserId;
+              $("#profileDropdownButton").text(account.profileUsername);
+              selectedThreadsUserId = account.profileId;
             }
           });
         } else {

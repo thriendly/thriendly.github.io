@@ -59,31 +59,31 @@ $(document).ready(function () {
                     $template.removeAttr("id").show(); // make it visible
 
                     // Fill profile data
-                    $template.find(".username").text(account.blueskyUsername || "Unknown");
+                    $template.find(".username").text(account.profileUsername || "Unknown");
 
                     // If there's a profile pic from your API, replace default
-                    if (account.profilePic) {
-                        $template.find(".profile-pic").attr("src", account.profilePic);
+                    if (account.profilePictureUrl) {
+                        $template.find(".profile-pic").attr("src", account.profilePictureUrl);
                     }
 
                     // If it's the default account
-                    if (account.isDefault === 1) {
+                    if (account.defaultAccount === 1) {
                         $template.find(".default-badge").show();
                         $template.find(".set-default-button").prop("disabled", true).text("Default");
                     }
 
                     // Hook up "Set Default" button
                     $template.find(".set-default-button").on("click", () => {
-                        setDefaultBlueskyProfile(account.blueskyUsername);
+                        setDefaultBlueskyProfile(account.profileId);
                     });
 
                     // Hook up "Delete" button
                     $template.find(".delete-button").on("click", function () {
-                        if (!confirm("Delete " + account.blueskyUsername + "?")) return;
+                        if (!confirm("Delete " + account.profileUsername + "?")) return;
 
                         const deleteUrl = SCHEDULER_URL + "/bluesky/profiles/delete?userId=" +
                                           encodeURIComponent(userId) +
-                                          "&blueskyUsername=" + encodeURIComponent(account.blueskyUsername);
+                                          "&blueskyUsername=" + encodeURIComponent(account.profileUsername);
 
                         $(this).prop('disabled', true).text('Deleting...');
 
@@ -123,7 +123,7 @@ $(document).ready(function () {
     function setDefaultBlueskyProfile(username) {
         const defaultUrl = SCHEDULER_URL + "/bluesky/profiles/default?userId=" +
                            encodeURIComponent(userId) +
-                           "&blueskyUsername=" + encodeURIComponent(username);
+                           "&blueskyProfileId=" + encodeURIComponent(username);
 
         fetch(defaultUrl, {
             method: "PATCH",

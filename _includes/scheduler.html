@@ -92,10 +92,10 @@
             <!-- Profile Dropdown -->
             <div class="col-md-3 mb-3">
                 <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="schedulerPageProfileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
                         Select Profile
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="profileDropdownButton" id="profileDropdownMenu">
+                    <ul class="dropdown-menu" aria-labelledby="schedulerPageProfileDropdownButton" id="schedulerPageProfileDropdownMenu">
                         <li><a class="dropdown-item" href="#" data-value="">Select a profile</a></li>
                         <!-- Profile options will be dynamically appended here -->
                     </ul>
@@ -154,9 +154,14 @@
 </div>
 
 <script>
+
+let selectedProfileId = '';
+
+
 function updatePreview() {
+    const { charCount } = getApiParams();
     const content = $("#threadContent").val();
-    const subposts = splitTextByDelimiter(content);
+    const subposts = splitTextByDelimiter(content, charCount);
     let previewHtml = '';
 
     subposts.forEach((subpost, index) => {
@@ -197,7 +202,7 @@ function splitTextIntoChunks(text, maxLength) {
     return chunks;
 }
 
-function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
+function splitTextByDelimiter(text, maxLength, delimiter = '---') {
     const subposts = text.split(delimiter)
                          .map(s => s.trim())
                          .filter(s => s.length > 0);
@@ -215,35 +220,37 @@ function splitTextByDelimiter(text, delimiter = '---', maxLength = 500) {
 }
 
 function autoResizeTextarea(textarea) {
-        textarea.style.height = 'auto'; // Reset height
-        textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height to scrollHeight
-    }
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+}
 
  
-function scheduleThread(scheduleTime, threadContent, userId, selectedThreadsUserId, idToken) {
-    const created_time = new Date().toISOString();
+function scheduleThread(scheduleTime, postBody, userId, selectedProfileId, idToken) {
+    const createdTime = new Date().toISOString();
     const status = "SCHEDULED";
 
-    const textChunks = splitTextByDelimiter(threadContent);
+    const { platform, charCount } = getApiParams();
+
+    const textChunks = splitTextByDelimiter(postBody, charCount);
     const contentArray = textChunks.map(chunk => ({
         thread_id: "",
         thread_content: chunk
     }));
 
-    const threadData = {
+    const postData = {
         content: contentArray,
-        schedule_time: scheduleTime,
-        created_time: created_time,
+        scheduleTime: scheduleTime,
+        createdTime: createdTime,
         status: status,
         userId: userId,
-        threadsUserId: selectedThreadsUserId,
+        profileId: selectedProfileId,
     };
 
     return $.ajax({
-        url: `${SCHEDULER_URL}/threads/schedule`,
+        url: `${SCHEDULER_URL}/${platform}/schedule`,
         type: "POST",
         dataType: "json",
-        data: JSON.stringify(threadData),
+        data: JSON.stringify(postData),
         headers: {
             Authorization: "Bearer " + idToken,
             "Content-Type": "application/json",
@@ -251,18 +258,59 @@ function scheduleThread(scheduleTime, threadContent, userId, selectedThreadsUser
     });
 }
 
+function getApiParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const platform = urlParams.get("platform");
+    const charCount = urlParams.get("charCount");
+    return { platform, charCount };
+}
+
+function fetchProfiles(userId, platform, idToken) {
+    // Construct the URL for fetching profiles
+    const profileAPI = `${SCHEDULER_URL}/${platform}/profiles/list`;
+    const url = new URL(profileAPI);
+    url.searchParams.append("userId", userId);
+
+    // Return the fetch promise so the caller can handle the results
+    return fetch(url, {
+        headers: { Authorization: "Bearer " + idToken }
+    })
+    .then(response => response.json())
+    .then(accounts => {
+                const $profileDropdownMenu = $("#schedulerPageProfileDropdownMenu");
+                $profileDropdownMenu.empty();
+
+                if (accounts && accounts.length > 0) {
+                    accounts.forEach((account, index) => {
+                        $profileDropdownMenu.append(
+                            `<li><a class="dropdown-item" href="#" data-value="${account.profileId}">${account.profileUsername}</a></li>`
+                        );
+
+                        if (index === 0) {
+                            $("#schedulerPageProfileDropdownButton").text(account.profileUsername); // Set button text
+                            selectedProfileId = account.profileId; // Set first profile as default
+                        }
+                    });
+                } else {
+                    $profileDropdownMenu.append('<li class="no-profiles">No profiles found.</li>');
+                    $("#schedulerPageProfileDropdownButton").text("Demo"); // Set button text to "Demo"
+                    selectedProfileId = "demo"; // Set threads_user_id to "demo"
+                }
+            })
+        }
+
+
 $(document).ready(function () {
     let idToken = '';
     let userId = '';
-    let selectedThreadsUserId = '';
 
-    // Initialize date input
     const dateInput = document.getElementById("detailDate");
+
     if (dateInput) {
         const today = new Date();
         const currentDate = today.getFullYear() + '-' +
-            String(today.getMonth() + 1).padStart(2, '0') + '-' +
-            String(today.getDate()).padStart(2, '0');
+                            String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                            String(today.getDate()).padStart(2, '0');
         dateInput.setAttribute("min", currentDate);
 
         const futureDate = new Date();
@@ -279,58 +327,22 @@ $(document).ready(function () {
         });
     }
 
-    $("#profileDropdownButton").text("Select Profile");
+    $("#schedulerPageProfileDropdownButton").text("Select Profile");
 
     checkAuthAndExecute((user) => {
         user.getIdToken().then((token) => {
             idToken = token;
             userId = user.uid;
-
-            const profileAPI = `${SCHEDULER_URL}/threads/profile`;
-            const url = new URL(profileAPI);
-            url.searchParams.append("userId", userId);
-
-            fetch(url, {
-                headers: { Authorization: "Bearer " + idToken }
-            })
-            .then(response => response.json())
-            .then(accounts => {
-                const $profileDropdownMenu = $("#profileDropdownMenu");
-                $profileDropdownMenu.empty();
-
-                if (accounts && accounts.length > 0) {
-                    accounts.forEach((account, index) => {
-                        $profileDropdownMenu.append(
-                            `<li><a class="dropdown-item" href="#" data-value="${account.threadsUserId}">${account.username}</a></li>`
-                        );
-
-                        if (index === 0) {
-                            $("#profileDropdownButton").text(account.username); // Set button text
-                            selectedThreadsUserId = account.threadsUserId; // Set first profile as default
-                        }
-                    });
-                } else {
-                    $profileDropdownMenu.append('<li class="no-profiles">No profiles found.</li>');
-                    $("#profileDropdownButton").text("Demo"); // Set button text to "Demo"
-                    selectedThreadsUserId = "demo"; // Set threads_user_id to "demo"
-                }
-
-                // Handle dropdown item click
-                $profileDropdownMenu.on("click", ".dropdown-item", function () {
-                    const selectedValue = $(this).data("value");
-                    const selectedText = $(this).text();
-                    $("#profileDropdownButton").text(selectedText); // Update button text
-                    selectedThreadsUserId = selectedValue; // Update selected profile ID
-                });
-
-            })
-            .catch(error => {
-                console.error("Error fetching profiles:", error);
-                alert("An error occurred while fetching Threads profiles.");
-            });
         }).catch((error) => {
             console.error("Error getting ID token:", error.message);
         });
+    });
+
+    $("#schedulerPageProfileDropdownMenu").on("click", ".dropdown-item", function () {
+        const selectedValue = $(this).data("value");
+        const selectedText = $(this).text();
+        $("#schedulerPageProfileDropdownButton").text(selectedText);
+        selectedProfileId = selectedValue;
     });
 
     $("#threadContent").on("input", function () {
@@ -339,73 +351,74 @@ $(document).ready(function () {
     });
 
     $("#viewThreadsButton").on("click", function () {
-        window.location.href = "/app/threads/list";
+        const { platform, charCount } = getApiParams();
+        window.location.href = `/app/${platform}/list`;
     });
 
-$("#scheduleButton").on("click", function () {
-    const $scheduleButton = $(this);
-    $scheduleButton.prop('disabled', true);
+    $("#scheduleButton").on("click", function () {
+        const $scheduleButton = $(this);
+        $scheduleButton.prop('disabled', true);
 
-    const text = $("#threadContent").val();
-    const date = $("#detailDate").val();
-    const time = $("#detailTime").val();
+        const text = $("#threadContent").val();
+        const date = $("#detailDate").val();
+        const time = $("#detailTime").val();
 
-    if (selectedThreadsUserId === "demo") {
-        window.open("/#pricing", "_blank");
-        $scheduleButton.prop('disabled', false);
-        return;
-    }
-
-    if (!date || !time) {
-        alert("Please select both schedule date and time");
-        $scheduleButton.prop('disabled', false);
-        return;
-    }
-
-    if (!selectedThreadsUserId) {
-        alert("Please select a profile before scheduling.");
-        $scheduleButton.prop('disabled', false);
-        return;
-    }
-
-    // Construct an ISO date/time from date/time pickers
-    const combinedDateTime = `${date}T${time}:00`;
-    const localDateTime = new Date(combinedDateTime);
-    const isoScheduleTime = localDateTime.toISOString();
-
-    scheduleThread(isoScheduleTime, text, userId, selectedThreadsUserId, idToken)
-        .done((data, textStatus, jqXHR) => {
-            if (jqXHR.status === 200) {
-                alert("Thread scheduled successfully!");
-                $("#threadContent").val('');
-                $("#detailDate").val('');
-                $("#detailTime").val('');
-                $("#preview").html('');
-            } else if (jqXHR.status === 400) {
-                alert("User does not have permission.");
-            }
-        })
-        .fail((xhr, status, error) => {
-            console.error("Error:", error);
-            alert("An error occurred while scheduling the thread.");
-        })
-        .always(() => {
+        if (selectedProfileId === "demo") {
+            window.open("/#pricing", "_blank");
             $scheduleButton.prop('disabled', false);
-        });
-});
+            return;
+        }
+
+        if (!date || !time) {
+            alert("Please select both schedule date and time");
+            $scheduleButton.prop('disabled', false);
+            return;
+        }
+
+        if (!selectedProfileId) {
+            alert("Please select a profile before scheduling.");
+            $scheduleButton.prop('disabled', false);
+            return;
+        }
+
+        const combinedDateTime = `${date}T${time}:00`;
+        const localDateTime = new Date(combinedDateTime);
+        const isoScheduleTime = localDateTime.toISOString();
+
+        scheduleThread(isoScheduleTime, text, userId, selectedProfileId, idToken)
+            .done((data, textStatus, jqXHR) => {
+                if (jqXHR.status === 200) {
+                    alert("Thread scheduled successfully!");
+                    $("#threadContent").val('');
+                    $("#detailDate").val('');
+                    $("#detailTime").val('');
+                    $("#preview").html('');
+                } else if (jqXHR.status === 400) {
+                    alert("User does not have permission.");
+                }
+            })
+            .fail((xhr, status, error) => {
+                console.error("Error:", error);
+                alert("An error occurred while scheduling the thread.");
+            })
+            .always(() => {
+                $scheduleButton.prop('disabled', false);
+            });
+    });
+
 
 $("#postNowButton").on("click", function () {
     const $postNowButton = $(this);
     $postNowButton.prop('disabled', true);
 
-    if (selectedThreadsUserId === "demo") {
+    if (selectedProfileId === "demo") {
         window.open("/#pricing", "_blank");
         $postNowButton.prop('disabled', false);
         return;
     }
 
     const text = $("#threadContent").val();
-    if (!selectedThreadsUserId) {
+    if (!selectedProfileId) {
         alert("Please select a profile before posting.");
         $postNowButton.prop('disabled', false);
         return;
@@ -416,7 +429,7 @@ $("#postNowButton").on("click", function () {
     nowPlusOne.setMinutes(nowPlusOne.getMinutes() + 1);
     const isoScheduleTime = nowPlusOne.toISOString();
 
-    scheduleThread(isoScheduleTime, text, userId, selectedThreadsUserId, idToken)
+    scheduleThread(isoScheduleTime, text, userId, selectedProfileId, idToken)
         .done((data, textStatus, jqXHR) => {
             if (jqXHR.status === 200) {
                 alert("Post scheduled for the next minute!");

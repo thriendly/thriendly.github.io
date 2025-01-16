@@ -211,7 +211,7 @@ permalink: /app/bluesky/list
 </style>
 
 <div id="schedulerContainer" class="scheduler" style="display:none;">
-    {% include bluesky-scheduler.html %}
+    {% include scheduler.html %}
 </div>
 
 <div id="content">
@@ -318,8 +318,7 @@ permalink: /app/bluesky/list
 
 <!-- Include necessary scripts -->
 <script type="module" src="{{ site.baseurl }}/assets/js/firebaseauth.js"></script>
-<script>const SCHEDULER_URL = '{{ site.schedulerService }}';</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>\
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Include the JavaScript file -->

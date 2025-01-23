@@ -4,6 +4,7 @@ $(document).ready(function () {
     let threads = [];
     let idToken = '';
     let userId = '';
+    let sortOrder = 'desc';
     let currentStatus = 'scheduled';
     let selectedThreadsUserId = null;
 
@@ -71,7 +72,7 @@ $(document).ready(function () {
                         threads = []; // Clear existing threads
                         $("#thread-list").empty(); // Clear thread list UI
                         $("#loading").show(); // Show loading spinner
-                        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId);
+                        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId, sortOrder);
                     });
                     
 
@@ -109,7 +110,7 @@ $(document).ready(function () {
     });
 
     // Functions for listing scheduled threads
-    function fetchScheduledThreads(idToken, userId, page, threadsUserId = null) {
+    function fetchScheduledThreads(idToken, userId, page, threadsUserId = null, order = sortOrder) {
         $.ajax({
             url: `${SCHEDULER_URL}/threads/list`,
             method: "GET",
@@ -121,6 +122,7 @@ $(document).ready(function () {
                 threadsUserId: threadsUserId,
                 status: currentStatus,
                 page: page,
+                order: order,
                 itemsPerPage: itemsPerPage
             },
             dataType: "json",
@@ -539,6 +541,29 @@ $(document).ready(function () {
         });
         return result;
     }
+
+    $("#sortAscButton").on("click", function() {
+        sortOrder = "asc";
+        $(this).addClass("active");
+        $("#sortDescButton").removeClass("active");
+        currentPage = 1;
+        threads = [];
+        $("#thread-list").empty();
+        $("#loading").show();
+        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId, sortOrder);
+      });
+      
+      $("#sortDescButton").on("click", function() {
+        sortOrder = "desc";
+        $(this).addClass("active");
+        $("#sortAscButton").removeClass("active");
+        currentPage = 1;
+        threads = [];
+        $("#thread-list").empty();
+        $("#loading").show();
+        fetchScheduledThreads(idToken, userId, currentPage, selectedThreadsUserId, sortOrder);
+      });
+      
 
     // Handle update form submission
     $("#update-thread-form").on("submit", function (e) {

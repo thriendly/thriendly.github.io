@@ -5,6 +5,17 @@ permalink: /app/threads/list
 ---
 
 <style>
+
+    .thread-card {
+        cursor: pointer; 
+        transition: background-color 0.3s;
+    }
+
+    .thread-card:hover {
+        background-color: #edfced;
+        box-shadow: 0 2px 6px rgba(27, 168, 68, 0.5);
+    }
+
      /* Adjusted loading icon style */
     #loading{
         display: flex;
@@ -208,6 +219,16 @@ permalink: /app/threads/list
         color: #fff; /* White text for the selected pill */
     }
 
+    .sort-btn:focus {
+        outline: none;
+    }
+    .btn-group .btn-outline-secondary.active {
+        background-color: #28a745;
+        color: #fff;
+        border-color: #28a745;
+    }
+
+
 </style>
 
 <div id="schedulerContainer" class="scheduler" style="display:none;">
@@ -241,7 +262,17 @@ permalink: /app/threads/list
                     </ul>
                 </div>
 
+               <div class="btn-group ms-2" role="group" aria-label="Sort Order">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-sort="asc" id="sortAscButton">
+                        <i class="bi bi-arrow-up"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary active" data-sort="desc" id="sortDescButton">
+                        <i class="bi bi-arrow-down"></i>
+                    </button>
+                </div>
+
             </div>
+            
 
 
             <div id="loading" style="text-align: left;">

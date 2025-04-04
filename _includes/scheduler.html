@@ -329,14 +329,14 @@ $(document).ready(function () {
 
     $("#schedulerPageProfileDropdownButton").text("Select Profile");
 
-    checkAuthAndExecute((user) => {
-        user.getIdToken().then((token) => {
-            idToken = token;
-            userId = user.uid;
-        }).catch((error) => {
-            console.error("Error getting ID token:", error.message);
-        });
-    });
+    // checkAuthAndExecute((user) => {
+    //     user.getIdToken().then((token) => {
+    //         idToken = token;
+    //         userId = user.uid;
+    //     }).catch((error) => {
+    //         console.error("Error getting ID token:", error.message);
+    //     });
+    // });
 
     $("#schedulerPageProfileDropdownMenu").on("click", ".dropdown-item", function () {
         const selectedValue = $(this).data("value");

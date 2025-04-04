@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week View Scheduler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            font-family: Arial, sans-serif;
+        }
+        .calendar-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .calendar-header h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .week-view {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            border: 1px solid #ddd;
+        }
+        .week-view .hourly-slot {
+            border: 1px solid #ddd;
+            height: 60px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .week-view .hourly-slot:hover {
+            background: #f8f9fa;
+        }
+        .week-view .hour-label {
+            font-size: 0.9rem;
+            padding: 10px;
+            text-align: center;
+            background: #f1f1f1;
+            border-right: 1px solid #ddd;
+        }
+        .week-view .event {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            background: #66a6ff;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: grab;
+        }
+        .event.dragging {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container calendar-container">
+        <div class="calendar-header">
+            <h2 id="calendar-title">Week View: December 2024</h2>
+            <div>
+                <button class="btn btn-primary" id="prev-week">Previous Week</button>
+                <button class="btn btn-primary" id="next-week">Next Week</button>
+                <input type="date" id="week-filter" class="form-control d-inline-block w-auto">
+            </div>
+        </div>
+        <div class="week-view" id="week-calendar">
+            <!-- Week view with hourly slots will be generated dynamically -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const events = [
+                { id: 1, title: "Thread 1", date: "2024-12-05T10:00" },
+                { id: 2, title: "Thread 2", date: "2024-12-06T14:00" },
+            ];
+
+            const today = new Date();
+            let currentWeekStart = new Date(today.setDate(today.getDate() - today.getDay()));
+
+            // Placeholder API methods
+            function fetchEvents() {
+                return events;
+            }
+
+            function updateEvent(eventId, newDate) {
+                console.log("Updating event ID", eventId, "to new date:", newDate);
+            }
+
+            // Generate the week view
+            function generateWeekView(startDate) {
+                const calendar = $("#week-calendar");
+                calendar.empty();
+
+                // Add hour labels on the left
+                const hours = Array.from({ length: 24 }, (_, i) => `${i.toString().padStart(2, "0")}:00`);
+                const headerRow = $('<div class="hour-label"></div>').append("Hours");
+                calendar.append(headerRow);
+
+                for (let i = 0; i < 7; i++) {
+                    const date = new Date(startDate);
+                    date.setDate(date.getDate() + i);
+
+                    const dayHeader = $("<div>")
+                        .addClass("hour-label")
+                        .text(date.toDateString());
+                    calendar.append(dayHeader);
+                }
+
+                // Add hourly slots
+                for (const hour of hours) {
+                    calendar.append(`<div class="hour-label">${hour}</div>`);
+
+                    for (let i = 0; i < 7; i++) {
+                        const slotDate = new Date(startDate);
+                        slotDate.setDate(slotDate.getDate() + i);
+                        const slotDateTime = `${slotDate.toISOString().split("T")[0]}T${hour}`;
+                        const hourlySlot = $(`<div class="hourly-slot" data-datetime="${slotDateTime}"></div>`);
+
+                        const slotEvents = fetchEvents().filter((e) => e.date === slotDateTime);
+                        slotEvents.forEach((event) => {
+                            const eventElement = $(
+                                `<div class="event" draggable="true" data-id="${event.id}">${event.title}</div>`
+                            );
+                            hourlySlot.append(eventElement);
+                        });
+
+                        calendar.append(hourlySlot);
+                    }
+                }
+            }
+
+            // Add drag-and-drop functionality
+            function enableDragAndDrop() {
+                let draggedEvent = null;
+
+                $(".event").on("dragstart", function () {
+                    draggedEvent = $(this);
+                    draggedEvent.addClass("dragging");
+                });
+
+                $(".event").on("dragend", function () {
+                    draggedEvent.removeClass("dragging");
+                });
+
+                $(".hourly-slot").on("dragover", function (e) {
+                    e.preventDefault();
+                });
+
+                $(".hourly-slot").on("drop", function () {
+                    const newDate = $(this).data("datetime");
+                    const eventId = draggedEvent.data("id");
+
+                    $(this).append(draggedEvent);
+                    updateEvent(eventId, newDate);
+                });
+            }
+
+            // Navigate to previous and next weeks
+            function changeWeek(offset) {
+                currentWeekStart.setDate(currentWeekStart.getDate() + offset * 7);
+                generateWeekView(currentWeekStart);
+                enableDragAndDrop();
+                updateTitle();
+            }
+
+            // Update title to reflect the current week
+            function updateTitle() {
+                const endDate = new Date(currentWeekStart);
+                endDate.setDate(currentWeekStart.getDate() + 6);
+                const options = { month: "short", day: "numeric" };
+                $("#calendar-title").text(
+                    `Week View: ${currentWeekStart.toLocaleDateString("en-US", options)} - ${endDate.toLocaleDateString("en-US", options)}`
+                );
+            }
+
+            // Initialize the week view
+            generateWeekView(currentWeekStart);
+            enableDragAndDrop();
+            updateTitle();
+
+            // Event listeners
+            $("#prev-week").click(() => changeWeek(-1));
+            $("#next-week").click(() => changeWeek(1));
+            $("#week-filter").change(function () {
+                const selectedDate = new Date($(this).val());
+                currentWeekStart = new Date(selectedDate.setDate(selectedDate.getDate() - selectedDate.getDay()));
+                generateWeekView(currentWeekStart);
+                enableDragAndDrop();
+                updateTitle();
+            });
+        });
+    </script>
+</body>
+</html>

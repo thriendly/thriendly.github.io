@@ -1,0 +1,16 @@
+[
+  {
+    "title": "AI Thread Generator",
+    "description": "Template to create viral long form thread",
+    "example": "20 year old kids are making $5,000/month with these 3 hacks.\n\nThey are like money printing machines.\n...",
+    "instructions": "Content should be actionable and match tone. Strong hook. No AI buzzwords like unleash, unlock, etc. No emojis. Respect count if mentioned.",
+    "template": "20 year old kids are making $5,000/month with these 3 hacks.\n\nThey are like money printing machines.\n..."
+  },
+  {
+    "title": "ChatGPT Prompt Generator Thread",
+    "description": "List of powerful ChatGPT prompts",
+    "example": "YOU have a DIGITAL PRODUCT to sell ! 💪\nBut you don't know how to make SALES from it 😭\n...",
+    "instructions": "Each post is a master prompt. Avoid general advice. Keep clear structure. Show how to use it.",
+    "template": "YOU have a DIGITAL PRODUCT to sell ! 💪\nBut you don't know how to make SALES from it 😭\n..."
+  }
+]

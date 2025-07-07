@@ -214,7 +214,7 @@ permalink: /app/viral-threads
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Generate Post &nbsp;<i
                                         class="fa-solid fa-wand-magic-sparkles"></i></button>
-                                <img src="/assets/images/tipseason-loading-big.gif" id="loading" style="display: none;">
+                                <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
                             </div>
                             <div class="mb-3">
                                 <p> Note: Each long post generation takes 10 Credits </p>

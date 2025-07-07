@@ -10,7 +10,7 @@ permalink: /app/bulk-generator
     margin: 40px auto;
     padding: 30px;
     border-radius: 16px;
-    background: #f9fbfd;
+    background: #f8f8f9;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
   }
 
@@ -47,7 +47,6 @@ permalink: /app/bulk-generator
     margin-top: 40px;
   }
 
-  /* Beautified Output Block */
   .output-block {
     background: linear-gradient(120deg, #f5faff 60%, #eaf3ff 100%);
     border-radius: 12px;
@@ -132,6 +131,68 @@ permalink: /app/bulk-generator
     margin-bottom: 8px;
     display: block;
   }
+
+  #templateGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .template-card {
+    border-radius: 12px;
+    border: 2px solid #e0e7ef;
+    background: #fafdff;
+    box-shadow: 0 2px 12px rgba(48,86,211,0.07);
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .template-card.selected, .template-card:hover {
+    border-color: #3056d3;
+    box-shadow: 0 4px 18px rgba(48,86,211,0.13);
+    background: #f0f6ff;
+  }
+  .template-card .template-icon {
+    font-size: 2.2rem;
+    color: #3056d3;
+    margin-bottom: 0.5rem;
+  }
+  .template-card .template-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #234;
+  }
+  .template-card .template-desc {
+    font-size: 0.98rem;
+    color: #444;
+    margin-bottom: 0.7rem;
+    min-height: 48px;
+  }
+  .template-card .template-preview, .template-card .template-example {
+    background: #f5f7fa;
+    border-radius: 7px;
+    padding: 0.7rem;
+    font-size: 0.97rem;
+    color: #2a2a2a;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 90px;
+    overflow-y: auto;
+  }
+  .template-card .template-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3056d3;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+  }
 </style>
 
 <div class="container">
@@ -147,8 +208,13 @@ How to grow on Threads
         </div>
 
         <div class="mb-4">
-          <label for="bulkTemplateSelect" class="form-label">Choose a Template:</label>
-          <select class="pretty-select w-100" id="bulkTemplateSelect"></select>
+          <label class="form-label">Choose a Template:</label>
+          <div class="d-flex align-items-center gap-2">
+            <input type="text" id="selectedTemplateName" class="form-control" readonly style="max-width:300px;" placeholder="No template selected">
+            <button type="button" class="btn btn-outline-primary" id="openTemplateModal">
+              <i class="fa-solid fa-layer-group"></i> Browse Templates
+            </button>
+          </div>
         </div>
 
         <div class="mb-4">
@@ -172,299 +238,118 @@ How to grow on Threads
       </div>
       <div id="bulkResults" class="output-container"></div>
     </div>
+  </div>
+</div>
 
+<!-- Template Selection Modal -->
+<div class="modal fade" id="templateModal" tabindex="-1" aria-labelledby="templateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="templateModalLabel"><i class="fa-solid fa-layer-group"></i> Select a Post Template</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+        <div class="row g-4" id="templateGrid"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="confirmTemplateBtn" class="btn btn-success" disabled>Select Template</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-  const threadTemplates = [
-    {
-      title: "AI Thread Generator",
-      description: "Template to create viral long form thread",
-      example: `20 year old kids are making $5,000/month with these 3 hacks.
-
-They are like money printing machines.
-
-3 most underrated niches that can print money in 2024 ⬇️
-
-( 3rd one is my favorite )
----
-
-1. Micro-Niche Blogging with Affiliate Marketing:
-
-Create a blog that focuses on a highly specific niche.
-Instead of general topics like "fitness," go for "fitness for new mothers" or "fitness for seniors with arthritis."
-
-Why It Works:
-
-Smaller niches have less competition, making it easier to rank in search engines. This targeted audience is more likely to trust your recommendations and convert through affiliate links.
-
-Lets looks at how ⬇
----
-Steps:
-
-Choose a micro-niche with a passionate audience.
-
-Create high-quality, valuable content regularly.
-
-Use SEO strategies to drive organic traffic.
-
-Monetize through affiliate marketing by recommending relevant products.
-
-But there is one more interesting one ⬇
----
-2. Print-on-Demand (POD) Services:
-Design and sell custom merchandise like T-shirts, mugs, or phone cases using print-on-demand platforms such as Printful, Teespring, or Redbubble.
-
-Why It Works:
-
-There's no need for upfront inventory investment, and the platforms handle
-printing, shipping, and customer service.
-
-But how to achieve this ?
-
----
-Steps:
-
-Create unique, appealing designs or hire a designer.
-Upload your designs to a POD platform and choose products.
-Promote your products via social media, email marketing, or a dedicated website.
-Earn a profit from each sale without worrying about inventory management.
-There is one last thing ⬇
----
-
-What’s next ?
-
-We will dive into 5 more high conversion niches in the next post.
-
-To make sure you don't miss
-
-1. Follow me to get guidance to earn your first dollar online
-2. Like / Retweet to add value to your followers.`,
-      instructions: "Content should be actionable and match tone. Strong hook. No AI buzzwords like unleash, unlock, etc. No emojis. Respect count if mentioned.",
-      template: `20 year old kids are making $5,000/month with these 3 hacks.
-
-They are like money printing machines.
-
-3 most underrated niches that can print money in 2024 ⬇️
-
-( 3rd one is my favorite )
----
-
-1. Micro-Niche Blogging with Affiliate Marketing:
-
-Create a blog that focuses on a highly specific niche.
-Instead of general topics like "fitness," go for "fitness for new mothers" or "fitness for seniors with arthritis."
-
-Why It Works:
-
-Smaller niches have less competition, making it easier to rank in search engines. This targeted audience is more likely to trust your recommendations and convert through affiliate links.
-
-Lets looks at how ⬇
----
-Steps:
-
-Choose a micro-niche with a passionate audience.
-
-Create high-quality, valuable content regularly.
-
-Use SEO strategies to drive organic traffic.
-
-Monetize through affiliate marketing by recommending relevant products.
-
-But there is one more interesting one ⬇
----
-2. Print-on-Demand (POD) Services:
-Design and sell custom merchandise like T-shirts, mugs, or phone cases using print-on-demand platforms such as Printful, Teespring, or Redbubble.
-
-Why It Works:
-
-There's no need for upfront inventory investment, and the platforms handle
-printing, shipping, and customer service.
-
-But how to achieve this ?
-
----
-Steps:
-
-Create unique, appealing designs or hire a designer.
-Upload your designs to a POD platform and choose products.
-Promote your products via social media, email marketing, or a dedicated website.
-Earn a profit from each sale without worrying about inventory management.
-There is one last thing ⬇
----
-
-What’s next ?
-
-We will dive into 5 more high conversion niches in the next post.
-
-To make sure you don't miss
-
-1. Follow me to get guidance to earn your first dollar online
-2. Like / Retweet to add value to your followers.`
-    },
-    {
-      title: "ChatGPT Prompt Generator Thread",
-      description: "List of powerful ChatGPT prompts",
-      example: `YOU have a DIGITAL PRODUCT to sell ! 💪
-But you don't know how to make SALES from it 😭
-8 ChatGPT / Gemini prompts for 10X digital product sales!
-(Save them to sell your stuff ) ⏬
-#ThriendlyThread
---- 
-
-1. "Captivating Social Media Ad Copy"
-
-Create scroll-stopping ad copy for [product_name] to be used on [social_media_platform]. Begin with a powerful headline that addresses [main_pain_point] of [target_audience]. Use concise, benefit-driven body text with emojis for visual break. Include a clear value proposition, social proof, and a strong call-to-action. End with an urgency-inducing offer to drive immediate clicks.
-
-⏬
-
---- 
-
-2. "High-Converting Product Demo Script"
-Write a script for a 5-minute product demo of {product_name}, showcasing its {top_feature} to {ideal_customer}. Start with a hook that addresses their main pain point. Walk through the key features, emphasizing benefits at each step. Include 2-3 practical use cases. End with a special offer for demo viewers and a clear next step to purchase.
-
-⏬
-
---- 
-
-...
-
-
-8. "Engaging Webinar Pitch Outline"
-Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
-
-⏬
-
----
-If you are interested to make money online.
-1. Follow me
-2. Repost / Like this thread.
-Most importantly leave a comment of interest to be the first one to be notified.`,
-      instructions: "Each post is a master prompt. Avoid general advice. Keep clear structure. Show how to use it.",
-      template: `YOU have a DIGITAL PRODUCT to sell ! 💪
-But you don't know how to make SALES from it 😭
-8 ChatGPT / Gemini prompts for 10X digital product sales!
-(Save them to sell your stuff ) ⏬
-#ThriendlyThread
---- 
-
-1. "Captivating Social Media Ad Copy"
-
-Create scroll-stopping ad copy for [product_name] to be used on [social_media_platform]. Begin with a powerful headline that addresses [main_pain_point] of [target_audience]. Use concise, benefit-driven body text with emojis for visual break. Include a clear value proposition, social proof, and a strong call-to-action. End with an urgency-inducing offer to drive immediate clicks.
-
-⏬
-
---- 
-
-2. "High-Converting Product Demo Script"
-Write a script for a 5-minute product demo of {product_name}, showcasing its {top_feature} to {ideal_customer}. Start with a hook that addresses their main pain point. Walk through the key features, emphasizing benefits at each step. Include 2-3 practical use cases. End with a special offer for demo viewers and a clear next step to purchase.
-
-⏬
-
---- 
-
-...
-
-
-8. "Engaging Webinar Pitch Outline"
-Develop an outline for a 45-minute webinar to sell {product_name} to {target_audience}. Structure it with: 5 min introduction, 15 min valuable content addressing {main_problem}, 15 min showcasing how {product_name} solves it, 10 min for customer success stories and product demo. Conclude with a compelling 10-minute pitch including a time-sensitive offer and bonus for webinar attendees.
-
-⏬
-
----
-If you are interested to make money online.
-1. Follow me
-2. Repost / Like this thread.
-Most importantly leave a comment of interest to be the first one to be notified.
-`
-    }
-  ];
-
-  function populateTemplateDropdown() {
-    const select = document.getElementById('bulkTemplateSelect');
-    threadTemplates.forEach((t, i) => {
-      const option = document.createElement('option');
-      option.value = i;
-      option.textContent = t.title;
-      select.appendChild(option);
-    });
+// Load templates from a separate JSON file
+let threadTemplates = [];
+
+function loadTemplatesFromJson(callback) {
+  $.getJSON('/assets/data/templates.json', function(data) {
+    threadTemplates = data;
+    if (typeof callback === 'function') callback();
+  }).fail(function() {
+    alert('Failed to load templates. Please try again later.');
+  });
+}
+
+function parseResponse(data) {
+  if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+    return data.candidates[0].content.parts[0].text
+      .replace("```html", "")
+      .replace("```", "")
+      .replaceAll("*", "");
   }
-
-  function parseResponse(data) {
-    if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-      return data.candidates[0].content.parts[0].text
-        .replace("```html", "")
-        .replace("```", "")
-        .replaceAll("*", "");
-    }
-    if (typeof data === 'string' && data.includes("Insufficient Credits")) {
-      return data;
-    }
-    return "Invalid response. Please try again.";
+  if (typeof data === 'string' && data.includes("Insufficient Credits")) {
+    return data;
   }
+  return "Invalid response. Please try again.";
+}
 
-  function getAllResultsText() {
-    let text = '';
-    $('#bulkResults .output-block').each(function () {
-      const topic = $(this).find('h5').text();
-      const content = $(this).find('pre').text();
-      text += `${topic}\n${content}\n\n----------------------\n\n`;
-    });
-    return text.trim();
+function getAllResultsText() {
+  let text = '';
+  $('#bulkResults .output-block').each(function () {
+    const topic = $(this).find('h5').text();
+    const content = $(this).find('pre').text();
+    text += `${topic}\n${content}\n\n----------------------\n\n`;
+  });
+  return text.trim();
+}
+
+function downloadResultsAsTxt() {
+  const text = getAllResultsText();
+  const blob = new Blob([text], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'bulk-ai-results.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function showDownloadButtonIfResults() {
+  if ($('#bulkResults .output-block').length > 0) {
+    $('#downloadBulkResults').show();
+  } else {
+    $('#downloadBulkResults').hide();
   }
+}
 
-  function downloadResultsAsTxt() {
-    const text = getAllResultsText();
-    const blob = new Blob([text], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'bulk-ai-results.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  function showDownloadButtonIfResults() {
-    if ($('#bulkResults .output-block').length > 0) {
-      $('#downloadBulkResults').show();
-    } else {
-      $('#downloadBulkResults').hide();
-    }
-  }
-
-  function createOutputBlock(topic, content, postNum, postsPerTopic) {
-    const header = `🧠 Topic: ${topic}${postsPerTopic > 1 ? ` (Post ${postNum})` : ''}`;
-    // Use a unique id for aria-controls
-    const blockId = `output-block-${Math.random().toString(36).substr(2, 9)}`;
-    return `
-    <div class="output-block" id="${blockId}">
-      <div class="output-header" tabindex="0" aria-expanded="true" aria-controls="${blockId}-content">
-        <span>${header}</span>
-        <span class="toggle-icon">&#9660;</span>
-      </div>
-      <div class="output-content" id="${blockId}-content">
-        <pre>${content}</pre>
-
-      </div>
+function createOutputBlock(topic, content, postNum, postsPerTopic) {
+  const header = `🧠 Topic: ${topic}${postsPerTopic > 1 ? ` (Post ${postNum})` : ''}`;
+  const blockId = `output-block-${Math.random().toString(36).substr(2, 9)}`;
+  return `
+  <div class="output-block" id="${blockId}">
+    <div class="output-header" tabindex="0" aria-expanded="true" aria-controls="${blockId}-content">
+      <span>${header}</span>
+      <span class="toggle-icon">&#9660;</span>
     </div>
+    <div class="output-content" id="${blockId}-content">
+      <pre>${content}</pre>
+    </div>
+  </div>
+  `;
+}
 
-`;
-  }
-
-  $(document).ready(function () {
-    populateTemplateDropdown();
+$(document).ready(function () {
+  // Load templates first, then enable UI
+  loadTemplatesFromJson(function() {
 
     $('#bulkForm').on('submit', function (e) {
       e.preventDefault();
 
       const topics = $('#bulkTopics').val().trim().split('\n').filter(Boolean);
-      const selectedTemplate = threadTemplates[$('#bulkTemplateSelect').val()];
+      const selectedTemplateTitle = $('#selectedTemplateName').val();
+      const selectedTemplate = threadTemplates.find(t => t.title === selectedTemplateTitle);
       const userId = localStorage.getItem('userId') || '';
       const postsPerTopic = parseInt($('#postsPerTopic').val(), 10) || 1;
+
+      if (!selectedTemplate) {
+        alert('Please select a template.');
+        return;
+      }
 
       $('#bulkLoading').show();
       $('#bulkResults').html('');
@@ -532,5 +417,56 @@ Most importantly leave a comment of interest to be the first one to be notified.
       e.preventDefault();
       downloadResultsAsTxt();
     });
-  });
+
+    let selectedTemplateIndex = null;
+
+    // Render templates in modal
+    function renderTemplateGrid() {
+      const grid = document.getElementById('templateGrid');
+      grid.innerHTML = '';
+      threadTemplates.forEach((tpl, idx) => {
+        const card = document.createElement('div');
+        card.className = 'template-card';
+        card.setAttribute('data-index', idx);
+
+        card.innerHTML = `
+          <div class="template-icon"><i class="${tpl.icon || 'fa-solid fa-layer-group'}"></i></div>
+          <div class="template-title">${tpl.title}</div>
+          <div class="template-desc">${tpl.description || tpl.fullDescription || ''}</div>
+          <div class="template-label">Preview</div>
+          <div class="template-preview">${tpl.template ? tpl.template.slice(0, 180) + (tpl.template.length > 180 ? '...' : '') : ''}</div>
+          <div class="template-label">Example</div>
+          <div class="template-example">${tpl.example ? tpl.example.slice(0, 120) + (tpl.example.length > 120 ? '...' : '') : ''}</div>
+        `;
+        card.onclick = function() {
+          document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectedTemplateIndex = idx;
+          document.getElementById('confirmTemplateBtn').disabled = false;
+        };
+        grid.appendChild(card);
+      });
+    }
+
+    // Open modal on button click
+    document.getElementById('openTemplateModal').onclick = function() {
+      renderTemplateGrid();
+      selectedTemplateIndex = null;
+      document.getElementById('confirmTemplateBtn').disabled = true;
+      // Show modal (Bootstrap 5)
+      const modal = new bootstrap.Modal(document.getElementById('templateModal'));
+      modal.show();
+    };
+
+    // Confirm selection
+    document.getElementById('confirmTemplateBtn').onclick = function() {
+      if (selectedTemplateIndex !== null) {
+        const tpl = threadTemplates[selectedTemplateIndex];
+        document.getElementById('selectedTemplateName').value = tpl.title;
+        bootstrap.Modal.getInstance(document.getElementById('templateModal')).hide();
+      }
+    };
+
+  }); // end loadTemplatesFromJson
+});
 </script>

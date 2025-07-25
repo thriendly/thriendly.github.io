@@ -329,13 +329,16 @@ $(document).ready(function () {
 
     $("#schedulerPageProfileDropdownButton").text("Select Profile");
 
-    checkAuthAndExecute((user) => {
-        user.getIdToken().then((token) => {
-            idToken = token;
+    checkAuthAndExecute(async (user) => {
+        try {
+            idToken = await user.getIdToken();
             userId = user.uid;
-        }).catch((error) => {
+            console.log("User token:", idToken);
+            // If you need to fetch profiles or perform actions that require idToken, do it here
+            // Example: fetchProfiles(userId, getApiParams().platform, idToken);
+        } catch (error) {
             console.error("Error getting ID token:", error.message);
-        });
+        }
     });
 
     $("#schedulerPageProfileDropdownMenu").on("click", ".dropdown-item", function () {

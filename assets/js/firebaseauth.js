@@ -68,8 +68,10 @@ export function checkAuthAndExecute(callbackIfAuthenticated) {
         } else {
           // User is signed out
           console.log("User is signed out.");
-          // Redirect to the login page if the user is not authenticated
-          window.location.href = "/login";
+          // Redirect to the login page only if explicitly requested
+          if (callbackIfAuthenticated) {
+            window.location.href = "/login";
+          }
         }
       });
     })
@@ -78,8 +80,10 @@ export function checkAuthAndExecute(callbackIfAuthenticated) {
     });
 }
 
-window.checkAuthAndExecute = checkAuthAndExecute;
+// Remove automatic execution of checkAuthAndExecute on page load
+// Ensure this function is only called explicitly when needed
 
+window.checkAuthAndExecute = checkAuthAndExecute;
 
 // Handle logout on the logout page
 const logoutButton = document.getElementById("logout"); // Replace with your element's ID

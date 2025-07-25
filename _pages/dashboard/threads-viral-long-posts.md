@@ -67,156 +67,163 @@ permalink: /app/viral-threads
     }
 
     #loadSchedulerButton {
-    font-size: 0.8em;
-    padding: 5px 10px;
-    height: auto;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: -10px;
+        font-size: 0.8em;
+        padding: 5px 10px;
+        height: auto;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: -10px;
     }
 
     #loadSchedulerButton:hover {
         background-color: #0056b3;
     }
+
     <style>
-  /* Row for heading + dropdown */
-  .title-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Heading on the left, dropdown on the right */
-    margin-bottom: 1rem;
-  }
 
-  /* Heading style */
-  .page-title {
-    margin: 0; 
-  }
+    /* Row for heading + dropdown */
+    .title-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* Heading on the left, dropdown on the right */
+        margin-bottom: 1rem;
+    }
 
-  /* Container for label + dropdown */
-  .api-select {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Small spacing between label and select */
-  }
+    /* Heading style */
+    .page-title {
+        margin: 0;
+    }
 
-  /* Label style */
-  .api-label {
-    margin: 0;
-    font-weight: 500;
-  }
+    /* Container for label + dropdown */
+    .api-select {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        /* Small spacing between label and select */
+    }
 
-  /* Dropdown style */
-  .api-dropdown {
-    font-size: 0.9rem; 
-    padding: 0.25rem;
-    width: auto; 
-  }
+    /* Label style */
+    .api-label {
+        margin: 0;
+        font-weight: 500;
+    }
+
+    /* Dropdown style */
+    .api-dropdown {
+        font-size: 0.9rem;
+        padding: 0.25rem;
+        width: auto;
+    }
 </style>
 
 <body>
     <div id="schedulerContainer" class="scheduler" style="display:none;">
-    {% include scheduler.html %}
+        {% include scheduler.html %}
     </div>
 
-    <div id="content" class="container mt-4">
-    <div id="GenerationContainer" style="display:block;">  
-        <h3 class="mb-4 text-primary">Viral long post generator</h3>
+    <div id="content" class="container">
+        <div id="GenerationContainer" style="display:block;">
+            <h3 class="mb-4 text-primary">Viral AI Thread Generators</h3>
 
-        <div id="templatesView">
-            <div class="mb-4">
-                <h5>Long post thread templates that help you grow faster on Threads</h5>
-                <p>Choose a template and create a long form thread with AI in one click. You can edit and submit on
-                    threads</p>
-            </div>
-
-
-            <div class="row" id="templateCards">
-
-
-                <!-- Template cards will be dynamically inserted here -->
-            </div>
-
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <h4>Premium viral templates coming soon!</h4>
-                    <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
-
-                    <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads Growth
-                        community</a>
-
-
-                    <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join Priority
-                        Waitlist</a>
+            <div id="templatesView">
+                <div class="mb-4">
+                    <h5>Long post thread templates that help you grow faster on Threads</h5>
+                    <p>Choose a template and create a long form thread with AI in one click. You can edit and submit on
+                        threads</p>
                 </div>
-            </div>
-        </div>
 
-        <div class="hook-creation">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                 <button id="backButton" class="btn btn-secondary mb-3">
-                <i class="fas fa-arrow-left"></i> Back to Templates
-            </button>
 
-                <div id="viralVesicleDropdown">
-                    <div class="api-select">
-                        <label for="apiTypeSelect" class="api-label">Select Platform:</label>
-                        <select id="apiTypeSelect" class="api-dropdown">
-                        <option value="threads" charCount="500" selected>Threads</option>
-                        <option value="bluesky" charCount="300">Bluesky</option>
-                        </select>
+                <div class="row" id="templateCards">
+
+
+                    <!-- Template cards will be dynamically inserted here -->
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <!-- <h4>Premium viral templates coming soon!</h4> -->
+                        <p>For faster access and 10x growth tips, join our community or signup for waitlist</p>
+
+                        <a target="_blank" class="btn btn-primary" href="https://www.skool.com/thriendly">Join Threads
+                            Growth
+                            community</a>
+
+
+                        <a class="btn btn-success" target="_blank" href="https://forms.gle/vat3karHYLDtL1uL9">Join
+                            Priority
+                            Waitlist</a>
                     </div>
                 </div>
             </div>
-            <h4 class="mb-4">Create long form threads based on example template</h4>
-            <p class="mb-4">Just enter a topic and our AI creates content similar to the example show below</p>
-            <div class="row g-2">
-                <div class="col" id="templateSection">
-                    <h5 id="templateTitle" class="mb-3"></h5>
-                    <p id="templateDescription" class="mb-4"></p>
 
-                    <div class="viewpost-section">
-                        <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success">View Example Post
-                            &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <div class="hook-creation">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button id="backButton" class="btn btn-secondary mb-3">
+                        <i class="fas fa-arrow-left"></i> Back to Templates
+                    </button>
+
+                    <div id="viralVesicleDropdown">
+                        <div class="api-select">
+                            <label for="apiTypeSelect" class="api-label">Select Platform:</label>
+                            <select id="apiTypeSelect" class="api-dropdown">
+                                <option value="threads" charCount="500" selected>Threads</option>
+                                <option value="bluesky" charCount="300">Bluesky</option>
+                            </select>
+                        </div>
                     </div>
+                </div>
+                <h5 >Create long-form threads from a topic using AI, based on the example template below</h5>
+                <!-- <p class="mb-4">Just enter a topic and our AI creates content similar to the example show below</p> -->
+                <div class="row g-2">
+                    <div class="col" id="templateSection">
+                        <h5 id="templateTitle" class="mb-3"></h5>
+                        <p id="templateDescription" class="mb-4"></p>
 
-                    <div class="template-section mt-3">
-                        <h5 class="section-title">Template:</h5>
-                        <div id="templateContent" class="content-area"></div>
-                        <input type="hidden" id="instructions" value="" />
-                    </div>
+                        <div class="viewpost-section">
+                            <a id="templateSectionLink" target="_blank" href="#" class="btn btn-success btn-sm">View Example
+                                Post
+                                &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
 
-                    <!-- <div class="example-section">
+                        <div class="template-section mt-3">
+                            <h5 class="section-title">Template:</h5>
+                            <div id="templateContent" class="content-area"></div>
+                            <input type="hidden" id="instructions" value="" />
+                        </div>
+
+                        <!-- <div class="example-section">
                         <h5 class="section-title">Example:</h5>
                         <div id="exampleContent" class="content-area"></div>
                     </div> -->
 
-                </div>
-                <div class="col" id="createHookSection">
-                    <h5>Long form viral thread generator</h5>
-                    <form id="hookForm">
-                        <div class="mb-3">
-                            <label for="topic" class="form-label">Your topic</label>
-                            <input type="text" class="form-control" id="topic" required
-                                placeholder="Eg: 5 tips for viral instagram growth">
-                        </div>
-                        <!-- <div class="mb-3">
+                    </div>
+                    <div class="col" id="createHookSection">
+                        <!-- <h5>Long form viral thread generator</h5> -->
+                        <form id="hookForm">
+                            <div class="mb-3">
+                                <b><label for="topic" class="form-label">Your topic</label></b>
+                                <input type="text" class="form-control" id="topic" required
+                                    placeholder="Eg: 5 tips for viral instagram growth">
+                            </div>
+                            <!-- <div class="mb-3">
                             <label for="additionalInfo" class="form-label">Additional Information (optional)</label>
                             <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
                         </div> -->
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Generate Post &nbsp;<i
-                                    class="fa-solid fa-wand-magic-sparkles"></i></button>
-                            <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
-                        </div>
-                        <div class="mb-3">
-                            <p> Note: Each long post generation takes 10 Credits </p>
-                        </div>
-                    </form>
-                    <div id="generatedHook" class="mt-4"></div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Generate Post &nbsp;<i
+                                        class="fa-solid fa-wand-magic-sparkles"></i></button>
+                                <img src="/assets/images/tipseason-loading.gif" id="loading" style="display: none;">
+                            </div>
+                            <div class="mb-3">
+                                <p> Note: Each long post generation takes 10 Credits </p>
+                            </div>
+                        </form>
+                        <div id="generatedHook" class="mt-4"></div>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 
@@ -230,20 +237,21 @@ permalink: /app/viral-threads
         // Define the JSON data for thread templates
         const threadTemplates = [
             {
-                title: "Viral Listicle",
-                description: "Template to create viral list of posts",
+                title: "AI Thread Generator",
+                url : "long-thread-generator",
+                description: "Template to create long form thread",
                 icon: "fas fa-eye",
-                fullDescription: "Template to create viral list of posts",
-                template: `20 year old kids are making $5,000/month with these 3 hacks.
+                fullDescription: "Template to create viral long form thread",
+                "instructions": "Content of each post should be written similar to the template and make sure its actionable and add real value to users. Hook should be strong like the template hook. Don't use AI words like: whether , unleash, unlock, craft, leverage etc. Don't start with phrases like: 'are you looking', 'whether you are', 'tired of', 'want a', 'struggling to' or similar ones. If input is based on a count, make sure output honors that count. If not, give 4 ideas. Don't use emojis.",
+                template: `
+20 year old kids are making $5,000/month with these 3 hacks.
 
 They are like money printing machines.
 
 3 most underrated niches that can print money in 2024 ⬇️
 
 ( 3rd one is my favorite )
-
-
->> 
+---
 
 1. Micro-Niche Blogging with Affiliate Marketing:
 
@@ -255,9 +263,7 @@ Why It Works:
 Smaller niches have less competition, making it easier to rank in search engines. This targeted audience is more likely to trust your recommendations and convert through affiliate links.
 
 Lets looks at how ⬇
-
->> 
-
+---
 Steps:
 
 Choose a micro-niche with a passionate audience.
@@ -269,9 +275,7 @@ Use SEO strategies to drive organic traffic.
 Monetize through affiliate marketing by recommending relevant products.
 
 But there is one more interesting one ⬇
-
->> 
-
+---
 2. Print-on-Demand (POD) Services:
 Design and sell custom merchandise like T-shirts, mugs, or phone cases using print-on-demand platforms such as Printful, Teespring, or Redbubble.
 
@@ -282,8 +286,7 @@ printing, shipping, and customer service.
 
 But how to achieve this ?
 
->> 
-
+---
 Steps:
 
 Create unique, appealing designs or hire a designer.
@@ -291,8 +294,7 @@ Upload your designs to a POD platform and choose products.
 Promote your products via social media, email marketing, or a dedicated website.
 Earn a profit from each sale without worrying about inventory management.
 There is one last thing ⬇
-
->> 
+---
 
 What’s next ?
 
@@ -309,6 +311,7 @@ To make sure you don't miss
             },
             {
                 "title": "ChatGPT Prompt Generator Thread",
+                "url" : "chatgpt-prompt-generator",
                 "description": "Create AI meta prompt listicle based on ChatGPT. This is one of the most useful threads that go viral on Threads / X",
                 "icon": "fa-solid fa-wand-magic-sparkles",
                 "fullDescription": "Create a list of powerful ChatGPT prompts. This type of content is one of the most popular and viral threads on Threads or X",
@@ -466,7 +469,7 @@ But the next one is much more important ⬇️
                 "fullDescription": "A thread to share creative, actionable,out of the box ideas for a specific topic.",
                 "link": "https://www.threads.net/@thetipseason/post/DAH86KSxCS7",
                 "instructions": "Make sure the ideas are creative, actionable, out of the box. If the input has a count make sure to give that count of ideas. If not give 10 ideas. No words like unleash, unlock, tired etc. For the runnign thread indication just give 👇. End the post with a CTA like in the template example",
-                "placeholder":"10 ways to make money with canva",
+                "placeholder": "10 ways to make money with canva",
                 "template": `
 Pinterest is a profit powerhouse 💸
 
@@ -582,9 +585,9 @@ Until then.
             const platform = selectedOption.val();
             const charCount = selectedOption.attr("charCount");
 
-            const currentUrl = new URL(window.location.href); 
-            currentUrl.searchParams.set("platform", platform); 
-            currentUrl.searchParams.set("charCount", charCount); 
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set("platform", platform);
+            currentUrl.searchParams.set("charCount", charCount);
 
             window.history.replaceState({}, "", currentUrl);
         }
@@ -592,18 +595,18 @@ Until then.
         // Load cards and set up event listeners when the document is ready
         $(document).ready(function () {
             let idToken = '';
-            // On profile page
-            checkAuthAndExecute((user) => {
-                user.getIdToken().then((token) => {
-                idToken = token;
-                
-                // Store user ID globally
-                window.userId = user.uid;
-                // Or use localStorage
-                localStorage.setItem('userId', user.uid);
-                $("#userEmail").text(user.email);
-                });
-            });
+            // // On profile page
+            // checkAuthAndExecute((user) => {
+            //     user.getIdToken().then((token) => {
+            //     idToken = token;
+
+            //     // Store user ID globally
+            //     window.userId = user.uid;
+            //     // Or use localStorage
+            //     localStorage.setItem('userId', user.uid);
+            //     $("#userEmail").text(user.email);
+            //     });
+            // });
 
             updatePlatformParam();
             loadTemplateCards();
@@ -611,6 +614,8 @@ Until then.
             // Make entire card clickable
             $(document).on('click', '.card', function () {
                 const index = $(this).data('index');
+                const uniqueUrl = $(this).data('url');
+                window.history.pushState({}, '', uniqueUrl);
                 showHookCreation(threadTemplates[index]);
             });
 
@@ -665,13 +670,30 @@ Until then.
             // Handle form submission
             $('#hookForm').on('submit', function (e) {
                 e.preventDefault();
+
+                // Call checkAuthAndExecute here
+                checkAuthAndExecute((user) => {
+                    user.getIdToken().then((token) => {
+                        idToken = token;
+                        userId = user.uid;
+
+                        // Proceed with post generation after authentication
+                        generatePost(userId, idToken);
+                    });
+                });
+
+            });
+
+
+            function generatePost(userId, idToken) {
                 $("#loading").show();
                 const topic = $('#topic').val();
                 const templateContent = $('#templateContent').html();
                 const exampleContent = $('#exampleContent').html();
                 const instructions = $('#instructions').val();
                 console.log('Instructinos: ' + instructions);
-                const userId = window.userId || localStorage.getItem('userId');
+
+                // const userId = window.userId || localStorage.getItem('userId');
 
                 // Prepare API parameters
                 const apiUrl = 'https://ai.thriendly.com/post-generator';
@@ -717,15 +739,15 @@ Until then.
                         $("#loading").hide();
                     }
                 });
-            });
-            
+            }
+
             const loadSchedulerButton = document.getElementById('loadSchedulerButton');
             if (loadSchedulerButton) {
-                loadSchedulerButton.addEventListener('click', function(e) {
+                loadSchedulerButton.addEventListener('click', function (e) {
                     e.preventDefault();
                     // Show the scheduler UI
                     document.getElementById("schedulerContainer").style.display = 'block';
-                    
+
 
                     // Get generated hook from the <pre> inside #generatedHook
                     const preElement = document.querySelector("#generatedHook pre");
@@ -758,8 +780,8 @@ Until then.
             }
         }
     </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Include the JavaScript file -->
-<!-- <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include the JavaScript file -->
+    <!-- <script src="{{ site.baseurl }}/assets/js/dashboard/threads-scheduler.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
